@@ -253,7 +253,8 @@ if __name__ == '__main__':
     # Expected: hu_HU.aff and hu_HU.dic in the same directory as this script
     aff_path = os.path.join(script_dir, 'hu_HU.aff')
     dic_path = os.path.join(script_dir, 'hu_HU.dic')
-    output_path = os.path.join(script_dir, 'words_hu-HU.txt')
+    os.makedirs(os.path.join(script_dir, 'output'), exist_ok=True)
+    output_path = os.path.join(script_dir, 'output', 'hungarian_hu_hu_ispell.txt')
 
     if not os.path.exists(aff_path) or not os.path.exists(dic_path):
         print(f"ERROR: hu_HU.aff and hu_HU.dic must be in {script_dir}")
