@@ -29,14 +29,88 @@ Magyar Ispell repository for the full MPL 1.1 license text.
 
 ## Contents
 
-`output/hungarian_hu_hu_ispell.txt` — **2,690,331 standalone Hungarian word
-forms**, one per line, UTF-8, sorted.
+`output/hungarian_hu_hu_ispell.txt` — the active standalone Hungarian word
+forms, one per line, UTF-8, sorted. The exact count is recorded in
+`output/audit.json`.
 
 `output/definitions/hu/surface-lemma/v1/` — a deterministic, compressed
 surface-form-to-lemma index for definition lookup. A surface may retain
 multiple source lemmas when Magyar Ispell has ambiguous analyses. The index is
 kept separate from the game word list so clients that only validate words do
 not download it.
+
+### Evidence-scored candidate
+
+`candidate/hungarian_hu_hu_evidence_candidate.txt` is a separately generated,
+quality-first candidate containing **863,174 words**. The candidate keeps
+ordinary inflections when Magyar Ispell and morphdb.hu agree on the lemma,
+while applying stronger clean-corpus requirements to prefixes, derivations,
+possessives, and plural + possessive stacks.
+
+The companion build is implemented in `build_evidence_wordlist.py`. It:
+
+1. Starts from the complete current Magyar Ispell output
+2. Downloads the pinned 2006 morphdb.hu release and verifies its SHA-256
+3. Runs morphdb.hu through Hunspell and caches analysis features by input and
+   source checksums
+4. Uses all four Webcorpus quality columns, with the cleaner quality-8 and
+   quality-4 partitions controlling acceptance
+5. Rejects proper-name-only analyses even when their lowercase spelling occurs
+   in web text
+6. Treats both morphdb.hu `POSS` and `ANP` possessee paradigms as high risk
+7. Adds morphdb.hu headwords missing from Magyar Ispell only when they occur at
+   least ten times in the cleanest quality-4 corpus partition
+8. Writes per-word evidence and rejection reasons alongside a deterministic
+   audit and human-readable report
+9. Applies traceable, explicitly reviewed gameplay additions from
+   `_community_overrides/hungarian_hu_hu_ispell/additions.txt`; `box` is
+   currently included through this policy
+
+The [morphdb.hu](https://mokk.bme.hu/en/resources/hunmorph/) archive contains a
+Creative Commons Attribution 2.5 license. The archive credits Eszter Simon,
+Péter Rebrus, András Rung, Viktor Trón, and Péter Vajda. It partly incorporates
+Magyar Ispell, so it is corroborating rather than fully independent evidence;
+its morphological grammar and two other incorporated lexicons still provide
+useful disagreement and proper-name signals.
+
+Artifacts:
+
+- `candidate/audit.json` — source checksums, policy thresholds, category counts,
+  diagnostic decisions, and output checksum
+- `candidate/evidence.tsv.gz` — the decision and evidence features for every
+  candidate surface
+- `candidate/rejected.tsv.gz` — rejected surfaces with reason and corpus counts
+- `candidate/report.md` — concise comparison and reported-word decisions
+- `candidate/quality_audit/` — structural audit comparing the current and
+  evidence-scored lists
+
+To regenerate after the ordinary list has been built:
+
+```bash
+python3 build_evidence_wordlist.py
+
+# Reuse only checksum-verified cached inputs and analyses
+python3 build_evidence_wordlist.py --offline
+
+# Run both generator and evidence-policy tests
+python3 -m unittest -v test_process_words.py test_build_evidence_wordlist.py
+
+# Preserve retained surface-to-lemma mappings, self-map accepted external
+# headwords, and promote the candidate to output/
+python3 promote_evidence_wordlist.py
+
+# Run the promotion regression tests as well
+python3 -m unittest -v test_promote_evidence_wordlist.py
+```
+
+Promotion verifies the candidate checksum, builds a complete matching lemma
+index under `candidate/definitions/`, and replaces the active word list, lemma
+index, and audit. Re-running the ordinary generator restores the full Magyar
+Ispell expansion; re-running the promotion step then reapplies the evidence
+policy deterministically.
+
+The first evidence build requires the `hunspell` executable and can take
+several minutes. Subsequent builds reuse a checksum-keyed analysis cache.
 
 Coverage:
 - Generated words are 2–10 characters long; the four separately approved

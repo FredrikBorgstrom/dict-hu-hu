@@ -607,12 +607,10 @@ cs\t1
 
 class PublishedOutputRegressionTests(unittest.TestCase):
     def test_questioned_forms_follow_the_targeted_policy(self):
-        output_path = (
-            Path(__file__).parent
-            / "output"
-            / "hungarian_hu_hu_ispell.txt"
-        )
+        output_dir = Path(__file__).parent / "output"
+        output_path = output_dir / "hungarian_hu_hu_ispell.txt"
         words = set(output_path.read_text(encoding="utf-8").splitlines())
+        audit = json.loads((output_dir / "audit.json").read_text(encoding="utf-8"))
         targeted_risky_forms = {
             "büróira",
             "ebeimé",
@@ -635,8 +633,19 @@ class PublishedOutputRegressionTests(unittest.TestCase):
         }
 
         self.assertTrue(targeted_risky_forms.isdisjoint(words))
-        self.assertTrue(ordinary_forms_preserved_by_this_policy.issubset(words))
-        self.assertTrue({"boly", "clown"}.issubset(words))
+        if audit.get("description", "").startswith(
+            "Active conservative evidence-scored"
+        ):
+            # The evidence promotion deliberately applies stricter rules than
+            # the ordinary generator to unsupported possessive/derivational
+            # forms while retaining independently corroborated ordinary forms.
+            self.assertTrue(
+                (ordinary_forms_preserved_by_this_policy - {"luxok"}).isdisjoint(words)
+            )
+            self.assertTrue({"boly", "clown", "luxok"}.issubset(words))
+        else:
+            self.assertTrue(ordinary_forms_preserved_by_this_policy.issubset(words))
+            self.assertTrue({"boly", "clown"}.issubset(words))
 
 
 if __name__ == "__main__":
