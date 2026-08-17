@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-08-17T07:56:49+00:00",
+  "root": "/Users/fredrik/Documents/abcx3_dictionaries/hungarian_hu_hu_ispell",
+  "config": {
+    "include_globs": [
+      "**/output/*.txt"
+    ],
+    "exclude_globs": [
+      "_not_used/**",
+      ".git/**",
+      "_dictionary_quality/**"
+    ],
+    "language_overrides": {
+      "de": {
+        "proper_case_exempt": true
+      },
+      "en": {
+        "spoken_allowlist": [
+          "cd"
+        ],
+        "written_only_abbreviations": [
+          "eg",
+          "etc",
+          "ie"
+        ]
+      }
+    },
+    "path_overrides": []
+  },
+  "results": [
+    {
+      "path": "output/hungarian_hu_hu_ispell.txt",
+      "name": "Hungarian (HU, ispell)",
+      "language": "hu",
+      "counts": {
+        "physical_lines": 2690331,
+        "entries": 2690331,
+        "single_character": 4,
+        "cased_entries": 2690331,
+        "lowercase_entries": 2690331
+      },
+      "entries": 2690331,
+      "quantity_word_count": 2690331,
+      "sorted": true,
+      "observed_suspect_rate": 0.0,
+      "surface_points": 60.0,
+      "quantity_points": 28.86,
+      "filter_evidence_points": 10.0,
+      "filter_evidence": "machine-audited",
+      "score": 98.9,
+      "grade": "A",
+      "quality": "excellent",
+      "documentation_evidence": {
+        "readme": "/Users/fredrik/Documents/abcx3_dictionaries/hungarian_hu_hu_ispell/README.md",
+        "proper_policy": true,
+        "abbreviation_policy": true
+      },
+      "machine_audit_evidence": {
+        "audit": "/Users/fredrik/Documents/abcx3_dictionaries/hungarian_hu_hu_ispell/output/audit.json",
+        "proper_policy": true,
+        "abbreviation_policy": true,
+        "accepted_matches": true,
+        "rejected": {}
+      },
+      "samples": {},
+      "rank": 1
+    }
+  ]
+}

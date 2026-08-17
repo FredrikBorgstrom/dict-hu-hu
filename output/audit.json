@@ -1,0 +1,116 @@
+{
+  "schema_version": 7,
+  "source": {
+    "aff": "hu_HU.aff",
+    "aff_sha256": "f3a2748dd535cfde2142ab17d0f7f8e4787b03fb25a60829c69ac8d493db4802",
+    "dic": "hu_HU.dic",
+    "dic_sha256": "97293d670ad4a3b8e7eebef7e25c6e8e939b914c64b6b4672b2bf416b768f990",
+    "corpus": "web2.2-alfa-sorted.txt.gz",
+    "corpus_sha256": "10383cd7ddd1f8e4b4c4f62126eb48a84584446498757e00464f755e75d8714f"
+  },
+  "policy": {
+    "minimum_length": 2,
+    "maximum_length": 10,
+    "lowercase_only": true,
+    "proper_nouns_removed": true,
+    "case_sensitive_entries_removed": true,
+    "hungarian_letters_only": true,
+    "rejected_source_flags": [
+      "FORBIDDENWORD",
+      "ONLYINCOMPOUND",
+      "KEEPCASE",
+      "SUBSTANDARD"
+    ],
+    "rejected_generated_flags": [
+      "FORBIDDENWORD",
+      "ONLYINCOMPOUND",
+      "KEEPCASE",
+      "SUBSTANDARD",
+      "NEEDAFFIX"
+    ],
+    "written_abbreviations_from_source_metadata": true,
+    "manual_written_abbreviations": [
+      "szja",
+      "tsz",
+      "uv"
+    ],
+    "invalid_standalone_surfaces": [
+      "go"
+    ],
+    "abbreviation_homonyms_preserved": [
+      "abba",
+      "hal",
+      "hogyan",
+      "ide",
+      "le",
+      "mi",
+      "min",
+      "rom"
+    ],
+    "automatic_risky_generation_filter": true,
+    "ordinary_inflections_preserved_without_surface_attestation": true,
+    "direct_source_forms_preserved_without_surface_attestation": true,
+    "proper_name_derivative_descendants_are_risky": true,
+    "word_formation_metadata_is_risky": true,
+    "hunspell_prefix_rules_supported": true,
+    "hunspell_prefix_suffix_cross_products_supported": true,
+    "prefix_derived_paths_are_risky": true,
+    "prefix_derived_paths_require_surface_attestation": true,
+    "possessive_plus_possessee_stacks_are_risky": true,
+    "plural_possessive_sublative_stacks_are_risky": true,
+    "required_one_letter_words": [
+      "a",
+      "s",
+      "ó",
+      "ő"
+    ],
+    "corpus_frequency_field": "complete",
+    "minimum_risky_corpus_frequency": 2
+  },
+  "counts": {
+    "approved_source_lemmas": 41585,
+    "attested_prefix_index_inputs": 176272,
+    "attested_prefix_index_paths": 290260,
+    "corpus_attested_risky_surfaces": 2020932,
+    "corpus_eligible_hungarian_rows": 3287049,
+    "corpus_rows": 21103974,
+    "corpus_rows_outside_game_alphabet_or_length": 17816925,
+    "final_unique_words": 2690331,
+    "kept_corpus_attested_risky_forms": 153545,
+    "kept_direct_or_ordinary_surfaces": 2536786,
+    "kept_required_one_letter_words": 4,
+    "lemma_index_mappings": 2824429,
+    "lemma_index_shards": 521,
+    "lemma_index_surfaces": 2690327,
+    "raw_base_forms": 51960,
+    "raw_generated_forms": 5081333,
+    "raw_ordinary_inflection_paths": 2948237,
+    "raw_prefix_generation_paths": 24160,
+    "raw_prefix_suffix_generation_paths": 101071,
+    "raw_risky_generation_paths": 2133096,
+    "raw_suffix_generation_paths": 4956102,
+    "rejected_blocked_source_surfaces": 577,
+    "rejected_substandard_generated_forms": 655467,
+    "rejected_two_letter_abbreviations": 20,
+    "rejected_unattested_risky_generated_forms": 1703016,
+    "skipped_abbreviation_entries": 27,
+    "skipped_case_sensitive_entries": 17604,
+    "skipped_forbiddenword_entries": 979,
+    "skipped_invalid_char_or_length": 25736,
+    "skipped_keepcase_entries": 11,
+    "skipped_needaffix_bases": 171,
+    "skipped_non_word_entries": 968,
+    "skipped_onlyincompound_entries": 19,
+    "skipped_substandard_entries": 106,
+    "source_entries": 97581,
+    "unique_candidates_before_final_filters": 4393944
+  },
+  "output_sha256": "39f7b55a56cf5bc962c4697ce4a29c771c0298d693611d84c8237eb0881c83e5",
+  "lemma_index": {
+    "schema_version": 1,
+    "relative_path": "definitions/hu/surface-lemma/v1",
+    "surface_count": 2690327,
+    "mapping_count": 2824429,
+    "shard_count": 521
+  }
+}

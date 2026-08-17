@@ -1,0 +1,2 @@
+rank,name,language,path,grade,quality,score,entries,quantity_word_count,observed_suspect,observed_suspect_rate_pct,proper_candidates,proper_candidate_rate_pct,abbreviation_candidates,abbreviation_candidate_rate_pct,structural_candidates,all_caps,dotted_forms,configured_written_only,multiword,digits,non_alphabetic,adjacent_duplicates,sorted,filter_evidence,filter_evidence_points,surface_points,quantity_points
+1,"Hungarian (HU, ispell)",hu,output/hungarian_hu_hu_ispell.txt,A,excellent,98.9,2690331,2690331,0,0.0,0,0.0,0,0.0,0,0,0,0,0,0,0,0,True,machine-audited,10.0,60.0,28.86
