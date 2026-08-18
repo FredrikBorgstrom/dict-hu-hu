@@ -1,3 +1,4 @@
+import tempfile
 import unittest
 from pathlib import Path
 
@@ -5,6 +6,7 @@ from build_evidence_wordlist import (
     CorpusEvidence,
     MorphEvidence,
     decide_word,
+    load_morphdb_source_inventory,
     parse_morphdb_block,
 )
 
@@ -66,6 +68,38 @@ class MorphdbParsingTests(unittest.TestCase):
     def test_unknown_word_has_no_analysis(self):
         evidence = parse_morphdb_block("box", ["box"], frozenset())
         self.assertEqual(MorphEvidence(), evidence)
+
+
+class MorphdbSourceInventoryTests(unittest.TestCase):
+    def test_excludes_pseudoroot_only_tokens_but_preserves_homographs(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            aff_path = root / "morphdb_hu.aff"
+            dic_path = root / "morphdb_hu.dic"
+            aff_path.write_text(
+                "SET ISO8859-2\nFLAG long\nPSEUDOROOT ac\n",
+                encoding="iso-8859-2",
+            )
+            dic_path.write_text(
+                "7\n"
+                "tüz/xyac\ttűz/NOUN\n"
+                "ezr/ac\tezer/NUM\n"
+                "ifj/zzac\tú/NOUN\n"
+                "közl/ac\tközöl\n"
+                "való/xy\tvaló/ADJ\n"
+                "hom/ac\thom/NOUN\n"
+                "hom/xy\thom/NOUN\n",
+                encoding="iso-8859-2",
+            )
+
+            standalone, pseudoroot_only = load_morphdb_source_inventory(
+                aff_path, dic_path
+            )
+
+        self.assertEqual(frozenset({"való", "hom"}), standalone)
+        self.assertEqual(
+            frozenset({"tüz", "ezr", "ifj", "közl"}), pseudoroot_only
+        )
 
 
 class EvidencePolicyTests(unittest.TestCase):
@@ -186,6 +220,67 @@ class EvidencePolicyTests(unittest.TestCase):
         self.assertFalse(weak.accepted)
         self.assertEqual("attested_morphdb_headword_addition", strong.reason)
         self.assertTrue(strong.accepted)
+
+    def test_rejects_unrecognized_morphdb_source_token(self):
+        decision = decide_word(
+            "álstem",
+            CorpusEvidence(1000, 1000, 1000, 1000),
+            MorphEvidence(),
+            current_candidate=False,
+            current_direct=False,
+            morphdb_direct=True,
+        )
+        self.assertEqual(
+            (False, "no_independent_evidence"),
+            (decision.accepted, decision.reason),
+        )
+
+    def test_rejects_promoted_pseudoroots_despite_strong_corpus_usage(self):
+        for word in ("tüz", "ezr", "ifj", "közl"):
+            with self.subTest(word=word):
+                decision = decide_word(
+                    word,
+                    CorpusEvidence(1000, 1000, 1000, 1000),
+                    MorphEvidence(),
+                    current_candidate=True,
+                    current_direct=False,
+                    morphdb_direct=False,
+                    morphdb_nonstandalone=True,
+                )
+                self.assertEqual(
+                    (False, "morphdb_nonstandalone_source"),
+                    (decision.accepted, decision.reason),
+                )
+
+    def test_preserves_valid_current_source_homograph(self):
+        decision = decide_word(
+            "hom",
+            CorpusEvidence(),
+            MorphEvidence(),
+            current_candidate=True,
+            current_direct=True,
+            morphdb_direct=False,
+            morphdb_nonstandalone=True,
+        )
+        self.assertEqual(
+            (True, "direct_source_form"),
+            (decision.accepted, decision.reason),
+        )
+
+    def test_preserves_pseudoroot_spelling_with_standalone_analysis(self):
+        decision = decide_word(
+            "hom",
+            CorpusEvidence(10, 10, 10, 10),
+            MorphEvidence(recognized=True, nonproper=True),
+            current_candidate=True,
+            current_direct=False,
+            morphdb_direct=False,
+            morphdb_nonstandalone=True,
+        )
+        self.assertEqual(
+            (True, "quality_8_corpus_core"),
+            (decision.accepted, decision.reason),
+        )
 
 
 class PublishedCandidateRegressionTests(unittest.TestCase):

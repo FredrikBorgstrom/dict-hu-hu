@@ -1264,7 +1264,6 @@ acélért
 acéléval
 acélú
 ad
-ada
 adag
 adagba
 adagban
@@ -2244,7 +2243,6 @@ adoptálva
 adoptálás
 adoptálási
 adoptáló
-adot
 adott
 adottabb
 adottak
@@ -3503,7 +3501,6 @@ afölé
 afölött
 afölötti
 afölöttiek
-ag
 aga
 agakor
 agaként
@@ -13985,7 +13982,6 @@ altemplom
 altemploma
 altemplomi
 altemplomé
-alter
 altere
 alteregó
 alteregóba
@@ -19163,7 +19159,6 @@ antracént
 antracénul
 antracénül
 antropogén
-any
 anya
 anyacsavar
 anyadisznó
@@ -20439,7 +20434,6 @@ aortául
 aortával
 aortává
 aortáért
-ap
 apa
 apaccsal
 apaccsá
@@ -29286,7 +29280,6 @@ bagariául
 bagariával
 bagariává
 bagariáért
-bagatel
 bagatell
 bagatellbe
 bagatellek
@@ -32913,7 +32906,6 @@ barackul
 baracké
 barackért
 barackíz
-barak
 barakk
 barakkal
 barakkba
@@ -33750,7 +33742,6 @@ barnítás
 barnítási
 barnító
 barod
-barok
 barokba
 barokban
 barokk
@@ -34311,7 +34302,6 @@ basszák
 basszál
 basszátok
 basszék
-basz
 baszakodik
 baszakodj
 baszakodni
@@ -36876,7 +36866,6 @@ beemelési
 beemelünk
 beemelő
 beemelődik
-been
 beenged
 beengedd
 beengeded
@@ -39452,7 +39441,6 @@ behűtött
 behűtöttem
 behűtötték
 behűtöttük
-bei
 beidegezte
 beidegezve
 beidegzett
@@ -48243,7 +48231,6 @@ besurranó
 besuttyan
 besuttyant
 besuvadt
-besz
 beszabadul
 beszabható
 beszabni
@@ -49546,7 +49533,6 @@ betaszítja
 betaszítom
 betatron
 betatront
-bete
 betedd
 beteendő
 beteg
@@ -77201,7 +77187,6 @@ béta
 bétai
 bétakor
 bétaként
-béte
 bétel
 bételbe
 bételben
@@ -77291,7 +77276,6 @@ bétául
 bétával
 bétává
 bétáért
-bété
 bévül
 bézs
 bézsben
@@ -85304,7 +85288,6 @@ cafrával
 cafrává
 cafráért
 cajgnadrág
-cak
 cakk
 cakkal
 cakkba
@@ -90116,7 +90099,6 @@ cirfandlik
 cirfandlin
 cirfandlis
 cirfandlit
-ciril
 cirill
 cirillbe
 cirillben
@@ -94762,7 +94744,6 @@ csehüveggé
 csehüvegig
 csehüvegre
 csehüvegül
-csek
 csekk
 csekkbe
 csekkben
@@ -98041,7 +98022,6 @@ csiholva
 csiholás
 csiholó
 csiholódik
-csik
 csikar
 csikard
 csikarhat
@@ -108944,7 +108924,6 @@ cubákról
 cubáktól
 cubákul
 cubákért
-cuc
 cucc
 cucca
 cuccai
@@ -116243,7 +116222,6 @@ dekórumtól
 dekórumul
 dekórumát
 dekórumért
-del
 delavár
 dele
 delegáció
@@ -117339,7 +117317,6 @@ depózott
 depózás
 depózási
 depóért
-der
 derbi
 derbibe
 derbiben
@@ -123663,7 +123640,6 @@ dohányéhoz
 dohányért
 dohányú
 dohért
-dok
 doki
 dokiba
 dokiban
@@ -123979,7 +123955,6 @@ dolcsiul
 dolcsival
 dolcsivá
 dolcsiért
-dolg
 dolga
 dolgai
 dolgaiba
@@ -138589,7 +138564,6 @@ efölé
 efölött
 efölötti
 efölöttiek
-eg
 egalizál
 egalizáld
 egalizálj
@@ -138641,7 +138615,6 @@ egemet
 egemre
 egemről
 egenként
-eger
 egere
 egerecske
 egered
@@ -139090,7 +139063,6 @@ egycsövűt
 egycsövűvé
 egycsövűül
 egye
-egyeb
 egyebe
 egyebed
 egyebek
@@ -139690,8 +139662,6 @@ egyetemévé
 egyetemük
 egyetemül
 egyetemünk
-egyeten
-egyetle
 egyetlen
 egyetlenbe
 egyetlened
@@ -144359,7 +144329,6 @@ eldűlt
 eldűltek
 eldűltem
 eldűlő
-ele
 eleddig
 eledel
 eledelbe
@@ -144437,7 +144406,6 @@ elefánté
 elefántén
 elefántért
 elefántét
-eleg
 elegancia
 eleganciák
 elegancián
@@ -145274,7 +145242,6 @@ elemünk
 elemünket
 elemű
 eleműség
-elen
 elenged
 elengedd
 elengeded
@@ -145791,7 +145758,6 @@ elfejtett
 elfejtette
 elfejti
 elfejtik
-elfek
 elfeketedő
 elfeketíti
 elfeketül
@@ -146305,7 +146271,6 @@ elfoszlani
 elfoszlik
 elfoszlott
 elfoszló
-elfoszol
 elfotóztam
 elfotózza
 elfreccsen
@@ -149856,7 +149821,6 @@ elköveted
 elkövetek
 elköveteli
 elkövetem
-elkövetet
 elkövetett
 elkövethet
 elköveti
@@ -150003,7 +149967,6 @@ elkülönülő
 elkürtölte
 elküzdeni
 elküzdi
-ell
 ellakatolt
 ellakhat
 ellakják
@@ -150098,7 +150061,6 @@ ellazítva
 ellazítás
 ellazítási
 ellazító
-elle
 ellebben
 ellebbenni
 ellebbent
@@ -151263,7 +151225,6 @@ elmaradnom
 elmaradnék
 elmaradok
 elmaradott
-elmaradoz
 elmaradozó
 elmaradsz
 elmaradt
@@ -152172,7 +152133,6 @@ elméé
 elméért
 elméül
 elmókázik
-elmúl
 elmúlatja
 elmúlatni
 elmúlhat
@@ -154578,7 +154538,6 @@ elsajátíts
 elsajátító
 elsatnyul
 elsatnyult
-else
 elseftelt
 elseggelni
 elsegít
@@ -156213,7 +156172,6 @@ eltaszítás
 eltaszító
 eltaxiztam
 eltaxizunk
-elte
 eltedd
 eltegye
 eltegyem
@@ -165735,7 +165693,6 @@ emeljünk
 emelkedek
 emelkedel
 emelkedem
-emelkedet
 emelkedett
 emelkedhet
 emelkedik
@@ -166512,7 +166469,6 @@ említeném
 említenénk
 említenünk
 említesz
-említet
 említetek
 említetlen
 említett
@@ -167175,7 +167131,6 @@ emócióért
 emögé
 emögött
 emögötti
-en
 enciklika
 enciklikai
 enciklikák
@@ -168172,7 +168127,6 @@ enyésszem
 enyésszen
 enyésszék
 enyésszünk
-enyész
 enyészek
 enyészel
 enyészem
@@ -169275,7 +169229,6 @@ epével
 epévé
 epéért
 epéül
-er
 erbium
 ercsi
 erdei
@@ -172039,7 +171992,6 @@ erőét
 erőével
 erőül
 erű
-es
 escape
 escudo
 escudóba
@@ -175638,7 +175590,6 @@ eutanáziás
 eutanáziát
 eutanáziáé
 eutektikum
-ev
 eva
 evakor
 evakuáció
@@ -177303,7 +177254,6 @@ ezotériák
 ezotérián
 ezotériás
 ezotériát
-ezr
 ezre
 ezred
 ezredannyi
@@ -184691,7 +184641,6 @@ faúsztatás
 faültetés
 faültetési
 faültetést
-fe
 február
 februárba
 februárban
@@ -186612,7 +186561,6 @@ fejkötővel
 fejkötővé
 fejkötőért
 fejkötőül
-fejl
 fejlek
 fejlem
 fejlemény
@@ -187286,7 +187234,6 @@ fejősajtár
 fejőstehén
 fejű
 fejűség
-fek
 feka
 fekbér
 fekbérbe
@@ -190582,7 +190529,6 @@ felházzal
 felházzá
 felházában
 felházért
-felhí
 felhígul
 felhígulna
 felhígulni
@@ -192773,7 +192719,6 @@ felnyomó
 felnyurgul
 felnyársal
 felnyávog
-felnyíl
 felnyílhat
 felnyílik
 felnyíljon
@@ -192901,7 +192846,6 @@ felnőnöd
 felnőnöm
 felnőnünk
 felnősz
-felnőt
 felnőtt
 felnőttbe
 felnőttben
@@ -195465,7 +195409,6 @@ felvillanó
 felvilágló
 felvilágol
 felvilágít
-felvin
 felvinne
 felvinned
 felvinnem
@@ -203558,7 +203501,6 @@ fizetendő
 fizetendők
 fizetendőn
 fizetendőt
-fizetet
 fizetetlen
 fizetett
 fizetettbe
@@ -207272,7 +207214,6 @@ foglaljuk
 foglaljunk
 foglalják
 foglaljál
-foglalkoz
 foglalkozó
 foglallak
 foglalna
@@ -210794,7 +210735,6 @@ fordítódsz
 fordítógép
 fordítói
 fordítós
-forg
 forgalma
 forgalmad
 forgalmak
@@ -231413,7 +231353,6 @@ füvét
 füvével
 füvön
 füvű
-füz
 füzek
 füzekbe
 füzekben
@@ -235948,7 +235887,6 @@ gajdorássz
 gajdorász
 gajdorászd
 gajra
-gal
 galacsin
 galacsinba
 galacsinig
@@ -239045,7 +238983,6 @@ genustól
 genusul
 genusát
 genusért
-geny
 genya
 genyaság
 genyább
@@ -243403,7 +243340,6 @@ grafománok
 graféma
 grafémák
 grafémát
-gram
 gramm
 grammal
 grammatika
@@ -260285,7 +260221,6 @@ hadnak
 hadnál
 hadon
 hadonássz
-hadonász
 hadonászik
 hadonászna
 hadonászni
@@ -262425,7 +262360,6 @@ hajtogatós
 hajtogatót
 hajtok
 hajtom
-hajtot
 hajtotok
 hajtott
 hajtotta
@@ -264548,7 +264482,6 @@ hallomást
 hallomásul
 hallon
 hallos
-hallot
 hallotok
 hallott
 hallotta
@@ -267672,7 +267605,6 @@ hanukául
 hanukával
 hanukává
 hanukáért
-hany
 hanyadik
 hanyadika
 hanyadikak
@@ -269857,7 +269789,6 @@ haszidról
 haszidtól
 haszidul
 haszidért
-haszn
 haszna
 hasznai
 hasznaiból
@@ -276598,7 +276529,6 @@ hessentsék
 hessentsél
 hessentsük
 hessentünk
-het
 hete
 heted
 hetedannyi
@@ -280729,7 +280659,6 @@ hitünktől
 hitünkért
 hitű
 hiu
-hiv
 hivalgó
 hivalgóba
 hivalgóban
@@ -283526,7 +283455,6 @@ honává
 honáért
 honért
 honét
-hop
 hopmester
 hopmestert
 hopp
@@ -285261,7 +285189,6 @@ hosszúul
 hosszúval
 hosszúvá
 hosszúért
-hosz
 hosztesszé
 hosztesz
 hoszteszbe
@@ -287749,7 +287676,6 @@ huskyra
 huskyt
 huskyval
 huss
-husz
 huszad
 huszada
 huszadba
@@ -287801,7 +287727,6 @@ huszitául
 huszitával
 huszitává
 huszitáért
-huszon
 huszonegy
 huszonhat
 huszonhét
@@ -304669,7 +304594,6 @@ ifiúrtól
 ifiúrul
 ifiúrért
 ifiül
-ifj
 ifja
 ifjabb
 ifjabbak
@@ -306059,7 +305983,6 @@ igrictől
 igricének
 igricért
 igricül
-igy
 igya
 igyak
 igyalak
@@ -307806,7 +307729,6 @@ ildomostól
 ildomosul
 ildomosért
 ildomtalan
-ill
 illa
 illabiális
 illan
@@ -309817,7 +309739,6 @@ iméntivé
 iméntiért
 iméntiül
 imígy
-in
 ina
 inad
 inadba
@@ -312927,7 +312848,6 @@ intelemről
 intelemtől
 intelemért
 intelemül
-intelm
 intelme
 intelmed
 intelmei
@@ -318692,7 +318612,6 @@ itókául
 itókával
 itókává
 itókáért
-iv
 ivadék
 ivadéka
 ivadékai
@@ -319916,7 +319835,6 @@ izomcsomón
 izomcsomót
 izomember
 izomer
-izomere
 izomereje
 izomerejét
 izomerejű
@@ -321525,7 +321443,6 @@ jattot
 jattra
 jattról
 jattért
-jav
 java
 javad
 javadalma
@@ -321979,7 +321896,6 @@ javítóul
 javítóval
 javítóvá
 javítóért
-jaz
 jazig
 jazignak
 jazigok
@@ -323599,7 +323515,6 @@ jellemrajz
 jellemre
 jellemről
 jellemtől
-jellemz
 jellemzés
 jellemzése
 jellemzési
@@ -324487,8 +324402,6 @@ jiddist
 jiddistől
 jiddisért
 jiddisül
-jo
-job
 jobb
 jobba
 jobbadán
@@ -326541,7 +326454,6 @@ jurául
 jurával
 jurává
 juráért
-jus
 jusd
 juss
 jussa
@@ -326746,7 +326658,6 @@ jutnék
 jutod
 jutok
 jutom
-jutot
 jutott
 jutotta
 jutottad
@@ -328227,7 +328138,6 @@ játsszák
 játsszál
 játsszátok
 játsszék
-játsz
 játszalak
 játszana
 játszanak
@@ -331621,7 +331531,6 @@ jóízűvel
 jóízűvé
 jóízűért
 jóízűül
-jö
 jöhess
 jöhessek
 jöhessen
@@ -331786,7 +331695,6 @@ jöttünkkor
 jöttünknek
 jöttünkre
 jöttünkről
-jöv
 jöve
 jövedelem
 jövedelemé
@@ -334772,7 +334680,6 @@ kaktusztól
 kaktuszul
 kaktuszát
 kaktuszért
-kakuk
 kakukk
 kakukkal
 kakukkba
@@ -338799,7 +338706,6 @@ kapca
 kapcakor
 kapcaként
 kapcarongy
-kapcs
 kapcsa
 kapcsai
 kapcsaként
@@ -345404,7 +345310,6 @@ kecsül
 kecékkel
 kecés
 kecét
-ked
 kedd
 keddbe
 keddben
@@ -346413,7 +346318,6 @@ kehről
 kehtől
 kehért
 kehül
-kek
 kekeckedek
 kekeckedem
 kekeckedik
@@ -348994,7 +348898,6 @@ kenőolajra
 kenőolajul
 kenőolaját
 kenőolajé
-kep
 kepe
 kepei
 kepekor
@@ -351610,7 +351513,6 @@ kesével
 kesévé
 keséért
 keséül
-ket
 ketchup
 ketchupba
 ketchupban
@@ -351711,7 +351613,6 @@ ketrecéről
 ketrecét
 ketrecével
 ketrecül
-kett
 kettecskén
 ketted
 kettedes
@@ -352371,7 +352272,6 @@ keverővel
 keverővé
 keverőért
 keverőül
-keves
 kevesbedik
 kevesbedne
 kevesbedni
@@ -352558,7 +352458,6 @@ kevéssége
 kevéstől
 kevésé
 kevésért
-kez
 kezd
 kezdd
 kezded
@@ -356904,7 +356803,6 @@ kifizet
 kifizeted
 kifizetek
 kifizetem
-kifizetet
 kifizetett
 kifizethet
 kifizeti
@@ -358696,7 +358594,6 @@ kihátrálás
 kihátráló
 kiházasító
 kihéjaz
-kihí
 kihígulnak
 kihíja
 kihímezett
@@ -361010,7 +360907,6 @@ kilazítsam
 kilazítson
 kilazítva
 kilazítás
-kile
 kilebben
 kilebbent
 kilebbenő
@@ -361285,7 +361181,6 @@ kilociklus
 kilocsolja
 kilocsolni
 kilocsolva
-kilogram
 kilogramm
 kilohertz
 kiloholok
@@ -370000,7 +369895,6 @@ kitaszítsa
 kitaszítva
 kitaszítás
 kitaszító
-kite
 kitedd
 kitegye
 kitegyek
@@ -375669,7 +375563,6 @@ klastromot
 klastromra
 klastromul
 klastromát
-klasz
 klaszter
 klaszterba
 klaszterbe
@@ -383275,7 +383168,6 @@ koordinálj
 koordinált
 koordináló
 koordináta
-kop
 kopassz
 kopassza
 kopasszad
@@ -385423,7 +385315,6 @@ korláttól
 korlátul
 korlátért
 korlátú
-korm
 korma
 kormok
 kormokat
@@ -394368,7 +394259,6 @@ kurírt
 kurírtól
 kurírul
 kurírért
-kus
 kushad
 kushadhat
 kushadj
@@ -394592,7 +394482,6 @@ kuszául
 kuszával
 kuszává
 kuszáért
-kut
 kutaccsal
 kutaccsá
 kutacs
@@ -401731,7 +401620,6 @@ képviselőn
 képviselős
 képviselőt
 képviselőé
-képz
 képzavar
 képzel
 képzeld
@@ -402210,7 +402098,6 @@ kérdezek
 kérdezel
 kérdezem
 kérdezendő
-kérdezet
 kérdezett
 kérdezetté
 kérdezgesd
@@ -411096,7 +410983,6 @@ köntösön
 köntösüket
 köntösül
 köntösű
-köny
 könyv
 könyvbarát
 könyvbe
@@ -413884,7 +413770,6 @@ körülszövi
 körülszúrt
 körülszőtt
 körülsétál
-körülte
 körülugrál
 körülutaz
 körülutazd
@@ -415368,7 +415253,6 @@ kötővastól
 kötővasul
 kötővasért
 kötővonal
-köv
 köve
 köveccsel
 köveccsé
@@ -415708,7 +415592,6 @@ követig
 követik
 követitek
 követjük
-következ
 következek
 következel
 következem
@@ -416473,7 +416356,6 @@ közelembe
 közelemben
 közelemből
 közelesen
-közelg
 közelgek
 közelgess
 közelget
@@ -416977,14 +416859,12 @@ közként
 közkívánat
 közkórház
 közkút
-közl
 közlegelő
 közlegelői
 közlegelők
 közlegelőn
 közlegelőt
 közlegény
-közleked
 közlekedek
 közlekedem
 közlekedik
@@ -429461,7 +429341,6 @@ ledűl
 ledűlt
 ledűltem
 ledűlök
-lee
 leedzed
 leedzem
 leedzenek
@@ -430993,7 +430872,6 @@ lefűződés
 lefűződött
 lefűződő
 lefűzős
-leg
 legalitás
 legalitása
 legalitási
@@ -431522,7 +431400,6 @@ legteteje
 legtetején
 legtetejét
 legtovább
-legtöb
 legtöbb
 legtöbbe
 legtöbbek
@@ -431649,7 +431526,6 @@ legvégét
 legvégétől
 legvégével
 legvégül
-legy
 legyalogol
 legyalul
 legyalulja
@@ -433148,7 +433024,6 @@ lehátrál
 lehátrált
 lehéjazott
 lehéjazzuk
-lehí
 lehíják
 lehív
 lehívandó
@@ -435313,7 +435188,6 @@ leled
 leleddz
 leleddzek
 leleddzen
-leledz
 leledzek
 leledzel
 leledzem
@@ -441965,7 +441839,6 @@ lesütöttük
 lesütő
 leső
 lesűríti
-let
 letagad
 letagadd
 letagadhat
@@ -442158,7 +442031,6 @@ letaszítom
 letaszítsa
 letaszítva
 letaszítás
-lete
 letedd
 leteendő
 leteendők
@@ -443514,7 +443386,6 @@ leutánozta
 leutánozva
 leutánozza
 leutánzott
-lev
 levadássza
 levadászd
 levadászik
@@ -444895,7 +444766,6 @@ levázolom
 levázolt
 levázoltad
 levázoltam
-levé
 levébe
 levében
 levéből
@@ -461080,7 +460950,6 @@ létünkre
 létünkről
 létől
 létű
-lév
 lével
 lévita
 lévé
@@ -465499,7 +465368,6 @@ mackóval
 mackóvá
 mackóé
 mackóért
-macs
 macsek
 macsekhoz
 macsekja
@@ -468638,7 +468506,6 @@ majául
 majával
 majává
 majáért
-mak
 makaccsal
 makaccsá
 makacs
@@ -472180,7 +472047,6 @@ marjítsunk
 marjítsák
 marjítsál
 marjítunk
-mark
 marka
 markazit
 markazitba
@@ -473528,7 +473394,6 @@ masírozzál
 masírozzék
 masírozás
 masírozó
-mat
 matador
 matadora
 matadorba
@@ -474398,7 +474263,6 @@ mazurkával
 mazurkává
 mazurkáért
 mbar
-me
 meander
 meanderbe
 meanderben
@@ -474505,7 +474369,6 @@ mechanikán
 mechanikás
 mechanikát
 mechanizál
-mecs
 mecseki
 mecset
 mecsetbe
@@ -475245,7 +475108,6 @@ megadnék
 megadod
 megadok
 megadom
-megadot
 megadott
 megadottak
 megadottal
@@ -476508,7 +476370,6 @@ megdőlés
 megdőlési
 megdőlő
 megdűlt
-mege
 megebédel
 megebédelt
 megedd
@@ -476742,13 +476603,11 @@ megemészd
 megemészt
 megemészti
 megemésztő
-megen
 megenged
 megengedd
 megengeded
 megengedek
 megengedem
-megengedet
 megengedi
 megengedik
 megengedj
@@ -478408,7 +478267,6 @@ meghátrálj
 meghátrált
 meghátráló
 megházasít
-meghí
 meghígul
 meghígult
 meghígítva
@@ -479072,7 +478930,6 @@ megjegyző
 megjelelni
 megjelelt
 megjelelő
-megjelen
 megjelenek
 megjelenem
 megjelenik
@@ -480458,7 +480315,6 @@ meglétével
 meglétéért
 meglétük
 meglétül
-meglév
 meglévő
 meglévőbe
 meglévőben
@@ -485441,7 +485297,6 @@ megázunk
 megázva
 megázzon
 megázás
-megé
 megébred
 megébredek
 megébredni
@@ -486930,7 +486785,6 @@ mekkorául
 mekkorával
 mekkorává
 mekkoráért
-mel
 melamin
 melaminnal
 melaminos
@@ -488281,7 +488135,6 @@ memóriául
 memóriával
 memóriává
 memóriáért
-men
 menazséria
 mendegél
 mendegélek
@@ -493143,7 +492996,6 @@ mienkétől
 mienkével
 mifajta
 mifajtát
-mifelé
 mifelénk
 mifelőlünk
 mifene
@@ -493602,7 +493454,6 @@ milligramm
 milliliter
 milliméter
 millimól
-milliom
 milliomod
 milliomoda
 milliomos
@@ -494197,8 +494048,6 @@ mindig
 mindinkább
 mindjobban
 mindjárt
-mindket
-mindkett
 mindketten
 mindkettő
 mindkettők
@@ -496334,7 +496183,6 @@ modalitás
 modalitása
 modalitást
 modalitású
-model
 modell
 modellbe
 modellbeli
@@ -498012,7 +497860,6 @@ mondogatva
 mondogatás
 mondok
 mondom
-mondot
 mondotok
 mondott
 mondotta
@@ -500432,7 +500279,6 @@ mosolyba
 mosolyban
 mosolyból
 mosolyféle
-mosolyg
 mosolygod
 mosolygok
 mosolygom
@@ -502699,7 +502545,6 @@ muksóul
 muksóval
 muksóvá
 muksóért
-mul
 mulandó
 mulandóak
 mulandóba
@@ -507554,7 +507399,6 @@ másvilágot
 másvilágra
 másvilágul
 másvilágát
-mász
 mászandó
 mászasd
 mászass
@@ -512805,7 +512649,6 @@ mögüli
 mögüliek
 mögülük
 mögülünk
-múl
 múlana
 múlanak
 múlanák
@@ -514244,7 +514087,6 @@ működök
 működöket
 működöl
 működöm
-működöt
 működött
 működünk
 működő
@@ -515329,7 +515171,6 @@ műutaktól
 műutakul
 műutakért
 műutat
-műv
 művaj
 művajak
 művajakat
@@ -517126,7 +516967,6 @@ nagynénére
 nagynénét
 nagynénévé
 nagynénéül
-nagyo
 nagyobb
 nagyobba
 nagyobbak
@@ -519946,7 +519786,6 @@ nebulóul
 nebulóval
 nebulóvá
 nebulóért
-nec
 necc
 neccbe
 neccben
@@ -520337,7 +520176,6 @@ negroidról
 negroidtól
 negroidul
 negroidért
-negy
 negyed
 negyedbe
 negyedbeli
@@ -520591,7 +520429,6 @@ negédest
 negédestől
 negédesért
 negédesül
-nehez
 neheze
 nehezebb
 nehezebbe
@@ -521050,7 +520887,6 @@ nekidűlnek
 nekidűlt
 nekidűltem
 nekidűlök
-nekie
 nekiered
 nekieredt
 nekieredő
@@ -523013,7 +522849,6 @@ neutrínóké
 neutrínóra
 neutrínót
 neutrínóvá
-nev
 neve
 neved
 nevedben
@@ -526809,7 +526644,6 @@ nyeglével
 nyeglévé
 nyegléért
 nyegléül
-nyek
 nyekeg
 nyekegek
 nyekegett
@@ -528247,7 +528081,6 @@ nyikorogsz
 nyikorogta
 nyikorogva
 nyikorogó
-nyil
 nyila
 nyilacska
 nyilacskás
@@ -528778,7 +528611,6 @@ nyitogatás
 nyitogató
 nyitok
 nyitom
-nyitot
 nyitott
 nyitotta
 nyitottabb
@@ -530012,7 +529844,6 @@ nyoszolyó
 nyoszolyók
 nyoszolyón
 nyoszolyót
-nyug
 nyugalma
 nyugalmad
 nyugalmak
@@ -530568,7 +530399,6 @@ nyugágyán
 nyugágyára
 nyugágyát
 nyugágyért
-nyul
 nyula
 nyulacska
 nyulad
@@ -537181,7 +537011,6 @@ nörszökül
 nörszön
 nörszöt
 nörszül
-növ
 növedék
 növedékbe
 növedékben
@@ -537206,7 +537035,6 @@ növedékét
 növedékül
 növekedek
 növekedem
-növekedet
 növekedett
 növekedhet
 növekedik
@@ -539346,7 +539174,6 @@ ocsúul
 ocsúval
 ocsúvá
 ocsúért
-od
 oda
 odaad
 odaadatja
@@ -547629,7 +547456,6 @@ opált
 opáltól
 opálul
 opálért
-or
 orangután
 orangutánt
 oratorikus
@@ -553734,7 +553560,6 @@ pajzánt
 pajzántól
 pajzánul
 pajzánért
-pak
 pakett
 pakettal
 pakettba
@@ -559595,7 +559420,6 @@ passzívául
 passzívává
 passzívért
 passzívét
-pasz
 pasziánsz
 pasziánszt
 paszománt
@@ -559626,7 +559450,6 @@ paszpólért
 paszta
 pasztakor
 pasztaként
-pasztel
 pasztell
 pasztellbe
 pasztellek
@@ -564292,7 +564115,6 @@ perkáltál
 perkálunk
 perként
 perköltség
-perl
 perlek
 perlekedek
 perlekedem
@@ -566982,7 +566804,6 @@ pihéző
 pihéért
 pihéül
 pii
-pik
 pika
 pikador
 pikadorok
@@ -574346,7 +574167,6 @@ pogózzanak
 pogózzuk
 pogózás
 pogózó
-pohar
 pohara
 poharacska
 poharad
@@ -581952,7 +581772,6 @@ protezsáld
 protezsálj
 protezsált
 protezsáló
-protokol
 protokoll
 protokollt
 protokollá
@@ -583489,7 +583308,6 @@ pubról
 pubtól
 pubul
 pubért
-puc
 puca
 pucakor
 pucaként
@@ -595229,7 +595047,6 @@ pördülés
 pördülök
 pördülünk
 pöre
-pörg
 pörge
 pörgekarú
 pörgekor
@@ -596860,7 +596677,6 @@ quimbys
 quinoa
 quinoát
 rab
-rabat
 rabatt
 rabattal
 rabattba
@@ -603289,7 +603105,6 @@ reikivel
 reikizett
 reikizés
 reikiző
-rejl
 rejlene
 rejlenek
 rejleni
@@ -605172,7 +604987,6 @@ rendeljék
 rendeljél
 rendeljük
 rendeljünk
-rendelkez
 rendelkező
 rendellek
 rendelne
@@ -607745,7 +607559,6 @@ rettegd
 retteged
 rettegek
 rettegem
-retteget
 rettegett
 retteghet
 rettegi
@@ -608688,7 +608501,6 @@ rezezzük
 rezezzünk
 rezezés
 rezezünk
-rezg
 rezgek
 rezgesd
 rezgess
@@ -615725,7 +615537,6 @@ rostélyért
 rostélyú
 rostért
 rostú
-rosz
 roszog
 roszoghat
 roszogj
@@ -616615,7 +616426,6 @@ rozsdákról
 rozsdáktól
 rozsdákul
 rozsdákért
-rozsdáll
 rozsdállik
 rozsdállni
 rozsdálló
@@ -629034,7 +628844,6 @@ rósejbnit
 rósejbnivé
 rósejbniül
 rósz
-rót
 rótok
 rótt
 rótta
@@ -629499,7 +629308,6 @@ rögzítenék
 rögzítenél
 rögzíteném
 rögzítesz
-rögzítet
 rögzítetek
 rögzített
 rögzítette
@@ -632773,7 +632581,6 @@ sajátíttat
 sajátítunk
 sajátítva
 sajátítván
-sak
 sakk
 sakkal
 sakkba
@@ -636117,7 +635924,6 @@ seftté
 sefttől
 seftért
 seftül
-seg
 segedelem
 segedelme
 segedelmed
@@ -636488,7 +636294,6 @@ segíteném
 segítenénk
 segítenünk
 segítesz
-segítet
 segítetek
 segítetlen
 segített
@@ -637057,7 +636862,6 @@ sejtünkben
 sejtő
 sejtőbb
 sejtű
-sek
 sekk
 sekkbe
 sekkben
@@ -643342,7 +643146,6 @@ slussztól
 slusszul
 slusszá
 slusszért
-slusz
 sláger
 slágerba
 slágerban
@@ -649587,7 +649390,6 @@ sterlingig
 sterlingre
 sterlingül
 steward
-stewardes
 stewardess
 stewardok
 stewardot
@@ -651946,7 +651748,6 @@ sugalmazz
 sugalmazza
 sugalmazás
 sugalmazó
-sugar
 sugara
 sugaracska
 sugarad
@@ -652557,7 +652358,6 @@ sujtást
 sujtástól
 sujtásul
 sujtásért
-suk
 sukk
 suli
 suliba
@@ -655446,7 +655246,6 @@ szakadnánk
 szakadnék
 szakadok
 szakadott
-szakadoz
 szakadozik
 szakadozna
 szakadozni
@@ -655719,7 +655518,6 @@ szakkal
 szakkor
 szakká
 szakként
-szakképzet
 szakképzés
 szakképző
 szakkérdés
@@ -658182,7 +657980,6 @@ szaunázó
 szaunáénak
 szaunáért
 szaunáéval
-szav
 szava
 szavacska
 szavad
@@ -658597,7 +658394,6 @@ szcénául
 szcénával
 szcénává
 szcénáért
-sze
 szebb
 szebbe
 szebbek
@@ -661895,7 +661691,6 @@ szemüvegük
 szemüvegül
 szemüvegű
 szemű
-szen
 szende
 szendekor
 szendeként
@@ -663179,7 +662974,6 @@ szerepig
 szerepkor
 szerepként
 szerepkör
-szerepl
 szereplek
 szerepli
 szereplik
@@ -664022,7 +663816,6 @@ szervül
 szervünk
 szervünket
 szervű
-szerz
 szerzemény
 szerzendő
 szerzendők
@@ -664489,7 +664282,6 @@ szeszének
 szeszért
 szeszétől
 szeszül
-szet
 szett
 szettbe
 szettben
@@ -669039,7 +668831,6 @@ szoftveré
 szoftverén
 szoftverét
 szoftverül
-szok
 szokatlan
 szokatlant
 szokd
@@ -669123,7 +668914,6 @@ szokod
 szokok
 szokol
 szokom
-szokot
 szokott
 szokottabb
 szokottak
@@ -671323,7 +671113,6 @@ sztreccsig
 sztreccsre
 sztreccsé
 sztreccsül
-sztrecs
 sztrichnin
 sztriptíz
 sztriptíze
@@ -672897,7 +672686,6 @@ szvitté
 szvittől
 szvitért
 szvitül
-szá
 szád
 száda
 szádal
@@ -678165,7 +677953,6 @@ szétfolyó
 szétfolyós
 szétfonódó
 szétfoszló
-szétfoszol
 szétfusson
 szétfut
 szétfutna
@@ -683287,7 +683074,6 @@ szöszöm
 szöszön
 szöszös
 szöszül
-szöv
 szövedék
 szövedékbe
 szövedéke
@@ -684939,7 +684725,6 @@ szütyővel
 szütyővé
 szütyőért
 szütyőül
-szüz
 szüze
 szüzebb
 szüzebben
@@ -697999,7 +697784,6 @@ talajtól
 talajuk
 talajul
 talajunk
-talajviz
 talajvize
 talajvizek
 talajvizes
@@ -701089,7 +700873,6 @@ taoizmusa
 taoizmuson
 taoizmusra
 taoizmust
-tap
 tapad
 tapadhat
 tapadj
@@ -702917,7 +702700,6 @@ tartományi
 tartományt
 tartományé
 tartományú
-tartot
 tartotok
 tartott
 tartotta
@@ -704906,7 +704688,6 @@ tegzébe
 tegzének
 tegzét
 tegzül
-tehen
 tehene
 tehened
 tehenednek
@@ -706446,7 +706227,6 @@ teközted
 teközéd
 teközötted
 teközüled
-tel
 telcsizek
 telcsizett
 telcsizik
@@ -708342,7 +708122,6 @@ temérdekül
 temögéd
 temögötted
 temögüled
-ten
 tendencia
 tendenciái
 tendenciák
@@ -708923,7 +708702,6 @@ tenyésszen
 tenyésszék
 tenyésszél
 tenyésszük
-tenyész
 tenyészbak
 tenyészcél
 tenyészd
@@ -709183,7 +708961,6 @@ tequilás
 tequilát
 tequilával
 tequiláért
-ter
 terabit
 terabites
 terabitnyi
@@ -710265,7 +710042,6 @@ terjesztve
 terjesztés
 terjesztő
 terjesztői
-term
 terme
 termecske
 termed
@@ -712650,7 +712426,6 @@ tesóvá
 tesóék
 tesóéknak
 tesóért
-tet
 tetanusszá
 tetanusz
 tetanuszba
@@ -712661,7 +712436,6 @@ tetanuszos
 tetanuszra
 tetanuszt
 tetanuszul
-tete
 teteje
 tetejez
 tetejezd
@@ -713808,7 +713582,6 @@ teutontól
 teutonul
 teutonért
 teutánad
-tev
 teve
 tevei
 tevekor
@@ -715644,7 +715417,6 @@ tinóért
 tinóéval
 tiocianát
 tioszulfát
-tip
 tipeg
 tipegek
 tipegett
@@ -717290,7 +717062,6 @@ tivornyául
 tivornyává
 tivornyázó
 tivéletek
-tiz
 tized
 tizedannyi
 tizedbe
@@ -717463,7 +717234,6 @@ tizedéért
 tizedízben
 tizedük
 tizedül
-tizen
 tizenegy
 tizenegybe
 tizenegyed
@@ -720684,7 +720454,6 @@ torkoljuk
 torkoljunk
 torkolják
 torkoljál
-torkoll
 torkollak
 torkollana
 torkollani
@@ -723305,7 +723074,6 @@ tranzittól
 tranzitul
 tranzitért
 tranzitív
-trap
 trapezoid
 trapp
 trappba
@@ -726814,7 +726582,6 @@ tudorának
 tudorát
 tudorával
 tudorért
-tudot
 tudott
 tudsz
 tudta
@@ -734826,7 +734593,6 @@ távíróvá
 távíróért
 távú
 távúszás
-té
 tébláb
 téblábol
 téblábolj
@@ -737615,7 +737381,6 @@ téttől
 tétért
 tétül
 tétű
-tév
 téve
 téved
 tévedek
@@ -739067,7 +738832,6 @@ tóéhoz
 tóénak
 tóért
 tóét
-töb
 több
 többalakú
 többalakúk
@@ -746753,7 +746517,6 @@ tütüvel
 tütüvé
 tütüért
 tütüül
-tüz
 tüze
 tüzecske
 tüzed
@@ -749900,7 +749663,6 @@ ugrálás
 ugrálási
 ugráló
 ugrálós
-ugrándoz
 ugrándozik
 ugrándozna
 ugrándozni
@@ -750163,7 +749925,6 @@ uhuvá
 uhuzás
 uhuéktól
 uhuért
-uj
 ujgur
 ujgurba
 ujgurban
@@ -751837,7 +751598,6 @@ unzsenírt
 unás
 unó
 unós
-ur
 ura
 uraccsal
 uraccsá
@@ -752911,7 +752671,6 @@ uszítás
 uszító
 uszítóbb
 uszítói
-ut
 utacska
 utad
 utadat
@@ -758628,7 +758387,6 @@ vallont
 vallontól
 vallonul
 vallonért
-vallot
 vallotok
 vallott
 vallotta
@@ -761201,7 +760959,6 @@ vastüdővé
 vastüdőért
 vastüdőül
 vasul
-vasut
 vasutai
 vasutainak
 vasutaink
@@ -761581,7 +761338,6 @@ vazelinul
 vazelinért
 vazelinül
 vazoaktív
-ve
 vecsernye
 vecsernyei
 vecsernyék
@@ -761814,7 +761570,6 @@ vegetálás
 vegetálási
 vegetáló
 vegetárius
-vegy
 vegye
 vegyed
 vegyek
@@ -762837,7 +762592,6 @@ vemhesülés
 vemhesülök
 vemhesülő
 vemhezik
-ven
 vend
 vendbarát
 vendbe
@@ -762937,7 +762691,6 @@ vendégkor
 vendégként
 vendégképp
 vendégkör
-vendégl
 vendéglátó
 vendéglő
 vendéglőbe
@@ -768821,7 +768574,6 @@ vigvamról
 vigvamtól
 vigvamul
 vigvamért
-vigy
 vigye
 vigyed
 vigyek
@@ -773275,7 +773027,6 @@ vivővel
 vivővé
 vivőért
 vivőül
-viz
 viza
 vizakor
 vizaként
@@ -774432,7 +774183,6 @@ vokálozott
 vokálozás
 vokálra
 vokált
-vol
 volframát
 volfrám
 volfrámba
@@ -776869,7 +776619,6 @@ vágnék
 vágod
 vágok
 vágom
-vágot
 vágott
 vágottak
 vágottakat
@@ -777849,7 +777598,6 @@ vákuumát
 vákuumától
 vákuumával
 vákuumért
-vál
 váladék
 váladéka
 váladékai
@@ -778729,7 +778477,6 @@ váltottuk
 váltottunk
 váltották
 váltottál
-változ
 változandó
 változat
 változata
@@ -780675,7 +780422,6 @@ várőrséggé
 várőrségig
 várőrségre
 várőrségül
-vás
 vásik
 vásnak
 vásni
@@ -781318,7 +781064,6 @@ vázává
 vázáért
 vázért
 vázú
-vé
 vébé
 vébéhez
 vébéig
@@ -783224,7 +782969,6 @@ végvidék
 végvár
 végvári
 végy
-végz
 végzendő
 végzendőbe
 végzendőig
@@ -806730,7 +806474,6 @@ zűrül
 állongtál
 állongunk
 állongó
-állot
 állotok
 állott
 állotta
@@ -812184,7 +811927,6 @@ zűrül
 árvetésül
 árviszony
 árviszonya
-árviz
 árvize
 árvizei
 árvizeinek
@@ -813158,7 +812900,6 @@ zűrül
 átakartak
 átakasztás
 átakasztós
-átal
 átalag
 átalakul
 átalakulj
@@ -821506,7 +821247,6 @@ zűrül
 ávóstól
 ávósul
 ávósért
-áz
 ázalag
 ázalagba
 ázalagban
@@ -821906,7 +821646,6 @@ zűrül
 ébred
 ébredek
 ébredett
-ébredez
 ébredezek
 ébredezel
 ébredezem
@@ -829111,7 +828850,6 @@ zűrül
 érdekkörös
 érdekkörül
 érdekkörű
-érdekl
 érdekled
 érdeklek
 érdeklem
@@ -843582,7 +843320,6 @@ zűrül
 önhibával
 önhibává
 önhibáért
-önhit
 önhitt
 önhittbe
 önhittben
@@ -847189,7 +846926,6 @@ zűrül
 összehozó
 összehány
 összehányt
-összehí
 összehítt
 összehítta
 összehív

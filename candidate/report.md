@@ -4,31 +4,26 @@ This is a local candidate for review. It does not replace or deploy the producti
 
 ## Summary
 
-- Accepted words: **863,174**
-- Current words removed by the candidate policy: **1,834,480**
-- Strongly attested morphdb.hu headword additions: **7,323**
-- Candidate SHA-256: `1c6898b97702fed07738241a0f77da7823ddac3962634184141eeeb83b4e80c5`
+- Accepted words: **862,910**
+- Current words removed by the candidate policy: **264**
+- Strongly attested morphdb.hu headword additions: **0**
+- Candidate SHA-256: `70022b2168bd31c3e5ddf84ba488222c16d23dd8393e3aa772301d3f2e14e9aa`
 
 ## Decisions by evidence rule
 
 | Rule | Words |
 |---|---:|
-| `weak_plural_possessive` | 766,657 |
-| `weak_possessive` | 596,423 |
-| `quality_8_corpus_core` | 362,751 |
-| `no_independent_evidence` | 320,129 |
+| `quality_8_corpus_core` | 369,609 |
 | `cross_analyzer_basic_inflection` | 288,781 |
-| `weak_derivation` | 88,200 |
-| `insufficient_usage_or_risky_inflection` | 68,548 |
 | `attested_possessive` | 62,723 |
 | `attested_derivation` | 52,175 |
 | `corroborated_corpus_singleton` | 50,135 |
 | `attested_prefix_combination` | 20,083 |
 | `strong_plural_possessive_usage` | 13,690 |
-| `morphdb_proper_name_only` | 12,874 |
-| `weak_prefix_combination` | 8,128 |
-| `attested_morphdb_headword_addition` | 7,122 |
 | `direct_source_form` | 5,709 |
+| `weak_prefix_combination` | 2,627 |
+| `morphdb_nonstandalone_source` | 264 |
+| `insufficient_usage_or_risky_inflection` | 238 |
 | `written_abbreviation_shape` | 5 |
 | `required_one_letter` | 4 |
 | `reviewed_surface_addition` | 1 |
@@ -42,13 +37,13 @@ This is a local candidate for review. It does not replace or deploy the producti
 | `box` | accept | `reviewed_surface_addition` | 1905 | 400 |
 | `faxos` | accept | `attested_derivation` | 56 | 40 |
 | `kijött` | accept | `attested_prefix_combination` | 5619 | 3042 |
-| `luki` | reject | `morphdb_proper_name_only` | 7 | 3 |
+| `luki` | not a candidate | — | 0 | 0 |
 | `lófő` | accept | `quality_8_corpus_core` | 51 | 26 |
-| `lófőm` | reject | `weak_possessive` | 0 | 0 |
+| `lófőm` | not a candidate | — | 0 | 0 |
 | `mi` | accept | `quality_8_corpus_core` | 797905 | 478960 |
-| `mii` | reject | `weak_plural_possessive` | 13 | 7 |
-| `miibe` | reject | `weak_plural_possessive` | 0 | 0 |
-| `miik` | reject | `weak_plural_possessive` | 0 | 0 |
+| `mii` | not a candidate | — | 0 | 0 |
+| `miibe` | not a candidate | — | 0 | 0 |
+| `miik` | not a candidate | — | 0 | 0 |
 
 ## Limitations
 

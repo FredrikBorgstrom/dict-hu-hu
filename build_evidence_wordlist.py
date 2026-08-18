@@ -257,6 +257,7 @@ def decide_word(
     current_candidate: bool,
     current_direct: bool,
     morphdb_direct: bool,
+    morphdb_nonstandalone: bool = False,
     explicit_addition: bool = False,
     explicit_removal: bool = False,
 ) -> Decision:
@@ -269,6 +270,19 @@ def decide_word(
         return Decision(False, "reviewed_surface_removal")
     if explicit_addition:
         return Decision(True, "reviewed_surface_addition")
+    # morphdb.hu's compiled dictionary contains PSEUDOROOT entries such as
+    # ``tüz`` (the inflectional stem of ``tűz``) and ``közl`` (the stem of
+    # ``közöl``).  They are implementation details for suffix generation, not
+    # playable standalone surfaces.  Keep a valid Magyar Ispell homograph or a
+    # surface that morphdb.hu can independently analyze through another
+    # lexical path, but never let an unrecognized, previously promoted
+    # pseudoroot become sticky through corpus evidence on a later build.
+    if (
+        morphdb_nonstandalone
+        and not current_direct
+        and not (morph.recognized and morph.nonproper)
+    ):
+        return Decision(False, "morphdb_nonstandalone_source")
     if morph.proper_only:
         return Decision(False, "morphdb_proper_name_only")
 
@@ -318,6 +332,8 @@ def decide_word(
     if (
         not current_candidate
         and morphdb_direct
+        and morph.recognized
+        and morph.nonproper
         and corpus.quality_4 >= MORPHDB_ADDITION_QUALITY_4_FREQUENCY
     ):
         return Decision(True, "attested_morphdb_headword_addition")
@@ -380,16 +396,64 @@ def ensure_morphdb(cache_dir: Path, *, offline: bool) -> tuple[Path, Path, Path]
     return aff_path, dic_path, license_path
 
 
-def load_morphdb_direct_surfaces(dic_path: Path) -> frozenset[str]:
-    surfaces: set[str] = set()
+def _load_morphdb_pseudoroot_flag(aff_path: Path) -> str:
+    flag_mode = None
+    pseudoroot_flag = None
+    with open(aff_path, "r", encoding="iso-8859-2", errors="strict") as source:
+        for raw_line in source:
+            line = raw_line.split("#", 1)[0].strip()
+            if not line:
+                continue
+            parts = line.split()
+            if parts[0] == "FLAG" and len(parts) >= 2:
+                flag_mode = parts[1]
+            elif parts[0] == "PSEUDOROOT" and len(parts) >= 2:
+                pseudoroot_flag = parts[1]
+
+    if flag_mode != "long":
+        raise ValueError(
+            f"Expected morphdb.hu to use long flags, found {flag_mode!r}"
+        )
+    if pseudoroot_flag is None or len(pseudoroot_flag) != 2:
+        raise ValueError("Missing two-character morphdb.hu PSEUDOROOT flag")
+    return pseudoroot_flag
+
+
+def _has_morphdb_long_flag(flags: str, expected: str) -> bool:
+    if len(flags) % 2:
+        raise ValueError(f"Malformed morphdb.hu long-flag sequence: {flags!r}")
+    return any(
+        flags[index : index + 2] == expected
+        for index in range(0, len(flags), 2)
+    )
+
+
+def load_morphdb_source_inventory(
+    aff_path: Path,
+    dic_path: Path,
+) -> tuple[frozenset[str], frozenset[str]]:
+    """Return standalone source surfaces and pseudoroot-only source tokens."""
+    pseudoroot_flag = _load_morphdb_pseudoroot_flag(aff_path)
+    standalone_surfaces: set[str] = set()
+    pseudoroot_surfaces: set[str] = set()
     with open(dic_path, "r", encoding="iso-8859-2", errors="strict") as source:
         next(source, None)
         for line in source:
-            token = line.split("\t", 1)[0].split("/", 1)[0]
+            entry = line.split("\t", 1)[0]
+            token, separator, flags = entry.partition("/")
             token = unicodedata.normalize("NFC", token)
-            if token == token.lower() and is_valid_hu_word(token):
-                surfaces.add(token)
-    return frozenset(surfaces)
+            if token != token.lower() or not is_valid_hu_word(token):
+                continue
+            if separator and _has_morphdb_long_flag(flags, pseudoroot_flag):
+                pseudoroot_surfaces.add(token)
+            else:
+                standalone_surfaces.add(token)
+
+    # A spelling may have both a pseudoroot analysis and a genuine standalone
+    # entry.  Only tokens whose source analyses are exclusively pseudoroots are
+    # automatic rejections.
+    pseudoroot_only = pseudoroot_surfaces - standalone_surfaces
+    return frozenset(standalone_surfaces), frozenset(pseudoroot_only)
 
 
 def load_current_source_inventory(
@@ -698,6 +762,7 @@ def build_outputs(
     current_words: frozenset[str],
     current_direct: frozenset[str],
     morphdb_direct: frozenset[str],
+    morphdb_nonstandalone: frozenset[str],
     corpus_evidence: dict[str, CorpusEvidence],
     morph_cache_path: Path,
     surface_additions: frozenset[str],
@@ -752,6 +817,7 @@ def build_outputs(
                 current_candidate=word in current_words,
                 current_direct=word in current_direct,
                 morphdb_direct=word in morphdb_direct,
+                morphdb_nonstandalone=word in morphdb_nonstandalone,
                 explicit_addition=word in surface_additions,
                 explicit_removal=word in surface_removals,
             )
@@ -830,6 +896,8 @@ def build_outputs(
             "morphdb_addition_quality_4_frequency": (
                 MORPHDB_ADDITION_QUALITY_4_FREQUENCY
             ),
+            "morphdb_pseudoroots_rejected": True,
+            "morphdb_additions_require_standalone_analysis": True,
             "proper_name_only_rejected": True,
             "prefix_combinations_require_quality_8_usage": True,
             "cross_analyzer_basic_inflections_require_lemma_agreement": True,
@@ -983,7 +1051,9 @@ def main() -> int:
         current_direct, approved_source_lemmas = load_current_source_inventory(
             current_aff_path, current_dic_path
         )
-        morphdb_direct = load_morphdb_direct_surfaces(morphdb_dic_path)
+        morphdb_direct, morphdb_nonstandalone = load_morphdb_source_inventory(
+            morphdb_aff_path, morphdb_dic_path
+        )
         default_overrides_dir = (
             script_dir.parent / "_community_overrides" / "hungarian_hu_hu_ispell"
         )
@@ -1070,6 +1140,7 @@ def main() -> int:
             current_words=current_words,
             current_direct=current_direct,
             morphdb_direct=morphdb_direct,
+            morphdb_nonstandalone=morphdb_nonstandalone,
             corpus_evidence=corpus_evidence,
             morph_cache_path=morph_cache_path,
             surface_additions=surface_additions,

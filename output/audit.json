@@ -4,7 +4,7 @@
   "source": {
     "current_candidate": {
       "path": "output/hungarian_hu_hu_ispell.txt",
-      "sha256": "39f7b55a56cf5bc962c4697ce4a29c771c0298d693611d84c8237eb0881c83e5"
+      "sha256": "1c6898b97702fed07738241a0f77da7823ddac3962634184141eeeb83b4e80c5"
     },
     "magyar_ispell": {
       "aff_sha256": "f3a2748dd535cfde2142ab17d0f7f8e4787b03fb25a60829c69ac8d493db4802",
@@ -38,6 +38,8 @@
     "plural_possessive_quality_4_frequency": 20,
     "derivation_quality_4_frequency": 2,
     "morphdb_addition_quality_4_frequency": 10,
+    "morphdb_pseudoroots_rejected": true,
+    "morphdb_additions_require_standalone_analysis": true,
     "proper_name_only_rejected": true,
     "prefix_combinations_require_quality_8_usage": true,
     "cross_analyzer_basic_inflections_require_lemma_agreement": true,
@@ -47,50 +49,44 @@
     "surface_removals": []
   },
   "counts": {
-    "accepted": 863174,
-    "accepted_additions": 7323,
-    "current_candidates": 2690331,
-    "external_candidates": 33807,
-    "rejected": 1860964,
-    "rejected_from_current": 1834480,
-    "total_candidates": 2724138,
-    "final_unique_words": 863174,
-    "lemma_index_surfaces": 863174,
-    "lemma_index_mappings": 927699,
+    "accepted": 862910,
+    "current_candidates": 863174,
+    "external_candidates": 2870,
+    "rejected": 3134,
+    "rejected_from_current": 264,
+    "total_candidates": 866044,
+    "final_unique_words": 862910,
+    "lemma_index_surfaces": 862910,
+    "lemma_index_mappings": 927435,
     "lemma_index_shards": 532
   },
   "reason_counts": {
     "attested_derivation": 52175,
-    "attested_morphdb_headword_addition": 7122,
     "attested_possessive": 62723,
     "attested_prefix_combination": 20083,
     "corroborated_corpus_singleton": 50135,
     "cross_analyzer_basic_inflection": 288781,
     "direct_source_form": 5709,
-    "insufficient_usage_or_risky_inflection": 68548,
-    "morphdb_proper_name_only": 12874,
-    "no_independent_evidence": 320129,
-    "quality_8_corpus_core": 362751,
+    "insufficient_usage_or_risky_inflection": 238,
+    "morphdb_nonstandalone_source": 264,
+    "quality_8_corpus_core": 369609,
     "required_one_letter": 4,
     "reviewed_surface_addition": 1,
     "strong_plural_possessive_usage": 13690,
-    "weak_derivation": 88200,
-    "weak_plural_possessive": 766657,
-    "weak_possessive": 596423,
-    "weak_prefix_combination": 8128,
+    "weak_prefix_combination": 2627,
     "written_abbreviation_shape": 5
   },
   "accepted_length_counts": {
     "1": 4,
-    "2": 153,
-    "3": 1020,
-    "4": 4295,
-    "5": 17293,
-    "6": 43072,
-    "7": 95501,
-    "8": 174736,
-    "9": 238366,
-    "10": 288734
+    "2": 131,
+    "3": 945,
+    "4": 4230,
+    "5": 17259,
+    "6": 43053,
+    "7": 95478,
+    "8": 174721,
+    "9": 238358,
+    "10": 288731
   },
   "questioned_words": {
     "bement": {
@@ -207,30 +203,6 @@
         ]
       }
     },
-    "luki": {
-      "decision": "reject",
-      "reason": "morphdb_proper_name_only",
-      "corpus": {
-        "complete": 21,
-        "quality_40": 15,
-        "quality_8": 7,
-        "quality_4": 3
-      },
-      "morphdb": {
-        "recognized": true,
-        "nonproper": false,
-        "proper_only": true,
-        "derivation_only": true,
-        "prefix_only": false,
-        "possessive_only": false,
-        "plural_possessive_only": false,
-        "lemma_agreement": false,
-        "parts_of_speech": [
-          "ADJ",
-          "NOUN"
-        ]
-      }
-    },
     "lófő": {
       "decision": "accept",
       "reason": "quality_8_corpus_core",
@@ -247,29 +219,6 @@
         "derivation_only": false,
         "prefix_only": false,
         "possessive_only": false,
-        "plural_possessive_only": false,
-        "lemma_agreement": true,
-        "parts_of_speech": [
-          "NOUN"
-        ]
-      }
-    },
-    "lófőm": {
-      "decision": "reject",
-      "reason": "weak_possessive",
-      "corpus": {
-        "complete": 0,
-        "quality_40": 0,
-        "quality_8": 0,
-        "quality_4": 0
-      },
-      "morphdb": {
-        "recognized": true,
-        "nonproper": true,
-        "proper_only": false,
-        "derivation_only": false,
-        "prefix_only": false,
-        "possessive_only": true,
         "plural_possessive_only": false,
         "lemma_agreement": true,
         "parts_of_speech": [
@@ -299,75 +248,6 @@
           "NOUN"
         ]
       }
-    },
-    "mii": {
-      "decision": "reject",
-      "reason": "weak_plural_possessive",
-      "corpus": {
-        "complete": 286,
-        "quality_40": 49,
-        "quality_8": 13,
-        "quality_4": 7
-      },
-      "morphdb": {
-        "recognized": true,
-        "nonproper": true,
-        "proper_only": false,
-        "derivation_only": false,
-        "prefix_only": false,
-        "possessive_only": true,
-        "plural_possessive_only": true,
-        "lemma_agreement": true,
-        "parts_of_speech": [
-          "NOUN"
-        ]
-      }
-    },
-    "miibe": {
-      "decision": "reject",
-      "reason": "weak_plural_possessive",
-      "corpus": {
-        "complete": 0,
-        "quality_40": 0,
-        "quality_8": 0,
-        "quality_4": 0
-      },
-      "morphdb": {
-        "recognized": true,
-        "nonproper": true,
-        "proper_only": false,
-        "derivation_only": false,
-        "prefix_only": false,
-        "possessive_only": true,
-        "plural_possessive_only": true,
-        "lemma_agreement": true,
-        "parts_of_speech": [
-          "NOUN"
-        ]
-      }
-    },
-    "miik": {
-      "decision": "reject",
-      "reason": "weak_plural_possessive",
-      "corpus": {
-        "complete": 0,
-        "quality_40": 0,
-        "quality_8": 0,
-        "quality_4": 0
-      },
-      "morphdb": {
-        "recognized": true,
-        "nonproper": true,
-        "proper_only": false,
-        "derivation_only": false,
-        "prefix_only": false,
-        "possessive_only": true,
-        "plural_possessive_only": true,
-        "lemma_agreement": true,
-        "parts_of_speech": [
-          "NOUN"
-        ]
-      }
     }
   },
   "samples": {
@@ -392,28 +272,6 @@
       "szürkébben",
       "fárasztva",
       "finomodó"
-    ],
-    "attested_morphdb_headword_addition": [
-      "népnevelés",
-      "ószövetség",
-      "berliner",
-      "gyermeknap",
-      "színjáték",
-      "félóra",
-      "bibliaóra",
-      "adóállomás",
-      "ivókúra",
-      "bőrtáska",
-      "szállóige",
-      "irányszám",
-      "párbajhős",
-      "lókötő",
-      "slusz",
-      "dögtér",
-      "nászágy",
-      "vadászruha",
-      "tanyavilág",
-      "mail"
     ],
     "attested_possessive": [
       "agyánál",
@@ -526,70 +384,48 @@
       "dédapóka"
     ],
     "insufficient_usage_or_risky_inflection": [
-      "vezérürüi",
-      "vámáruiért",
-      "szűkülőit",
-      "renoméiról",
-      "túróikba",
-      "teázóikkal",
-      "szupéikhoz",
-      "hajnalljon",
-      "bejglikébe",
-      "ügyfélét",
-      "tejbüfé",
-      "üvegfonál",
-      "tepsiit",
-      "amoly",
-      "rugódjunk",
-      "bikiniikor",
-      "decikéhez",
-      "népikéért",
-      "ripakodnod",
-      "hindiiknél"
+      "mindenmily",
+      "azalól",
+      "azokután",
+      "böff",
+      "ejej",
+      "császtok",
+      "ajnye",
+      "bentebbre",
+      "szűkecskén",
+      "úgyde",
+      "eminnét",
+      "tyutyu",
+      "jajaja",
+      "háthiszen",
+      "legkijjebb",
+      "afele",
+      "huhu",
+      "korábbanra",
+      "aközül",
+      "lelőn"
     ],
-    "morphdb_proper_name_only": [
-      "kállaire",
-      "telcsimről",
-      "kukiinktól",
-      "gyevinket",
-      "humidéiért",
-      "atyafikéul",
-      "honfikra",
-      "gyevijével",
-      "pepikéiül",
-      "kentiből",
-      "lukainknál",
-      "jungijába",
-      "hadfiiul",
-      "animékéiül",
-      "úrfitoktól",
-      "bandzsiak",
-      "licsiimmel",
-      "karibink",
-      "wikijéig",
-      "töriéitől"
-    ],
-    "no_independent_evidence": [
-      "szusijaik",
-      "fennforg",
-      "millibarba",
-      "fatokjaivá",
-      "mósuszból",
-      "szútráiig",
-      "jegesrécét",
-      "kilégzőkét",
-      "sóutatokig",
-      "sebeződdé",
-      "térbeniül",
-      "muffinért",
-      "skákéiban",
-      "karrokéiul",
-      "sebezéséin",
-      "hústűiddé",
-      "autóutukon",
-      "énekelőkén",
-      "kóficabbá",
-      "goyaiig"
+    "morphdb_nonstandalone_source": [
+      "slusz",
+      "puc",
+      "gal",
+      "vé",
+      "közl",
+      "vigy",
+      "mel",
+      "tete",
+      "jus",
+      "tév",
+      "mifelé",
+      "dok",
+      "men",
+      "növekedet",
+      "iv",
+      "egyeten",
+      "ele",
+      "jöv",
+      "mat",
+      "tet"
     ],
     "quality_8_corpus_core": [
       "megkennie",
@@ -604,14 +440,14 @@
       "kispadra",
       "bányában",
       "kopoltyú",
+      "népnevelés",
       "csihol",
       "eprek",
       "valamiig",
       "eldörrent",
       "exodusba",
       "igaziról",
-      "kürtnek",
-      "harciasok"
+      "kürtnek"
     ],
     "required_one_letter": [
       "s",
@@ -644,93 +480,27 @@
       "cicái",
       "dolgaidat"
     ],
-    "weak_derivation": [
-      "szájúbbá",
-      "dübörgőért",
-      "ahányassá",
-      "közútibbik",
-      "purgálóul",
-      "málhánként",
-      "védekezős",
-      "óriásikért",
-      "barkánén",
-      "címzőkül",
-      "korosabbal",
-      "sokadikból",
-      "olvadóstul",
-      "búsabbakon",
-      "tájian",
-      "fölkerülés",
-      "zabosabbig",
-      "hányasként",
-      "tokányos",
-      "poltronan"
-    ],
-    "weak_plural_possessive": [
-      "vízumaikor",
-      "parásukhoz",
-      "igenléseké",
-      "restjeink",
-      "atyákéinak",
-      "sebeikkor",
-      "gyáriéi",
-      "egáléinál",
-      "zsugáinkba",
-      "óriásaimul",
-      "vezéreikül",
-      "léptűidet",
-      "bőujjúi",
-      "végzetéivé",
-      "bolhánkra",
-      "yardokéiba",
-      "abbeliéire",
-      "üzbégükkel",
-      "formánkba",
-      "elveteknek"
-    ],
-    "weak_possessive": [
-      "üregesében",
-      "achátomig",
-      "vivőrömmel",
-      "abházéban",
-      "házfedődül",
-      "agyaradnak",
-      "vékádkor",
-      "kormodban",
-      "epizódomig",
-      "huszitámon",
-      "mullé",
-      "muksódról",
-      "ebbélijébe",
-      "bodoré",
-      "bütyködhöz",
-      "skontómig",
-      "pikolóidig",
-      "fövőmre",
-      "pikkjéért",
-      "jégkrémét"
-    ],
     "weak_prefix_combination": [
-      "átcibáltak",
-      "elhűteni",
       "alulhidd",
-      "közretesz",
-      "belekattan",
       "utántégy",
       "utoligyál",
-      "lefikáznád",
       "végbekéne",
       "torkigvagy",
       "számbaidd",
-      "kifurkált",
-      "átkóborolt",
-      "belegépel",
-      "idefosni",
-      "újranyitom",
-      "berinyál",
-      "hazaisz",
-      "odaraktad",
-      "különvesz"
+      "feligyál",
+      "számbamész",
+      "utánlőn",
+      "felüljössz",
+      "hazavígy",
+      "kölcsönlőn",
+      "széjjeledd",
+      "utánvegyél",
+      "előreégy",
+      "televolna",
+      "fölévígy",
+      "idevégy",
+      "egyetedd",
+      "szemreidd"
     ],
     "written_abbreviation_shape": [
       "rf",
@@ -740,7 +510,7 @@
       "hm"
     ]
   },
-  "output_sha256": "1c6898b97702fed07738241a0f77da7823ddac3962634184141eeeb83b4e80c5",
+  "output_sha256": "70022b2168bd31c3e5ddf84ba488222c16d23dd8393e3aa772301d3f2e14e9aa",
   "artifacts": {
     "candidate": "hungarian_hu_hu_evidence_candidate.txt",
     "evidence": "evidence.tsv.gz",
@@ -750,10 +520,10 @@
   "lemma_index": {
     "schema_version": 1,
     "relative_path": "definitions/hu/surface-lemma/v1",
-    "surface_count": 863174,
-    "mapping_count": 927699,
+    "surface_count": 862910,
+    "mapping_count": 927435,
     "shard_count": 532,
-    "self_mappings_added_for_unmapped_surfaces": 7327
+    "self_mappings_added_for_unmapped_surfaces": 0
   },
   "promotion": {
     "candidate_file": "hungarian_hu_hu_evidence_candidate.txt",

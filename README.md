@@ -58,8 +58,10 @@ The companion build is implemented in `build_evidence_wordlist.py`. It:
 5. Rejects proper-name-only analyses even when their lowercase spelling occurs
    in web text
 6. Treats both morphdb.hu `POSS` and `ANP` possessee paradigms as high risk
-7. Adds morphdb.hu headwords missing from Magyar Ispell only when they occur at
-   least ten times in the cleanest quality-4 corpus partition
+7. Adds morphdb.hu headwords missing from Magyar Ispell only when morphdb.hu
+   recognizes them as non-proper standalone forms and they occur at least ten
+   times in the cleanest quality-4 corpus partition; internal `PSEUDOROOT`
+   stems used only for suffix generation are rejected
 8. Writes per-word evidence and rejection reasons alongside a deterministic
    audit and human-readable report
 9. Applies traceable, explicitly reviewed gameplay additions from
