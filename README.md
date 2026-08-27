@@ -22,10 +22,11 @@ redistributed in this repository.
 This word list is derived from Magyar Ispell, which is published under a
 **GPL / LGPL / MPL triple-license**. We use the **Mozilla Public License 1.1 (MPL 1.1)** option.
 
-Under MPL 1.1, the dictionary data (this word list file) is distributed in this public repository
-so that it remains open, while the application code using it may remain proprietary.
-See [COPYING.MPL](https://github.com/laszlonemeth/magyarispell/blob/master/COPYING.MPL) in the
-Magyar Ispell repository for the full MPL 1.1 license text.
+Under MPL 1.1, the dictionary data and the preferred source used to produce it
+are distributed in this public repository so that they remain open, while the
+application code using them may remain proprietary. See [COPYING.MPL](COPYING.MPL)
+for the full MPL 1.1 license text and [MODIFICATIONS.md](MODIFICATIONS.md) for a
+dated summary of the ABCx3 changes.
 
 ## Contents
 
@@ -38,6 +39,10 @@ surface-form-to-lemma index for definition lookup. A surface may retain
 multiple source lemmas when Magyar Ispell has ambiguous analyses. The index is
 kept separate from the game word list so clients that only validate words do
 not download it.
+
+`COPYING.MPL`, `MPL-NOTICE`, and `MODIFICATIONS.md` — the complete license
+text, required source notice, and dated record of changes for this modified
+distribution.
 
 ### Evidence-scored candidate
 
