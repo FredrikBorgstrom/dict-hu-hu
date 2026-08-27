@@ -4,7 +4,7 @@
   "source": {
     "current_candidate": {
       "path": "output/hungarian_hu_hu_ispell.txt",
-      "sha256": "1c6898b97702fed07738241a0f77da7823ddac3962634184141eeeb83b4e80c5"
+      "sha256": "90d5622fcb04668a771c43cd5ade97ccc160a79d3ce71cf5313ada0fa037cd21"
     },
     "magyar_ispell": {
       "aff_sha256": "f3a2748dd535cfde2142ab17d0f7f8e4787b03fb25a60829c69ac8d493db4802",
@@ -41,54 +41,144 @@
     "morphdb_pseudoroots_rejected": true,
     "morphdb_additions_require_standalone_analysis": true,
     "proper_name_only_rejected": true,
+    "source_policy_blocked_surfaces": [
+      "go",
+      "szja",
+      "tsz",
+      "uv"
+    ],
     "prefix_combinations_require_quality_8_usage": true,
     "cross_analyzer_basic_inflections_require_lemma_agreement": true,
+    "generated_kor_complete_frequency": 1,
     "surface_additions": [
       "box"
     ],
-    "surface_removals": []
+    "surface_removals": [
+      "al",
+      "aú",
+      "bojtú",
+      "bárú",
+      "cal",
+      "cimet",
+      "cos",
+      "cosec",
+      "csatú",
+      "ctg",
+      "dag",
+      "dzs",
+      "dühű",
+      "falcú",
+      "felű",
+      "gőgű",
+      "gőzű",
+      "hímű",
+      "igéjű",
+      "jade",
+      "kcal",
+      "kib",
+      "klónú",
+      "késű",
+      "kórú",
+      "ködű",
+      "mbar",
+      "mmol",
+      "márc",
+      "mé",
+      "omega",
+      "org",
+      "pózú",
+      "rögű",
+      "sin",
+      "stb",
+      "sípú",
+      "tokú",
+      "tusú",
+      "tá",
+      "tőrű",
+      "versű",
+      "vu",
+      "words",
+      "yacht",
+      "zagyú",
+      "zsírú",
+      "zsüri",
+      "zu",
+      "ájerű",
+      "ál",
+      "élcű",
+      "épit",
+      "ősű"
+    ],
+    "lemma_removals": [
+      "as",
+      "lex"
+    ],
+    "lemma_removed_surface_count": 2
   },
   "counts": {
-    "accepted": 862910,
-    "current_candidates": 863174,
-    "external_candidates": 2870,
-    "rejected": 3134,
-    "rejected_from_current": 264,
-    "total_candidates": 866044,
-    "final_unique_words": 862910,
-    "lemma_index_surfaces": 862910,
-    "lemma_index_mappings": 927435,
-    "lemma_index_shards": 532
+    "accepted": 846397,
+    "current_candidates": 846418,
+    "external_candidates": 2874,
+    "rejected": 2895,
+    "rejected_from_current": 21,
+    "total_candidates": 849292,
+    "final_unique_words": 846397,
+    "lemma_index_surfaces": 846397,
+    "lemma_index_mappings": 910493,
+    "lemma_index_shards": 527
   },
   "reason_counts": {
-    "attested_derivation": 52175,
-    "attested_possessive": 62723,
+    "attested_derivation": 52148,
+    "attested_possessive": 62718,
     "attested_prefix_combination": 20083,
-    "corroborated_corpus_singleton": 50135,
-    "cross_analyzer_basic_inflection": 288781,
-    "direct_source_form": 5709,
+    "corroborated_corpus_singleton": 50128,
+    "cross_analyzer_basic_inflection": 272350,
+    "direct_source_form": 5708,
     "insufficient_usage_or_risky_inflection": 238,
-    "morphdb_nonstandalone_source": 264,
-    "quality_8_corpus_core": 369609,
+    "quality_8_corpus_core": 369567,
     "required_one_letter": 4,
     "reviewed_surface_addition": 1,
+    "reviewed_surface_removal": 25,
     "strong_plural_possessive_usage": 13690,
     "weak_prefix_combination": 2627,
     "written_abbreviation_shape": 5
   },
   "accepted_length_counts": {
     "1": 4,
-    "2": 131,
-    "3": 945,
-    "4": 4230,
-    "5": 17259,
-    "6": 43053,
-    "7": 95478,
-    "8": 174721,
-    "9": 238358,
-    "10": 288731
+    "2": 123,
+    "3": 931,
+    "4": 4200,
+    "5": 17192,
+    "6": 42671,
+    "7": 94244,
+    "8": 171348,
+    "9": 233356,
+    "10": 282328
   },
   "questioned_words": {
+    "aú": {
+      "decision": "reject",
+      "reason": "reviewed_surface_removal",
+      "corpus": {
+        "complete": 42,
+        "quality_40": 31,
+        "quality_8": 23,
+        "quality_4": 11
+      },
+      "morphdb": {
+        "recognized": true,
+        "nonproper": true,
+        "proper_only": false,
+        "derivation_only": false,
+        "prefix_only": false,
+        "possessive_only": false,
+        "plural_possessive_only": false,
+        "lemma_agreement": false,
+        "parts_of_speech": [
+          "UTT-INT"
+        ]
+      }
+    },
     "bement": {
       "decision": "accept",
       "reason": "attested_prefix_combination",
@@ -248,6 +338,75 @@
           "NOUN"
         ]
       }
+    },
+    "mé": {
+      "decision": "reject",
+      "reason": "reviewed_surface_removal",
+      "corpus": {
+        "complete": 2567,
+        "quality_40": 2188,
+        "quality_8": 632,
+        "quality_4": 178
+      },
+      "morphdb": {
+        "recognized": true,
+        "nonproper": true,
+        "proper_only": false,
+        "derivation_only": false,
+        "prefix_only": false,
+        "possessive_only": false,
+        "plural_possessive_only": false,
+        "lemma_agreement": false,
+        "parts_of_speech": [
+          "ADV"
+        ]
+      }
+    },
+    "tá": {
+      "decision": "reject",
+      "reason": "reviewed_surface_removal",
+      "corpus": {
+        "complete": 7580,
+        "quality_40": 6955,
+        "quality_8": 537,
+        "quality_4": 149
+      },
+      "morphdb": {
+        "recognized": true,
+        "nonproper": true,
+        "proper_only": false,
+        "derivation_only": false,
+        "prefix_only": false,
+        "possessive_only": false,
+        "plural_possessive_only": false,
+        "lemma_agreement": false,
+        "parts_of_speech": [
+          "UTT-INT"
+        ]
+      }
+    },
+    "zu": {
+      "decision": "reject",
+      "reason": "reviewed_surface_removal",
+      "corpus": {
+        "complete": 143386,
+        "quality_40": 4154,
+        "quality_8": 696,
+        "quality_4": 181
+      },
+      "morphdb": {
+        "recognized": true,
+        "nonproper": true,
+        "proper_only": false,
+        "derivation_only": false,
+        "prefix_only": false,
+        "possessive_only": false,
+        "plural_possessive_only": false,
+        "lemma_agreement": false,
+        "parts_of_speech": [
+          "UTT-INT"
+        ]
+      }
     }
   },
   "samples": {
@@ -359,7 +518,7 @@
       "kádikból",
       "berezeltbe",
       "bukétává",
-      "pókhálókor"
+      "kóbortól"
     ],
     "direct_source_form": [
       "aknásít",
@@ -405,28 +564,6 @@
       "aközül",
       "lelőn"
     ],
-    "morphdb_nonstandalone_source": [
-      "slusz",
-      "puc",
-      "gal",
-      "vé",
-      "közl",
-      "vigy",
-      "mel",
-      "tete",
-      "jus",
-      "tév",
-      "mifelé",
-      "dok",
-      "men",
-      "növekedet",
-      "iv",
-      "egyeten",
-      "ele",
-      "jöv",
-      "mat",
-      "tet"
-    ],
     "quality_8_corpus_core": [
       "megkennie",
       "termektől",
@@ -457,6 +594,28 @@
     ],
     "reviewed_surface_addition": [
       "box"
+    ],
+    "reviewed_surface_removal": [
+      "omega",
+      "mbar",
+      "cosec",
+      "dag",
+      "jade",
+      "ctg",
+      "épit",
+      "dzs",
+      "tá",
+      "zsüri",
+      "zu",
+      "cos",
+      "cimet",
+      "mmol",
+      "kcal",
+      "stb",
+      "sin",
+      "words",
+      "kib",
+      "org"
     ],
     "strong_plural_possessive_usage": [
       "piramisai",
@@ -510,7 +669,7 @@
       "hm"
     ]
   },
-  "output_sha256": "70022b2168bd31c3e5ddf84ba488222c16d23dd8393e3aa772301d3f2e14e9aa",
+  "output_sha256": "89d22350e7d5264636a13fbff6fb0b33ca07b2f815a9f8b4ed209fb23ff8ad9c",
   "artifacts": {
     "candidate": "hungarian_hu_hu_evidence_candidate.txt",
     "evidence": "evidence.tsv.gz",
@@ -520,9 +679,9 @@
   "lemma_index": {
     "schema_version": 1,
     "relative_path": "definitions/hu/surface-lemma/v1",
-    "surface_count": 862910,
-    "mapping_count": 927435,
-    "shard_count": 532,
+    "surface_count": 846397,
+    "mapping_count": 910493,
+    "shard_count": 527,
     "self_mappings_added_for_unmapped_surfaces": 0
   },
   "promotion": {

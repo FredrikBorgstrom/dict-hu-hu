@@ -4,26 +4,26 @@ This is a local candidate for review. It does not replace or deploy the producti
 
 ## Summary
 
-- Accepted words: **862,910**
-- Current words removed by the candidate policy: **264**
+- Accepted words: **846,397**
+- Current words removed by the candidate policy: **21**
 - Strongly attested morphdb.hu headword additions: **0**
-- Candidate SHA-256: `70022b2168bd31c3e5ddf84ba488222c16d23dd8393e3aa772301d3f2e14e9aa`
+- Candidate SHA-256: `89d22350e7d5264636a13fbff6fb0b33ca07b2f815a9f8b4ed209fb23ff8ad9c`
 
 ## Decisions by evidence rule
 
 | Rule | Words |
 |---|---:|
-| `quality_8_corpus_core` | 369,609 |
-| `cross_analyzer_basic_inflection` | 288,781 |
-| `attested_possessive` | 62,723 |
-| `attested_derivation` | 52,175 |
-| `corroborated_corpus_singleton` | 50,135 |
+| `quality_8_corpus_core` | 369,567 |
+| `cross_analyzer_basic_inflection` | 272,350 |
+| `attested_possessive` | 62,718 |
+| `attested_derivation` | 52,148 |
+| `corroborated_corpus_singleton` | 50,128 |
 | `attested_prefix_combination` | 20,083 |
 | `strong_plural_possessive_usage` | 13,690 |
-| `direct_source_form` | 5,709 |
+| `direct_source_form` | 5,708 |
 | `weak_prefix_combination` | 2,627 |
-| `morphdb_nonstandalone_source` | 264 |
 | `insufficient_usage_or_risky_inflection` | 238 |
+| `reviewed_surface_removal` | 25 |
 | `written_abbreviation_shape` | 5 |
 | `required_one_letter` | 4 |
 | `reviewed_surface_addition` | 1 |
@@ -32,18 +32,28 @@ This is a local candidate for review. It does not replace or deploy the producti
 
 | Word | Decision | Reason | Quality-8 | Quality-4 |
 |---|---|---|---:|---:|
+| `al` | not a candidate | — | 0 | 0 |
+| `as` | not a candidate | — | 0 | 0 |
+| `aú` | reject | `reviewed_surface_removal` | 23 | 11 |
 | `beír` | accept | `quality_8_corpus_core` | 661 | 389 |
 | `bement` | accept | `attested_prefix_combination` | 4690 | 3118 |
 | `box` | accept | `reviewed_surface_addition` | 1905 | 400 |
+| `exkor` | not a candidate | — | 0 | 0 |
 | `faxos` | accept | `attested_derivation` | 56 | 40 |
 | `kijött` | accept | `attested_prefix_combination` | 5619 | 3042 |
+| `lex` | not a candidate | — | 0 | 0 |
 | `luki` | not a candidate | — | 0 | 0 |
 | `lófő` | accept | `quality_8_corpus_core` | 51 | 26 |
 | `lófőm` | not a candidate | — | 0 | 0 |
+| `mé` | reject | `reviewed_surface_removal` | 632 | 178 |
 | `mi` | accept | `quality_8_corpus_core` | 797905 | 478960 |
 | `mii` | not a candidate | — | 0 | 0 |
 | `miibe` | not a candidate | — | 0 | 0 |
 | `miik` | not a candidate | — | 0 | 0 |
+| `tá` | reject | `reviewed_surface_removal` | 537 | 149 |
+| `vu` | not a candidate | — | 0 | 0 |
+| `zu` | reject | `reviewed_surface_removal` | 696 | 181 |
+| `ál` | not a candidate | — | 0 | 0 |
 
 ## Limitations
 

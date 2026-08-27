@@ -1,13 +1,13 @@
 # Dictionary word-list quality ranking
 
-Generated 2026-08-17T11:02:04+00:00 from `/Users/fredrik/Documents/abcx3_dictionaries/hungarian_hu_hu_ispell`. Audited 2 output lists.
+Generated 2026-08-21T17:18:50+00:00 from `/Users/fredrik/Documents/abcx3_dictionaries/hungarian_hu_hu_ispell`. Audited 2 output lists.
 
 ## Ranked summary
 
 | Rank | Dictionary output | Quality | Score | Words | Observed suspect | Proper candidates* | Abbreviation candidates* | Filter evidence |
 |---:|---|:---:|---:|---:|---:|---:|---:|:---:|
-| 1 | [Hungarian (HU, candidate)](../hungarian_hu_hu_evidence_candidate.txt) | A — excellent | 94.2 | 863,174 | 0 (0.0000%) | 0 (0.0000%) | 0 (0.0000%) | machine-audited |
-| 2 | [Hungarian (HU, ispell)](../../output/hungarian_hu_hu_ispell.txt) | A — excellent | 94.2 | 863,174 | 0 (0.0000%) | 0 (0.0000%) | 0 (0.0000%) | machine-audited |
+| 1 | [Hungarian (HU, candidate)](../hungarian_hu_hu_evidence_candidate.txt) | A — excellent | 94.1 | 862,858 | 0 (0.0000%) | 0 (0.0000%) | 0 (0.0000%) | machine-audited |
+| 2 | [Hungarian (HU, ispell)](../../output/hungarian_hu_hu_ispell.txt) | A — excellent | 94.1 | 862,858 | 0 (0.0000%) | 0 (0.0000%) | 0 (0.0000%) | machine-audited |
 
 \* Candidate counts are exact pattern/watch-list hits in the current files, not exact semantic inventories. They may contain false positives and miss lowercase or otherwise unobservable cases.
 

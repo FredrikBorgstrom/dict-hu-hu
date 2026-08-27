@@ -1,12 +1,12 @@
 # Dictionary word-list quality ranking
 
-Generated 2026-08-17T07:56:49+00:00 from `/Users/fredrik/Documents/abcx3_dictionaries/hungarian_hu_hu_ispell`. Audited 1 output list.
+Generated 2026-08-27T13:29:57+00:00 from `/Users/fredrik/Documents/abcx3_dictionaries/hungarian_hu_hu_ispell`. Audited 1 output list.
 
 ## Ranked summary
 
 | Rank | Dictionary output | Quality | Score | Words | Observed suspect | Proper candidates* | Abbreviation candidates* | Filter evidence |
 |---:|---|:---:|---:|---:|---:|---:|---:|:---:|
-| 1 | [Hungarian (HU, ispell)](../output/hungarian_hu_hu_ispell.txt) | A — excellent | 98.9 | 2,690,331 | 0 (0.0000%) | 0 (0.0000%) | 0 (0.0000%) | machine-audited |
+| 1 | [Hungarian (HU, ispell)](../output/hungarian_hu_hu_ispell.txt) | A — excellent | 94.0 | 846,397 | 0 (0.0000%) | 0 (0.0000%) | 0 (0.0000%) | machine-audited |
 
 \* Candidate counts are exact pattern/watch-list hits in the current files, not exact semantic inventories. They may contain false positives and miss lowercase or otherwise unobservable cases.
 

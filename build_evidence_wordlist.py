@@ -68,20 +68,31 @@ POSSESSIVE_QUALITY_4_FREQUENCY = 2
 PLURAL_POSSESSIVE_QUALITY_4_FREQUENCY = 20
 DERIVATION_QUALITY_4_FREQUENCY = 2
 MORPHDB_ADDITION_QUALITY_4_FREQUENCY = 10
+GENERATED_KOR_COMPLETE_FREQUENCY = 1
 
 QUESTIONED_WORDS = (
+    "al",
+    "as",
+    "aú",
     "beír",
     "bement",
     "box",
+    "exkor",
     "faxos",
     "kijött",
+    "lex",
     "luki",
     "lófő",
     "lófőm",
+    "mé",
     "mi",
     "mii",
     "miibe",
     "miik",
+    "tá",
+    "vu",
+    "zu",
+    "ál",
 )
 
 POS_RE = re.compile(r"/(NOUN|VERB|ADJ|ADV|NUM|DET|UTT-INT|POSTP|CONJ)")
@@ -161,6 +172,14 @@ def _parse_bool(value: str) -> bool:
     if value not in {"0", "1"}:
         raise ValueError(f"Invalid Boolean cache field: {value!r}")
     return value == "1"
+
+
+def is_source_policy_blocked_surface(word: str) -> bool:
+    """Return whether an exact surface is excluded by source-game policy."""
+    return (
+        word in MANUAL_WRITTEN_ABBREVIATIONS
+        or word in INVALID_STANDALONE_SURFACES
+    )
 
 
 def _is_lower_lexeme(value: str) -> bool:
@@ -258,16 +277,27 @@ def decide_word(
     current_direct: bool,
     morphdb_direct: bool,
     morphdb_nonstandalone: bool = False,
+    source_policy_blocked: bool = False,
     explicit_addition: bool = False,
-    explicit_removal: bool = False,
+    explicit_surface_removal: bool = False,
+    explicit_lemma_removal: bool = False,
 ) -> Decision:
     """Apply the conservative policy in priority order."""
     if word in HUNGARIAN_REQUIRED_ONE_LETTER_WORDS:
         return Decision(True, "required_one_letter")
     if len(word) == 2 and not has_vowel(word):
         return Decision(False, "written_abbreviation_shape")
-    if explicit_removal:
+    # Keep the source generator's exact-surface exclusions authoritative.  A
+    # previously promoted output can otherwise make a blocked form sticky:
+    # corpus or morphdb.hu evidence would re-admit it even after the source
+    # inventory stopped treating it as a valid direct form (for example
+    # ``szja``, a written abbreviation).
+    if source_policy_blocked:
+        return Decision(False, "source_policy_blocked_surface")
+    if explicit_surface_removal:
         return Decision(False, "reviewed_surface_removal")
+    if explicit_lemma_removal:
+        return Decision(False, "reviewed_lemma_removal")
     if explicit_addition:
         return Decision(True, "reviewed_surface_addition")
     # morphdb.hu's compiled dictionary contains PSEUDOROOT entries such as
@@ -328,6 +358,17 @@ def decide_word(
         and morph.safe_inflection
         and morph.lemma_agreement
     ):
+        # ``-kor`` is semantically selective: two morphology engines can
+        # mechanically attach it to nouns and adjectives even when the result
+        # has no plausible temporal use (for example ``exkor``).  Direct
+        # headwords and corpus-attested forms have already returned above, so
+        # require at least one complete-corpus occurrence for the remaining
+        # generated forms.
+        if (
+            word.endswith("kor")
+            and corpus.complete < GENERATED_KOR_COMPLETE_FREQUENCY
+        ):
+            return Decision(False, "unattested_generated_kor_form")
         return Decision(True, "cross_analyzer_basic_inflection")
     if (
         not current_candidate
@@ -508,6 +549,59 @@ def load_surface_overrides(path: Path | None) -> frozenset[str]:
         if line.strip() and not line.lstrip().startswith("#")
     }
     return frozenset(removals)
+
+
+def expand_lemma_removals(
+    index_dir: Path,
+    removed_lemmas: frozenset[str],
+) -> tuple[frozenset[str], frozenset[str]]:
+    """Resolve reviewed lemma removals while preserving valid homographs.
+
+    A surface is removed only when every source lemma that licenses it is
+    removed.  A lemma spelling absent from the current promoted index is still
+    returned as a removal so a later morphdb merge cannot reintroduce the
+    headword after its family has already been promoted out.
+    """
+    if not removed_lemmas:
+        return frozenset(), frozenset()
+
+    manifest_path = index_dir / "manifest.json"
+    if not manifest_path.is_file():
+        raise FileNotFoundError(
+            f"Lemma removals require a surface-to-lemma manifest: {manifest_path}"
+        )
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    shards = manifest.get("shards")
+    if not isinstance(shards, dict):
+        raise ValueError(f"Malformed surface-to-lemma manifest: {manifest_path}")
+
+    removals: set[str] = set()
+    seen_lemmas: set[str] = set()
+    mapped_surfaces: set[str] = set()
+    for shard_key, metadata in sorted(shards.items()):
+        shard_path = index_dir / f"{shard_key}.tsv.gz"
+        if not shard_path.is_file():
+            raise FileNotFoundError(f"Missing surface-to-lemma shard: {shard_path}")
+        expected_sha256 = metadata.get("sha256") if isinstance(metadata, dict) else None
+        if expected_sha256 != _sha256_file(str(shard_path)):
+            raise ValueError(f"Surface-to-lemma shard checksum mismatch: {shard_path}")
+        with gzip.open(shard_path, "rt", encoding="utf-8") as source:
+            for line in source:
+                surface, separator, lemmas_raw = line.rstrip("\n").partition("\t")
+                if not separator or not surface or not lemmas_raw:
+                    raise ValueError(f"Malformed lemma row in {shard_path}: {line!r}")
+                lemmas = tuple(filter(None, lemmas_raw.split(",")))
+                if not lemmas:
+                    raise ValueError(f"Lemma row has no mappings in {shard_path}: {line!r}")
+                mapped_surfaces.add(surface)
+                seen_lemmas.update(removed_lemmas.intersection(lemmas))
+                if all(lemma in removed_lemmas for lemma in lemmas):
+                    removals.add(surface)
+
+    # On repeat builds the removed family is no longer present in the promoted
+    # index.  Keep blocking the headword itself if morphdb proposes it again.
+    removals.update(removed_lemmas - mapped_surfaces)
+    return frozenset(removals), frozenset(seen_lemmas)
 
 
 def load_corpus_evidence(
@@ -767,6 +861,8 @@ def build_outputs(
     morph_cache_path: Path,
     surface_additions: frozenset[str],
     surface_removals: frozenset[str],
+    lemma_removals: frozenset[str],
+    lemma_removed_surfaces: frozenset[str],
     output_dir: Path,
     source_metadata: dict,
 ) -> dict:
@@ -818,8 +914,10 @@ def build_outputs(
                 current_direct=word in current_direct,
                 morphdb_direct=word in morphdb_direct,
                 morphdb_nonstandalone=word in morphdb_nonstandalone,
+                source_policy_blocked=is_source_policy_blocked_surface(word),
                 explicit_addition=word in surface_additions,
-                explicit_removal=word in surface_removals,
+                explicit_surface_removal=word in surface_removals,
+                explicit_lemma_removal=word in lemma_removed_surfaces,
             )
             reason_counts[decision.reason] += 1
             counts["total_candidates"] += 1
@@ -899,10 +997,16 @@ def build_outputs(
             "morphdb_pseudoroots_rejected": True,
             "morphdb_additions_require_standalone_analysis": True,
             "proper_name_only_rejected": True,
+            "source_policy_blocked_surfaces": sorted(
+                MANUAL_WRITTEN_ABBREVIATIONS | INVALID_STANDALONE_SURFACES
+            ),
             "prefix_combinations_require_quality_8_usage": True,
             "cross_analyzer_basic_inflections_require_lemma_agreement": True,
+            "generated_kor_complete_frequency": GENERATED_KOR_COMPLETE_FREQUENCY,
             "surface_additions": sorted(surface_additions),
             "surface_removals": sorted(surface_removals),
+            "lemma_removals": sorted(lemma_removals),
+            "lemma_removed_surface_count": len(lemma_removed_surfaces),
         },
         "counts": dict(sorted(counts.items())),
         "reason_counts": dict(sorted(reason_counts.items())),
@@ -1014,6 +1118,7 @@ def main() -> int:
     parser.add_argument("--output-dir")
     parser.add_argument("--surface-removals")
     parser.add_argument("--surface-additions")
+    parser.add_argument("--lemma-removals")
     parser.add_argument(
         "--morph-workers",
         type=int,
@@ -1028,6 +1133,9 @@ def main() -> int:
     current_output_path = script_dir / "output" / "hungarian_hu_hu_ispell.txt"
     current_aff_path = script_dir / ".cache" / "sources" / "hu_HU.aff"
     current_dic_path = script_dir / ".cache" / "sources" / "hu_HU.dic"
+    current_lemma_index_dir = (
+        script_dir / "output" / "definitions" / "hu" / "surface-lemma" / "v1"
+    )
     corpus_path = script_dir / ".cache" / "sources" / "web2.2-alfa-sorted.txt.gz"
     for required_path in (
         current_output_path,
@@ -1067,6 +1175,11 @@ def main() -> int:
             if args.surface_removals
             else default_overrides_dir / "surface-removals.txt"
         )
+        lemma_removals = load_surface_overrides(
+            Path(args.lemma_removals)
+            if args.lemma_removals
+            else default_overrides_dir / "lemma-removals.txt"
+        )
         conflicts = surface_additions & surface_removals
         if conflicts:
             raise ValueError(
@@ -1083,6 +1196,35 @@ def main() -> int:
             raise ValueError(
                 "Invalid reviewed surface additions: "
                 + ", ".join(sorted(invalid_additions))
+            )
+        invalid_removals = {
+            word
+            for word in surface_removals | lemma_removals
+            if not is_valid_hu_word(word)
+        }
+        if invalid_removals:
+            raise ValueError(
+                "Invalid reviewed removals: " + ", ".join(sorted(invalid_removals))
+            )
+        lemma_removed_surfaces, indexed_removed_lemmas = expand_lemma_removals(
+            current_lemma_index_dir,
+            lemma_removals,
+        )
+        unknown_removed_lemmas = lemma_removals - (
+            indexed_removed_lemmas | approved_source_lemmas | morphdb_direct
+        )
+        if unknown_removed_lemmas:
+            raise ValueError(
+                "Reviewed lemma removals are absent from all source inventories: "
+                + ", ".join(sorted(unknown_removed_lemmas))
+            )
+        effective_removal_conflicts = surface_additions & (
+            surface_removals | lemma_removed_surfaces
+        )
+        if effective_removal_conflicts:
+            raise ValueError(
+                "Surfaces cannot be both added and removed: "
+                + ", ".join(sorted(effective_removal_conflicts))
             )
         merged_path, current_words = _merge_candidate_inventory(
             current_output_path, morphdb_direct, surface_additions, cache_dir
@@ -1145,6 +1287,8 @@ def main() -> int:
             morph_cache_path=morph_cache_path,
             surface_additions=surface_additions,
             surface_removals=surface_removals,
+            lemma_removals=lemma_removals,
+            lemma_removed_surfaces=lemma_removed_surfaces,
             output_dir=output_dir,
             source_metadata=source_metadata,
         )

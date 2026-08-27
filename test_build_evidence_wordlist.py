@@ -6,9 +6,11 @@ from build_evidence_wordlist import (
     CorpusEvidence,
     MorphEvidence,
     decide_word,
+    expand_lemma_removals,
     load_morphdb_source_inventory,
     parse_morphdb_block,
 )
+from process_words import _write_lemma_index
 
 
 class MorphdbParsingTests(unittest.TestCase):
@@ -102,6 +104,35 @@ class MorphdbSourceInventoryTests(unittest.TestCase):
         )
 
 
+class LemmaRemovalTests(unittest.TestCase):
+    def test_expands_lemma_family_but_preserves_allowed_homograph(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            mappings_path = root / "mappings.tsv"
+            mappings_path.write_text(
+                "as\tas\n"
+                "asok\tas\n"
+                "hom\thom\n"
+                "hom\tremoved\n"
+                "lex\tlex\n",
+                encoding="utf-8",
+            )
+            index_dir = root / "index"
+            _write_lemma_index(
+                str(mappings_path),
+                str(index_dir),
+                blocked_surfaces=set(),
+            )
+
+            removals, seen = expand_lemma_removals(
+                index_dir,
+                frozenset({"as", "lex", "removed"}),
+            )
+
+        self.assertEqual(frozenset({"as", "asok", "lex", "removed"}), removals)
+        self.assertEqual(frozenset({"as", "lex", "removed"}), seen)
+
+
 class EvidencePolicyTests(unittest.TestCase):
     def test_accepts_reviewed_surface_addition_without_source_evidence(self):
         decision = decide_word(
@@ -118,6 +149,28 @@ class EvidencePolicyTests(unittest.TestCase):
             (decision.accepted, decision.reason),
         )
 
+    def test_rejects_reviewed_surface_and_lemma_removals(self):
+        surface = decide_word(
+            "tá",
+            CorpusEvidence(100, 100, 100, 100),
+            MorphEvidence(recognized=True, nonproper=True),
+            current_candidate=True,
+            current_direct=False,
+            morphdb_direct=True,
+            explicit_surface_removal=True,
+        )
+        lemma = decide_word(
+            "asok",
+            CorpusEvidence(100, 100, 100, 100),
+            MorphEvidence(recognized=True, nonproper=True),
+            current_candidate=True,
+            current_direct=False,
+            morphdb_direct=False,
+            explicit_lemma_removal=True,
+        )
+        self.assertEqual((False, "reviewed_surface_removal"), (surface.accepted, surface.reason))
+        self.assertEqual((False, "reviewed_lemma_removal"), (lemma.accepted, lemma.reason))
+
     def test_rejects_two_letter_consonant_abbreviation_shape(self):
         decision = decide_word(
             "sz",
@@ -129,6 +182,25 @@ class EvidencePolicyTests(unittest.TestCase):
         )
         self.assertEqual(
             (False, "written_abbreviation_shape"),
+            (decision.accepted, decision.reason),
+        )
+
+    def test_rejects_source_policy_blocked_surface_despite_strong_evidence(self):
+        decision = decide_word(
+            "szja",
+            CorpusEvidence(1293, 1285, 1193, 981),
+            MorphEvidence(
+                recognized=True,
+                nonproper=True,
+                safe_inflection=True,
+            ),
+            current_candidate=True,
+            current_direct=False,
+            morphdb_direct=False,
+            source_policy_blocked=True,
+        )
+        self.assertEqual(
+            (False, "source_policy_blocked_surface"),
             (decision.accepted, decision.reason),
         )
 
@@ -197,6 +269,66 @@ class EvidencePolicyTests(unittest.TestCase):
         )
         self.assertEqual(
             (True, "cross_analyzer_basic_inflection"),
+            (decision.accepted, decision.reason),
+        )
+
+    def test_rejects_unattested_generated_kor_form(self):
+        decision = decide_word(
+            "exkor",
+            CorpusEvidence(),
+            MorphEvidence(
+                recognized=True,
+                nonproper=True,
+                safe_inflection=True,
+                lemma_agreement=True,
+                parts_of_speech=("NOUN",),
+            ),
+            current_candidate=True,
+            current_direct=False,
+            morphdb_direct=False,
+        )
+        self.assertEqual(
+            (False, "unattested_generated_kor_form"),
+            (decision.accepted, decision.reason),
+        )
+
+    def test_accepts_attested_generated_kor_form(self):
+        decision = decide_word(
+            "ablakkor",
+            CorpusEvidence(1, 0, 0, 0),
+            MorphEvidence(
+                recognized=True,
+                nonproper=True,
+                safe_inflection=True,
+                lemma_agreement=True,
+                parts_of_speech=("NOUN",),
+            ),
+            current_candidate=True,
+            current_direct=False,
+            morphdb_direct=False,
+        )
+        self.assertEqual(
+            (True, "cross_analyzer_basic_inflection"),
+            (decision.accepted, decision.reason),
+        )
+
+    def test_preserves_unattested_direct_headword_ending_in_kor(self):
+        decision = decide_word(
+            "kor",
+            CorpusEvidence(),
+            MorphEvidence(
+                recognized=True,
+                nonproper=True,
+                safe_inflection=True,
+                lemma_agreement=True,
+                parts_of_speech=("NOUN",),
+            ),
+            current_candidate=True,
+            current_direct=True,
+            morphdb_direct=False,
+        )
+        self.assertEqual(
+            (True, "direct_source_form"),
             (decision.accepted, decision.reason),
         )
 
@@ -296,9 +428,54 @@ class PublishedCandidateRegressionTests(unittest.TestCase):
             {"beír", "bement", "faxos", "kijött", "lófő", "mi"}.issubset(words)
         )
         self.assertTrue(
-            {"luki", "lófőm", "mii", "miibe", "miik"}.isdisjoint(words)
+            {
+                "exkor",
+                "go",
+                "luki",
+                "lófőm",
+                "mii",
+                "miibe",
+                "miik",
+                "szja",
+                "tsz",
+                "uv",
+            }.isdisjoint(words)
         )
         self.assertIn("box", words)
+        self.assertTrue(
+            {
+                "al",
+                "as",
+                "aú",
+                "cal",
+                "cimet",
+                "cos",
+                "cosec",
+                "ctg",
+                "dag",
+                "dzs",
+                "jade",
+                "kcal",
+                "kib",
+                "lex",
+                "mbar",
+                "mmol",
+                "márc",
+                "mé",
+                "omega",
+                "org",
+                "sin",
+                "stb",
+                "tá",
+                "vu",
+                "words",
+                "yacht",
+                "zu",
+                "zsüri",
+                "ál",
+                "épit",
+            }.isdisjoint(words)
+        )
 
 
 if __name__ == "__main__":

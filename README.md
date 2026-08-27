@@ -42,7 +42,7 @@ not download it.
 ### Evidence-scored candidate
 
 `candidate/hungarian_hu_hu_evidence_candidate.txt` is a separately generated,
-quality-first candidate containing **863,174 words**. The candidate keeps
+quality-first candidate containing **846,418 words**. The candidate keeps
 ordinary inflections when Magyar Ispell and morphdb.hu agree on the lemma,
 while applying stronger clean-corpus requirements to prefixes, derivations,
 possessives, and plural + possessive stacks.
@@ -67,6 +67,9 @@ The companion build is implemented in `build_evidence_wordlist.py`. It:
 9. Applies traceable, explicitly reviewed gameplay additions from
    `_community_overrides/hungarian_hu_hu_ispell/additions.txt`; `box` is
    currently included through this policy
+10. Applies traceable surface and lemma removals from the same override set;
+    lemma removals discard the complete generated family while preserving a
+    homographic surface when another allowed lemma still licenses it
 
 The [morphdb.hu](https://mokk.bme.hu/en/resources/hunmorph/) archive contains a
 Creative Commons Attribution 2.5 license. The archive credits Eszter Simon,
@@ -125,7 +128,15 @@ Coverage:
 - Written abbreviations, case-sensitive units, compound-only roots, forbidden
   spellings, and forms marked substandard by Magyar Ispell are removed
 - Reviewed non-word surfaces such as `tsz`, `szja`, `uv`, and standalone `go`
-  are removed; lexicalized `taj` is retained
+  are removed; lexicalized `taj` is retained. Gameplay-reviewed foreign or
+  non-game entries `al`, `ál`, `as`, `aú`, `lex`, `mé`, `tá`, `vu`, and `zu`
+  are also removed through the traceable override policy. The `as` removal
+  applies to its complete generated lemma family; the others are reviewed
+  surface removals except for the standalone `lex` lemma. The reviewed written
+  symbols, mathematical notations, period-less abbreviations, misspellings, and
+  foreign forms `cal`, `cimet`, `cos`, `cosec`, `ctg`, `dag`, `dzs`, `épit`,
+  `jade`, `kcal`, `kib`, `márc`, `mbar`, `mmol`, `omega`, `org`, `sin`, `stb`,
+  `words`, `yacht`, and `zsüri` are removed as exact surfaces.
 - Direct source headwords and ordinary inflections are retained without an
   exact-surface corpus requirement.
 - Higher-risk paths must occur at least twice in the complete Webcorpus. These
@@ -136,6 +147,10 @@ Coverage:
   prefix is not necessarily meaningful with every verb. The last category
   covers forms such as `büróira` without applying a corpus gate to other
   ordinary case stacks.
+- Generated forms ending in the semantically selective temporal suffix `-kor`
+  must occur at least once in the complete Webcorpus. Direct source headwords
+  and already-attested forms are preserved. This prevents two agreeing
+  morphology engines from admitting unattested combinations such as `exkor`.
 
 This rule is fully automatic. A normal build has no native-speaker review gate,
 no model judgement, and no unpinned network input. For example, it removes

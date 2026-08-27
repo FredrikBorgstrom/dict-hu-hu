@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-17T07:56:49+00:00",
+  "generated_at": "2026-08-27T13:29:57+00:00",
   "root": "/Users/fredrik/Documents/abcx3_dictionaries/hungarian_hu_hu_ispell",
   "config": {
     "include_globs": [
@@ -34,21 +34,21 @@
       "name": "Hungarian (HU, ispell)",
       "language": "hu",
       "counts": {
-        "physical_lines": 2690331,
-        "entries": 2690331,
+        "physical_lines": 846397,
+        "entries": 846397,
         "single_character": 4,
-        "cased_entries": 2690331,
-        "lowercase_entries": 2690331
+        "cased_entries": 846397,
+        "lowercase_entries": 846397
       },
-      "entries": 2690331,
-      "quantity_word_count": 2690331,
+      "entries": 846397,
+      "quantity_word_count": 846397,
       "sorted": true,
       "observed_suspect_rate": 0.0,
       "surface_points": 60.0,
-      "quantity_points": 28.86,
+      "quantity_points": 24.04,
       "filter_evidence_points": 10.0,
       "filter_evidence": "machine-audited",
-      "score": 98.9,
+      "score": 94.0,
       "grade": "A",
       "quality": "excellent",
       "documentation_evidence": {

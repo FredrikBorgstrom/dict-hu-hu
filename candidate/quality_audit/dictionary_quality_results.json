@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-17T11:02:04+00:00",
+  "generated_at": "2026-08-21T17:18:50+00:00",
   "root": "/Users/fredrik/Documents/abcx3_dictionaries/hungarian_hu_hu_ispell",
   "config": {
     "include_globs": [
@@ -34,21 +34,21 @@
       "name": "Hungarian (HU, candidate)",
       "language": "hu",
       "counts": {
-        "physical_lines": 863174,
-        "entries": 863174,
+        "physical_lines": 862858,
+        "entries": 862858,
         "single_character": 4,
-        "cased_entries": 863174,
-        "lowercase_entries": 863174
+        "cased_entries": 862858,
+        "lowercase_entries": 862858
       },
-      "entries": 863174,
-      "quantity_word_count": 863174,
+      "entries": 862858,
+      "quantity_word_count": 862858,
       "sorted": true,
       "observed_suspect_rate": 0.0,
       "surface_points": 60.0,
       "quantity_points": 24.15,
       "filter_evidence_points": 10.0,
       "filter_evidence": "machine-audited",
-      "score": 94.2,
+      "score": 94.1,
       "grade": "A",
       "quality": "excellent",
       "documentation_evidence": {
@@ -71,21 +71,21 @@
       "name": "Hungarian (HU, ispell)",
       "language": "hu",
       "counts": {
-        "physical_lines": 863174,
-        "entries": 863174,
+        "physical_lines": 862858,
+        "entries": 862858,
         "single_character": 4,
-        "cased_entries": 863174,
-        "lowercase_entries": 863174
+        "cased_entries": 862858,
+        "lowercase_entries": 862858
       },
-      "entries": 863174,
-      "quantity_word_count": 863174,
+      "entries": 862858,
+      "quantity_word_count": 862858,
       "sorted": true,
       "observed_suspect_rate": 0.0,
       "surface_points": 60.0,
       "quantity_points": 24.15,
       "filter_evidence_points": 10.0,
       "filter_evidence": "machine-audited",
-      "score": 94.2,
+      "score": 94.1,
       "grade": "A",
       "quality": "excellent",
       "documentation_evidence": {
