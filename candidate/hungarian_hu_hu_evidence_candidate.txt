@@ -80177,7 +80177,6 @@ búzáért
 búzáét
 búzáétól
 búzáéval
-búék
 búért
 büdzsé
 büdzsébe
@@ -236786,7 +236785,6 @@ glükózzal
 glükózzá
 glükózért
 glükózétól
-gmk
 gneisszé
 gneisz
 gneiszből
@@ -322955,7 +322953,6 @@ jésülöd
 jésülök
 jésülöm
 jésülünk
-jézus
 jézusom
 jézusszíve
 jó
@@ -368435,7 +368432,6 @@ kiűzött
 kiűzöttség
 kiűző
 kjokusin
-kkv
 klakkban
 klapancia
 klapanciák
@@ -418016,7 +418012,6 @@ lapúul
 lapúval
 lapúvá
 lapúért
-las
 lasagne
 lasagnéból
 lasagnét
@@ -436093,7 +436088,6 @@ levezérelt
 levezérli
 levezési
 levező
-levi
 leviatán
 leviatánba
 leviatánig
@@ -483746,7 +483740,6 @@ meózzál
 meózzátok
 meózás
 meóért
-mgtsz
 mi
 mialatt
 mialattunk
@@ -621271,7 +621264,6 @@ sanyarúul
 sanyarúval
 sanyarúvá
 sanyarúért
-sanyi
 sanzon
 sanzonba
 sanzonban
@@ -623788,7 +623780,6 @@ sebével
 sebéért
 sebül
 sebű
-sec
 seft
 seftbe
 seftben
@@ -696836,7 +696827,6 @@ termitté
 termittől
 termitért
 termitül
-termo
 termoablak
 termoanyag
 termoelem
@@ -700573,7 +700563,6 @@ thaiok
 thaiokat
 thaiokkal
 thesaurus
-thm
 thriller
 thrillerbe
 thrillere
@@ -711981,7 +711970,6 @@ trüszkölte
 trüszkölöd
 trüszkölök
 trüszkölöm
-tszcs
 tuareg
 tuaregek
 tuaregeket
@@ -838130,7 +838118,6 @@ zűrül
 ügyünkkel
 ügyünknek
 ügyű
-ühg
 ühüm
 ük
 ükanya

@@ -4,26 +4,26 @@ This is a local candidate for review. It does not replace or deploy the producti
 
 ## Summary
 
-- Accepted words: **846,397**
-- Current words removed by the candidate policy: **21**
+- Accepted words: **846,384**
+- Current words removed by the candidate policy: **13**
 - Strongly attested morphdb.hu headword additions: **0**
-- Candidate SHA-256: `89d22350e7d5264636a13fbff6fb0b33ca07b2f815a9f8b4ed209fb23ff8ad9c`
+- Candidate SHA-256: `c301020e41b4caa74cfabfcbf3693c68ecef7d7ab139b2fe44a0387cd9c7713b`
 
 ## Decisions by evidence rule
 
 | Rule | Words |
 |---|---:|
-| `quality_8_corpus_core` | 369,567 |
+| `quality_8_corpus_core` | 369,556 |
 | `cross_analyzer_basic_inflection` | 272,350 |
 | `attested_possessive` | 62,718 |
-| `attested_derivation` | 52,148 |
+| `attested_derivation` | 52,146 |
 | `corroborated_corpus_singleton` | 50,128 |
 | `attested_prefix_combination` | 20,083 |
 | `strong_plural_possessive_usage` | 13,690 |
 | `direct_source_form` | 5,708 |
 | `weak_prefix_combination` | 2,627 |
 | `insufficient_usage_or_risky_inflection` | 238 |
-| `reviewed_surface_removal` | 25 |
+| `reviewed_surface_removal` | 18 |
 | `written_abbreviation_shape` | 5 |
 | `required_one_letter` | 4 |
 | `reviewed_surface_addition` | 1 |

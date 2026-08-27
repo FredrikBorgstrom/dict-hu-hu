@@ -47,7 +47,7 @@ distribution.
 ### Evidence-scored candidate
 
 `candidate/hungarian_hu_hu_evidence_candidate.txt` is a separately generated,
-quality-first candidate containing **846,418 words**. The candidate keeps
+quality-first candidate containing **846,384 words**. The candidate keeps
 ordinary inflections when Magyar Ispell and morphdb.hu agree on the lemma,
 while applying stronger clean-corpus requirements to prefixes, derivations,
 possessives, and plural + possessive stacks.
@@ -141,7 +141,10 @@ Coverage:
   symbols, mathematical notations, period-less abbreviations, misspellings, and
   foreign forms `cal`, `cimet`, `cos`, `cosec`, `ctg`, `dag`, `dzs`, `épit`,
   `jade`, `kcal`, `kib`, `márc`, `mbar`, `mmol`, `omega`, `org`, `sin`, `stb`,
-  `words`, `yacht`, and `zsüri` are removed as exact surfaces.
+  `words`, `yacht`, and `zsüri` are removed as exact surfaces. The additional
+  native-speaker-reviewed lowercase surfaces `búék`, `gmk`, `jézus`, `kkv`,
+  `las`, `levi`, `mgtsz`, `sanyi`, `sec`, `termo`, `thm`, `tszcs`, and `ühg`
+  are likewise excluded without removing any complete inflectional family.
 - Direct source headwords and ordinary inflections are retained without an
   exact-surface corpus requirement.
 - Higher-risk paths must occur at least twice in the complete Webcorpus. These
