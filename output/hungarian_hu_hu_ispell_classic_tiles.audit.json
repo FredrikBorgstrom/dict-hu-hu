@@ -1,0 +1,173 @@
+{
+  "ambiguousAfterResolution": 0,
+  "ambiguousBeforeResolution": 138524,
+  "collisionPolicy": "keep shortest surface, then Unicode code-point order",
+  "collisions": [
+    {
+      "canonicalKey": "CB0dBxsj",
+      "excludedSurface": "észszerű",
+      "keptSurface": "ésszerű"
+    }
+  ],
+  "excludedEntries": 5635,
+  "excludedReasonCounts": {
+    "authoritative_boundary_unrepresentable": 30,
+    "canonical_key_collision": 1,
+    "unrepresentable_token_sequence": 561,
+    "unsupported_character": 5043
+  },
+  "fullDoublingCounts": {
+    "cs": 2,
+    "gy": 9,
+    "ly": 0,
+    "ny": 3,
+    "sz": 8,
+    "ty": 0,
+    "zs": 0
+  },
+  "generatorVersion": "1.3.0",
+  "input": {
+    "path": "output/hungarian_hu_hu_ispell.txt",
+    "sha256": "c1cc7ff63e0f3a82556ee0b1421e129f3b447202b3a050141e60214117acb6d5",
+    "wordCount": 851796
+  },
+  "morphology": {
+    "authoritativeBoundaries": {
+      "affPath": ".cache/sources/hu_HU.aff",
+      "affSha256": "f3a2748dd535cfde2142ab17d0f7f8e4787b03fb25a60829c69ac8d493db4802",
+      "combinedSurfaceCount": 5026,
+      "conflicts": [
+        {
+          "boundaryAlternatives": [
+            [
+              7
+            ],
+            [
+              7,
+              11
+            ]
+          ],
+          "policy": "mostDetailedSuperset",
+          "surface": "barkácsszakkör"
+        },
+        {
+          "boundaryAlternatives": [
+            [
+              3,
+              10
+            ],
+            [
+              10
+            ]
+          ],
+          "policy": "mostDetailedSuperset",
+          "surface": "meglepetésszerű"
+        },
+        {
+          "boundaryAlternatives": [
+            [
+              4
+            ],
+            [
+              4,
+              7
+            ]
+          ],
+          "policy": "mostDetailedSuperset",
+          "surface": "torzsokszög"
+        }
+      ],
+      "dicPath": ".cache/sources/hu_HU.dic",
+      "dicSha256": "97293d670ad4a3b8e7eebef7e25c6e8e939b914c64b6b4672b2bf416b768f990",
+      "ispell": {
+        "explicitAnalysisCount": 4334,
+        "ignoredAnalysisCount": 107,
+        "prefixAnalysisCount": 602,
+        "surfaceCount": 4166
+      },
+      "supplemental": {
+        "annotationCount": 931,
+        "boundaryCount": 931,
+        "exactInputOverlapCount": 135,
+        "path": "csi_sza_classic_tile_boundaries.txt",
+        "policy": "boundary evidence only; never imports word validity",
+        "sha256": "72137350597afc169297abb8903ea7f7d399f9b7fa90fec9239d55628ba89992"
+      }
+    },
+    "lemmaDirectory": "output/definitions/hu/surface-lemma/v1",
+    "surfaceCount": 851796
+  },
+  "output": {
+    "acceptedEntries": 846161,
+    "compatibilityAliases": 12061,
+    "runtimeEntries": 858222,
+    "runtimePath": "output/hungarian_hu_hu_ispell_classic_tiles.tsv",
+    "runtimeSha256": "fa548243ba37739f61e845453ea960b4f39824ba0d053cf4e5604d1ed7806248",
+    "sourcePath": "output/hungarian_hu_hu_ispell_classic_tiles.source.tsv.gz",
+    "sourceSha256": "4f4836dd93037d54ec1ee15bf8e975f80316d0788cac9a74f2b054d623b5baa5"
+  },
+  "override": {
+    "count": 6,
+    "path": "classic_tile_segmentation_overrides.tsv",
+    "sha256": "8c0b9a0ff5ca3e516dc12ded5b71e58fb78c48c90eb2f19721a63e260a3faf7e"
+  },
+  "playableTokens": [
+    "a",
+    "á",
+    "b",
+    "c",
+    "cs",
+    "d",
+    "e",
+    "é",
+    "f",
+    "g",
+    "gy",
+    "h",
+    "i",
+    "í",
+    "j",
+    "k",
+    "l",
+    "ly",
+    "m",
+    "n",
+    "ny",
+    "o",
+    "ó",
+    "ö",
+    "ő",
+    "p",
+    "r",
+    "s",
+    "sz",
+    "t",
+    "ty",
+    "u",
+    "ú",
+    "ü",
+    "ű",
+    "v",
+    "z",
+    "zs"
+  ],
+  "rendererDiagnosticMismatchCount": 0,
+  "resolutionCounts": {
+    "authoritativeBoundary": 1753,
+    "morphology": 129316,
+    "orthography": 715087,
+    "override": 6
+  },
+  "roundTripFailures": [],
+  "schemaVersion": 1,
+  "shortenedDoublingCounts": {
+    "cs": 919,
+    "gy": 704,
+    "ly": 475,
+    "ny": 1735,
+    "sz": 6934,
+    "ty": 1261,
+    "zs": 55
+  },
+  "unrepresentableEntries": 5634
+}

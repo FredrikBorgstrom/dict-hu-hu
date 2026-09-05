@@ -1,0 +1,9 @@
+# Surface<TAB>canonical lowercase tile tokens separated by |
+# These reviewed fixtures pin orthographic cases that must never be resolved by
+# a runtime greedy tokenizer. Add future native-speaker decisions here.
+asszony	a|s|sz|o|ny
+loccsan	l|o|c|cs|a|n
+díszszemle	d|í|sz|sz|e|m|l|e
+jegygyűrű	j|e|gy|gy|ű|r|ű
+edző	e|d|z|ő
+bridzs	b|r|i|d|zs

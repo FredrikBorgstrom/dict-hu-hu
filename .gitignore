@@ -1,3 +1,4 @@
 .cache/
+artifacts/
 __pycache__/
 *.pyc

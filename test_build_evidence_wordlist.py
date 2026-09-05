@@ -1,3 +1,5 @@
+import gzip
+import hashlib
 import tempfile
 import unittest
 from pathlib import Path
@@ -8,6 +10,10 @@ from build_evidence_wordlist import (
     decide_word,
     expand_lemma_removals,
     load_morphdb_source_inventory,
+    load_previous_external_inflections,
+    load_retention_baseline,
+    ordinary_candidate_words,
+    parse_hunspell_compound_headwords,
     parse_morphdb_block,
 )
 from process_words import _write_lemma_index
@@ -71,6 +77,27 @@ class MorphdbParsingTests(unittest.TestCase):
         evidence = parse_morphdb_block("box", ["box"], frozenset())
         self.assertEqual(MorphEvidence(), evidence)
 
+    def test_records_matching_external_compound_headword(self):
+        evidence = parse_morphdb_block(
+            "őzgidák",
+            ["őzgidák  st:őzgida /NOUN <PLUR>"],
+            frozenset(),
+            frozenset({"őzgida"}),
+        )
+
+        self.assertTrue(evidence.safe_inflection)
+        self.assertEqual(("őzgida",), evidence.external_headword_lemmas)
+
+    def test_requires_two_magyar_ispell_parts_for_compound_headword(self):
+        compounds = parse_hunspell_compound_headwords(
+            "őzgida  pa:őz st:őz po:noun pa:gida st:gida po:noun\n"
+            "alma  st:alma po:noun\n"
+            "sörivó  pa:sör st:sör po:noun pa:ivó st:ivó po:noun\n",
+            frozenset({"alma", "sörivó", "őzgida"}),
+        )
+
+        self.assertEqual(frozenset({"sörivó", "őzgida"}), compounds)
+
 
 class MorphdbSourceInventoryTests(unittest.TestCase):
     def test_excludes_pseudoroot_only_tokens_but_preserves_homographs(self):
@@ -83,24 +110,28 @@ class MorphdbSourceInventoryTests(unittest.TestCase):
                 encoding="iso-8859-2",
             )
             dic_path.write_text(
-                "7\n"
+                "8\n"
                 "tüz/xyac\ttűz/NOUN\n"
                 "ezr/ac\tezer/NUM\n"
                 "ifj/zzac\tú/NOUN\n"
                 "közl/ac\tközöl\n"
                 "való/xy\tvaló/ADJ\n"
                 "hom/ac\thom/NOUN\n"
-                "hom/xy\thom/NOUN\n",
+                "hom/xy\thom/NOUN\n"
+                "őzgida/xyac\t/NOUN\n",
                 encoding="iso-8859-2",
             )
 
-            standalone, pseudoroot_only = load_morphdb_source_inventory(
+            standalone, pseudoroot_only, self_lemma_headwords = load_morphdb_source_inventory(
                 aff_path, dic_path
             )
 
         self.assertEqual(frozenset({"való", "hom"}), standalone)
         self.assertEqual(
-            frozenset({"tüz", "ezr", "ifj", "közl"}), pseudoroot_only
+            frozenset({"tüz", "ezr", "ifj", "közl", "őzgida"}), pseudoroot_only
+        )
+        self.assertEqual(
+            frozenset({"való", "hom", "őzgida"}), self_lemma_headwords
         )
 
 
@@ -132,8 +163,83 @@ class LemmaRemovalTests(unittest.TestCase):
         self.assertEqual(frozenset({"as", "asok", "lex", "removed"}), removals)
         self.assertEqual(frozenset({"as", "lex", "removed"}), seen)
 
+    def test_recovers_only_forms_previously_admitted_by_external_rule(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            evidence_path = root / "evidence.tsv.gz"
+            with gzip.open(evidence_path, "wt", encoding="utf-8") as evidence:
+                evidence.write(
+                    "word\tdecision\treason\n"
+                    "régi\taccept\tquality_8_corpus_core\n"
+                    "új\taccept\t"
+                    "strongly_attested_external_compound_headword_inflection\n"
+                    "gyenge\treject\t"
+                    "unconfirmed_external_compound_headword_inflection\n"
+                )
+
+            surfaces = load_previous_external_inflections(evidence_path)
+
+        self.assertEqual(frozenset({"új"}), surfaces)
+
 
 class EvidencePolicyTests(unittest.TestCase):
+    def test_existing_vocabulary_does_not_require_a_compound_headword(self):
+        # Complete 42-surface regression set from the published 2026-09-03 list.
+        words = "agráron aljába aljában aljából aljához aljáig alján aljának aljánál alját aljától aljával aprajának apraját feszesek feszesen feszesnek feszesre feszessé hátuljába hátuljában hátuljából hátuljához hátulján hátuljának hátuljánál hátulját hátuljától hátuljával legalján legaljának legalját magánba magánban megálljt nyitjára nyitját szerkezeti utolján utolját vigyázzba vigyázzban".split()
+        self.assertEqual(42, len(words))
+        for word in words:
+            with self.subTest(word=word):
+                decision = decide_word(
+                    word, CorpusEvidence(100, 100, 10, 10),
+                    MorphEvidence(recognized=True, nonproper=True, safe_inflection=True),
+                    current_candidate=True, current_direct=False, morphdb_direct=False,
+                    external_inflection_candidate=True,
+                )
+                self.assertEqual((True, "quality_8_corpus_core"),
+                                 (decision.accepted, decision.reason))
+
+    def test_retention_never_bypasses_reviewed_or_source_safety_blocks(self):
+        for flag, reason in (
+            ("explicit_surface_removal", "reviewed_surface_removal"),
+            ("explicit_lemma_removal", "reviewed_lemma_removal"),
+            ("source_policy_blocked", "source_policy_blocked_surface"),
+        ):
+            with self.subTest(flag=flag):
+                decision = decide_word(
+                    "szerkezeti", CorpusEvidence(100, 100, 100, 100),
+                    MorphEvidence(recognized=True, nonproper=True, safe_inflection=True),
+                    current_candidate=True, current_direct=False, morphdb_direct=False,
+                    external_inflection_candidate=True, **{flag: True},
+                )
+                self.assertEqual((False, reason), (decision.accepted, decision.reason))
+
+    def test_promoted_compound_additions_keep_strict_provenance(self):
+        ordinary = ordinary_candidate_words(
+            frozenset({"alján", "őzgidák"}), frozenset({"alján", "őzgidák"}),
+            frozenset({"alján"}),
+        )
+        self.assertEqual(frozenset({"alján"}), ordinary)
+        decision = decide_word(
+            "őzgidák", CorpusEvidence(100, 100, 100, 100),
+            MorphEvidence(recognized=True, nonproper=True, safe_inflection=True),
+            current_candidate="őzgidák" in ordinary,
+            current_direct=False, morphdb_direct=False, external_inflection_candidate=True,
+        )
+        self.assertFalse(decision.accepted)
+        self.assertEqual("unconfirmed_external_compound_headword_inflection", decision.reason)
+
+    def test_retention_requires_verified_full_wordlist(self):
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "baseline.txt"
+            path.write_text("alján\nfeszesen\n", encoding="utf-8")
+            digest = hashlib.sha256(path.read_bytes()).hexdigest()
+            self.assertEqual(frozenset({"alján", "feszesen"}), load_retention_baseline(path, digest))
+            with self.assertRaisesRegex(ValueError, "checksum mismatch"):
+                load_retention_baseline(path, "wrong")
+            path.write_text("alján\nalján\n", encoding="utf-8")
+            with self.assertRaisesRegex(ValueError, "sorted and unique"):
+                load_retention_baseline(path, hashlib.sha256(path.read_bytes()).hexdigest())
+
     def test_accepts_reviewed_surface_addition_without_source_evidence(self):
         decision = decide_word(
             "box",
@@ -353,6 +459,44 @@ class EvidencePolicyTests(unittest.TestCase):
         self.assertEqual("attested_morphdb_headword_addition", strong.reason)
         self.assertTrue(strong.accepted)
 
+    def test_accepts_strong_safe_inflection_of_external_compound_headword(self):
+        decision = decide_word(
+            "őzgidák",
+            CorpusEvidence(21, 21, 20, 17),
+            MorphEvidence(
+                recognized=True,
+                nonproper=True,
+                safe_inflection=True,
+                external_headword_lemmas=("őzgida",),
+            ),
+            current_candidate=False,
+            current_direct=False,
+            morphdb_direct=False,
+            external_inflection_candidate=True,
+        )
+        self.assertEqual(
+            (
+                True,
+                "strongly_attested_external_compound_headword_inflection",
+            ),
+            (decision.accepted, decision.reason),
+        )
+
+    def test_rejects_external_inflection_without_exact_headword_agreement(self):
+        decision = decide_word(
+            "őzgidák",
+            CorpusEvidence(21, 21, 20, 17),
+            MorphEvidence(recognized=True, nonproper=True, safe_inflection=True),
+            current_candidate=False,
+            current_direct=False,
+            morphdb_direct=False,
+            external_inflection_candidate=True,
+        )
+        self.assertEqual(
+            (False, "unconfirmed_external_compound_headword_inflection"),
+            (decision.accepted, decision.reason),
+        )
+
     def test_rejects_unrecognized_morphdb_source_token(self):
         decision = decide_word(
             "álstem",
@@ -442,6 +586,7 @@ class PublishedCandidateRegressionTests(unittest.TestCase):
             }.isdisjoint(words)
         )
         self.assertIn("box", words)
+        self.assertIn("őzgidák", words)
         self.assertTrue(
             {
                 "al",
@@ -452,6 +597,7 @@ class PublishedCandidateRegressionTests(unittest.TestCase):
                 "cos",
                 "cosec",
                 "ctg",
+                "cöcögd",
                 "dag",
                 "dzs",
                 "jade",

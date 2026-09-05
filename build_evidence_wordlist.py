@@ -6,14 +6,16 @@ without requiring each surface to occur in a corpus.  That is appropriate for
 coverage, but it also admits mechanically possible forms which players may not
 regard as words.  This companion build does not replace production output.  It
 scores the existing candidates with independent morphological and corpus
-evidence, adds only strongly attested morphdb.hu headwords, and writes a fully
-auditable candidate list for review.
+evidence, adds only strongly attested morphdb.hu headwords and safe inflections
+of accepted external compound headwords, and writes a fully auditable candidate
+list for review.
 """
 
 from __future__ import annotations
 
 import argparse
 import concurrent.futures
+import csv
 import gzip
 import hashlib
 import json
@@ -37,14 +39,17 @@ from process_words import (
     MANUAL_WRITTEN_ABBREVIATIONS,
     REJECT_ENTRY_FLAGS,
     _collect_source_filters,
+    _ensure_pinned_source,
     _has_flag,
     _sha256_file,
     _source_lemma,
-    has_vowel,
+    is_written_abbreviation_shape,
     is_valid_hu_word,
     parse_aff,
     parse_dictionary_line,
 )
+from reviewed_additions import (load_reviewed_additions, DEFAULT_REVIEWED_ADDITIONS,
+                                load_gameplay_overrides, DEFAULT_GAMEPLAY_OVERRIDES)
 
 
 MORPHDB_ARCHIVE_NAME = "morphdb-hu-20060525.tgz"
@@ -68,6 +73,7 @@ POSSESSIVE_QUALITY_4_FREQUENCY = 2
 PLURAL_POSSESSIVE_QUALITY_4_FREQUENCY = 20
 DERIVATION_QUALITY_4_FREQUENCY = 2
 MORPHDB_ADDITION_QUALITY_4_FREQUENCY = 10
+EXTERNAL_HEADWORD_INFLECTION_QUALITY_4_FREQUENCY = 10
 GENERATED_KOR_COMPLETE_FREQUENCY = 1
 
 QUESTIONED_WORDS = (
@@ -93,6 +99,8 @@ QUESTIONED_WORDS = (
     "vu",
     "zu",
     "ál",
+    "őzgida",
+    "őzgidák",
 )
 
 POS_RE = re.compile(r"/(NOUN|VERB|ADJ|ADV|NUM|DET|UTT-INT|POSTP|CONJ)")
@@ -124,6 +132,7 @@ class MorphEvidence:
     plural_possessive_only: bool = False
     safe_inflection: bool = False
     lemma_agreement: bool = False
+    external_headword_lemmas: tuple[str, ...] = ()
     parts_of_speech: tuple[str, ...] = ()
 
     def as_cache_fields(self) -> tuple[str, ...]:
@@ -137,13 +146,14 @@ class MorphEvidence:
             _bool_field(self.plural_possessive_only),
             _bool_field(self.safe_inflection),
             _bool_field(self.lemma_agreement),
+            ",".join(self.external_headword_lemmas),
             ",".join(self.parts_of_speech),
         )
 
     @classmethod
     def from_cache_fields(cls, fields: list[str]) -> "MorphEvidence":
-        if len(fields) != 10:
-            raise ValueError(f"Expected 10 morphdb evidence fields, got {len(fields)}")
+        if len(fields) != 11:
+            raise ValueError(f"Expected 11 morphdb evidence fields, got {len(fields)}")
         return cls(
             recognized=_parse_bool(fields[0]),
             nonproper=_parse_bool(fields[1]),
@@ -154,7 +164,8 @@ class MorphEvidence:
             plural_possessive_only=_parse_bool(fields[6]),
             safe_inflection=_parse_bool(fields[7]),
             lemma_agreement=_parse_bool(fields[8]),
-            parts_of_speech=tuple(filter(None, fields[9].split(","))),
+            external_headword_lemmas=tuple(filter(None, fields[9].split(","))),
+            parts_of_speech=tuple(filter(None, fields[10].split(","))),
         )
 
 
@@ -191,6 +202,7 @@ def parse_morphdb_block(
     word: str,
     analysis_lines: Iterable[str],
     approved_source_lemmas: frozenset[str],
+    accepted_external_headwords: frozenset[str] = frozenset(),
 ) -> MorphEvidence:
     """Reduce all morphdb analyses for one surface to policy-safe features."""
     recognized_lines = []
@@ -253,6 +265,9 @@ def parse_morphdb_block(
         if _is_lower_lexeme(value)
     }
     lemma_agreement = bool(candidate_lemmas & approved_source_lemmas)
+    external_headword_lemmas = tuple(
+        sorted(candidate_lemmas & accepted_external_headwords)
+    )
 
     return MorphEvidence(
         recognized=True,
@@ -264,6 +279,7 @@ def parse_morphdb_block(
         plural_possessive_only=plural_possessive_only,
         safe_inflection=safe_inflection,
         lemma_agreement=lemma_agreement,
+        external_headword_lemmas=external_headword_lemmas,
         parts_of_speech=tuple(sorted(parts_of_speech)),
     )
 
@@ -277,6 +293,7 @@ def decide_word(
     current_direct: bool,
     morphdb_direct: bool,
     morphdb_nonstandalone: bool = False,
+    external_inflection_candidate: bool = False,
     source_policy_blocked: bool = False,
     explicit_addition: bool = False,
     explicit_surface_removal: bool = False,
@@ -285,7 +302,7 @@ def decide_word(
     """Apply the conservative policy in priority order."""
     if word in HUNGARIAN_REQUIRED_ONE_LETTER_WORDS:
         return Decision(True, "required_one_letter")
-    if len(word) == 2 and not has_vowel(word):
+    if is_written_abbreviation_shape(word):
         return Decision(False, "written_abbreviation_shape")
     # Keep the source generator's exact-surface exclusions authoritative.  A
     # previously promoted output can otherwise make a blocked form sticky:
@@ -315,6 +332,23 @@ def decide_word(
         return Decision(False, "morphdb_nonstandalone_source")
     if morph.proper_only:
         return Decision(False, "morphdb_proper_name_only")
+
+    # Novel forms discovered from the corpus are eligible only through this
+    # narrow path.  Magyar Ispell has already accepted each input surface;
+    # morphdb.hu must independently describe it as a basic (non-derived,
+    # non-possessive) inflection of one of the accepted external compound
+    # headwords, and the cleanest corpus partition must meet the threshold.
+    if external_inflection_candidate and not current_candidate:
+        if (
+            corpus.quality_4
+            >= EXTERNAL_HEADWORD_INFLECTION_QUALITY_4_FREQUENCY
+            and morph.safe_inflection
+            and morph.external_headword_lemmas
+        ):
+            return Decision(
+                True, "strongly_attested_external_compound_headword_inflection"
+            )
+        return Decision(False, "unconfirmed_external_compound_headword_inflection")
 
     # These stacked or semantic transformations are exactly where mechanical
     # morphology most often outruns normal game vocabulary.  Strong evidence
@@ -472,19 +506,35 @@ def _has_morphdb_long_flag(flags: str, expected: str) -> bool:
 def load_morphdb_source_inventory(
     aff_path: Path,
     dic_path: Path,
-) -> tuple[frozenset[str], frozenset[str]]:
-    """Return standalone source surfaces and pseudoroot-only source tokens."""
+) -> tuple[frozenset[str], frozenset[str], frozenset[str]]:
+    """Return standalone surfaces, pseudoroots, and self-lemma headwords.
+
+    Some valid compound headwords carry morphdb.hu's ``PSEUDOROOT`` flag so
+    their suffixes can be generated.  A morphology such as ``/NOUN`` or
+    ``word/NOUN`` still identifies the source token as a real headword.  Keep
+    that signal separate from standalone eligibility so true implementation
+    stems such as ``tüz -> tűz`` and ``közl -> közöl`` remain excluded.
+    """
     pseudoroot_flag = _load_morphdb_pseudoroot_flag(aff_path)
     standalone_surfaces: set[str] = set()
     pseudoroot_surfaces: set[str] = set()
+    self_lemma_headwords: set[str] = set()
     with open(dic_path, "r", encoding="iso-8859-2", errors="strict") as source:
         next(source, None)
-        for line in source:
-            entry = line.split("\t", 1)[0]
+        for raw_line in source:
+            entry, _separator, morphology = raw_line.rstrip("\n").partition("\t")
             token, separator, flags = entry.partition("/")
             token = unicodedata.normalize("NFC", token)
             if token != token.lower() or not is_valid_hu_word(token):
                 continue
+            normalized_morphology = unicodedata.normalize("NFC", morphology.strip())
+            source_lemmas = {
+                unicodedata.normalize("NFC", lemma.lower())
+                for lemma in LEXEME_RE.findall(normalized_morphology)
+                if _is_lower_lexeme(lemma)
+            }
+            if POS_RE.match(normalized_morphology) or token in source_lemmas:
+                self_lemma_headwords.add(token)
             if separator and _has_morphdb_long_flag(flags, pseudoroot_flag):
                 pseudoroot_surfaces.add(token)
             else:
@@ -494,7 +544,11 @@ def load_morphdb_source_inventory(
     # entry.  Only tokens whose source analyses are exclusively pseudoroots are
     # automatic rejections.
     pseudoroot_only = pseudoroot_surfaces - standalone_surfaces
-    return frozenset(standalone_surfaces), frozenset(pseudoroot_only)
+    return (
+        frozenset(standalone_surfaces),
+        frozenset(pseudoroot_only),
+        frozenset(self_lemma_headwords),
+    )
 
 
 def load_current_source_inventory(
@@ -625,10 +679,165 @@ def load_corpus_evidence(
     return evidence
 
 
+def load_previous_external_inflections(evidence_path: Path) -> frozenset[str]:
+    """Recover surfaces previously admitted by the external-inflection rule."""
+    if not evidence_path.is_file():
+        return frozenset()
+    with gzip.open(evidence_path, "rt", encoding="utf-8", newline="") as source:
+        reader = csv.DictReader(source, delimiter="\t")
+        if reader.fieldnames is None or "reason" not in reader.fieldnames:
+            return frozenset()
+        return frozenset(
+            row["word"]
+            for row in reader
+            if row.get("decision") == "accept"
+            and row.get("reason")
+            == "strongly_attested_external_compound_headword_inflection"
+        )
+
+
+def load_retention_baseline(path: Path, expected_sha256: str) -> frozenset[str]:
+    """Recover an entire verified prior vocabulary, never an unconditional allowlist."""
+    if _sha256_file(str(path)) != expected_sha256:
+        raise ValueError(f"Retention baseline checksum mismatch: {path}")
+    words = path.read_text(encoding="utf-8").splitlines()
+    if not words or words != sorted(set(words)):
+        raise ValueError("Retention baseline must be nonempty, sorted and unique")
+    if any(
+        word not in HUNGARIAN_REQUIRED_ONE_LETTER_WORDS and not is_valid_hu_word(word)
+        for word in words
+    ):
+        raise ValueError("Retention baseline contains invalid surfaces")
+    return frozenset(words)
+
+
+def ordinary_candidate_words(
+    current_words: frozenset[str],
+    previous_external_inflections: frozenset[str],
+    retention_baseline: frozenset[str] = frozenset(),
+) -> frozenset[str]:
+    # A promoted compound addition must keep satisfying its admission rule.
+    # Existing vocabulary must not acquire that stricter provenance merely
+    # because a discovery pass happened to encounter the same surface.
+    return (current_words - previous_external_inflections) | retention_baseline
+
+
+def load_strongly_attested_corpus_forms(
+    corpus_path: Path,
+    minimum_quality_4: int,
+) -> dict[str, CorpusEvidence]:
+    """Load valid lowercase game surfaces meeting a clean-corpus threshold."""
+    evidence: dict[str, CorpusEvidence] = {}
+    with gzip.open(corpus_path, "rb") as source:
+        for raw_line in source:
+            fields = raw_line.removesuffix(b"\n").decode(CORPUS_ENCODING).split("\t")
+            if len(fields) < 5:
+                continue
+            word = unicodedata.normalize("NFC", fields[0])
+            if word != word.lower() or not is_valid_hu_word(word):
+                continue
+            try:
+                frequencies = tuple(int(field or 0) for field in fields[1:5])
+            except ValueError:
+                continue
+            corpus = CorpusEvidence(*frequencies)
+            if corpus.quality_4 >= minimum_quality_4:
+                evidence[word] = corpus
+    return evidence
+
+
+def filter_hunspell_accepted_words(
+    words: Iterable[str],
+    aff_path: Path,
+    dic_path: Path,
+    hunspell_binary: str,
+) -> frozenset[str]:
+    """Return input surfaces accepted by the specified Hunspell dictionary."""
+    candidates = tuple(sorted(set(words)))
+    if not candidates:
+        return frozenset()
+    environment = os.environ.copy()
+    environment["DICPATH"] = str(aff_path.parent)
+    result = subprocess.run(
+        [
+            hunspell_binary,
+            "-i",
+            "utf-8",
+            "-G",
+            "-d",
+            str(dic_path.with_suffix("")),
+        ],
+        input="\n".join(candidates) + "\n",
+        check=True,
+        capture_output=True,
+        text=True,
+        encoding="utf-8",
+        errors="replace",
+        env=environment,
+    )
+    candidate_set = frozenset(candidates)
+    return frozenset(
+        word
+        for raw_word in result.stdout.splitlines()
+        if (word := unicodedata.normalize("NFC", raw_word.strip())) in candidate_set
+    )
+
+
+def parse_hunspell_compound_headwords(
+    output: str,
+    candidates: frozenset[str],
+) -> frozenset[str]:
+    """Extract surfaces with an analysis containing at least two compounds."""
+    compound_headwords: set[str] = set()
+    for raw_line in output.splitlines():
+        surface, separator, analysis = raw_line.partition(" ")
+        surface = unicodedata.normalize("NFC", surface)
+        if (
+            separator
+            and surface in candidates
+            and len(re.findall(r"(?:^|\s)pa:", analysis)) >= 2
+        ):
+            compound_headwords.add(surface)
+    return frozenset(compound_headwords)
+
+
+def filter_hunspell_compound_headwords(
+    words: Iterable[str],
+    aff_path: Path,
+    dic_path: Path,
+    hunspell_binary: str,
+) -> frozenset[str]:
+    """Return inputs that Magyar Ispell explicitly analyzes as compounds."""
+    candidates = frozenset(words)
+    if not candidates:
+        return frozenset()
+    environment = os.environ.copy()
+    environment["DICPATH"] = str(aff_path.parent)
+    result = subprocess.run(
+        [
+            hunspell_binary,
+            "-i",
+            "utf-8",
+            "-m",
+            "-d",
+            str(dic_path.with_suffix("")),
+        ],
+        input="\n".join(sorted(candidates)) + "\n",
+        check=True,
+        capture_output=True,
+        text=True,
+        encoding="utf-8",
+        errors="replace",
+        env=environment,
+    )
+    return parse_hunspell_compound_headwords(result.stdout, candidates)
+
+
 def _analysis_cache_key(
     candidate_path: Path,
     morphdb_dic_path: Path,
     approved_source_lemmas: frozenset[str],
+    accepted_external_headwords: frozenset[str],
 ) -> str:
     digest = hashlib.sha256()
     for path in (candidate_path, morphdb_dic_path):
@@ -636,18 +845,22 @@ def _analysis_cache_key(
     for lemma in sorted(approved_source_lemmas):
         digest.update(lemma.encode("utf-8"))
         digest.update(b"\n")
-    digest.update(b"morph-evidence-schema-2")
+    digest.update(b"\0external-headwords\0")
+    for lemma in sorted(accepted_external_headwords):
+        digest.update(lemma.encode("utf-8"))
+        digest.update(b"\n")
+    digest.update(b"morph-evidence-schema-3")
     return digest.hexdigest()[:20]
 
 
 def iter_cached_morph_evidence(cache_path: Path) -> Iterator[tuple[str, MorphEvidence]]:
     with gzip.open(cache_path, "rt", encoding="utf-8") as source:
         header = source.readline().rstrip("\n")
-        if not header.startswith("# schema=2\t"):
+        if not header.startswith("# schema=3\t"):
             raise ValueError(f"Unsupported morphdb cache header in {cache_path}")
         for line in source:
             fields = line.rstrip("\n").split("\t")
-            if len(fields) != 11:
+            if len(fields) != 12:
                 raise ValueError(f"Malformed morphdb cache row in {cache_path}")
             yield fields[0], MorphEvidence.from_cache_fields(fields[1:])
 
@@ -657,6 +870,7 @@ def build_morph_evidence_cache(
     morphdb_aff_path: Path,
     morphdb_dic_path: Path,
     approved_source_lemmas: frozenset[str],
+    accepted_external_headwords: frozenset[str],
     cache_path: Path,
     hunspell_binary: str,
     worker_count: int,
@@ -733,7 +947,10 @@ def build_morph_evidence_cache(
                     # surface from Hunspell's echo.
                     word = expected_words[processed]
                     evidence = parse_morphdb_block(
-                        word, block, approved_source_lemmas
+                        word,
+                        block,
+                        approved_source_lemmas,
+                        accepted_external_headwords,
                     )
                     part_file.write(
                         "\t".join((word, *evidence.as_cache_fields())) + "\n"
@@ -786,7 +1003,7 @@ def build_morph_evidence_cache(
             temporary_path, "wt", encoding="utf-8", newline="\n"
         ) as cache_file:
             cache_file.write(
-                f"# schema=2\tcandidate_sha256={_sha256_file(str(candidates_path))}"
+                f"# schema=3\tcandidate_sha256={_sha256_file(str(candidates_path))}"
                 f"\tmorphdb_sha256={MORPHDB_SHA256}\n"
             )
             for chunk_path in chunk_paths:
@@ -811,7 +1028,10 @@ def _merge_candidate_inventory(
     current_words_path: Path,
     morphdb_direct: frozenset[str],
     surface_additions: frozenset[str],
+    accepted_external_headwords: frozenset[str],
+    external_inflection_candidates: frozenset[str],
     cache_dir: Path,
+    retention_baseline: frozenset[str] = frozenset(),
 ) -> tuple[Path, frozenset[str]]:
     current_words = frozenset(
         line.rstrip("\n")
@@ -823,7 +1043,10 @@ def _merge_candidate_inventory(
         current_words
         | morphdb_direct
         | surface_additions
+        | accepted_external_headwords
+        | external_inflection_candidates
         | HUNGARIAN_REQUIRED_ONE_LETTER_WORDS
+        | retention_baseline
     )
     digest = hashlib.sha256()
     temporary_path = merged_path.with_suffix(".tmp")
@@ -854,9 +1077,12 @@ def build_outputs(
     *,
     merged_candidates_path: Path,
     current_words: frozenset[str],
+    ordinary_words: frozenset[str],
     current_direct: frozenset[str],
     morphdb_direct: frozenset[str],
     morphdb_nonstandalone: frozenset[str],
+    accepted_external_headwords: frozenset[str],
+    external_inflection_candidates: frozenset[str],
     corpus_evidence: dict[str, CorpusEvidence],
     morph_cache_path: Path,
     surface_additions: frozenset[str],
@@ -865,7 +1091,9 @@ def build_outputs(
     lemma_removed_surfaces: frozenset[str],
     output_dir: Path,
     source_metadata: dict,
+    reviewed_additions: dict | None = None,
 ) -> dict:
+    reviewed_additions = reviewed_additions or {}
     output_dir.mkdir(parents=True, exist_ok=True)
     candidate_path = output_dir / "hungarian_hu_hu_evidence_candidate.txt"
     evidence_path = output_dir / "evidence.tsv.gz"
@@ -891,7 +1119,7 @@ def build_outputs(
             "\tmorphdb_recognized\tmorphdb_nonproper\tmorphdb_proper_only"
             "\tderivation_only\tprefix_only\tpossessive_only"
             "\tplural_possessive_only\tsafe_inflection\tlemma_agreement"
-            "\tparts_of_speech\n"
+            "\texternal_headword_lemmas\tparts_of_speech\treviewed_lemmas\n"
         )
         evidence_file.write(header)
         rejected_file.write("word\treason\tcomplete\tquality_8\tquality_4\n")
@@ -910,10 +1138,11 @@ def build_outputs(
                 word,
                 corpus,
                 morph,
-                current_candidate=word in current_words,
+                current_candidate=word in ordinary_words,
                 current_direct=word in current_direct,
                 morphdb_direct=word in morphdb_direct,
                 morphdb_nonstandalone=word in morphdb_nonstandalone,
+                external_inflection_candidate=word in external_inflection_candidates,
                 source_policy_blocked=is_source_policy_blocked_surface(word),
                 explicit_addition=word in surface_additions,
                 explicit_surface_removal=word in surface_removals,
@@ -950,6 +1179,7 @@ def build_outputs(
                 decision.reason,
                 *(str(value) for value in corpus.as_tuple()),
                 *morph.as_cache_fields(),
+                ",".join(reviewed_additions.get(word, {}).get("lemmas", ())),
             )
             evidence_file.write("\t".join(row) + "\n")
             ranked_samples = samples[decision.reason]
@@ -970,6 +1200,9 @@ def build_outputs(
                         "possessive_only": morph.possessive_only,
                         "plural_possessive_only": morph.plural_possessive_only,
                         "lemma_agreement": morph.lemma_agreement,
+                        "external_headword_lemmas": list(
+                            morph.external_headword_lemmas
+                        ),
                         "parts_of_speech": list(morph.parts_of_speech),
                     },
                 }
@@ -981,7 +1214,7 @@ def build_outputs(
             raise ValueError(f"Morphdb cache has unexpected extra row {extra_word!r}")
 
     audit = {
-        "schema_version": 2,
+        "schema_version": 3,
         "description": "Conservative evidence-scored candidate; not production output",
         "source": source_metadata,
         "policy": {
@@ -994,9 +1227,22 @@ def build_outputs(
             "morphdb_addition_quality_4_frequency": (
                 MORPHDB_ADDITION_QUALITY_4_FREQUENCY
             ),
+            "external_headword_inflection_quality_4_frequency": (
+                EXTERNAL_HEADWORD_INFLECTION_QUALITY_4_FREQUENCY
+            ),
             "morphdb_pseudoroots_rejected": True,
             "morphdb_additions_require_standalone_analysis": True,
+            "external_compound_headwords_require_magyar_ispell_compound_analysis": True,
+            "external_compound_headwords_require_morphdb_self_lemma": True,
+            "external_compound_headword_inflections_require_both_analyzers": True,
+            "accepted_external_compound_headwords": sorted(
+                accepted_external_headwords
+            ),
+            "external_inflection_candidate_count": len(
+                external_inflection_candidates
+            ),
             "proper_name_only_rejected": True,
+            "explicit_reviewed_lexical_readings_override_morphdb_proper_name_false_positives": True,
             "source_policy_blocked_surfaces": sorted(
                 MANUAL_WRITTEN_ABBREVIATIONS | INVALID_STANDALONE_SURFACES
             ),
@@ -1047,8 +1293,10 @@ def write_report(audit: dict, report_path: Path) -> None:
         f"- Accepted words: **{counts.get('accepted', 0):,}**",
         "- Current words removed by the candidate policy: "
         f"**{counts.get('rejected_from_current', 0):,}**",
-        "- Strongly attested morphdb.hu headword additions: "
+        "- Accepted additions beyond the previous output: "
         f"**{counts.get('accepted_additions', 0):,}**",
+        "- Strongly attested external compound-headword inflections: "
+        f"**{audit['reason_counts'].get('strongly_attested_external_compound_headword_inflection', 0):,}**",
         f"- Candidate SHA-256: `{audit['output_sha256']}`",
         "",
         "## Decisions by evidence rule",
@@ -1118,7 +1366,10 @@ def main() -> int:
     parser.add_argument("--output-dir")
     parser.add_argument("--surface-removals")
     parser.add_argument("--surface-additions")
+    parser.add_argument("--reviewed-evidence", type=Path, default=DEFAULT_REVIEWED_ADDITIONS)
     parser.add_argument("--lemma-removals")
+    parser.add_argument("--retention-baseline", type=Path)
+    parser.add_argument("--retention-baseline-sha256")
     parser.add_argument(
         "--morph-workers",
         type=int,
@@ -1126,6 +1377,8 @@ def main() -> int:
         help="Parallel hunspell processes used for morphdb.hu analysis (default: up to 4).",
     )
     args = parser.parse_args()
+    if bool(args.retention_baseline) != bool(args.retention_baseline_sha256):
+        parser.error("--retention-baseline and --retention-baseline-sha256 are required together")
 
     script_dir = Path(__file__).resolve().parent
     cache_dir = Path(args.cache_dir) if args.cache_dir else script_dir / ".cache" / "evidence"
@@ -1148,6 +1401,12 @@ def main() -> int:
             return 1
 
     try:
+        for name in ("hu_HU.aff", "hu_HU.dic", "web2.2-alfa-sorted.txt.gz"):
+            _ensure_pinned_source(name, str(script_dir / ".cache/sources"), offline=args.offline)
+        retention_baseline = (
+            load_retention_baseline(args.retention_baseline, args.retention_baseline_sha256)
+            if args.retention_baseline else frozenset()
+        )
         morphdb_aff_path, morphdb_dic_path, morphdb_license_path = ensure_morphdb(
             cache_dir / "sources", offline=args.offline
         )
@@ -1159,17 +1418,24 @@ def main() -> int:
         current_direct, approved_source_lemmas = load_current_source_inventory(
             current_aff_path, current_dic_path
         )
-        morphdb_direct, morphdb_nonstandalone = load_morphdb_source_inventory(
-            morphdb_aff_path, morphdb_dic_path
-        )
+        (
+            morphdb_direct,
+            morphdb_nonstandalone,
+            morphdb_self_lemma_headwords,
+        ) = load_morphdb_source_inventory(morphdb_aff_path, morphdb_dic_path)
         default_overrides_dir = (
             script_dir.parent / "_community_overrides" / "hungarian_hu_hu_ispell"
         )
+        public_overrides = load_gameplay_overrides()
         surface_additions = load_surface_overrides(
             Path(args.surface_additions)
             if args.surface_additions
             else default_overrides_dir / "additions.txt"
         )
+        reviewed_additions = load_reviewed_additions(args.reviewed_evidence)
+        # Public, source-derived review evidence survives builds outside the
+        # private parent repository. Explicit removals still take precedence.
+        surface_additions = surface_additions | frozenset(reviewed_additions) | public_overrides["additions"]
         surface_removals = load_surface_overrides(
             Path(args.surface_removals)
             if args.surface_removals
@@ -1180,6 +1446,8 @@ def main() -> int:
             if args.lemma_removals
             else default_overrides_dir / "lemma-removals.txt"
         )
+        surface_removals = surface_removals | public_overrides["surfaceRemovals"]
+        lemma_removals = lemma_removals | public_overrides["lemmaRemovals"]
         conflicts = surface_additions & surface_removals
         if conflicts:
             raise ValueError(
@@ -1211,7 +1479,10 @@ def main() -> int:
             lemma_removals,
         )
         unknown_removed_lemmas = lemma_removals - (
-            indexed_removed_lemmas | approved_source_lemmas | morphdb_direct
+            indexed_removed_lemmas
+            | approved_source_lemmas
+            | morphdb_direct
+            | morphdb_self_lemma_headwords
         )
         if unknown_removed_lemmas:
             raise ValueError(
@@ -1226,8 +1497,87 @@ def main() -> int:
                 "Surfaces cannot be both added and removed: "
                 + ", ".join(sorted(effective_removal_conflicts))
             )
+
+        current_words = frozenset(
+            line
+            for line in current_output_path.read_text(encoding="utf-8").splitlines()
+            if line
+        )
+        print(
+            "Loading strongly attested clean-corpus forms for external "
+            "compound expansion...",
+            flush=True,
+        )
+        strong_corpus_evidence = load_strongly_attested_corpus_forms(
+            corpus_path,
+            EXTERNAL_HEADWORD_INFLECTION_QUALITY_4_FREQUENCY,
+        )
+        blocked_external_surfaces = (
+            surface_removals
+            | lemma_removed_surfaces
+            | MANUAL_WRITTEN_ABBREVIATIONS
+            | INVALID_STANDALONE_SURFACES
+        )
+        external_headword_proposals = frozenset(
+            word
+            for word in morphdb_self_lemma_headwords
+            if word not in current_direct
+            and word in current_words
+            # A native surface-form approval does not license an unreviewed
+            # inflection family on the next rebuild.
+            and word not in reviewed_additions
+            and word in strong_corpus_evidence
+            and word not in blocked_external_surfaces
+            and not is_written_abbreviation_shape(word)
+        )
+        accepted_external_headwords = filter_hunspell_compound_headwords(
+            external_headword_proposals,
+            current_aff_path,
+            current_dic_path,
+            hunspell_binary,
+        )
+        # Read the provenance of the promoted vocabulary, not an unrelated
+        # candidate-directory build. The fallback supports pre-provenance outputs.
+        promoted_evidence = current_output_path.parent / "evidence.tsv.gz"
+        previous_external_inflections = load_previous_external_inflections(
+            promoted_evidence if promoted_evidence.exists() else output_dir / "evidence.tsv.gz"
+        )
+        ordinary_words = ordinary_candidate_words(
+            current_words, previous_external_inflections, retention_baseline
+        )
+        external_inflection_proposals = frozenset(
+            word
+            for word in strong_corpus_evidence
+            if (
+                word not in ordinary_words
+            )
+            and word not in morphdb_direct
+            and word not in accepted_external_headwords
+            and word not in surface_additions
+            and word not in blocked_external_surfaces
+            and not is_written_abbreviation_shape(word)
+        )
+        external_inflection_candidates = filter_hunspell_accepted_words(
+            external_inflection_proposals,
+            current_aff_path,
+            current_dic_path,
+            hunspell_binary,
+        )
+        print(
+            "  accepted "
+            f"{len(accepted_external_headwords):,} strongly attested external "
+            "compound headwords and found "
+            f"{len(external_inflection_candidates):,} potential inflections",
+            flush=True,
+        )
         merged_path, current_words = _merge_candidate_inventory(
-            current_output_path, morphdb_direct, surface_additions, cache_dir
+            current_output_path,
+            morphdb_direct,
+            surface_additions,
+            accepted_external_headwords,
+            external_inflection_candidates,
+            cache_dir,
+            retention_baseline,
         )
         merged_words = frozenset(merged_path.read_text(encoding="utf-8").splitlines())
         print(f"Loading corpus evidence for {len(merged_words):,} candidate forms...", flush=True)
@@ -1235,7 +1585,10 @@ def main() -> int:
         print(f"  corpus evidence found for {len(corpus_evidence):,} forms", flush=True)
 
         cache_key = _analysis_cache_key(
-            merged_path, morphdb_dic_path, approved_source_lemmas
+            merged_path,
+            morphdb_dic_path,
+            approved_source_lemmas,
+            accepted_external_headwords,
         )
         morph_cache_path = cache_dir / f"morphdb-analysis-{cache_key}.tsv.gz"
         if not morph_cache_path.exists():
@@ -1244,6 +1597,7 @@ def main() -> int:
                 morphdb_aff_path,
                 morphdb_dic_path,
                 approved_source_lemmas,
+                accepted_external_headwords,
                 morph_cache_path,
                 hunspell_binary,
                 args.morph_workers,
@@ -1252,6 +1606,12 @@ def main() -> int:
             print(f"Using cached morphdb.hu analysis {morph_cache_path.name}", flush=True)
 
         source_metadata = {
+            "retention_baseline": (
+                {"file": args.retention_baseline.name,
+                 "sha256": args.retention_baseline_sha256,
+                 "words": len(retention_baseline)}
+                if args.retention_baseline else None
+            ),
             "current_candidate": {
                 "path": str(current_output_path.relative_to(script_dir)),
                 "sha256": _sha256_file(str(current_output_path)),
@@ -1276,13 +1636,36 @@ def main() -> int:
                 "path": hunspell_binary,
                 "version": _hunspell_version(hunspell_binary),
             },
+            "external_compound_expansion": {
+                "strong_corpus_surface_count": len(strong_corpus_evidence),
+                "morphdb_self_lemma_headword_proposals": len(
+                    external_headword_proposals
+                ),
+                "accepted_external_compound_headwords": len(
+                    accepted_external_headwords
+                ),
+                "retained_previous_external_inflections": len(
+                    previous_external_inflections
+                ),
+                "magyar_ispell_accepted_inflection_proposals": len(
+                    external_inflection_candidates
+                ),
+            },
         }
+        source_metadata["reviewed_additions"] = {
+            "count": len(reviewed_additions),
+            "sha256": _sha256_file(str(args.reviewed_evidence)) if reviewed_additions else None,
+        }
+        source_metadata["gameplay_overrides_sha256"] = _sha256_file(str(DEFAULT_GAMEPLAY_OVERRIDES))
         audit = build_outputs(
             merged_candidates_path=merged_path,
             current_words=current_words,
+            ordinary_words=ordinary_words,
             current_direct=current_direct,
             morphdb_direct=morphdb_direct,
             morphdb_nonstandalone=morphdb_nonstandalone,
+            accepted_external_headwords=accepted_external_headwords,
+            external_inflection_candidates=external_inflection_candidates,
             corpus_evidence=corpus_evidence,
             morph_cache_path=morph_cache_path,
             surface_additions=surface_additions,
@@ -1291,6 +1674,7 @@ def main() -> int:
             lemma_removed_surfaces=lemma_removed_surfaces,
             output_dir=output_dir,
             source_metadata=source_metadata,
+            reviewed_additions=reviewed_additions,
         )
     except (FileNotFoundError, OSError, RuntimeError, ValueError) as error:
         print(f"ERROR: {error}", file=sys.stderr)

@@ -28,11 +28,55 @@ application code using them may remain proprietary. See [COPYING.MPL](COPYING.MP
 for the full MPL 1.1 license text and [MODIFICATIONS.md](MODIFICATIONS.md) for a
 dated summary of the ABCx3 changes.
 
+The supplemental CsiSza source repository is GPLv3. Its author separately
+granted ABCx3 written permission to use his tile-boundary annotations for
+dictionary validation and improvement. ABCx3 imports only those annotations,
+not CsiSza's word inventory or code; provenance and the exact permission scope
+are retained with the imported data.
+
 ## Contents
 
 `output/hungarian_hu_hu_ispell.txt` — the active standalone Hungarian word
 forms, one per line, UTF-8, sorted. The exact count is recorded in
 `output/audit.json`.
+
+`output/hungarian_hu_hu_ispell_classic_tiles.tsv` — a separate compact
+runtime lexicon for the optional classic 100-tile Hungarian mode. Each row
+preserves the ordinary surface spelling and a canonical sequence of physical
+tile identifiers. It is generated without modifying the ordinary word list.
+
+Shortened doubles use the written physical tiles: `ccs → C | CS`,
+`ggy → G | GY`, `lly → L | LY`, `nny → N | NY`, `ssz → S | SZ`,
+`tty → T | TY`, and `zzs → Z | ZS`. For example, `petty` is `P | E | T | TY`.
+Full doubling at compound boundaries remains unchanged. Generator 1.3 also
+retains the previously accepted full-digraph arrangements as compatibility
+aliases so existing boards remain valid; it does not change tile values or
+historical scores. Runtime aliases precede the `# Preferred physical tile
+sequences` section. The reviewable source has one preferred row per surface;
+seed-player word lists select only those preferred rows. Audits distinguish
+accepted surfaces, compatibility aliases, and total runtime entries.
+
+`output/hungarian_hu_hu_ispell_classic_tiles.source.tsv.gz` and
+`output/hungarian_hu_hu_ispell_classic_tiles.audit.json` — the reviewable
+surface-to-token source and deterministic segmentation audit. Reviewed
+exceptions live in `classic_tile_segmentation_overrides.tsv`. The generator
+preserves explicit Magyar Ispell `hy:` morphology boundaries and permissioned
+CsiSza `_` tile-boundary annotations before choosing physical tiles. Thus
+compounds such as `méz|sör`, suffix boundaries such as `köz_ség`, and foreign
+spellings such as `cit_y` cannot be collapsed into a crossing multigraph tile,
+while simple words such as `gázsi` retain the single `ZS` tile. Boundaries on a
+lemma are propagated to its accepted inflected forms. If a required spelling
+needs an unavailable standalone tile, as `cit_y` needs `Y`, that surface is
+excluded from the classic-tile artifact rather than accepted with a false `TY`.
+
+`csi_sza_classic_tile_boundaries.txt` contains only CsiSza's underscore-marked
+tile-boundary evidence, not its word list. Attila (`betuTboy`) confirmed in
+writing on 2026-09-02 that he created these annotations and that ABCx3 may use
+them for dictionary validation and improvement. They are applied only to
+surfaces independently admitted by ABCx3's existing lexical sources, so they
+never grant word validity. The pinned upstream file, commit, checksum, import
+policy, and permission date are recorded in the generated annotation file and
+`import_csi_sza_tile_boundaries.py`.
 
 `output/definitions/hu/surface-lemma/v1/` — a deterministic, compressed
 surface-form-to-lemma index for definition lookup. A surface may retain
@@ -47,10 +91,11 @@ distribution.
 ### Evidence-scored candidate
 
 `candidate/hungarian_hu_hu_evidence_candidate.txt` is a separately generated,
-quality-first candidate containing **846,384 words**. The candidate keeps
+quality-first candidate; its matching audit records its word count. The candidate keeps
 ordinary inflections when Magyar Ispell and morphdb.hu agree on the lemma,
 while applying stronger clean-corpus requirements to prefixes, derivations,
-possessives, and plural + possessive stacks.
+possessives, and plural + possessive stacks. It also discovers strongly
+attested safe inflections of already accepted external compound headwords.
 
 The companion build is implemented in `build_evidence_wordlist.py`. It:
 
@@ -67,14 +112,59 @@ The companion build is implemented in `build_evidence_wordlist.py`. It:
    recognizes them as non-proper standalone forms and they occur at least ten
    times in the cleanest quality-4 corpus partition; internal `PSEUDOROOT`
    stems used only for suffix generation are rejected
-8. Writes per-word evidence and rejection reasons alongside a deterministic
+8. Identifies accepted external compound headwords using the prior accepted
+   output, a morphdb.hu self-lemma entry, an explicit multi-part Magyar Ispell
+   compound analysis, and at least ten quality-4 corpus occurrences
+9. Considers novel, strongly attested corpus surfaces accepted by Magyar
+   Ispell, but adds one only when morphdb.hu independently analyzes it as a
+   safe inflection of an identified external compound headword
+10. Writes per-word evidence and rejection reasons alongside a deterministic
    audit and human-readable report
-9. Applies traceable, explicitly reviewed gameplay additions from
-   `_community_overrides/hungarian_hu_hu_ispell/additions.txt`; `box` is
-   currently included through this policy
-10. Applies traceable surface and lemma removals from the same override set;
+11. Applies traceable, explicitly reviewed gameplay additions from
+   `_community_overrides/hungarian_hu_hu_ispell/additions.txt` and the portable,
+   source-verified `reviewed_additions.json`
+12. Applies traceable surface and lemma removals from the same override set;
     lemma removals discard the complete generated family while preserving a
     homographic surface when another allowed lemma still licenses it
+
+### Native-review additions (2026-09-05)
+
+The active list includes 572 explicitly reviewed surface forms verified against
+the pinned Magyar Ispell sources and at least two occurrences in the cleanest
+Webcorpus partition. `reviewed_additions.json` contains their source analyses,
+frequencies, definition lemmas, and source checksums. This source-derived
+manifest is loaded on every evidence build, including builds without the private
+parent checkout. It does not import CsiSza's word inventory or establish any
+new permission over that inventory. Native review supplies lexical judgment;
+the existing source notices and distribution terms remain applicable.
+
+`gameplay_overrides.json` carries the exact curated additions and surface/lemma
+removals needed for public-only reproduction. It contains no private operator
+identities, workbook rows, or review messages. The private review importer
+refreshes this portable source manifest when corrections change; builds load
+it even when the private parent checkout is absent.
+
+Approvals apply only to the exact surfaces, not to new inflection families.
+Explicit removal decisions and written-abbreviation exclusions remain
+authoritative. An approved lexical reading may override a false proper-name
+classification from the older morphdb analyzer. Lowercase `hm` (an interjection)
+is a narrowly allowed homograph of uppercase `HM`; this does not allow units
+such as `cm` or `kg`.
+
+Definition lookup retains all earlier mappings. Reviewed inflections use the
+source stem including verbal prefixes, compounds keep the complete headword,
+and derived adjectives do not point at the capitalized proper-name root.
+The new batch brings the standard vocabulary to 851,796 surfaces and the
+classic-tile vocabulary to 846,161 surfaces. Four additions cannot be formed
+with the classic mode's fixed physical tiles and remain in its exclusion audit.
+No earlier word or canonical tile arrangement was removed.
+
+```bash
+python3 build_evidence_wordlist.py --offline --output-dir artifacts/native-review
+python3 promote_evidence_wordlist.py --candidate-dir artifacts/native-review
+python3 generate_classic_tile_lexicon.py
+python3 -m unittest test_process_words test_build_evidence_wordlist test_promote_evidence_wordlist test_reviewed_additions test_generate_classic_tile_lexicon
+```
 
 The [morphdb.hu](https://mokk.bme.hu/en/resources/hunmorph/) archive contains a
 Creative Commons Attribution 2.5 license. The archive credits Eszter Simon,
@@ -105,8 +195,8 @@ python3 build_evidence_wordlist.py --offline
 # Run both generator and evidence-policy tests
 python3 -m unittest -v test_process_words.py test_build_evidence_wordlist.py
 
-# Preserve retained surface-to-lemma mappings, self-map accepted external
-# headwords, and promote the candidate to output/
+# Preserve retained surface-to-lemma mappings, map discovered inflections to
+# their external headwords, and promote the candidate to output/
 python3 promote_evidence_wordlist.py
 
 # Run the promotion regression tests as well
@@ -114,13 +204,32 @@ python3 -m unittest -v test_promote_evidence_wordlist.py
 ```
 
 Promotion verifies the candidate checksum, builds a complete matching lemma
-index under `candidate/definitions/`, and replaces the active word list, lemma
-index, and audit. Re-running the ordinary generator restores the full Magyar
-Ispell expansion; re-running the promotion step then reapplies the evidence
-policy deterministically.
+index under `candidate/definitions/`, maps newly discovered inflections to
+their independently confirmed external headwords, and replaces the active word
+list, lemma index, and audit. Re-running the ordinary generator restores the
+full Magyar Ispell expansion; re-running the promotion step then reapplies the
+evidence policy deterministically.
 
 The first evidence build requires the `hunspell` executable and can take
 several minutes. Subsequent builds reuse a checksum-keyed analysis cache.
+
+Existing vocabulary follows the ordinary evidence policy; discovery through
+the external-compound path must not reclassify an existing word. Promotion
+persists `output/evidence.tsv.gz` so newly admitted compound inflections
+continue to satisfy their stricter rule on subsequent builds, including builds
+using another candidate directory.
+
+To recover vocabulary after a provenance regression, the evidence generator
+accepts `--retention-baseline <complete-prior-wordlist>` together with
+`--retention-baseline-sha256 <verified-checksum>`. This is a full prior
+vocabulary snapshot, not an exception allowlist: every recovered candidate is
+still subject to ordinary evidence, source exclusions, and reviewed removals.
+The snapshot checksum is recorded in the audit. After promotion, normal builds
+need no recovery arguments.
+If a regression also removed lemma mappings, promotion accepts
+`--retention-lemma-index <prior-index-directory>`. It verifies the prior shard
+checksums and uses that index only for accepted surfaces missing from the
+current index; it never replaces retained mappings.
 
 Coverage:
 - Generated words are 2–10 characters long; the four separately approved
@@ -145,6 +254,8 @@ Coverage:
   native-speaker-reviewed lowercase surfaces `búék`, `gmk`, `jézus`, `kkv`,
   `las`, `levi`, `mgtsz`, `sanyi`, `sec`, `termo`, `thm`, `tszcs`, and `ühg`
   are likewise excluded without removing any complete inflectional family.
+  The gameplay-reported unattested inflection `cöcögd` is also removed as an
+  exact surface while retaining the documented lemma `cöcög`.
 - Direct source headwords and ordinary inflections are retained without an
   exact-surface corpus requirement.
 - Higher-risk paths must occur at least twice in the complete Webcorpus. These
@@ -199,6 +310,12 @@ python3 process_words.py --offline
 
 # Run the processor regression tests
 python3 -m unittest -v test_process_words.py
+
+# Generate and test the additive classic physical-tile lexicon
+python3 import_csi_sza_tile_boundaries.py /path/to/CsiSza/szotar22a_kat.dic
+python3 generate_classic_tile_lexicon.py
+python3 -m unittest -v test_generate_classic_tile_lexicon.py
+
 ```
 
 ## Hungarian Alphabet

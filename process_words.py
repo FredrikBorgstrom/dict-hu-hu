@@ -47,6 +47,7 @@ ABBREVIATION_HOMONYMS = frozenset(
     {
         "abba",   # inflected demonstrative pronoun / verbal prefix
         "hal",    # fish; also "dies"
+        "hm",     # lexical interjection, po:sentint; distinct from uppercase HM
         "hogyan", # how
         "ide",    # here
         "le",     # down
@@ -316,6 +317,11 @@ def is_valid_hu_word(word: str) -> bool:
 def has_vowel(word: str) -> bool:
     """Return True if word contains at least one Hungarian vowel."""
     return any(char in VOWELS for char in word)
+
+
+def is_written_abbreviation_shape(word: str) -> bool:
+    """Keep the source-confirmed interjection hm without admitting units."""
+    return len(word) == 2 and not has_vowel(word) and word != "hm"
 
 
 def _parse_alias(
@@ -735,7 +741,7 @@ def _surface_is_final(
     rejected_generated_surfaces: set[str] | None = None,
 ) -> bool:
     """Apply filters that operate on a fully generated surface form."""
-    if word in blocked_surfaces or (len(word) == 2 and not has_vowel(word)):
+    if word in blocked_surfaces or is_written_abbreviation_shape(word):
         return False
     return not (
         rejected_generated_surfaces is not None
@@ -1241,7 +1247,7 @@ def expand_dictionary(
                 if word in blocked_surfaces:
                     stats["rejected_blocked_source_surfaces"] += 1
                     continue
-                if len(word) == 2 and not has_vowel(word):
+                if is_written_abbreviation_shape(word):
                     stats["rejected_two_letter_abbreviations"] += 1
                     continue
                 while safe_word and safe_word < word:

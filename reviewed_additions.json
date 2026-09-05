@@ -1,0 +1,5888 @@
+{
+  "schemaVersion": 1,
+  "policy": "Native-reviewed lexical forms verified against pinned Magyar Ispell and at least two clean Webcorpus occurrences. Review is not a copyright permission.",
+  "sourceChecksumsSha256": {
+    "hu_HU.aff": "f3a2748dd535cfde2142ab17d0f7f8e4787b03fb25a60829c69ac8d493db4802",
+    "hu_HU.dic": "97293d670ad4a3b8e7eebef7e25c6e8e939b914c64b6b4672b2bf416b768f990",
+    "web2.2-alfa-sorted.txt.gz": "10383cd7ddd1f8e4b4c4f62126eb48a84584446498757e00464f755e75d8714f"
+  },
+  "entries": [
+    {
+      "word": "adatbank",
+      "quality4Frequency": 901,
+      "magyarIspellAnalyses": [
+        "adatbank  pa:adat st:adat po:noun ts:NOM pa:bank st:bank po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "adatbank"
+      ]
+    },
+    {
+      "word": "adatcsere",
+      "quality4Frequency": 587,
+      "magyarIspellAnalyses": [
+        "adatcsere  pa:adat st:adat po:noun ts:NOM pa:csere st:csere po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "adatcsere"
+      ]
+    },
+    {
+      "word": "adatforrás",
+      "quality4Frequency": 200,
+      "magyarIspellAnalyses": [
+        "adatforrás  pa:adat st:adat po:noun ts:NOM pa:forrás  st:forr po:vrb ts:PRES_INDIC_INDEF_SG_3 ds:Ás_PROCESS/RESULT_noun ts:NOM",
+        "adatforrás  pa:adat st:adat po:noun ts:NOM pa:forrás st:forrás po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "adatforrás"
+      ]
+    },
+    {
+      "word": "adatgyűjtő",
+      "quality4Frequency": 955,
+      "magyarIspellAnalyses": [
+        "adatgyűjtő  pa:adat st:adat po:noun ts:NOM pa:gyűjtő  st:gyűjt po:vrb ts:PRES_INDIC_INDEF_SG_3 al:gyűjtet ds:Ó_PRESPART_adj ts:NOM",
+        "adatgyűjtő  pa:adat st:adat po:noun ts:NOM pa:gyűjtő st:gyűjtő po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "adatgyűjtő"
+      ]
+    },
+    {
+      "word": "adatközlés",
+      "quality4Frequency": 500,
+      "magyarIspellAnalyses": [
+        "adatközlés  pa:adat st:adat po:noun ts:NOM pa:közlés st:közöl po:vrb ds:Ás_PROCESS/RESULT_noun ts:NOM"
+      ],
+      "lemmas": [
+        "adatközlés"
+      ]
+    },
+    {
+      "word": "adatközlő",
+      "quality4Frequency": 499,
+      "magyarIspellAnalyses": [
+        "adatközlő  pa:adat st:adat po:noun ts:NOM pa:közlő st:közöl po:vrb ds:Ó_PRESPART_adj ts:NOM"
+      ],
+      "lemmas": [
+        "adatközlő"
+      ]
+    },
+    {
+      "word": "adatmentés",
+      "quality4Frequency": 255,
+      "magyarIspellAnalyses": [
+        "adatmentés  pa:adat st:adat po:noun ts:NOM pa:mentés  (  st:megy po:vrb is:PAST_INDIC_INDEF_SG_3 al:mentet ds:Ás_PROCESS/RESULT_noun ts:NOM |  st:ment po:vrb ts:PRES_INDIC_INDEF_SG_3 al:mentet ds:Ás_PROCESS/RESULT_noun ts:NOM |  st:mente po:noun ts:NOM ds:s_ATTRIBUTE_adj ts:NOM |  st:mente po:noun ts:NOM ds:s_OCCUPATION_noun ts:NOM ) "
+      ],
+      "lemmas": [
+        "adatmentés"
+      ]
+    },
+    {
+      "word": "adatsor",
+      "quality4Frequency": 670,
+      "magyarIspellAnalyses": [
+        "adatsor  pa:adat st:adat po:noun ts:NOM pa:sor st:sor po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "adatsor"
+      ]
+    },
+    {
+      "word": "adattárház",
+      "quality4Frequency": 273,
+      "magyarIspellAnalyses": [
+        "adattárház  pa:adat st:adat po:noun ts:NOM pa:tárház st:tárház po:noun ts:NOM al:tárházak hy:3"
+      ],
+      "lemmas": [
+        "adattárház"
+      ]
+    },
+    {
+      "word": "adattároló",
+      "quality4Frequency": 295,
+      "magyarIspellAnalyses": [
+        "adattároló  pa:adat st:adat po:noun ts:NOM pa:tároló  st:tárol po:vrb ts:PRES_INDIC_INDEF_SG_3 ds:Ó_PRESPART_adj ts:NOM"
+      ],
+      "lemmas": [
+        "adattároló"
+      ]
+    },
+    {
+      "word": "adattípus",
+      "quality4Frequency": 139,
+      "magyarIspellAnalyses": [
+        "adattípus  pa:adat st:adat po:noun ts:NOM pa:típus st:típus po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "adattípus"
+      ]
+    },
+    {
+      "word": "adóbevétel",
+      "quality4Frequency": 593,
+      "magyarIspellAnalyses": [
+        "adóbevétel  pa:adó st:ad po:vrb ts:PRES_INDIC_INDEF_SG_3 al:adat ds:Ó_PRESPART_adj ts:NOM pa:bevétel st:bevétel po:noun ts:NOM hy:2",
+        "adóbevétel  pa:adó st:adó po:noun ts:NOM pa:bevétel st:bevétel po:noun ts:NOM hy:2"
+      ],
+      "lemmas": [
+        "adóbevétel"
+      ]
+    },
+    {
+      "word": "adóelőleg",
+      "quality4Frequency": 1292,
+      "magyarIspellAnalyses": [
+        "adóelőleg  pa:adó st:ad po:vrb ts:PRES_INDIC_INDEF_SG_3 al:adat ds:Ó_PRESPART_adj ts:NOM pa:előleg st:előleg po:noun ts:NOM",
+        "adóelőleg  pa:adó st:adó po:noun ts:NOM pa:előleg st:előleg po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "adóelőleg"
+      ]
+    },
+    {
+      "word": "adóemelés",
+      "quality4Frequency": 456,
+      "magyarIspellAnalyses": [
+        "adóemelés  pa:adó st:adó po:noun ts:NOM pa:emelés  st:emel po:vrb ts:PRES_INDIC_INDEF_SG_3 ds:Ás_PROCESS/RESULT_noun ts:NOM"
+      ],
+      "lemmas": [
+        "adóemelés"
+      ]
+    },
+    {
+      "word": "adóhiány",
+      "quality4Frequency": 267,
+      "magyarIspellAnalyses": [
+        "adóhiány  pa:adó st:ad po:vrb ts:PRES_INDIC_INDEF_SG_3 al:adat ds:Ó_PRESPART_adj ts:NOM pa:hiány st:hiány po:noun ts:NOM",
+        "adóhiány  pa:adó st:adó po:noun ts:NOM pa:hiány st:hiány po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "adóhiány"
+      ]
+    },
+    {
+      "word": "adójegy",
+      "quality4Frequency": 183,
+      "magyarIspellAnalyses": [
+        "adójegy  pa:adó st:ad po:vrb ts:PRES_INDIC_INDEF_SG_3 al:adat ds:Ó_PRESPART_adj ts:NOM pa:jegy st:jegy po:noun ts:NOM",
+        "adójegy  pa:adó st:adó po:noun ts:NOM pa:jegy st:jegy po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "adójegy"
+      ]
+    },
+    {
+      "word": "adóreform",
+      "quality4Frequency": 341,
+      "magyarIspellAnalyses": [
+        "adóreform  pa:adó st:ad po:vrb ts:PRES_INDIC_INDEF_SG_3 al:adat ds:Ó_PRESPART_adj ts:NOM pa:reform st:reform po:noun ts:NOM",
+        "adóreform  pa:adó st:adó po:noun ts:NOM pa:reform st:reform po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "adóreform"
+      ]
+    },
+    {
+      "word": "adószám",
+      "quality4Frequency": 742,
+      "magyarIspellAnalyses": [
+        "adószám  pa:adó st:ad po:vrb ts:PRES_INDIC_INDEF_SG_3 al:adat ds:Ó_PRESPART_adj ts:NOM pa:szám st:szám po:noun ts:NOM",
+        "adószám  pa:adó st:adó po:noun ts:NOM pa:szám st:szám po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "adószám"
+      ]
+    },
+    {
+      "word": "adótörvény",
+      "quality4Frequency": 783,
+      "magyarIspellAnalyses": [
+        "adótörvény  pa:adó st:ad po:vrb ts:PRES_INDIC_INDEF_SG_3 al:adat ds:Ó_PRESPART_adj ts:NOM pa:törvény st:törvény po:noun ts:NOM",
+        "adótörvény  pa:adó st:adó po:noun ts:NOM pa:törvény st:törvény po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "adótörvény"
+      ]
+    },
+    {
+      "word": "adóügyi",
+      "quality4Frequency": 671,
+      "magyarIspellAnalyses": [
+        "adóügyi  pa:adó st:adó po:noun ts:NOM pa:ügyi  (  st:ügy po:noun ts:NOM is:i_PLACE/TIME_adj ts:NOM |  st:ügy po:noun ts:NOM is:i_PLACE/TIME_adj ts:NOM ) "
+      ],
+      "lemmas": [
+        "adóügyi"
+      ]
+    },
+    {
+      "word": "agyhalál",
+      "quality4Frequency": 232,
+      "magyarIspellAnalyses": [
+        "agyhalál  pa:agy st:agy po:noun ts:NOM al:agyak pa:halál st:halál po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "agyhalál"
+      ]
+    },
+    {
+      "word": "agykutatás",
+      "quality4Frequency": 186,
+      "magyarIspellAnalyses": [
+        "agykutatás  pa:agy st:agy po:noun ts:NOM al:agyak pa:kutatás  st:kutat po:vrb ts:PRES_INDIC_INDEF_SG_3 ds:Ás_PROCESS/RESULT_noun ts:NOM",
+        "agykutatás  pa:agy st:agy po:noun ts:NOM al:agyak pa:kutatás st:kutatás po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "agykutatás"
+      ]
+    },
+    {
+      "word": "agykutató",
+      "quality4Frequency": 170,
+      "magyarIspellAnalyses": [
+        "agykutató  pa:agy st:agy po:noun ts:NOM al:agyak pa:kutató  st:kutat po:vrb ts:PRES_INDIC_INDEF_SG_3 ds:Ó_PRESPART_adj ts:NOM",
+        "agykutató  pa:agy st:agy po:noun ts:NOM al:agyak pa:kutató st:kutató po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "agykutató"
+      ]
+    },
+    {
+      "word": "akciófilm",
+      "quality4Frequency": 257,
+      "magyarIspellAnalyses": [
+        "akciófilm  pa:akció st:akció po:noun ts:NOM pa:film st:film po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "akciófilm"
+      ]
+    },
+    {
+      "word": "akcióhős",
+      "quality4Frequency": 155,
+      "magyarIspellAnalyses": [
+        "akcióhős  pa:akció st:akció po:noun ts:NOM pa:hős  (  st:hő po:noun ts:NOM ds:s_ATTRIBUTE_adj ts:NOM |  st:hő po:noun ts:NOM ds:s_OCCUPATION_noun ts:NOM ) ",
+        "akcióhős  pa:akció st:akció po:noun ts:NOM pa:hős st:hős po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "akcióhős"
+      ]
+    },
+    {
+      "word": "akcióterv",
+      "quality4Frequency": 1022,
+      "magyarIspellAnalyses": [
+        "akcióterv  pa:akció st:akció po:noun ts:NOM pa:terv st:terv po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "akcióterv"
+      ]
+    },
+    {
+      "word": "alapadat",
+      "quality4Frequency": 126,
+      "magyarIspellAnalyses": [
+        "alapadat  pa:alap st:alap po:noun ts:NOM pa:adat st:adat po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "alapadat"
+      ]
+    },
+    {
+      "word": "alapcsomag",
+      "quality4Frequency": 198,
+      "magyarIspellAnalyses": [
+        "alapcsomag  pa:alap st:alap po:noun ts:NOM pa:csomag st:csomag po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "alapcsomag"
+      ]
+    },
+    {
+      "word": "alapiskola",
+      "quality4Frequency": 235,
+      "magyarIspellAnalyses": [
+        "alapiskola  pa:alap st:alap po:noun ts:NOM pa:iskola st:iskola po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "alapiskola"
+      ]
+    },
+    {
+      "word": "alapjog",
+      "quality4Frequency": 1128,
+      "magyarIspellAnalyses": [
+        "alapjog  pa:alap st:alap po:noun ts:NOM pa:jog st:jog po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "alapjog"
+      ]
+    },
+    {
+      "word": "alapjárat",
+      "quality4Frequency": 160,
+      "magyarIspellAnalyses": [
+        "alapjárat  pa:alap st:alap po:noun ts:NOM pa:járat st:járat po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "alapjárat"
+      ]
+    },
+    {
+      "word": "alapkezelő",
+      "quality4Frequency": 1489,
+      "magyarIspellAnalyses": [
+        "alapkezelő  pa:alap st:alap po:noun ts:NOM pa:kezelő  st:kezel po:vrb ts:PRES_INDIC_INDEF_SG_3 ds:Ó_PRESPART_adj ts:NOM",
+        "alapkezelő  pa:alap st:alap po:noun ts:NOM pa:kezelő st:kezelő po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "alapkezelő"
+      ]
+    },
+    {
+      "word": "alapmodell",
+      "quality4Frequency": 214,
+      "magyarIspellAnalyses": [
+        "alapmodell  pa:alap st:alap po:noun ts:NOM pa:modell st:modell po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "alapmodell"
+      ]
+    },
+    {
+      "word": "alaptérkép",
+      "quality4Frequency": 596,
+      "magyarIspellAnalyses": [
+        "alaptérkép  pa:alap st:alap po:noun ts:NOM pa:térkép st:térkép po:noun ts:NOM hy:3"
+      ],
+      "lemmas": [
+        "alaptérkép"
+      ]
+    },
+    {
+      "word": "alapérték",
+      "quality4Frequency": 217,
+      "magyarIspellAnalyses": [
+        "alapérték  pa:alap st:alap po:noun ts:NOM pa:érték st:érték po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "alapérték"
+      ]
+    },
+    {
+      "word": "algériai",
+      "quality4Frequency": 373,
+      "magyarIspellAnalyses": [
+        "algériai  fl:\" st:Algéria po:noun_prs ts:NOM is:i_PLACE/TIME_adj ts:NOM"
+      ],
+      "lemmas": [
+        "algériai"
+      ]
+    },
+    {
+      "word": "almaecet",
+      "quality4Frequency": 161,
+      "magyarIspellAnalyses": [
+        "almaecet  pa:alma st:alma po:noun ts:NOM pa:ecet st:ecet po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "almaecet"
+      ]
+    },
+    {
+      "word": "alvászavar",
+      "quality4Frequency": 586,
+      "magyarIspellAnalyses": [
+        "alvászavar  pa:alvás st:alszik po:vrb ds:Ás_PROCESS/RESULT_noun ts:NOM pa:zavar st:zavar po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "alvászavar"
+      ]
+    },
+    {
+      "word": "alvázszám",
+      "quality4Frequency": 128,
+      "magyarIspellAnalyses": [
+        "alvázszám  pa:alváz st:alváz po:noun ts:NOM al:alvázak hy:2 pa:szám st:szám po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "alvázszám"
+      ]
+    },
+    {
+      "word": "anyanyelvű",
+      "quality4Frequency": 33897,
+      "magyarIspellAnalyses": [
+        "anyanyelvű  pa:anya st:anya po:noun ts:NOM al:anyjáék al:any pa:nyelvű  (  st:nyelv po:noun ts:NOM is:jÚ_PROPERTY_adj ts:NOM |  st:nyelv po:noun ts:NOM is:jÚ_PROPERTY_adj ts:NOM ) "
+      ],
+      "lemmas": [
+        "anyanyelvű"
+      ]
+    },
+    {
+      "word": "anyósülés",
+      "quality4Frequency": 126,
+      "magyarIspellAnalyses": [
+        "anyósülés  pa:anyó st:anyó po:noun ts:NOM pa:sülés  st:sül po:vrb ts:PRES_INDIC_INDEF_SG_3 ds:Ás_PROCESS/RESULT_noun ts:NOM",
+        "anyósülés  pa:anyós st:anyós po:noun ts:NOM pa:ülés  st:ül po:vrb ts:PRES_INDIC_INDEF_SG_3 ds:Ás_PROCESS/RESULT_noun ts:NOM",
+        "anyósülés  pa:anyós st:anyós po:noun ts:NOM pa:ülés st:ülés po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "anyósülés"
+      ]
+    },
+    {
+      "word": "aranyérmes",
+      "quality4Frequency": 665,
+      "magyarIspellAnalyses": [
+        "aranyérmes  pa:arany st:arany po:noun ts:NOM al:aranyak pa:érmes  (  st:érem po:noun ts:PLUR ts:NOM ds:s_ATTRIBUTE_adj ts:NOM |  st:érem po:noun ts:PLUR ts:NOM ds:s_OCCUPATION_noun ts:NOM ) "
+      ],
+      "lemmas": [
+        "aranyérmes"
+      ]
+    },
+    {
+      "word": "atlanti",
+      "quality4Frequency": 679,
+      "magyarIspellAnalyses": [
+        "atlanti  fl:\" st:Atlanti po:noun_prs ts:NOM is:i_PLACE/TIME_adj ts:NOM"
+      ],
+      "lemmas": [
+        "atlanti"
+      ]
+    },
+    {
+      "word": "atomipar",
+      "quality4Frequency": 321,
+      "magyarIspellAnalyses": [
+        "atomipar  pa:atom st:atom po:noun ts:NOM pa:ipar st:ipar po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "atomipar"
+      ]
+    },
+    {
+      "word": "ausztriai",
+      "quality4Frequency": 2898,
+      "magyarIspellAnalyses": [
+        "ausztriai  fl:\" st:Ausztria po:noun_prs ts:NOM is:i_PLACE/TIME_adj ts:NOM"
+      ],
+      "lemmas": [
+        "ausztriai"
+      ]
+    },
+    {
+      "word": "autógyártó",
+      "quality4Frequency": 511,
+      "magyarIspellAnalyses": [
+        "autógyártó  pa:autó st:autó po:noun ts:NOM pa:gyártó  st:gyárt po:vrb ts:PRES_INDIC_INDEF_SG_3 al:gyártat ds:Ó_PRESPART_adj ts:NOM",
+        "autógyártó  pa:autó st:autó po:noun ts:NOM pa:gyártó st:gyártó po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "autógyártó"
+      ]
+    },
+    {
+      "word": "autóklub",
+      "quality4Frequency": 155,
+      "magyarIspellAnalyses": [
+        "autóklub  pa:autó st:autó po:noun ts:NOM pa:klub st:klub po:noun ts:NOM ph:club"
+      ],
+      "lemmas": [
+        "autóklub"
+      ]
+    },
+    {
+      "word": "autószalon",
+      "quality4Frequency": 217,
+      "magyarIspellAnalyses": [
+        "autószalon  pa:autó st:autó po:noun ts:NOM pa:szalon st:szalon po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "autószalon"
+      ]
+    },
+    {
+      "word": "bankkártya",
+      "quality4Frequency": 1392,
+      "magyarIspellAnalyses": [
+        "bankkártya  pa:bank st:bank po:noun ts:NOM pa:kártya st:kártya po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "bankkártya"
+      ]
+    },
+    {
+      "word": "bankközi",
+      "quality4Frequency": 1184,
+      "magyarIspellAnalyses": [
+        "bankközi  pa:bank st:bank po:noun ts:NOM pa:közi  (  st:köz po:noun ts:NOM is:i_PLACE/TIME_adj ts:NOM |  st:köz po:noun ts:NOM is:i_PLACE/TIME_adj ts:NOM ) "
+      ],
+      "lemmas": [
+        "bankközi"
+      ]
+    },
+    {
+      "word": "baromfihús",
+      "quality4Frequency": 488,
+      "magyarIspellAnalyses": [
+        "baromfihús  pa:baromfi st:baromfi po:noun ts:NOM al:baromfiak hy:5 pa:hús st:hús po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "baromfihús"
+      ]
+    },
+    {
+      "word": "bazi",
+      "quality4Frequency": 475,
+      "magyarIspellAnalyses": [
+        "bazi  st:bazi po:adj"
+      ],
+      "lemmas": [
+        "bazi"
+      ]
+    },
+    {
+      "word": "belgiumi",
+      "quality4Frequency": 581,
+      "magyarIspellAnalyses": [
+        "belgiumi  fl:\" st:Belgium po:noun_prs ts:NOM is:i_PLACE/TIME_adj ts:NOM"
+      ],
+      "lemmas": [
+        "belgiumi"
+      ]
+    },
+    {
+      "word": "beszerzett",
+      "quality4Frequency": 3690,
+      "magyarIspellAnalyses": [
+        "beszerzett ip:PREF sp:be  st:szerez po:vrb ts:PRES_INDIC_INDEF_SG_3 al:szerző al:szerzés al:szerzendő ds:tt_PASTPART_adj ts:NOM",
+        "beszerzett ip:PREF sp:be  st:szerez po:vrb ts:PRES_INDIC_INDEF_SG_3 al:szerző al:szerzés al:szerzendő is:PAST_INDIC_INDEF_SG_3"
+      ],
+      "lemmas": [
+        "beszerez",
+        "beszerzett"
+      ]
+    },
+    {
+      "word": "betűméret",
+      "quality4Frequency": 361,
+      "magyarIspellAnalyses": [
+        "betűméret  pa:betű st:betű po:noun ts:NOM pa:méret st:méret po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "betűméret"
+      ]
+    },
+    {
+      "word": "bolíviai",
+      "quality4Frequency": 148,
+      "magyarIspellAnalyses": [
+        "bolíviai  fl:\" st:Bolívia po:noun_prs ts:NOM is:i_PLACE/TIME_adj ts:NOM"
+      ],
+      "lemmas": [
+        "bolíviai"
+      ]
+    },
+    {
+      "word": "bombariadó",
+      "quality4Frequency": 269,
+      "magyarIspellAnalyses": [
+        "bombariadó  pa:bomba st:bomba po:noun ts:NOM pa:riadó  st:riad po:vrb ts:PRES_INDIC_INDEF_SG_3 al:riadt al:riadt ds:Ó_PRESPART_adj ts:NOM",
+        "bombariadó  pa:bomba st:bomba po:noun ts:NOM pa:riadó st:riadó po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "bombariadó"
+      ]
+    },
+    {
+      "word": "borkultúra",
+      "quality4Frequency": 440,
+      "magyarIspellAnalyses": [
+        "borkultúra  pa:bor st:bor po:noun ts:NOM pa:kultúra st:kultúra po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "borkultúra"
+      ]
+    },
+    {
+      "word": "borverseny",
+      "quality4Frequency": 422,
+      "magyarIspellAnalyses": [
+        "borverseny  pa:bor st:bor po:noun ts:NOM pa:verseny st:verseny po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "borverseny"
+      ]
+    },
+    {
+      "word": "boszniai",
+      "quality4Frequency": 1003,
+      "magyarIspellAnalyses": [
+        "boszniai  fl:\" st:Bosznia po:noun_prs ts:NOM is:i_PLACE/TIME_adj ts:NOM"
+      ],
+      "lemmas": [
+        "boszniai"
+      ]
+    },
+    {
+      "word": "bronzérmes",
+      "quality4Frequency": 533,
+      "magyarIspellAnalyses": [
+        "bronzérmes  pa:bronz st:bronz po:noun ts:NOM al:bronzot pa:érmes  (  st:érem po:noun ts:PLUR ts:NOM ds:s_ATTRIBUTE_adj ts:NOM |  st:érem po:noun ts:PLUR ts:NOM ds:s_OCCUPATION_noun ts:NOM ) "
+      ],
+      "lemmas": [
+        "bronzérmes"
+      ]
+    },
+    {
+      "word": "bukovinai",
+      "quality4Frequency": 471,
+      "magyarIspellAnalyses": [
+        "bukovinai  fl:\" st:Bukovina po:noun_prs ts:NOM is:i_PLACE/TIME_adj ts:NOM"
+      ],
+      "lemmas": [
+        "bukovinai"
+      ]
+    },
+    {
+      "word": "bulgáriai",
+      "quality4Frequency": 346,
+      "magyarIspellAnalyses": [
+        "bulgáriai  fl:\" st:Bulgária po:noun_prs ts:NOM is:i_PLACE/TIME_adj ts:NOM"
+      ],
+      "lemmas": [
+        "bulgáriai"
+      ]
+    },
+    {
+      "word": "buszjárat",
+      "quality4Frequency": 430,
+      "magyarIspellAnalyses": [
+        "buszjárat  pa:busz st:busz po:noun ts:NOM pa:járat st:járat po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "buszjárat"
+      ]
+    },
+    {
+      "word": "buszsofőr",
+      "quality4Frequency": 330,
+      "magyarIspellAnalyses": [
+        "buszsofőr  pa:busz st:busz po:noun ts:NOM pa:sofőr st:sofőr po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "buszsofőr"
+      ]
+    },
+    {
+      "word": "buszsáv",
+      "quality4Frequency": 128,
+      "magyarIspellAnalyses": [
+        "buszsáv  pa:busz st:busz po:noun ts:NOM pa:sáv st:sáv po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "buszsáv"
+      ]
+    },
+    {
+      "word": "buszvezető",
+      "quality4Frequency": 363,
+      "magyarIspellAnalyses": [
+        "buszvezető  pa:busz st:busz po:noun ts:NOM pa:vezető  st:vezet po:vrb ts:PRES_INDIC_INDEF_SG_3 ds:Ó_PRESPART_adj ts:NOM",
+        "buszvezető  pa:busz st:busz po:noun ts:NOM pa:vezető st:vezető po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "buszvezető"
+      ]
+    },
+    {
+      "word": "bíborszínű",
+      "quality4Frequency": 200,
+      "magyarIspellAnalyses": [
+        "bíborszínű  pa:bíbor st:bíbor po:noun ts:NOM pa:színű  (  st:szín po:noun ts:NOM is:jÚ_PROPERTY_adj ts:NOM |  st:szín po:noun ts:NOM is:jÚ_PROPERTY_adj ts:NOM ) "
+      ],
+      "lemmas": [
+        "bíborszínű"
+      ]
+    },
+    {
+      "word": "búzacsíra",
+      "quality4Frequency": 192,
+      "magyarIspellAnalyses": [
+        "búzacsíra  pa:búza st:búza po:noun ts:NOM pa:csíra st:csíra po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "búzacsíra"
+      ]
+    },
+    {
+      "word": "bőrfelület",
+      "quality4Frequency": 311,
+      "magyarIspellAnalyses": [
+        "bőrfelület  pa:bőr st:bőr po:noun ts:NOM pa:felület st:felület po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "bőrfelület"
+      ]
+    },
+    {
+      "word": "bőrpír",
+      "quality4Frequency": 470,
+      "magyarIspellAnalyses": [
+        "bőrpír  pa:bőr st:bőr po:noun ts:NOM pa:pír st:pír po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "bőrpír"
+      ]
+    },
+    {
+      "word": "bőrszín",
+      "quality4Frequency": 422,
+      "magyarIspellAnalyses": [
+        "bőrszín  pa:bőr st:bőr po:noun ts:NOM pa:szín st:szín po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "bőrszín"
+      ]
+    },
+    {
+      "word": "cianid",
+      "quality4Frequency": 221,
+      "magyarIspellAnalyses": [
+        "cianid  st:cianid po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "cianid"
+      ]
+    },
+    {
+      "word": "cipőipar",
+      "quality4Frequency": 501,
+      "magyarIspellAnalyses": [
+        "cipőipar  pa:cipő st:cipő po:noun ts:NOM pa:ipar st:ipar po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "cipőipar"
+      ]
+    },
+    {
+      "word": "csallóközi",
+      "quality4Frequency": 287,
+      "magyarIspellAnalyses": [
+        "csallóközi  fl:\" st:Csallóköz po:noun_prs ts:NOM hy:6 is:i_PLACE/TIME_adj ts:NOM"
+      ],
+      "lemmas": [
+        "csallóközi"
+      ]
+    },
+    {
+      "word": "csapattag",
+      "quality4Frequency": 488,
+      "magyarIspellAnalyses": [
+        "csapattag  pa:csapat st:csapat po:noun ts:NOM pa:tag st:tag po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "csapattag"
+      ]
+    },
+    {
+      "word": "csapvíz",
+      "quality4Frequency": 465,
+      "magyarIspellAnalyses": [
+        "csapvíz  pa:csap st:csap po:noun ts:NOM al:csapat pa:víz st:víz po:noun ts:NOM al:vizek"
+      ],
+      "lemmas": [
+        "csapvíz"
+      ]
+    },
+    {
+      "word": "csipkelődő",
+      "quality4Frequency": 160,
+      "magyarIspellAnalyses": [
+        "csipkelődő  st:csipkelődik po:vrb ts:PRES_INDIC_INDEF_SG_3 ds:Ó_PRESPART_adj ts:NOM"
+      ],
+      "lemmas": [
+        "csipkelődő"
+      ]
+    },
+    {
+      "word": "csirkemell",
+      "quality4Frequency": 362,
+      "magyarIspellAnalyses": [
+        "csirkemell  pa:csirke st:csirke po:noun ts:NOM pa:mell st:mell po:noun ts:NOM al:mellet"
+      ],
+      "lemmas": [
+        "csirkemell"
+      ]
+    },
+    {
+      "word": "csodálkozó",
+      "quality4Frequency": 675,
+      "magyarIspellAnalyses": [
+        "csodálkozó  st:csodálkozik po:vrb ts:PRES_INDIC_INDEF_SG_3 ds:Ó_PRESPART_adj ts:NOM"
+      ],
+      "lemmas": [
+        "csodálkozó"
+      ]
+    },
+    {
+      "word": "csomagtér",
+      "quality4Frequency": 1002,
+      "magyarIspellAnalyses": [
+        "csomagtér  pa:csomag st:csomag po:noun ts:NOM pa:tér st:tér po:noun ts:NOM al:téret al:terek"
+      ],
+      "lemmas": [
+        "csomagtér"
+      ]
+    },
+    {
+      "word": "csőtörés",
+      "quality4Frequency": 466,
+      "magyarIspellAnalyses": [
+        "csőtörés  pa:cső st:cső po:noun ts:NOM al:csövek pa:törés  (  st:tör po:vrb ts:PRES_INDIC_INDEF_SG_3 al:töret ds:Ás_PROCESS/RESULT_noun ts:NOM |  st:törik po:vrb ts:PRES_INDIC_INDEF_SG_3 al:törött ds:Ás_PROCESS/RESULT_noun ts:NOM ) "
+      ],
+      "lemmas": [
+        "csőtörés"
+      ]
+    },
+    {
+      "word": "cukoripar",
+      "quality4Frequency": 140,
+      "magyarIspellAnalyses": [
+        "cukoripar  pa:cukor st:cukor po:noun ts:NOM al:cukrok pa:ipar st:ipar po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "cukoripar"
+      ]
+    },
+    {
+      "word": "cégeljárás",
+      "quality4Frequency": 148,
+      "magyarIspellAnalyses": [
+        "cégeljárás  pa:cég st:cég po:noun ts:NOM pa:eljárás ip:PREF sp:el  st:jár po:vrb ts:PRES_INDIC_INDEF_SG_3 al:járat ds:Ás_PROCESS/RESULT_noun ts:NOM",
+        "cégeljárás  pa:cég st:cég po:noun ts:NOM pa:eljárás st:eljárás po:noun ts:NOM hy:2"
+      ],
+      "lemmas": [
+        "cégeljárás"
+      ]
+    },
+    {
+      "word": "célprogram",
+      "quality4Frequency": 311,
+      "magyarIspellAnalyses": [
+        "célprogram  pa:cél st:cél po:noun ts:NOM pa:program st:program po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "célprogram"
+      ]
+    },
+    {
+      "word": "célszemély",
+      "quality4Frequency": 534,
+      "magyarIspellAnalyses": [
+        "célszemély  pa:cél st:cél po:noun ts:NOM pa:személy st:személy po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "célszemély"
+      ]
+    },
+    {
+      "word": "célterület",
+      "quality4Frequency": 371,
+      "magyarIspellAnalyses": [
+        "célterület  pa:cél st:cél po:noun ts:NOM pa:terület st:terület po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "célterület"
+      ]
+    },
+    {
+      "word": "címadó",
+      "quality4Frequency": 1015,
+      "magyarIspellAnalyses": [
+        "címadó  pa:cím st:cím po:noun ts:NOM pa:adó  st:ad po:vrb ts:PRES_INDIC_INDEF_SG_3 al:adat ds:Ó_PRESPART_adj ts:NOM",
+        "címadó  pa:cím st:cím po:noun ts:NOM pa:adó st:adó po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "címadó"
+      ]
+    },
+    {
+      "word": "címlista",
+      "quality4Frequency": 365,
+      "magyarIspellAnalyses": [
+        "címlista  pa:cím st:cím po:noun ts:NOM pa:lista st:lista po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "címlista"
+      ]
+    },
+    {
+      "word": "címsor",
+      "quality4Frequency": 150,
+      "magyarIspellAnalyses": [
+        "címsor  pa:cím st:cím po:noun ts:NOM pa:sor st:sor po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "címsor"
+      ]
+    },
+    {
+      "word": "címvédő",
+      "quality4Frequency": 538,
+      "magyarIspellAnalyses": [
+        "címvédő  pa:cím st:cím po:noun ts:NOM pa:védő  st:véd po:vrb ts:PRES_INDIC_INDEF_SG_3 al:védet al:védesz al:védenünk al:védenétek al:védenétek al:védenénk al:védenénk al:védenének al:védeném al:védenélek al:védenél al:védenék al:védenék al:védenéd al:védené al:védeniük al:védeniök al:védenie al:védeni al:védenetek al:védenem al:védenek al:védened al:védene al:védelek al:védel ds:Ó_PRESPART_adj ts:NOM",
+        "címvédő  pa:cím st:cím po:noun ts:NOM pa:védő st:védő po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "címvédő"
+      ]
+    },
+    {
+      "word": "derekasan",
+      "quality4Frequency": 831,
+      "magyarIspellAnalyses": [
+        "derekasan  st:derék po:noun ts:PLUR ts:NOM ds:s_ATTRIBUTE_adj ts:NOM is:An_MODE_adv"
+      ],
+      "lemmas": [
+        "derekasan"
+      ]
+    },
+    {
+      "word": "devizapiac",
+      "quality4Frequency": 187,
+      "magyarIspellAnalyses": [
+        "devizapiac  pa:deviza st:deviza po:noun ts:NOM pa:piac st:piac po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "devizapiac"
+      ]
+    },
+    {
+      "word": "diákhitel",
+      "quality4Frequency": 1316,
+      "magyarIspellAnalyses": [
+        "diákhitel  pa:diák st:diák po:noun ts:NOM pa:hitel st:hitel po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "diákhitel"
+      ]
+    },
+    {
+      "word": "diákkör",
+      "quality4Frequency": 468,
+      "magyarIspellAnalyses": [
+        "diákkör  pa:diák st:diák po:noun ts:NOM pa:kör st:kör po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "diákkör"
+      ]
+    },
+    {
+      "word": "dohányipar",
+      "quality4Frequency": 229,
+      "magyarIspellAnalyses": [
+        "dohányipar  pa:dohány st:dohány po:noun ts:NOM pa:ipar st:ipar po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "dohányipar"
+      ]
+    },
+    {
+      "word": "drogfüggő",
+      "quality4Frequency": 333,
+      "magyarIspellAnalyses": [
+        "drogfüggő  pa:drog st:drog po:noun ts:NOM pa:függő  st:függ po:vrb ts:PRES_INDIC_INDEF_SG_3 ds:Ó_PRESPART_adj ts:NOM",
+        "drogfüggő  pa:drog st:drog po:noun ts:NOM pa:függő st:függő po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "drogfüggő"
+      ]
+    },
+    {
+      "word": "dániai",
+      "quality4Frequency": 544,
+      "magyarIspellAnalyses": [
+        "dániai  fl:\" st:Dánia po:noun_prs ts:NOM is:i_PLACE/TIME_adj ts:NOM"
+      ],
+      "lemmas": [
+        "dániai"
+      ]
+    },
+    {
+      "word": "díjbevétel",
+      "quality4Frequency": 460,
+      "magyarIspellAnalyses": [
+        "díjbevétel  pa:díj st:díj po:noun ts:NOM al:díjak pa:bevétel st:bevétel po:noun ts:NOM hy:2"
+      ],
+      "lemmas": [
+        "díjbevétel"
+      ]
+    },
+    {
+      "word": "díjemelés",
+      "quality4Frequency": 538,
+      "magyarIspellAnalyses": [
+        "díjemelés  pa:díj st:díj po:noun ts:NOM al:díjak pa:emelés  st:emel po:vrb ts:PRES_INDIC_INDEF_SG_3 ds:Ás_PROCESS/RESULT_noun ts:NOM"
+      ],
+      "lemmas": [
+        "díjemelés"
+      ]
+    },
+    {
+      "word": "díjátadás",
+      "quality4Frequency": 363,
+      "magyarIspellAnalyses": [
+        "díjátadás  pa:díj st:díj po:noun ts:NOM al:díjak pa:átadás ip:PREF sp:át  st:ad po:vrb ts:PRES_INDIC_INDEF_SG_3 al:adat ds:Ás_PROCESS/RESULT_noun ts:NOM",
+        "díjátadás  pa:díj st:díj po:noun ts:NOM al:díjak pa:átadás st:átadás po:noun ts:NOM hy:2"
+      ],
+      "lemmas": [
+        "díjátadás"
+      ]
+    },
+    {
+      "word": "díszvendég",
+      "quality4Frequency": 226,
+      "magyarIspellAnalyses": [
+        "díszvendég  pa:dísz st:dísz po:noun ts:NOM pa:vendég st:vendég po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "díszvendég"
+      ]
+    },
+    {
+      "word": "dögunalom",
+      "quality4Frequency": 140,
+      "magyarIspellAnalyses": [
+        "dögunalom  pa:dög st:dög po:noun ts:NOM pa:unalom st:unalom po:noun ts:NOM al:unalmak"
+      ],
+      "lemmas": [
+        "dögunalom"
+      ]
+    },
+    {
+      "word": "döntően",
+      "quality4Frequency": 8616,
+      "magyarIspellAnalyses": [
+        "döntően  st:dönt po:vrb ts:PRES_INDIC_INDEF_SG_3 al:döntet ds:Ó_PRESPART_adj ts:NOM is:An_MODE_adv"
+      ],
+      "lemmas": [
+        "döntően"
+      ]
+    },
+    {
+      "word": "dőlésszög",
+      "quality4Frequency": 141,
+      "magyarIspellAnalyses": [
+        "dőlésszög  pa:dőlés st:dől po:vrb ts:PRES_INDIC_INDEF_SG_3 ds:Ás_PROCESS/RESULT_noun ts:NOM pa:szög st:szög po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "dőlésszög"
+      ]
+    },
+    {
+      "word": "edzőterem",
+      "quality4Frequency": 589,
+      "magyarIspellAnalyses": [
+        "edzőterem  pa:edző st:edz po:vrb ds:Ó_PRESPART_adj ts:NOM pa:terem  (  st:tér po:noun ts:PLUR ts:NOM is:POSS_SG_1 is:NOM |  st:tér po:noun ts:PLUR ts:NOM is:POSS_SG_1 is:ACC ) ",
+        "edzőterem  pa:edző st:edz po:vrb ds:Ó_PRESPART_adj ts:NOM pa:terem st:terem po:noun ts:NOM al:termő al:termés al:termek"
+      ],
+      "lemmas": [
+        "edzőterem"
+      ]
+    },
+    {
+      "word": "egyablakos",
+      "quality4Frequency": 412,
+      "magyarIspellAnalyses": [
+        "egyablakos po:adj_num pa:egy  st:ablak po:noun ts:NOM ds:s_ATTRIBUTE_adj ts:NOM",
+        "egyablakos po:adj_num pa:egy  st:ablak po:noun ts:NOM ds:s_OCCUPATION_noun ts:NOM"
+      ],
+      "lemmas": [
+        "egyablakos"
+      ]
+    },
+    {
+      "word": "egyedszám",
+      "quality4Frequency": 207,
+      "magyarIspellAnalyses": [
+        "egyedszám  pa:egyed st:egy po:adj_num is:d_FRACTION_num ts:NOM pa:szám st:szám po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "egyedszám"
+      ]
+    },
+    {
+      "word": "egylényegű",
+      "quality4Frequency": 324,
+      "magyarIspellAnalyses": [
+        "egylényegű po:adj_num pa:egy  st:lényeg po:noun ts:NOM is:jÚ_PROPERTY_adj ts:NOM"
+      ],
+      "lemmas": [
+        "egylényegű"
+      ]
+    },
+    {
+      "word": "egyperces",
+      "quality4Frequency": 607,
+      "magyarIspellAnalyses": [
+        "egyperces po:adj_num pa:egy  st:perc po:noun ts:NOM ds:s_ATTRIBUTE_adj ts:NOM",
+        "egyperces po:adj_num pa:egy  st:perc po:noun ts:NOM ds:s_OCCUPATION_noun ts:NOM"
+      ],
+      "lemmas": [
+        "egyperces"
+      ]
+    },
+    {
+      "word": "egypólusú",
+      "quality4Frequency": 151,
+      "magyarIspellAnalyses": [
+        "egypólusú po:adj_num pa:egy  st:pólus po:noun ts:NOM is:jÚ_PROPERTY_adj ts:NOM"
+      ],
+      "lemmas": [
+        "egypólusú"
+      ]
+    },
+    {
+      "word": "egyrétegű",
+      "quality4Frequency": 256,
+      "magyarIspellAnalyses": [
+        "egyrétegű po:adj_num pa:egy  st:réteg po:noun ts:NOM is:jÚ_PROPERTY_adj ts:NOM"
+      ],
+      "lemmas": [
+        "egyrétegű"
+      ]
+    },
+    {
+      "word": "egérgomb",
+      "quality4Frequency": 348,
+      "magyarIspellAnalyses": [
+        "egérgomb  pa:egér st:egér po:noun ts:NOM al:egerek pa:gomb st:gomb po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "egérgomb"
+      ]
+    },
+    {
+      "word": "egérpad",
+      "quality4Frequency": 133,
+      "magyarIspellAnalyses": [
+        "egérpad  pa:egér st:egér po:noun ts:NOM al:egerek pa:pad st:pad po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "egérpad"
+      ]
+    },
+    {
+      "word": "elemszám",
+      "quality4Frequency": 184,
+      "magyarIspellAnalyses": [
+        "elemszám  pa:elem st:elem po:noun ts:NOM pa:szám st:szám po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "elemszám"
+      ]
+    },
+    {
+      "word": "elvégzett",
+      "quality4Frequency": 11476,
+      "magyarIspellAnalyses": [
+        "elvégzett ip:PREF sp:el  st:végez po:vrb ts:PRES_INDIC_INDEF_SG_3 al:végző al:végzés al:végzendő ds:tt_PASTPART_adj ts:NOM",
+        "elvégzett ip:PREF sp:el  st:végez po:vrb ts:PRES_INDIC_INDEF_SG_3 al:végző al:végzés al:végzendő is:PAST_INDIC_INDEF_SG_3"
+      ],
+      "lemmas": [
+        "elvégez",
+        "elvégzett"
+      ]
+    },
+    {
+      "word": "emberarcú",
+      "quality4Frequency": 306,
+      "magyarIspellAnalyses": [
+        "emberarcú  pa:ember st:ember po:noun ts:NOM pa:arcú  (  st:arc po:noun ts:NOM is:jÚ_PROPERTY_adj ts:NOM |  st:arc po:noun ts:NOM is:jÚ_PROPERTY_adj ts:NOM ) "
+      ],
+      "lemmas": [
+        "emberarcú"
+      ]
+    },
+    {
+      "word": "emberjogi",
+      "quality4Frequency": 1244,
+      "magyarIspellAnalyses": [
+        "emberjogi  pa:ember st:ember po:noun ts:NOM pa:jogi  (  st:jog po:noun ts:NOM is:i_PLACE/TIME_adj ts:NOM |  st:jog po:noun ts:NOM is:i_PLACE/TIME_adj ts:NOM ) "
+      ],
+      "lemmas": [
+        "emberjogi"
+      ]
+    },
+    {
+      "word": "emberkép",
+      "quality4Frequency": 372,
+      "magyarIspellAnalyses": [
+        "emberkép  pa:ember st:ember po:noun ts:NOM pa:kép st:kép po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "emberkép"
+      ]
+    },
+    {
+      "word": "emlékhely",
+      "quality4Frequency": 703,
+      "magyarIspellAnalyses": [
+        "emlékhely  pa:emlék st:emlék po:noun ts:NOM pa:hely st:hely po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "emlékhely"
+      ]
+    },
+    {
+      "word": "emlékpark",
+      "quality4Frequency": 410,
+      "magyarIspellAnalyses": [
+        "emlékpark  pa:emlék st:emlék po:noun ts:NOM pa:park st:park po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "emlékpark"
+      ]
+    },
+    {
+      "word": "emlőrák",
+      "quality4Frequency": 1302,
+      "magyarIspellAnalyses": [
+        "emlőrák  pa:emlő st:emlő po:noun ts:NOM pa:rák st:rák po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "emlőrák"
+      ]
+    },
+    {
+      "word": "eredendően",
+      "quality4Frequency": 2158,
+      "magyarIspellAnalyses": [
+        "eredendően  st:ered po:vrb ts:PRES_INDIC_INDEF_SG_3 al:eredt al:eredt ds:AndÓ_FUTPART_adj ts:NOM is:An_MODE_adv"
+      ],
+      "lemmas": [
+        "eredendően"
+      ]
+    },
+    {
+      "word": "eszközpark",
+      "quality4Frequency": 435,
+      "magyarIspellAnalyses": [
+        "eszközpark  pa:eszköz st:eszköz po:noun ts:NOM pa:park st:park po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "eszközpark"
+      ]
+    },
+    {
+      "word": "eszköztár",
+      "quality4Frequency": 1231,
+      "magyarIspellAnalyses": [
+        "eszköztár  pa:eszköz st:eszköz po:noun ts:NOM pa:tár st:tár po:noun ts:NOM al:tárat al:tárak"
+      ],
+      "lemmas": [
+        "eszköztár"
+      ]
+    },
+    {
+      "word": "eurózóna",
+      "quality4Frequency": 708,
+      "magyarIspellAnalyses": [
+        "eurózóna  pa:euró st:euró po:noun ts:NOM pa:zóna st:zóna po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "eurózóna"
+      ]
+    },
+    {
+      "word": "fahulladék",
+      "quality4Frequency": 128,
+      "magyarIspellAnalyses": [
+        "fahulladék  pa:fa st:fa po:noun ts:NOM pa:hulladék st:hulladék po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "fahulladék"
+      ]
+    },
+    {
+      "word": "fajgyűlölő",
+      "quality4Frequency": 236,
+      "magyarIspellAnalyses": [
+        "fajgyűlölő  pa:faj st:faj po:noun ts:NOM pa:gyűlölő  st:gyűlöl po:vrb ts:PRES_INDIC_INDEF_SG_3 ds:Ó_PRESPART_adj ts:NOM"
+      ],
+      "lemmas": [
+        "fajgyűlölő"
+      ]
+    },
+    {
+      "word": "falfirka",
+      "quality4Frequency": 156,
+      "magyarIspellAnalyses": [
+        "falfirka  pa:fal st:fal po:noun ts:NOM al:falat al:falak pa:firka st:firka po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "falfirka"
+      ]
+    },
+    {
+      "word": "fallabda",
+      "quality4Frequency": 198,
+      "magyarIspellAnalyses": [
+        "fallabda  pa:fal st:fal po:noun ts:NOM al:falat al:falak pa:labda st:labda po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "fallabda"
+      ]
+    },
+    {
+      "word": "faluház",
+      "quality4Frequency": 385,
+      "magyarIspellAnalyses": [
+        "faluház  pa:falu st:falu po:noun ts:NOM al:falvak pa:ház st:ház po:noun ts:NOM al:házak"
+      ],
+      "lemmas": [
+        "faluház"
+      ]
+    },
+    {
+      "word": "falumúzeum",
+      "quality4Frequency": 228,
+      "magyarIspellAnalyses": [
+        "falumúzeum  pa:falu st:falu po:noun ts:NOM al:falvak pa:múzeum st:múzeum po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "falumúzeum"
+      ]
+    },
+    {
+      "word": "falunap",
+      "quality4Frequency": 444,
+      "magyarIspellAnalyses": [
+        "falunap  pa:falu st:falu po:noun ts:NOM al:falvak pa:nap st:nap po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "falunap"
+      ]
+    },
+    {
+      "word": "farizom",
+      "quality4Frequency": 650,
+      "magyarIspellAnalyses": [
+        "farizom  pa:far st:far po:noun ts:NOM pa:izom st:izom po:noun ts:NOM al:izmok"
+      ],
+      "lemmas": [
+        "farizom"
+      ]
+    },
+    {
+      "word": "fedőréteg",
+      "quality4Frequency": 224,
+      "magyarIspellAnalyses": [
+        "fedőréteg  pa:fedő st:fed po:vrb ts:PRES_INDIC_INDEF_SG_3 ds:Ó_PRESPART_adj ts:NOM pa:réteg st:réteg po:noun ts:NOM",
+        "fedőréteg  pa:fedő st:fedő po:noun ts:NOM pa:réteg st:réteg po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "fedőréteg"
+      ]
+    },
+    {
+      "word": "fejkvóta",
+      "quality4Frequency": 461,
+      "magyarIspellAnalyses": [
+        "fejkvóta  pa:fej st:fej po:noun ts:NOM al:fejet al:fejek pa:kvóta st:kvóta po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "fejkvóta"
+      ]
+    },
+    {
+      "word": "feladatlap",
+      "quality4Frequency": 933,
+      "magyarIspellAnalyses": [
+        "feladatlap  pa:feladat st:feladat po:noun ts:NOM hy:3 pa:lap st:lap po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "feladatlap"
+      ]
+    },
+    {
+      "word": "feladatsor",
+      "quality4Frequency": 932,
+      "magyarIspellAnalyses": [
+        "feladatsor  pa:feladat st:feladat po:noun ts:NOM hy:3 pa:sor st:sor po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "feladatsor"
+      ]
+    },
+    {
+      "word": "fideszes",
+      "quality4Frequency": 9675,
+      "magyarIspellAnalyses": [
+        "fideszes  fl:\" st:Fidesz po:noun_prs ts:NOM ds:s_ATTRIBUTE_adj ts:NOM",
+        "fideszes  fl:\" st:Fidesz po:noun_prs ts:NOM ds:s_OCCUPATION_noun ts:NOM"
+      ],
+      "lemmas": [
+        "fideszes"
+      ]
+    },
+    {
+      "word": "filmklub",
+      "quality4Frequency": 421,
+      "magyarIspellAnalyses": [
+        "filmklub  pa:film st:film po:noun ts:NOM pa:klub st:klub po:noun ts:NOM ph:club"
+      ],
+      "lemmas": [
+        "filmklub"
+      ]
+    },
+    {
+      "word": "filmszemle",
+      "quality4Frequency": 380,
+      "magyarIspellAnalyses": [
+        "filmszemle  pa:film st:film po:noun ts:NOM pa:szemle st:szemle po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "filmszemle"
+      ]
+    },
+    {
+      "word": "focicsapat",
+      "quality4Frequency": 316,
+      "magyarIspellAnalyses": [
+        "focicsapat  pa:foci st:foci po:noun ts:NOM pa:csapat st:csapat po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "focicsapat"
+      ]
+    },
+    {
+      "word": "focimeccs",
+      "quality4Frequency": 243,
+      "magyarIspellAnalyses": [
+        "focimeccs  pa:foci st:foci po:noun ts:NOM pa:meccs st:meccs po:noun ts:NOM ph:match"
+      ],
+      "lemmas": [
+        "focimeccs"
+      ]
+    },
+    {
+      "word": "fogalomtár",
+      "quality4Frequency": 217,
+      "magyarIspellAnalyses": [
+        "fogalomtár  pa:fog st:fog po:noun ts:NOM al:fogat al:fogak pa:alom st:alom po:noun ts:NOM al:almok pa:tár st:tár po:noun ts:NOM al:tárat al:tárak",
+        "fogalomtár  pa:fogalom st:fogalom po:noun ts:NOM al:fogalmak pa:tár st:tár po:noun ts:NOM al:tárat al:tárak"
+      ],
+      "lemmas": [
+        "fogalomtár"
+      ]
+    },
+    {
+      "word": "fogorvosi",
+      "quality4Frequency": 1751,
+      "magyarIspellAnalyses": [
+        "fogorvosi  pa:fog st:fog po:noun ts:NOM al:fogat al:fogak pa:orvosi  (  st:orvos po:noun ts:NOM is:i_PLACE/TIME_adj ts:NOM |  st:orvos po:noun ts:NOM is:i_PLACE/TIME_adj ts:NOM ) "
+      ],
+      "lemmas": [
+        "fogorvosi"
+      ]
+    },
+    {
+      "word": "fogyatkozó",
+      "quality4Frequency": 580,
+      "magyarIspellAnalyses": [
+        "fogyatkozó  st:fogyatkozik po:vrb ts:PRES_INDIC_INDEF_SG_3 ds:Ó_PRESPART_adj ts:NOM"
+      ],
+      "lemmas": [
+        "fogyatkozó"
+      ]
+    },
+    {
+      "word": "forrásadó",
+      "quality4Frequency": 159,
+      "magyarIspellAnalyses": [
+        "forrásadó  pa:forrás st:forr po:vrb ts:PRES_INDIC_INDEF_SG_3 ds:Ás_PROCESS/RESULT_noun ts:NOM pa:adó st:adó po:noun ts:NOM",
+        "forrásadó  pa:forrás st:forrás po:noun ts:NOM pa:adó  st:ad po:vrb ts:PRES_INDIC_INDEF_SG_3 al:adat ds:Ó_PRESPART_adj ts:NOM",
+        "forrásadó  pa:forrás st:forrás po:noun ts:NOM pa:adó st:adó po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "forrásadó"
+      ]
+    },
+    {
+      "word": "forráskód",
+      "quality4Frequency": 518,
+      "magyarIspellAnalyses": [
+        "forráskód  pa:forrás st:forr po:vrb ts:PRES_INDIC_INDEF_SG_3 ds:Ás_PROCESS/RESULT_noun ts:NOM pa:kód st:kód po:noun ts:NOM",
+        "forráskód  pa:forrás st:forrás po:noun ts:NOM pa:kód st:kód po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "forráskód"
+      ]
+    },
+    {
+      "word": "fotóalbum",
+      "quality4Frequency": 365,
+      "magyarIspellAnalyses": [
+        "fotóalbum  pa:fotó st:fotó po:noun ts:NOM pa:album st:album po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "fotóalbum"
+      ]
+    },
+    {
+      "word": "fotóművész",
+      "quality4Frequency": 1203,
+      "magyarIspellAnalyses": [
+        "fotóművész  pa:fotó st:fotó po:noun ts:NOM pa:művész st:művész po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "fotóművész"
+      ]
+    },
+    {
+      "word": "frontvonal",
+      "quality4Frequency": 175,
+      "magyarIspellAnalyses": [
+        "frontvonal  pa:front st:front po:noun ts:NOM pa:vonal st:vonal po:noun ts:NOM al:vonalak"
+      ],
+      "lemmas": [
+        "frontvonal"
+      ]
+    },
+    {
+      "word": "fájlnév",
+      "quality4Frequency": 172,
+      "magyarIspellAnalyses": [
+        "fájlnév  pa:fájl st:fájl po:noun ts:NOM pa:név st:név po:noun ts:NOM al:nevek"
+      ],
+      "lemmas": [
+        "fájlnév"
+      ]
+    },
+    {
+      "word": "félkatonai",
+      "quality4Frequency": 209,
+      "magyarIspellAnalyses": [
+        "félkatonai po:adj_num pa:fél  st:katona po:noun ts:NOM is:i_PLACE/TIME_adj ts:NOM"
+      ],
+      "lemmas": [
+        "félkatonai"
+      ]
+    },
+    {
+      "word": "félköríves",
+      "quality4Frequency": 742,
+      "magyarIspellAnalyses": [
+        "félköríves  pa:fél st:fél po:adj_num ts:NOM al:félszer al:fél al:felek al:feledik al:felek pa:köríves  (  st:körív po:noun ts:NOM hy:3 ds:s_ATTRIBUTE_adj ts:NOM |  st:körív po:noun ts:NOM hy:3 ds:s_OCCUPATION_noun ts:NOM ) ",
+        "félköríves  pa:félkör st:félkör po:noun ts:NOM hy:3 pa:íves  (  st:ív po:noun ts:NOM ds:s_ATTRIBUTE_adj ts:NOM |  st:ív po:noun ts:NOM ds:s_OCCUPATION_noun ts:NOM ) "
+      ],
+      "lemmas": [
+        "félköríves"
+      ]
+    },
+    {
+      "word": "félpanzió",
+      "quality4Frequency": 793,
+      "magyarIspellAnalyses": [
+        "félpanzió  pa:fél st:fél po:adj_num ts:NOM al:félszer al:fél al:felek al:feledik al:felek pa:panzió st:panzió po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "félpanzió"
+      ]
+    },
+    {
+      "word": "félállású",
+      "quality4Frequency": 161,
+      "magyarIspellAnalyses": [
+        "félállású po:adj_num pa:fél  st:áll po:vrb ts:PRES_INDIC_INDEF_SG_3 al:állak ds:Ás_PROCESS/RESULT_noun is:jÚ_PROPERTY_adj ts:NOM",
+        "félállású po:adj_num pa:fél  st:állás po:noun ts:NOM is:jÚ_PROPERTY_adj ts:NOM"
+      ],
+      "lemmas": [
+        "félállású"
+      ]
+    },
+    {
+      "word": "fényjelző",
+      "quality4Frequency": 489,
+      "magyarIspellAnalyses": [
+        "fényjelző  pa:fény st:fény po:noun ts:NOM pa:jelző st:jelez po:vrb ds:Ó_PRESPART_adj ts:NOM"
+      ],
+      "lemmas": [
+        "fényjelző"
+      ]
+    },
+    {
+      "word": "főszervező",
+      "quality4Frequency": 568,
+      "magyarIspellAnalyses": [
+        "főszervező  pa:fő st:fő po:noun ts:NOM al:fövés al:fövetlenség al:főhetőség al:fövünk al:fövöm al:fövök al:fövöd al:fövitek al:fövik al:fövi al:fővén al:főve al:főtök al:főttünk al:főttük al:főttétek al:főttél al:főtték al:főttetek al:főttem al:főttem al:főttelek al:főttek al:főtted al:főtte al:főtt al:fősz al:főnünk al:főnötök al:főnöm al:főnöd al:főnétek al:főnétek al:főnénk al:főnénk al:főnének al:főném al:főnélek al:főnél al:főnék al:főnék al:főnéd al:főné al:főniük al:főniök al:főnie al:főni al:főnek al:főne al:főlek al:főjünk al:főjük al:főjük al:főjön al:főjétek al:főjél al:főjék al:főjetek al:főjenek al:főjem al:főjelek al:főjek al:főjed al:fője al:főj al:főhet al:fődd al:fő al:fövő al:fövetlen al:főtt al:főhető al:İzmiri pa:szervező  (  st:szervez po:vrb ts:PRES_INDIC_INDEF_SG_3 ds:Ó_PRESPART_adj ts:NOM |  st:szerv po:noun ts:NOM ds:z_ACTION_vrb ds:Ó_PRESPART_adj ts:NOM ) "
+      ],
+      "lemmas": [
+        "főszervező"
+      ]
+    },
+    {
+      "word": "fűtőelem",
+      "quality4Frequency": 483,
+      "magyarIspellAnalyses": [
+        "fűtőelem  pa:fű st:fű po:noun ts:NOM al:füvi al:füvek pa:tő st:tő po:noun ts:NOM al:tövek pa:elem st:elem po:noun ts:NOM",
+        "fűtőelem  pa:fűtő st:fűt po:vrb ts:PRES_INDIC_INDEF_SG_3 ds:Ó_PRESPART_adj ts:NOM pa:elem st:elem po:noun ts:NOM",
+        "fűtőelem  pa:fűtő st:fűtő po:noun ts:NOM pa:elem st:elem po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "fűtőelem"
+      ]
+    },
+    {
+      "word": "fűtőolaj",
+      "quality4Frequency": 316,
+      "magyarIspellAnalyses": [
+        "fűtőolaj  pa:fű st:fű po:noun ts:NOM al:füvi al:füvek pa:tő st:tő po:noun ts:NOM al:tövek pa:olaj st:olaj po:noun ts:NOM al:olajak",
+        "fűtőolaj  pa:fűtő st:fűt po:vrb ts:PRES_INDIC_INDEF_SG_3 ds:Ó_PRESPART_adj ts:NOM pa:olaj st:olaj po:noun ts:NOM al:olajak",
+        "fűtőolaj  pa:fűtő st:fűtő po:noun ts:NOM pa:olaj st:olaj po:noun ts:NOM al:olajak"
+      ],
+      "lemmas": [
+        "fűtőolaj"
+      ]
+    },
+    {
+      "word": "gagyi",
+      "quality4Frequency": 1060,
+      "magyarIspellAnalyses": [
+        "gagyi  st:gagyi po:adj ts:NOM"
+      ],
+      "lemmas": [
+        "gagyi"
+      ]
+    },
+    {
+      "word": "garázskapu",
+      "quality4Frequency": 144,
+      "magyarIspellAnalyses": [
+        "garázskapu  pa:garázs st:garázs po:noun ts:NOM pa:kapu st:kapu po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "garázskapu"
+      ]
+    },
+    {
+      "word": "gombaölő",
+      "quality4Frequency": 378,
+      "magyarIspellAnalyses": [
+        "gombaölő  pa:gomba st:gomba po:noun ts:NOM pa:ölő  st:öl po:vrb ts:PRES_INDIC_INDEF_SG_3 al:ölet al:ölek ds:Ó_PRESPART_adj ts:NOM"
+      ],
+      "lemmas": [
+        "gombaölő"
+      ]
+    },
+    {
+      "word": "gondoskodó",
+      "quality4Frequency": 2018,
+      "magyarIspellAnalyses": [
+        "gondoskodó  st:gondoskodik po:vrb ts:PRES_INDIC_INDEF_SG_3 ds:Ó_PRESPART_adj ts:NOM"
+      ],
+      "lemmas": [
+        "gondoskodó"
+      ]
+    },
+    {
+      "word": "grönlandi",
+      "quality4Frequency": 194,
+      "magyarIspellAnalyses": [
+        "grönlandi  fl:\" st:Grönland po:noun_prs ts:NOM is:i_PLACE/TIME_adj ts:NOM"
+      ],
+      "lemmas": [
+        "grönlandi"
+      ]
+    },
+    {
+      "word": "gyalázkodó",
+      "quality4Frequency": 307,
+      "magyarIspellAnalyses": [
+        "gyalázkodó  st:gyalázkodik po:vrb ts:PRES_INDIC_INDEF_SG_3 ds:Ó_PRESPART_adj ts:NOM"
+      ],
+      "lemmas": [
+        "gyalázkodó"
+      ]
+    },
+    {
+      "word": "gyimesi",
+      "quality4Frequency": 300,
+      "magyarIspellAnalyses": [
+        "gyimesi  fl:\" st:Gyimes po:noun_prs ts:NOM is:i_PLACE/TIME_adj ts:NOM"
+      ],
+      "lemmas": [
+        "gyimesi"
+      ]
+    },
+    {
+      "word": "gyáregység",
+      "quality4Frequency": 168,
+      "magyarIspellAnalyses": [
+        "gyáregység  pa:gyár st:gyár po:noun ts:NOM al:gyárak pa:egység st:egység po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "gyáregység"
+      ]
+    },
+    {
+      "word": "gyártósor",
+      "quality4Frequency": 144,
+      "magyarIspellAnalyses": [
+        "gyártósor  pa:gyár st:gyár po:noun ts:NOM al:gyárak pa:tó st:tó po:noun ts:NOM al:tavi al:tavak pa:sor st:sor po:noun ts:NOM",
+        "gyártósor  pa:gyártó st:gyárt po:vrb ts:PRES_INDIC_INDEF_SG_3 al:gyártat ds:Ó_PRESPART_adj ts:NOM pa:sor st:sor po:noun ts:NOM",
+        "gyártósor  pa:gyártó st:gyártó po:noun ts:NOM pa:sor st:sor po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "gyártósor"
+      ]
+    },
+    {
+      "word": "gyűjtőhely",
+      "quality4Frequency": 144,
+      "magyarIspellAnalyses": [
+        "gyűjtőhely  pa:gyűjtő st:gyűjt po:vrb ts:PRES_INDIC_INDEF_SG_3 al:gyűjtet ds:Ó_PRESPART_adj ts:NOM pa:hely st:hely po:noun ts:NOM",
+        "gyűjtőhely  pa:gyűjtő st:gyűjtő po:noun ts:NOM pa:hely st:hely po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "gyűjtőhely"
+      ]
+    },
+    {
+      "word": "gyűlölködő",
+      "quality4Frequency": 711,
+      "magyarIspellAnalyses": [
+        "gyűlölködő  st:gyűlölködik po:vrb ts:PRES_INDIC_INDEF_SG_3 ds:Ó_PRESPART_adj ts:NOM"
+      ],
+      "lemmas": [
+        "gyűlölködő"
+      ]
+    },
+    {
+      "word": "gálaműsor",
+      "quality4Frequency": 197,
+      "magyarIspellAnalyses": [
+        "gálaműsor  pa:gála st:gála po:noun ts:NOM pa:műsor st:műsor po:noun ts:NOM hy:2"
+      ],
+      "lemmas": [
+        "gálaműsor"
+      ]
+    },
+    {
+      "word": "gázellátás",
+      "quality4Frequency": 358,
+      "magyarIspellAnalyses": [
+        "gázellátás  pa:gáz st:gáz po:noun ts:NOM pa:ellátás  ip:PREF sp:el st:lát po:vrb ds:Ás_PROCESS/RESULT_noun ts:NOM",
+        "gázellátás  pa:gáz st:gáz po:noun ts:NOM pa:ellátás st:ellátás po:noun ts:NOM hy:2"
+      ],
+      "lemmas": [
+        "gázellátás"
+      ]
+    },
+    {
+      "word": "gáztörvény",
+      "quality4Frequency": 306,
+      "magyarIspellAnalyses": [
+        "gáztörvény  pa:gáz st:gáz po:noun ts:NOM pa:törvény st:törvény po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "gáztörvény"
+      ]
+    },
+    {
+      "word": "gázüzemű",
+      "quality4Frequency": 448,
+      "magyarIspellAnalyses": [
+        "gázüzemű  pa:gáz st:gáz po:noun ts:NOM pa:üzemű  (  st:üzem po:noun ts:NOM is:jÚ_PROPERTY_adj ts:NOM |  st:üzem po:noun ts:NOM is:jÚ_PROPERTY_adj ts:NOM ) "
+      ],
+      "lemmas": [
+        "gázüzemű"
+      ]
+    },
+    {
+      "word": "géntérkép",
+      "quality4Frequency": 178,
+      "magyarIspellAnalyses": [
+        "géntérkép  pa:gén st:gén po:noun ts:NOM pa:térkép st:térkép po:noun ts:NOM hy:3"
+      ],
+      "lemmas": [
+        "géntérkép"
+      ]
+    },
+    {
+      "word": "gépcsoport",
+      "quality4Frequency": 132,
+      "magyarIspellAnalyses": [
+        "gépcsoport  pa:gép st:gép po:noun ts:NOM pa:csoport st:csoport po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "gépcsoport"
+      ]
+    },
+    {
+      "word": "gépipari",
+      "quality4Frequency": 1260,
+      "magyarIspellAnalyses": [
+        "gépipari  pa:gép st:gép po:noun ts:NOM pa:ipari  (  st:ipar po:noun ts:NOM is:i_PLACE/TIME_adj ts:NOM |  st:ipar po:noun ts:NOM is:i_PLACE/TIME_adj ts:NOM ) "
+      ],
+      "lemmas": [
+        "gépipari"
+      ]
+    },
+    {
+      "word": "gépszerelő",
+      "quality4Frequency": 185,
+      "magyarIspellAnalyses": [
+        "gépszerelő  pa:gép st:gép po:noun ts:NOM pa:szerelő  st:szerel po:vrb ts:PRES_INDIC_INDEF_SG_3 ds:Ó_PRESPART_adj ts:NOM",
+        "gépszerelő  pa:gép st:gép po:noun ts:NOM pa:szerelő st:szerelő po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "gépszerelő"
+      ]
+    },
+    {
+      "word": "hadügyi",
+      "quality4Frequency": 279,
+      "magyarIspellAnalyses": [
+        "hadügyi  pa:had st:had po:noun ts:NOM al:hadak pa:ügyi  (  st:ügy po:noun ts:NOM is:i_PLACE/TIME_adj ts:NOM |  st:ügy po:noun ts:NOM is:i_PLACE/TIME_adj ts:NOM ) "
+      ],
+      "lemmas": [
+        "hadügyi"
+      ]
+    },
+    {
+      "word": "hajápoló",
+      "quality4Frequency": 622,
+      "magyarIspellAnalyses": [
+        "hajápoló  pa:haj st:haj po:sentint al:hajak pa:ápoló  st:ápol po:vrb ts:PRES_INDIC_INDEF_SG_3 ds:Ó_PRESPART_adj ts:NOM"
+      ],
+      "lemmas": [
+        "hajápoló"
+      ]
+    },
+    {
+      "word": "halfaj",
+      "quality4Frequency": 409,
+      "magyarIspellAnalyses": [
+        "halfaj  pa:hal st:hal po:noun ts:NOM al:halak pa:faj st:faj po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "halfaj"
+      ]
+    },
+    {
+      "word": "hangkártya",
+      "quality4Frequency": 325,
+      "magyarIspellAnalyses": [
+        "hangkártya  pa:hang st:hang po:noun ts:NOM pa:kártya st:kártya po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "hangkártya"
+      ]
+    },
+    {
+      "word": "hangoskodó",
+      "quality4Frequency": 239,
+      "magyarIspellAnalyses": [
+        "hangoskodó  st:hangoskodik po:vrb ts:PRES_INDIC_INDEF_SG_3 ds:Ó_PRESPART_adj ts:NOM"
+      ],
+      "lemmas": [
+        "hangoskodó"
+      ]
+    },
+    {
+      "word": "hangposta",
+      "quality4Frequency": 372,
+      "magyarIspellAnalyses": [
+        "hangposta  pa:hang st:hang po:noun ts:NOM pa:posta st:posta po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "hangposta"
+      ]
+    },
+    {
+      "word": "harangöntő",
+      "quality4Frequency": 129,
+      "magyarIspellAnalyses": [
+        "harangöntő  pa:harang st:harang po:noun ts:NOM pa:öntő  st:önt po:vrb ts:PRES_INDIC_INDEF_SG_3 al:öntet ds:Ó_PRESPART_adj ts:NOM"
+      ],
+      "lemmas": [
+        "harangöntő"
+      ]
+    },
+    {
+      "word": "harcjármű",
+      "quality4Frequency": 144,
+      "magyarIspellAnalyses": [
+        "harcjármű  pa:harc st:harc po:noun ts:NOM pa:jármű st:jármű po:noun ts:NOM al:járművek hy:3"
+      ],
+      "lemmas": [
+        "harcjármű"
+      ]
+    },
+    {
+      "word": "harctéri",
+      "quality4Frequency": 386,
+      "magyarIspellAnalyses": [
+        "harctéri  pa:harc st:harc po:noun ts:NOM pa:téri  (  st:tér po:noun ts:NOM al:téret al:terek is:i_PLACE/TIME_adj ts:NOM |  st:tér po:noun ts:NOM al:téret al:terek is:i_PLACE/TIME_adj ts:NOM ) "
+      ],
+      "lemmas": [
+        "harctéri"
+      ]
+    },
+    {
+      "word": "hattagú",
+      "quality4Frequency": 281,
+      "magyarIspellAnalyses": [
+        "hattagú po:adj_num pa:hat  st:tag po:noun ts:NOM is:jÚ_PROPERTY_adj ts:NOM"
+      ],
+      "lemmas": [
+        "hattagú"
+      ]
+    },
+    {
+      "word": "helyezkedő",
+      "quality4Frequency": 157,
+      "magyarIspellAnalyses": [
+        "helyezkedő  st:helyezkedik po:vrb ts:PRES_INDIC_INDEF_SG_3 ds:Ó_PRESPART_adj ts:NOM"
+      ],
+      "lemmas": [
+        "helyezkedő"
+      ]
+    },
+    {
+      "word": "helyigény",
+      "quality4Frequency": 171,
+      "magyarIspellAnalyses": [
+        "helyigény  pa:hely st:hely po:noun ts:NOM pa:igény st:igény po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "helyigény"
+      ]
+    },
+    {
+      "word": "hm",
+      "quality4Frequency": 1123,
+      "magyarIspellAnalyses": [
+        "hm  st:hm po:sentint"
+      ],
+      "lemmas": [
+        "hm"
+      ]
+    },
+    {
+      "word": "holdnegyed",
+      "quality4Frequency": 157,
+      "magyarIspellAnalyses": [
+        "holdnegyed  pa:hold st:hold po:noun ts:NOM al:holdak pa:negyed st:négy po:adj_num is:d_FRACTION_num ts:NOM al:negyed"
+      ],
+      "lemmas": [
+        "holdnegyed"
+      ]
+    },
+    {
+      "word": "holtidő",
+      "quality4Frequency": 133,
+      "magyarIspellAnalyses": [
+        "holtidő  pa:holt st:holt po:noun ts:NOM al:holtak pa:idő st:idő po:noun ts:NOM al:idej"
+      ],
+      "lemmas": [
+        "holtidő"
+      ]
+    },
+    {
+      "word": "hondurasi",
+      "quality4Frequency": 170,
+      "magyarIspellAnalyses": [
+        "hondurasi  fl:\" st:Honduras po:noun_prs ts:NOM is:i_PLACE/TIME_adj ts:NOM"
+      ],
+      "lemmas": [
+        "hondurasi"
+      ]
+    },
+    {
+      "word": "hálapénz",
+      "quality4Frequency": 993,
+      "magyarIspellAnalyses": [
+        "hálapénz  pa:hála st:hála po:noun ts:NOM pa:pénz st:pénz po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "hálapénz"
+      ]
+    },
+    {
+      "word": "háttámla",
+      "quality4Frequency": 435,
+      "magyarIspellAnalyses": [
+        "háttámla  pa:hát st:hát po:noun ts:NOM al:hátak pa:támla st:támla po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "háttámla"
+      ]
+    },
+    {
+      "word": "háttéripar",
+      "quality4Frequency": 180,
+      "magyarIspellAnalyses": [
+        "háttéripar  pa:hát st:hát po:noun ts:NOM al:hátak pa:tér st:tér po:noun ts:NOM al:téret al:terek pa:ipar st:ipar po:noun ts:NOM",
+        "háttéripar  pa:háttér st:háttér po:noun ts:NOM al:hátterek hy:3 pa:ipar st:ipar po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "háttéripar"
+      ]
+    },
+    {
+      "word": "háttértár",
+      "quality4Frequency": 137,
+      "magyarIspellAnalyses": [
+        "háttértár  pa:hát st:hát po:noun ts:NOM al:hátak pa:tér st:tér po:noun ts:NOM al:téret al:terek pa:tár st:tár po:noun ts:NOM al:tárat al:tárak",
+        "háttértár  pa:háttér st:háttér po:noun ts:NOM al:hátterek hy:3 pa:tár st:tár po:noun ts:NOM al:tárat al:tárak"
+      ],
+      "lemmas": [
+        "háttértár"
+      ]
+    },
+    {
+      "word": "háttérzaj",
+      "quality4Frequency": 130,
+      "magyarIspellAnalyses": [
+        "háttérzaj  pa:hát st:hát po:noun ts:NOM al:hátak pa:tér st:tér po:noun ts:NOM al:téret al:terek pa:zaj st:zaj po:noun ts:NOM",
+        "háttérzaj  pa:háttér st:háttér po:noun ts:NOM al:hátterek hy:3 pa:zaj st:zaj po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "háttérzaj"
+      ]
+    },
+    {
+      "word": "háttérzene",
+      "quality4Frequency": 204,
+      "magyarIspellAnalyses": [
+        "háttérzene  pa:hát st:hát po:noun ts:NOM al:hátak pa:tér st:tér po:noun ts:NOM al:téret al:terek pa:zene st:zene po:noun ts:NOM",
+        "háttérzene  pa:háttér st:háttér po:noun ts:NOM al:hátterek hy:3 pa:zene st:zene po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "háttérzene"
+      ]
+    },
+    {
+      "word": "hímzett",
+      "quality4Frequency": 1350,
+      "magyarIspellAnalyses": [
+        "hímzett  st:hímez po:vrb ts:PRES_INDIC_INDEF_SG_3 al:hímző al:hímzés ds:tt_PASTPART_adj ts:NOM",
+        "hímzett  st:hímez po:vrb ts:PRES_INDIC_INDEF_SG_3 al:hímző al:hímzés is:PAST_INDIC_INDEF_SG_3"
+      ],
+      "lemmas": [
+        "hímez",
+        "hímzett"
+      ]
+    },
+    {
+      "word": "hírműsor",
+      "quality4Frequency": 362,
+      "magyarIspellAnalyses": [
+        "hírműsor  pa:hír st:hír po:noun ts:NOM pa:műsor st:műsor po:noun ts:NOM hy:2"
+      ],
+      "lemmas": [
+        "hírműsor"
+      ]
+    },
+    {
+      "word": "hírolvasó",
+      "quality4Frequency": 135,
+      "magyarIspellAnalyses": [
+        "hírolvasó  pa:hír st:hír po:noun ts:NOM pa:olvasó  st:olvas po:vrb ts:PRES_INDIC_INDEF_SG_3 ds:Ó_PRESPART_adj ts:NOM",
+        "hírolvasó  pa:hír st:hír po:noun ts:NOM pa:olvasó st:olvasó po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "hírolvasó"
+      ]
+    },
+    {
+      "word": "húgyúti",
+      "quality4Frequency": 390,
+      "magyarIspellAnalyses": [
+        "húgyúti  pa:húgy st:húgy po:noun ts:NOM pa:úti  (  st:út po:noun ts:NOM al:utak is:i_PLACE/TIME_adj ts:NOM |  st:út po:noun ts:NOM al:utak is:i_PLACE/TIME_adj ts:NOM ) "
+      ],
+      "lemmas": [
+        "húgyúti"
+      ]
+    },
+    {
+      "word": "húsevés",
+      "quality4Frequency": 151,
+      "magyarIspellAnalyses": [
+        "húsevés  pa:hús st:hús po:noun ts:NOM pa:evés st:eszik po:vrb ds:Ás_PROCESS/RESULT_noun ts:NOM"
+      ],
+      "lemmas": [
+        "húsevés"
+      ]
+    },
+    {
+      "word": "húzóerő",
+      "quality4Frequency": 266,
+      "magyarIspellAnalyses": [
+        "húzóerő  pa:húzó st:húz po:vrb ts:PRES_INDIC_INDEF_SG_3 al:húzat ds:Ó_PRESPART_adj ts:NOM pa:erő st:erő po:noun ts:NOM al:erej"
+      ],
+      "lemmas": [
+        "húzóerő"
+      ]
+    },
+    {
+      "word": "húzóágazat",
+      "quality4Frequency": 169,
+      "magyarIspellAnalyses": [
+        "húzóágazat  pa:húzó st:húz po:vrb ts:PRES_INDIC_INDEF_SG_3 al:húzat ds:Ó_PRESPART_adj ts:NOM pa:ágazat st:ágazat po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "húzóágazat"
+      ]
+    },
+    {
+      "word": "idegenkedő",
+      "quality4Frequency": 191,
+      "magyarIspellAnalyses": [
+        "idegenkedő  st:idegenkedik po:vrb ts:PRES_INDIC_INDEF_SG_3 ds:Ó_PRESPART_adj ts:NOM"
+      ],
+      "lemmas": [
+        "idegenkedő"
+      ]
+    },
+    {
+      "word": "időkeret",
+      "quality4Frequency": 1940,
+      "magyarIspellAnalyses": [
+        "időkeret  pa:idő st:idő po:noun ts:NOM al:idej pa:keret st:keret po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "időkeret"
+      ]
+    },
+    {
+      "word": "időkorlát",
+      "quality4Frequency": 335,
+      "magyarIspellAnalyses": [
+        "időkorlát  pa:idő st:idő po:noun ts:NOM al:idej pa:korlát st:korlát po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "időkorlát"
+      ]
+    },
+    {
+      "word": "időtényező",
+      "quality4Frequency": 283,
+      "magyarIspellAnalyses": [
+        "időtényező  pa:idő st:idő po:noun ts:NOM al:idej pa:tényező  st:tény po:noun ts:NOM ds:z_ACTION_vrb ds:Ó_PRESPART_adj ts:NOM",
+        "időtényező  pa:idő st:idő po:noun ts:NOM al:idej pa:tényező st:tényező po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "időtényező"
+      ]
+    },
+    {
+      "word": "időutazás",
+      "quality4Frequency": 483,
+      "magyarIspellAnalyses": [
+        "időutazás  pa:idő st:idő po:noun ts:NOM al:idej pa:utazás  (  st:utazik po:vrb ts:PRES_INDIC_INDEF_SG_3 ds:Ás_PROCESS/RESULT_noun ts:NOM |  st:út po:noun ts:PLUR ts:NOM ds:z_ACTION_vrb ds:Ás_PROCESS/RESULT_noun ts:NOM ) ",
+        "időutazás  pa:idő st:idő po:noun ts:NOM al:idej pa:utazás st:utazás po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "időutazás"
+      ]
+    },
+    {
+      "word": "igénylőlap",
+      "quality4Frequency": 415,
+      "magyarIspellAnalyses": [
+        "igénylőlap  pa:igény st:igény po:noun ts:NOM pa:lőlap st:lőlap po:noun ts:NOM hy:2",
+        "igénylőlap  pa:igénylő st:igényel po:vrb ds:Ó_PRESPART_adj ts:NOM pa:lap st:lap po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "igénylőlap"
+      ]
+    },
+    {
+      "word": "illeszkedő",
+      "quality4Frequency": 4822,
+      "magyarIspellAnalyses": [
+        "illeszkedő  st:illeszkedik po:vrb ts:PRES_INDIC_INDEF_SG_3 ds:Ó_PRESPART_adj ts:NOM"
+      ],
+      "lemmas": [
+        "illeszkedő"
+      ]
+    },
+    {
+      "word": "indonéziai",
+      "quality4Frequency": 185,
+      "magyarIspellAnalyses": [
+        "indonéziai  fl:\" st:Indonézia po:noun_prs ts:NOM is:i_PLACE/TIME_adj ts:NOM"
+      ],
+      "lemmas": [
+        "indonéziai"
+      ]
+    },
+    {
+      "word": "iraki",
+      "quality4Frequency": 13490,
+      "magyarIspellAnalyses": [
+        "iraki  fl:\" st:Irak po:noun_prs ts:NOM is:i_PLACE/TIME_adj ts:NOM"
+      ],
+      "lemmas": [
+        "iraki"
+      ]
+    },
+    {
+      "word": "iratanyag",
+      "quality4Frequency": 1003,
+      "magyarIspellAnalyses": [
+        "iratanyag  pa:irat st:irat po:noun ts:NOM pa:anyag st:anyag po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "iratanyag"
+      ]
+    },
+    {
+      "word": "irattári",
+      "quality4Frequency": 989,
+      "magyarIspellAnalyses": [
+        "irattári  pa:irat st:irat po:noun ts:NOM pa:tári  (  st:tár po:noun ts:NOM al:tárat al:tárak is:i_PLACE/TIME_adj ts:NOM |  st:tár po:noun ts:NOM al:tárat al:tárak is:i_PLACE/TIME_adj ts:NOM ) "
+      ],
+      "lemmas": [
+        "irattári"
+      ]
+    },
+    {
+      "word": "iskolabusz",
+      "quality4Frequency": 181,
+      "magyarIspellAnalyses": [
+        "iskolabusz  pa:iskola st:iskola po:noun ts:NOM pa:busz st:busz po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "iskolabusz"
+      ]
+    },
+    {
+      "word": "iskolatej",
+      "quality4Frequency": 171,
+      "magyarIspellAnalyses": [
+        "iskolatej  pa:iskola st:iskola po:noun ts:NOM pa:tej st:tej po:noun ts:NOM al:tejet"
+      ],
+      "lemmas": [
+        "iskolatej"
+      ]
+    },
+    {
+      "word": "izomgörcs",
+      "quality4Frequency": 128,
+      "magyarIspellAnalyses": [
+        "izomgörcs  pa:izom st:izom po:noun ts:NOM al:izmok pa:görcs st:görcs po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "izomgörcs"
+      ]
+    },
+    {
+      "word": "izomlazító",
+      "quality4Frequency": 134,
+      "magyarIspellAnalyses": [
+        "izomlazító  pa:izom st:izom po:noun ts:NOM al:izmok pa:lazító  st:lazít po:vrb ts:PRES_INDIC_INDEF_SG_3 ds:Ó_PRESPART_adj ts:NOM"
+      ],
+      "lemmas": [
+        "izomlazító"
+      ]
+    },
+    {
+      "word": "izraeli",
+      "quality4Frequency": 7961,
+      "magyarIspellAnalyses": [
+        "izraeli  fl:\" st:Izrael po:noun_prs ts:NOM is:i_PLACE/TIME_adj ts:NOM"
+      ],
+      "lemmas": [
+        "izraeli"
+      ]
+    },
+    {
+      "word": "jegykezelő",
+      "quality4Frequency": 159,
+      "magyarIspellAnalyses": [
+        "jegykezelő  pa:jegy st:jegy po:noun ts:NOM pa:kezelő  st:kezel po:vrb ts:PRES_INDIC_INDEF_SG_3 ds:Ó_PRESPART_adj ts:NOM",
+        "jegykezelő  pa:jegy st:jegy po:noun ts:NOM pa:kezelő st:kezelő po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "jegykezelő"
+      ]
+    },
+    {
+      "word": "jegykiadó",
+      "quality4Frequency": 293,
+      "magyarIspellAnalyses": [
+        "jegykiadó  pa:jegy st:jegy po:noun ts:NOM pa:kiadó ip:PREF sp:ki  st:ad po:vrb ts:PRES_INDIC_INDEF_SG_3 al:adat ds:Ó_PRESPART_adj ts:NOM",
+        "jegykiadó  pa:jegy st:jegy po:noun ts:NOM pa:kiadó st:kiadó po:noun ts:NOM hy:2"
+      ],
+      "lemmas": [
+        "jegykiadó"
+      ]
+    },
+    {
+      "word": "jegyzett",
+      "quality4Frequency": 6302,
+      "magyarIspellAnalyses": [
+        "jegyzett  st:jegyez po:vrb ts:PRES_INDIC_INDEF_SG_3 al:jegyző al:jegyzés al:jegyzendő ds:tt_PASTPART_adj ts:NOM",
+        "jegyzett  st:jegyez po:vrb ts:PRES_INDIC_INDEF_SG_3 al:jegyző al:jegyzés al:jegyzendő is:PAST_INDIC_INDEF_SG_3"
+      ],
+      "lemmas": [
+        "jegyez",
+        "jegyzett"
+      ]
+    },
+    {
+      "word": "jelnyelv",
+      "quality4Frequency": 132,
+      "magyarIspellAnalyses": [
+        "jelnyelv  pa:jel st:jel po:noun ts:NOM al:jelet pa:nyelv st:nyelv po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "jelnyelv"
+      ]
+    },
+    {
+      "word": "joganyag",
+      "quality4Frequency": 2098,
+      "magyarIspellAnalyses": [
+        "joganyag  pa:jog st:jog po:noun ts:NOM pa:anyag st:anyag po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "joganyag"
+      ]
+    },
+    {
+      "word": "jogkövető",
+      "quality4Frequency": 748,
+      "magyarIspellAnalyses": [
+        "jogkövető  pa:jog st:jog po:noun ts:NOM pa:követő  st:követ po:vrb ts:PRES_INDIC_INDEF_SG_3 ds:Ó_PRESPART_adj ts:NOM",
+        "jogkövető  pa:jog st:jog po:noun ts:NOM pa:követő st:követő po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "jogkövető"
+      ]
+    },
+    {
+      "word": "jogterület",
+      "quality4Frequency": 249,
+      "magyarIspellAnalyses": [
+        "jogterület  pa:jog st:jog po:noun ts:NOM pa:terület st:terület po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "jogterület"
+      ]
+    },
+    {
+      "word": "jordániai",
+      "quality4Frequency": 209,
+      "magyarIspellAnalyses": [
+        "jordániai  fl:\" st:Jordánia po:noun_prs ts:NOM is:i_PLACE/TIME_adj ts:NOM"
+      ],
+      "lemmas": [
+        "jordániai"
+      ]
+    },
+    {
+      "word": "járműipar",
+      "quality4Frequency": 150,
+      "magyarIspellAnalyses": [
+        "járműipar  pa:jármű st:jármű po:noun ts:NOM al:járművek hy:3 pa:ipar st:ipar po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "járműipar"
+      ]
+    },
+    {
+      "word": "járműpark",
+      "quality4Frequency": 632,
+      "magyarIspellAnalyses": [
+        "járműpark  pa:jármű st:jármű po:noun ts:NOM al:járművek hy:3 pa:park st:park po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "járműpark"
+      ]
+    },
+    {
+      "word": "játszóház",
+      "quality4Frequency": 1079,
+      "magyarIspellAnalyses": [
+        "játszóház  pa:játszó st:játszik po:vrb ds:Ó_PRESPART_adj ts:NOM pa:ház st:ház po:noun ts:NOM al:házak"
+      ],
+      "lemmas": [
+        "játszóház"
+      ]
+    },
+    {
+      "word": "játékrész",
+      "quality4Frequency": 469,
+      "magyarIspellAnalyses": [
+        "játékrész  pa:játék st:játék po:noun ts:NOM pa:rész st:rész po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "játékrész"
+      ]
+    },
+    {
+      "word": "jövőkép",
+      "quality4Frequency": 2033,
+      "magyarIspellAnalyses": [
+        "jövőkép  pa:jövő st:jövő po:noun ts:NOM pa:kép st:kép po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "jövőkép"
+      ]
+    },
+    {
+      "word": "kakaópor",
+      "quality4Frequency": 156,
+      "magyarIspellAnalyses": [
+        "kakaópor  pa:kakaó st:kakaó po:noun ts:NOM pa:por st:por po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "kakaópor"
+      ]
+    },
+    {
+      "word": "kalaptartó",
+      "quality4Frequency": 156,
+      "magyarIspellAnalyses": [
+        "kalaptartó  pa:kalap st:kalap po:noun ts:NOM pa:tartó  st:tart po:vrb ts:PRES_INDIC_INDEF_SG_3 al:tartat ds:Ó_PRESPART_adj ts:NOM",
+        "kalaptartó  pa:kalap st:kalap po:noun ts:NOM pa:tartó st:tartó po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "kalaptartó"
+      ]
+    },
+    {
+      "word": "karmesteri",
+      "quality4Frequency": 467,
+      "magyarIspellAnalyses": [
+        "karmesteri  pa:kar st:kar po:noun ts:NOM pa:mesteri  (  fl:\" st:Mesteri po:noun_prs ts:NOM is:i_PLACE/TIME_adj ts:NOM |  st:mester po:noun ts:NOM is:i_PLACE/TIME_adj ts:NOM |  st:mester po:noun ts:NOM is:i_PLACE/TIME_adj ts:NOM ) "
+      ],
+      "lemmas": [
+        "karmesteri"
+      ]
+    },
+    {
+      "word": "karthauzi",
+      "quality4Frequency": 143,
+      "magyarIspellAnalyses": [
+        "karthauzi  st:karthauzi po:adj ts:NOM hy:kar-tha-u-zi"
+      ],
+      "lemmas": [
+        "karthauzi"
+      ]
+    },
+    {
+      "word": "kenyai",
+      "quality4Frequency": 283,
+      "magyarIspellAnalyses": [
+        "kenyai  fl:\" st:Kenya po:noun_prs ts:NOM is:i_PLACE/TIME_adj ts:NOM"
+      ],
+      "lemmas": [
+        "kenyai"
+      ]
+    },
+    {
+      "word": "kenyérsütő",
+      "quality4Frequency": 142,
+      "magyarIspellAnalyses": [
+        "kenyérsütő  pa:kenyér st:kenyér po:noun ts:NOM al:kenyerek pa:sütő  st:süt po:vrb ts:PRES_INDIC_INDEF_SG_3 ds:Ó_PRESPART_adj ts:NOM"
+      ],
+      "lemmas": [
+        "kenyérsütő"
+      ]
+    },
+    {
+      "word": "kerettag",
+      "quality4Frequency": 180,
+      "magyarIspellAnalyses": [
+        "kerettag  pa:keret st:keret po:noun ts:NOM pa:tag st:tag po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "kerettag"
+      ]
+    },
+    {
+      "word": "kimerítően",
+      "quality4Frequency": 490,
+      "magyarIspellAnalyses": [
+        "kimerítően ip:PREF sp:ki  st:merít po:vrb ts:PRES_INDIC_INDEF_SG_3 ds:Ó_PRESPART_adj ts:NOM is:An_MODE_adv"
+      ],
+      "lemmas": [
+        "kimerítően"
+      ]
+    },
+    {
+      "word": "királylány",
+      "quality4Frequency": 1689,
+      "magyarIspellAnalyses": [
+        "királylány  pa:király st:király po:noun ts:NOM pa:lány st:lány po:noun ts:NOM al:lányáék"
+      ],
+      "lemmas": [
+        "királylány"
+      ]
+    },
+    {
+      "word": "kivégzett",
+      "quality4Frequency": 952,
+      "magyarIspellAnalyses": [
+        "kivégzett ip:PREF sp:ki  st:végez po:vrb ts:PRES_INDIC_INDEF_SG_3 al:végző al:végzés al:végzendő ds:tt_PASTPART_adj ts:NOM",
+        "kivégzett ip:PREF sp:ki  st:végez po:vrb ts:PRES_INDIC_INDEF_SG_3 al:végző al:végzés al:végzendő is:PAST_INDIC_INDEF_SG_3"
+      ],
+      "lemmas": [
+        "kivégez",
+        "kivégzett"
+      ]
+    },
+    {
+      "word": "klubelnök",
+      "quality4Frequency": 176,
+      "magyarIspellAnalyses": [
+        "klubelnök  pa:klub st:klub po:noun ts:NOM ph:club pa:elnök st:elnök po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "klubelnök"
+      ]
+    },
+    {
+      "word": "klubtagság",
+      "quality4Frequency": 228,
+      "magyarIspellAnalyses": [
+        "klubtagság  pa:klub st:klub po:noun ts:NOM ph:club pa:tagság st:tagság po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "klubtagság"
+      ]
+    },
+    {
+      "word": "klubvezető",
+      "quality4Frequency": 204,
+      "magyarIspellAnalyses": [
+        "klubvezető  pa:klub st:klub po:noun ts:NOM ph:club pa:vezető  st:vezet po:vrb ts:PRES_INDIC_INDEF_SG_3 ds:Ó_PRESPART_adj ts:NOM",
+        "klubvezető  pa:klub st:klub po:noun ts:NOM ph:club pa:vezető st:vezető po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "klubvezető"
+      ]
+    },
+    {
+      "word": "kolumbiai",
+      "quality4Frequency": 667,
+      "magyarIspellAnalyses": [
+        "kolumbiai  fl:\" st:Kolumbia po:noun_prs ts:NOM is:i_PLACE/TIME_adj ts:NOM"
+      ],
+      "lemmas": [
+        "kolumbiai"
+      ]
+    },
+    {
+      "word": "konditerem",
+      "quality4Frequency": 623,
+      "magyarIspellAnalyses": [
+        "konditerem  pa:kondi st:kondi po:noun ts:NOM pa:terem  (  st:tér po:noun ts:PLUR ts:NOM is:POSS_SG_1 is:NOM |  st:tér po:noun ts:PLUR ts:NOM is:POSS_SG_1 is:ACC ) ",
+        "konditerem  pa:kondi st:kondi po:noun ts:NOM pa:terem st:terem po:noun ts:NOM al:termő al:termés al:termek"
+      ],
+      "lemmas": [
+        "konditerem"
+      ]
+    },
+    {
+      "word": "kopásálló",
+      "quality4Frequency": 345,
+      "magyarIspellAnalyses": [
+        "kopásálló  pa:kopás st:kopik po:vrb ts:PRES_INDIC_INDEF_SG_3 ds:Ás_PROCESS/RESULT_noun ts:NOM pa:álló  st:áll po:vrb ts:PRES_INDIC_INDEF_SG_3 al:állak ds:Ó_PRESPART_adj ts:NOM"
+      ],
+      "lemmas": [
+        "kopásálló"
+      ]
+    },
+    {
+      "word": "kormánytag",
+      "quality4Frequency": 528,
+      "magyarIspellAnalyses": [
+        "kormánytag  pa:kormány st:kormány po:noun ts:NOM pa:tag st:tag po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "kormánytag"
+      ]
+    },
+    {
+      "word": "kulcsszó",
+      "quality4Frequency": 1711,
+      "magyarIspellAnalyses": [
+        "kulcsszó  pa:kulcs st:kulcs po:noun ts:NOM pa:szó st:szó po:noun ts:NOM al:szavak"
+      ],
+      "lemmas": [
+        "kulcsszó"
+      ]
+    },
+    {
+      "word": "kutatóhely",
+      "quality4Frequency": 511,
+      "magyarIspellAnalyses": [
+        "kutatóhely  pa:kutató st:kutat po:vrb ts:PRES_INDIC_INDEF_SG_3 ds:Ó_PRESPART_adj ts:NOM pa:hely st:hely po:noun ts:NOM",
+        "kutatóhely  pa:kutató st:kutató po:noun ts:NOM pa:hely st:hely po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "kutatóhely"
+      ]
+    },
+    {
+      "word": "káresemény",
+      "quality4Frequency": 837,
+      "magyarIspellAnalyses": [
+        "káresemény  pa:kár st:kár po:noun ts:NOM pa:esemény st:esemény po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "káresemény"
+      ]
+    },
+    {
+      "word": "képalkotás",
+      "quality4Frequency": 436,
+      "magyarIspellAnalyses": [
+        "képalkotás  pa:kép st:kép po:noun ts:NOM pa:alkotás  st:alkot po:vrb ts:PRES_INDIC_INDEF_SG_3 ds:Ás_PROCESS/RESULT_noun ts:NOM"
+      ],
+      "lemmas": [
+        "képalkotás"
+      ]
+    },
+    {
+      "word": "képaláírás",
+      "quality4Frequency": 126,
+      "magyarIspellAnalyses": [
+        "képaláírás  pa:kép st:kép po:noun ts:NOM pa:aláírás ip:PREF sp:alá  st:ír po:vrb ts:PRES_INDIC_INDEF_SG_3 al:írat ds:Ás_PROCESS/RESULT_noun ts:NOM",
+        "képaláírás  pa:kép st:kép po:noun ts:NOM pa:aláírás st:aláírás po:noun ts:NOM hy:3"
+      ],
+      "lemmas": [
+        "képaláírás"
+      ]
+    },
+    {
+      "word": "képkocka",
+      "quality4Frequency": 150,
+      "magyarIspellAnalyses": [
+        "képkocka  pa:kép st:kép po:noun ts:NOM pa:kocka st:kocka po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "képkocka"
+      ]
+    },
+    {
+      "word": "képminőség",
+      "quality4Frequency": 245,
+      "magyarIspellAnalyses": [
+        "képminőség  pa:kép st:kép po:noun ts:NOM pa:minőség st:minőség po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "képminőség"
+      ]
+    },
+    {
+      "word": "képpont",
+      "quality4Frequency": 601,
+      "magyarIspellAnalyses": [
+        "képpont  pa:kép st:kép po:noun ts:NOM pa:pont st:pont po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "képpont"
+      ]
+    },
+    {
+      "word": "képsorozat",
+      "quality4Frequency": 159,
+      "magyarIspellAnalyses": [
+        "képsorozat  pa:kép st:kép po:noun ts:NOM pa:sorozat st:sorozat po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "képsorozat"
+      ]
+    },
+    {
+      "word": "kétesélyes",
+      "quality4Frequency": 224,
+      "magyarIspellAnalyses": [
+        "kétesélyes po:adj_num pa:két  st:esély po:noun ts:NOM ds:s_ATTRIBUTE_adj ts:NOM",
+        "kétesélyes po:adj_num pa:két  st:esély po:noun ts:NOM ds:s_OCCUPATION_noun ts:NOM"
+      ],
+      "lemmas": [
+        "kétesélyes"
+      ]
+    },
+    {
+      "word": "kétrétegű",
+      "quality4Frequency": 367,
+      "magyarIspellAnalyses": [
+        "kétrétegű po:adj_num pa:két  st:réteg po:noun ts:NOM is:jÚ_PROPERTY_adj ts:NOM"
+      ],
+      "lemmas": [
+        "kétrétegű"
+      ]
+    },
+    {
+      "word": "kétsávos",
+      "quality4Frequency": 344,
+      "magyarIspellAnalyses": [
+        "kétsávos po:adj_num pa:két  st:sáv po:noun ts:NOM ds:s_ATTRIBUTE_adj ts:NOM",
+        "kétsávos po:adj_num pa:két  st:sáv po:noun ts:NOM ds:s_OCCUPATION_noun ts:NOM"
+      ],
+      "lemmas": [
+        "kétsávos"
+      ]
+    },
+    {
+      "word": "kódszám",
+      "quality4Frequency": 425,
+      "magyarIspellAnalyses": [
+        "kódszám  pa:kód st:kód po:noun ts:NOM pa:szám st:szám po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "kódszám"
+      ]
+    },
+    {
+      "word": "könyvvásár",
+      "quality4Frequency": 202,
+      "magyarIspellAnalyses": [
+        "könyvvásár  pa:könyv st:könyv po:noun ts:NOM pa:vásár st:vásár po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "könyvvásár"
+      ]
+    },
+    {
+      "word": "közcélú",
+      "quality4Frequency": 4006,
+      "magyarIspellAnalyses": [
+        "közcélú  pa:köz st:köz po:noun ts:NOM pa:célú  (  st:cél po:noun ts:NOM is:jÚ_PROPERTY_adj ts:NOM |  st:cél po:noun ts:NOM is:jÚ_PROPERTY_adj ts:NOM ) "
+      ],
+      "lemmas": [
+        "közcélú"
+      ]
+    },
+    {
+      "word": "közfeladat",
+      "quality4Frequency": 539,
+      "magyarIspellAnalyses": [
+        "közfeladat  pa:köz st:köz po:noun ts:NOM pa:feladat st:feladat po:noun ts:NOM hy:3"
+      ],
+      "lemmas": [
+        "közfeladat"
+      ]
+    },
+    {
+      "word": "közgyűlési",
+      "quality4Frequency": 6154,
+      "magyarIspellAnalyses": [
+        "közgyűlési  pa:köz st:köz po:noun ts:NOM pa:gyűlési  (  st:gyűl po:vrb ts:PRES_INDIC_INDEF_SG_3 ds:Ás_PROCESS/RESULT_noun is:i_PLACE/TIME_adj ts:NOM |  st:gyűlik po:vrb ts:PRES_INDIC_INDEF_SG_3 ds:Ás_PROCESS/RESULT_noun is:i_PLACE/TIME_adj ts:NOM ) "
+      ],
+      "lemmas": [
+        "közgyűlési"
+      ]
+    },
+    {
+      "word": "közmédia",
+      "quality4Frequency": 299,
+      "magyarIspellAnalyses": [
+        "közmédia  pa:köz st:köz po:noun ts:NOM pa:média st:média po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "közmédia"
+      ]
+    },
+    {
+      "word": "köznyelvi",
+      "quality4Frequency": 606,
+      "magyarIspellAnalyses": [
+        "köznyelvi  pa:köz st:köz po:noun ts:NOM pa:nyelvi  (  st:nyelv po:noun ts:NOM is:i_PLACE/TIME_adj ts:NOM |  st:nyelv po:noun ts:NOM is:i_PLACE/TIME_adj ts:NOM ) "
+      ],
+      "lemmas": [
+        "köznyelvi"
+      ]
+    },
+    {
+      "word": "köztévé",
+      "quality4Frequency": 1287,
+      "magyarIspellAnalyses": [
+        "köztévé  pa:köz st:köz po:noun ts:NOM pa:tévé st:tévé po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "köztévé"
+      ]
+    },
+    {
+      "word": "középszint",
+      "quality4Frequency": 203,
+      "magyarIspellAnalyses": [
+        "középszint  pa:közép st:közép po:noun ts:NOM al:közepi al:közepek pa:szint st:szint po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "középszint"
+      ]
+    },
+    {
+      "word": "középtávú",
+      "quality4Frequency": 5749,
+      "magyarIspellAnalyses": [
+        "középtávú  pa:közép st:közép po:noun ts:NOM al:közepi al:közepek pa:távú  (  st:táv po:noun ts:NOM is:jÚ_PROPERTY_adj ts:NOM |  st:táv po:noun ts:NOM is:jÚ_PROPERTY_adj ts:NOM ) "
+      ],
+      "lemmas": [
+        "középtávú"
+      ]
+    },
+    {
+      "word": "lakásigény",
+      "quality4Frequency": 350,
+      "magyarIspellAnalyses": [
+        "lakásigény  pa:lakás st:lakik po:vrb ts:PRES_INDIC_INDEF_SG_3 ds:Ás_PROCESS/RESULT_noun ts:NOM pa:igény st:igény po:noun ts:NOM",
+        "lakásigény  pa:lakás st:lakás po:noun ts:NOM pa:igény st:igény po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "lakásigény"
+      ]
+    },
+    {
+      "word": "lakáspiac",
+      "quality4Frequency": 342,
+      "magyarIspellAnalyses": [
+        "lakáspiac  pa:lakás st:lakik po:vrb ts:PRES_INDIC_INDEF_SG_3 ds:Ás_PROCESS/RESULT_noun ts:NOM pa:piac st:piac po:noun ts:NOM",
+        "lakáspiac  pa:lakás st:lakás po:noun ts:NOM pa:piac st:piac po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "lakáspiac"
+      ]
+    },
+    {
+      "word": "lakásépítő",
+      "quality4Frequency": 140,
+      "magyarIspellAnalyses": [
+        "lakásépítő  pa:lakás st:lakás po:noun ts:NOM pa:építő  st:épít po:vrb ts:PRES_INDIC_INDEF_SG_3 ds:Ó_PRESPART_adj ts:NOM"
+      ],
+      "lemmas": [
+        "lakásépítő"
+      ]
+    },
+    {
+      "word": "lakásügyi",
+      "quality4Frequency": 1035,
+      "magyarIspellAnalyses": [
+        "lakásügyi  pa:lakás st:lakás po:noun ts:NOM pa:ügyi  (  st:ügy po:noun ts:NOM is:i_PLACE/TIME_adj ts:NOM |  st:ügy po:noun ts:NOM is:i_PLACE/TIME_adj ts:NOM ) "
+      ],
+      "lemmas": [
+        "lakásügyi"
+      ]
+    },
+    {
+      "word": "lakóautó",
+      "quality4Frequency": 138,
+      "magyarIspellAnalyses": [
+        "lakóautó  pa:lakó st:lakik po:vrb ts:PRES_INDIC_INDEF_SG_3 ds:Ó_PRESPART_adj ts:NOM pa:autó st:autó po:noun ts:NOM",
+        "lakóautó  pa:lakó st:lakó po:noun ts:NOM pa:autó st:autó po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "lakóautó"
+      ]
+    },
+    {
+      "word": "lakótömb",
+      "quality4Frequency": 139,
+      "magyarIspellAnalyses": [
+        "lakótömb  pa:lakó st:lakik po:vrb ts:PRES_INDIC_INDEF_SG_3 ds:Ó_PRESPART_adj ts:NOM pa:tömb st:tömb po:noun ts:NOM",
+        "lakótömb  pa:lakó st:lakó po:noun ts:NOM pa:tömb st:tömb po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "lakótömb"
+      ]
+    },
+    {
+      "word": "lakóövezet",
+      "quality4Frequency": 173,
+      "magyarIspellAnalyses": [
+        "lakóövezet  pa:lakó st:lakik po:vrb ts:PRES_INDIC_INDEF_SG_3 ds:Ó_PRESPART_adj ts:NOM pa:övezet st:övezet po:noun ts:NOM",
+        "lakóövezet  pa:lakó st:lakó po:noun ts:NOM pa:övezet st:övezet po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "lakóövezet"
+      ]
+    },
+    {
+      "word": "lapkiadás",
+      "quality4Frequency": 248,
+      "magyarIspellAnalyses": [
+        "lapkiadás  pa:lap st:lap po:noun ts:NOM pa:kiadás ip:PREF sp:ki  st:ad po:vrb ts:PRES_INDIC_INDEF_SG_3 al:adat ds:Ás_PROCESS/RESULT_noun ts:NOM",
+        "lapkiadás  pa:lap st:lap po:noun ts:NOM pa:kiadás st:kiadás po:noun ts:NOM hy:2"
+      ],
+      "lemmas": [
+        "lapkiadás"
+      ]
+    },
+    {
+      "word": "lapolvasó",
+      "quality4Frequency": 156,
+      "magyarIspellAnalyses": [
+        "lapolvasó  pa:lap st:lap po:noun ts:NOM pa:olvasó  st:olvas po:vrb ts:PRES_INDIC_INDEF_SG_3 ds:Ó_PRESPART_adj ts:NOM",
+        "lapolvasó  pa:lap st:lap po:noun ts:NOM pa:olvasó st:olvasó po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "lapolvasó"
+      ]
+    },
+    {
+      "word": "leletanyag",
+      "quality4Frequency": 441,
+      "magyarIspellAnalyses": [
+        "leletanyag  pa:lelet st:lelet po:noun ts:NOM pa:anyag st:anyag po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "leletanyag"
+      ]
+    },
+    {
+      "word": "lemezlovas",
+      "quality4Frequency": 133,
+      "magyarIspellAnalyses": [
+        "lemezlovas  pa:lemez st:lemez po:noun ts:NOM pa:lovas  (  st:ló po:noun ts:PLUR ts:NOM ds:s_ATTRIBUTE_adj ts:NOM |  st:ló po:noun ts:PLUR ts:NOM ds:s_OCCUPATION_noun ts:NOM ) ",
+        "lemezlovas  pa:lemez st:lemez po:noun ts:NOM pa:lovas st:lovas po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "lemezlovas"
+      ]
+    },
+    {
+      "word": "libanoni",
+      "quality4Frequency": 478,
+      "magyarIspellAnalyses": [
+        "libanoni  fl:\" st:Libanon po:noun_prs ts:NOM is:i_PLACE/TIME_adj ts:NOM"
+      ],
+      "lemmas": [
+        "libanoni"
+      ]
+    },
+    {
+      "word": "licencdíj",
+      "quality4Frequency": 155,
+      "magyarIspellAnalyses": [
+        "licencdíj  pa:licenc st:licenc po:noun ts:NOM ph:licensz ph:licens pa:díj st:díj po:noun ts:NOM al:díjak"
+      ],
+      "lemmas": [
+        "licencdíj"
+      ]
+    },
+    {
+      "word": "luxemburgi",
+      "quality4Frequency": 1180,
+      "magyarIspellAnalyses": [
+        "luxemburgi  fl:\" st:Luxemburg po:noun_prs ts:NOM is:i_PLACE/TIME_adj ts:NOM"
+      ],
+      "lemmas": [
+        "luxemburgi"
+      ]
+    },
+    {
+      "word": "légkondi",
+      "quality4Frequency": 744,
+      "magyarIspellAnalyses": [
+        "légkondi  pa:lég st:lég po:noun ts:NOM al:legek pa:kondi st:kondi po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "légkondi"
+      ]
+    },
+    {
+      "word": "légrés",
+      "quality4Frequency": 181,
+      "magyarIspellAnalyses": [
+        "légrés  pa:lég st:lég po:noun ts:NOM al:legek pa:rés  (  fl:\" st:Ré po:noun_prs ts:NOM ds:s_ATTRIBUTE_adj ts:NOM |  fl:\" st:Ré po:noun_prs ts:NOM ds:s_OCCUPATION_noun ts:NOM ) ",
+        "légrés  pa:lég st:lég po:noun ts:NOM al:legek pa:rés st:rés po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "légrés"
+      ]
+    },
+    {
+      "word": "lézerfény",
+      "quality4Frequency": 159,
+      "magyarIspellAnalyses": [
+        "lézerfény  pa:lézer st:lézer po:noun ts:NOM ph:laser pa:fény st:fény po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "lézerfény"
+      ]
+    },
+    {
+      "word": "lézersugár",
+      "quality4Frequency": 389,
+      "magyarIspellAnalyses": [
+        "lézersugár  pa:lézer st:lézer po:noun ts:NOM ph:laser pa:sugár st:sugár po:noun ts:NOM al:sugari al:sugarak"
+      ],
+      "lemmas": [
+        "lézersugár"
+      ]
+    },
+    {
+      "word": "líbiai",
+      "quality4Frequency": 225,
+      "magyarIspellAnalyses": [
+        "líbiai  fl:\" st:Líbia po:noun_prs ts:NOM is:i_PLACE/TIME_adj ts:NOM"
+      ],
+      "lemmas": [
+        "líbiai"
+      ]
+    },
+    {
+      "word": "lízingcég",
+      "quality4Frequency": 152,
+      "magyarIspellAnalyses": [
+        "lízingcég  pa:lízing st:lízing po:noun ts:NOM ph:leasing pa:cég st:cég po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "lízingcég"
+      ]
+    },
+    {
+      "word": "macedóniai",
+      "quality4Frequency": 281,
+      "magyarIspellAnalyses": [
+        "macedóniai  fl:\" st:Macedónia po:noun_prs ts:NOM is:i_PLACE/TIME_adj ts:NOM"
+      ],
+      "lemmas": [
+        "macedóniai"
+      ]
+    },
+    {
+      "word": "malajziai",
+      "quality4Frequency": 264,
+      "magyarIspellAnalyses": [
+        "malajziai  fl:\" st:Malajzia po:noun_prs ts:NOM is:i_PLACE/TIME_adj ts:NOM"
+      ],
+      "lemmas": [
+        "malajziai"
+      ]
+    },
+    {
+      "word": "megadóan",
+      "quality4Frequency": 297,
+      "magyarIspellAnalyses": [
+        "megadóan ip:PREF sp:meg  st:ad po:vrb ts:PRES_INDIC_INDEF_SG_3 al:adat ds:Ó_PRESPART_adj ts:NOM is:An_MODE_adv"
+      ],
+      "lemmas": [
+        "megadóan"
+      ]
+    },
+    {
+      "word": "megyehatár",
+      "quality4Frequency": 178,
+      "magyarIspellAnalyses": [
+        "megyehatár  pa:megye st:megye po:noun ts:NOM pa:határ st:határ po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "megyehatár"
+      ]
+    },
+    {
+      "word": "megérzik",
+      "quality4Frequency": 738,
+      "magyarIspellAnalyses": [
+        "megérzik ip:PREF sp:meg  st:érez po:vrb ts:PRES_INDIC_INDEF_SG_3 al:érző al:érzés is:PRES_INDIC_DEF_PL_3"
+      ],
+      "lemmas": [
+        "megérez"
+      ]
+    },
+    {
+      "word": "menüsor",
+      "quality4Frequency": 708,
+      "magyarIspellAnalyses": [
+        "menüsor  pa:menü st:menü po:noun ts:NOM pa:sor st:sor po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "menüsor"
+      ]
+    },
+    {
+      "word": "mesefigura",
+      "quality4Frequency": 167,
+      "magyarIspellAnalyses": [
+        "mesefigura  pa:mese st:mese po:noun ts:NOM pa:figura st:figura po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "mesefigura"
+      ]
+    },
+    {
+      "word": "mesefilm",
+      "quality4Frequency": 209,
+      "magyarIspellAnalyses": [
+        "mesefilm  pa:mese st:mese po:noun ts:NOM pa:film st:film po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "mesefilm"
+      ]
+    },
+    {
+      "word": "mesehős",
+      "quality4Frequency": 138,
+      "magyarIspellAnalyses": [
+        "mesehős  pa:mese st:mese po:noun ts:NOM pa:hős  (  st:hő po:noun ts:NOM ds:s_ATTRIBUTE_adj ts:NOM |  st:hő po:noun ts:NOM ds:s_OCCUPATION_noun ts:NOM ) ",
+        "mesehős  pa:mese st:mese po:noun ts:NOM pa:hős st:hős po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "mesehős"
+      ]
+    },
+    {
+      "word": "mesteredző",
+      "quality4Frequency": 163,
+      "magyarIspellAnalyses": [
+        "mesteredző  pa:mester st:mester po:noun ts:NOM pa:edző st:edz po:vrb ds:Ó_PRESPART_adj ts:NOM"
+      ],
+      "lemmas": [
+        "mesteredző"
+      ]
+    },
+    {
+      "word": "metróvonal",
+      "quality4Frequency": 1062,
+      "magyarIspellAnalyses": [
+        "metróvonal  pa:metró st:metró po:noun ts:NOM pa:vonal st:vonal po:noun ts:NOM al:vonalak"
+      ],
+      "lemmas": [
+        "metróvonal"
+      ]
+    },
+    {
+      "word": "minigolf",
+      "quality4Frequency": 336,
+      "magyarIspellAnalyses": [
+        "minigolf  pa:mini st:mini po:noun ts:NOM pa:golf st:golf po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "minigolf"
+      ]
+    },
+    {
+      "word": "mintavétel",
+      "quality4Frequency": 1786,
+      "magyarIspellAnalyses": [
+        "mintavétel  pa:minta st:minta po:noun ts:NOM pa:vétel st:vétel po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "mintavétel"
+      ]
+    },
+    {
+      "word": "moldovai",
+      "quality4Frequency": 188,
+      "magyarIspellAnalyses": [
+        "moldovai  fl:\" st:Moldova po:noun_prs ts:NOM is:i_PLACE/TIME_adj ts:NOM"
+      ],
+      "lemmas": [
+        "moldovai"
+      ]
+    },
+    {
+      "word": "motorblokk",
+      "quality4Frequency": 145,
+      "magyarIspellAnalyses": [
+        "motorblokk  pa:motor st:motor po:noun ts:NOM pa:blokk st:blokk po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "motorblokk"
+      ]
+    },
+    {
+      "word": "multi",
+      "quality4Frequency": 974,
+      "magyarIspellAnalyses": [
+        "multi  st:multi po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "multi"
+      ]
+    },
+    {
+      "word": "munkaadói",
+      "quality4Frequency": 2895,
+      "magyarIspellAnalyses": [
+        "munkaadói  pa:munka st:munka po:noun ts:NOM pa:adói  (  st:adó po:noun ts:NOM is:PLUR is:POSS_SG_3 is:NOM |  st:adó po:noun ts:NOM is:i_PLACE/TIME_adj ts:NOM |  st:adó po:noun ts:NOM is:i_PLACE/TIME_adj ts:NOM |  st:ad po:vrb ts:PRES_INDIC_INDEF_SG_3 al:adat ds:Ó_PRESPART_adj ts:NOM is:PLUR is:POSS_SG_3 is:NOM ) "
+      ],
+      "lemmas": [
+        "munkaadói"
+      ]
+    },
+    {
+      "word": "munkafüzet",
+      "quality4Frequency": 1074,
+      "magyarIspellAnalyses": [
+        "munkafüzet  pa:munka st:munka po:noun ts:NOM pa:füzet  st:fűz po:noun ts:PLUR ts:NOM is:ACC",
+        "munkafüzet  pa:munka st:munka po:noun ts:NOM pa:füzet st:füzet po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "munkafüzet"
+      ]
+    },
+    {
+      "word": "munkahelyi",
+      "quality4Frequency": 13877,
+      "magyarIspellAnalyses": [
+        "munkahelyi  pa:munka st:munka po:noun ts:NOM pa:helyi  (  st:hely po:noun ts:NOM is:i_PLACE/TIME_adj ts:NOM |  st:hely po:noun ts:NOM is:i_PLACE/TIME_adj ts:NOM ) "
+      ],
+      "lemmas": [
+        "munkahelyi"
+      ]
+    },
+    {
+      "word": "munkaügy",
+      "quality4Frequency": 295,
+      "magyarIspellAnalyses": [
+        "munkaügy  pa:munka st:munka po:noun ts:NOM pa:ügy st:ügy po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "munkaügy"
+      ]
+    },
+    {
+      "word": "munkálkodó",
+      "quality4Frequency": 893,
+      "magyarIspellAnalyses": [
+        "munkálkodó  st:munkálkodik po:vrb ts:PRES_INDIC_INDEF_SG_3 ds:Ó_PRESPART_adj ts:NOM"
+      ],
+      "lemmas": [
+        "munkálkodó"
+      ]
+    },
+    {
+      "word": "májrák",
+      "quality4Frequency": 137,
+      "magyarIspellAnalyses": [
+        "májrák  pa:máj st:máj po:noun ts:NOM al:májak pa:rák st:rák po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "májrák"
+      ]
+    },
+    {
+      "word": "médiapiac",
+      "quality4Frequency": 376,
+      "magyarIspellAnalyses": [
+        "médiapiac  pa:média st:média po:noun ts:NOM pa:piac st:piac po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "médiapiac"
+      ]
+    },
+    {
+      "word": "médiasztár",
+      "quality4Frequency": 173,
+      "magyarIspellAnalyses": [
+        "médiasztár  pa:média st:média po:noun ts:NOM pa:sztár st:sztár po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "médiasztár"
+      ]
+    },
+    {
+      "word": "méhnyakrák",
+      "quality4Frequency": 524,
+      "magyarIspellAnalyses": [
+        "méhnyakrák  pa:méh st:méh po:noun ts:NOM pa:nyak st:nyak po:noun ts:NOM al:nyakak pa:rák st:rák po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "méhnyakrák"
+      ]
+    },
+    {
+      "word": "mókuskerék",
+      "quality4Frequency": 168,
+      "magyarIspellAnalyses": [
+        "mókuskerék  pa:mókus st:mókus po:noun ts:NOM pa:kerék st:kerék po:noun ts:NOM al:kerekek"
+      ],
+      "lemmas": [
+        "mókuskerék"
+      ]
+    },
+    {
+      "word": "műsorrend",
+      "quality4Frequency": 128,
+      "magyarIspellAnalyses": [
+        "műsorrend  pa:mű st:mű po:noun ts:NOM al:művi al:művek pa:sorrend st:sorrend po:noun ts:NOM hy:3",
+        "műsorrend  pa:műsor st:műsor po:noun ts:NOM hy:2 pa:rend st:rend po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "műsorrend"
+      ]
+    },
+    {
+      "word": "műsorszóró",
+      "quality4Frequency": 739,
+      "magyarIspellAnalyses": [
+        "műsorszóró  pa:mű st:mű po:noun ts:NOM al:művi al:művek pa:sor st:sor po:noun ts:NOM pa:szóró  st:szór po:vrb ts:PRES_INDIC_INDEF_SG_3 al:szórat ds:Ó_PRESPART_adj ts:NOM",
+        "műsorszóró  pa:műsor st:műsor po:noun ts:NOM hy:2 pa:szóró  st:szór po:vrb ts:PRES_INDIC_INDEF_SG_3 al:szórat ds:Ó_PRESPART_adj ts:NOM"
+      ],
+      "lemmas": [
+        "műsorszóró"
+      ]
+    },
+    {
+      "word": "műsorterv",
+      "quality4Frequency": 232,
+      "magyarIspellAnalyses": [
+        "műsorterv  pa:mű st:mű po:noun ts:NOM al:művi al:művek pa:sor st:sor po:noun ts:NOM pa:terv st:terv po:noun ts:NOM",
+        "műsorterv  pa:műsor st:műsor po:noun ts:NOM hy:2 pa:terv st:terv po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "műsorterv"
+      ]
+    },
+    {
+      "word": "műszerpark",
+      "quality4Frequency": 198,
+      "magyarIspellAnalyses": [
+        "műszerpark  pa:mű st:mű po:noun ts:NOM al:művi al:művek pa:szer st:szer po:noun ts:NOM pa:park st:park po:noun ts:NOM",
+        "műszerpark  pa:műszer st:műszer po:noun ts:NOM hy:2 pa:park st:park po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "műszerpark"
+      ]
+    },
+    {
+      "word": "naplóírás",
+      "quality4Frequency": 161,
+      "magyarIspellAnalyses": [
+        "naplóírás  pa:nap st:nap po:noun ts:NOM pa:ló st:ló po:noun ts:NOM al:lovak pa:írás  st:ír po:vrb ts:PRES_INDIC_INDEF_SG_3 al:írat ds:Ás_PROCESS/RESULT_noun ts:NOM",
+        "naplóírás  pa:nap st:nap po:noun ts:NOM pa:ló st:ló po:noun ts:NOM al:lovak pa:írás st:írás po:noun ts:NOM",
+        "naplóírás  pa:napló st:napló po:noun ts:NOM pa:írás  st:ír po:vrb ts:PRES_INDIC_INDEF_SG_3 al:írat ds:Ás_PROCESS/RESULT_noun ts:NOM",
+        "naplóírás  pa:napló st:napló po:noun ts:NOM pa:írás st:írás po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "naplóírás"
+      ]
+    },
+    {
+      "word": "narancsbőr",
+      "quality4Frequency": 498,
+      "magyarIspellAnalyses": [
+        "narancsbőr  pa:narancs st:narancs po:noun ts:NOM pa:bőr st:bőr po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "narancsbőr"
+      ]
+    },
+    {
+      "word": "nepáli",
+      "quality4Frequency": 300,
+      "magyarIspellAnalyses": [
+        "nepáli  fl:\" st:Nepál po:noun_prs ts:NOM is:i_PLACE/TIME_adj ts:NOM"
+      ],
+      "lemmas": [
+        "nepáli"
+      ]
+    },
+    {
+      "word": "nevelésügy",
+      "quality4Frequency": 141,
+      "magyarIspellAnalyses": [
+        "nevelésügy  pa:nevelés st:nevel po:vrb ts:PRES_INDIC_INDEF_SG_3 ds:Ás_PROCESS/RESULT_noun ts:NOM pa:ügy st:ügy po:noun ts:NOM",
+        "nevelésügy  pa:nevelés st:nevelés po:noun ts:NOM pa:ügy st:ügy po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "nevelésügy"
+      ]
+    },
+    {
+      "word": "norvégiai",
+      "quality4Frequency": 353,
+      "magyarIspellAnalyses": [
+        "norvégiai  fl:\" st:Norvégia po:noun_prs ts:NOM is:i_PLACE/TIME_adj ts:NOM"
+      ],
+      "lemmas": [
+        "norvégiai"
+      ]
+    },
+    {
+      "word": "nyilatkozó",
+      "quality4Frequency": 2022,
+      "magyarIspellAnalyses": [
+        "nyilatkozó  st:nyilatkozik po:vrb ts:PRES_INDIC_INDEF_SG_3 ds:Ó_PRESPART_adj ts:NOM"
+      ],
+      "lemmas": [
+        "nyilatkozó"
+      ]
+    },
+    {
+      "word": "nyomkövető",
+      "quality4Frequency": 273,
+      "magyarIspellAnalyses": [
+        "nyomkövető  pa:nyom st:nyom po:noun ts:NOM al:nyomat pa:követő  st:követ po:vrb ts:PRES_INDIC_INDEF_SG_3 ds:Ó_PRESPART_adj ts:NOM",
+        "nyomkövető  pa:nyom st:nyom po:noun ts:NOM al:nyomat pa:követő st:követő po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "nyomkövető"
+      ]
+    },
+    {
+      "word": "népiskolai",
+      "quality4Frequency": 501,
+      "magyarIspellAnalyses": [
+        "népiskolai  pa:nép st:nép po:noun ts:NOM pa:iskolai  (  st:iskola po:noun ts:NOM is:i_PLACE/TIME_adj ts:NOM |  st:iskola po:noun ts:NOM is:i_PLACE/TIME_adj ts:NOM ) "
+      ],
+      "lemmas": [
+        "népiskolai"
+      ]
+    },
+    {
+      "word": "néppárt",
+      "quality4Frequency": 337,
+      "magyarIspellAnalyses": [
+        "néppárt  pa:nép st:nép po:noun ts:NOM pa:párt  (  st:pár po:noun ts:NOM al:egypárszor al:egypáran al:egypárak al:egypár al:párszor al:páran al:párak al:fél_párak is:ACC |  st:pár po:noun ts:NOM al:egypárszor al:egypáran al:egypárak al:egypár al:párszor al:páran al:párak al:fél_párak is:ACC ) ",
+        "néppárt  pa:nép st:nép po:noun ts:NOM pa:párt st:párt po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "néppárt"
+      ]
+    },
+    {
+      "word": "néppárti",
+      "quality4Frequency": 355,
+      "magyarIspellAnalyses": [
+        "néppárti  pa:nép st:nép po:noun ts:NOM pa:párti  (  st:párt po:noun ts:NOM is:i_PLACE/TIME_adj ts:NOM |  st:párt po:noun ts:NOM is:i_PLACE/TIME_adj ts:NOM ) "
+      ],
+      "lemmas": [
+        "néppárti"
+      ]
+    },
+    {
+      "word": "néptáncos",
+      "quality4Frequency": 222,
+      "magyarIspellAnalyses": [
+        "néptáncos  pa:nép st:nép po:noun ts:NOM pa:táncos  (  st:tánc po:noun ts:NOM ds:s_ATTRIBUTE_adj ts:NOM |  st:tánc po:noun ts:NOM ds:s_OCCUPATION_noun ts:NOM ) ",
+        "néptáncos  pa:nép st:nép po:noun ts:NOM pa:táncos st:táncos po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "néptáncos"
+      ]
+    },
+    {
+      "word": "névadási",
+      "quality4Frequency": 381,
+      "magyarIspellAnalyses": [
+        "névadási  pa:név st:név po:noun ts:NOM al:nevek pa:adási  st:ad po:vrb ts:PRES_INDIC_INDEF_SG_3 al:adat ds:Ás_PROCESS/RESULT_noun is:i_PLACE/TIME_adj ts:NOM"
+      ],
+      "lemmas": [
+        "névadási"
+      ]
+    },
+    {
+      "word": "nézőszám",
+      "quality4Frequency": 475,
+      "magyarIspellAnalyses": [
+        "nézőszám  pa:néző st:néz po:vrb ts:PRES_INDIC_INDEF_SG_3 al:nézet ds:Ó_PRESPART_adj ts:NOM pa:szám st:szám po:noun ts:NOM",
+        "nézőszám  pa:néző st:néző po:noun ts:NOM pa:szám st:szám po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "nézőszám"
+      ]
+    },
+    {
+      "word": "növényfaj",
+      "quality4Frequency": 684,
+      "magyarIspellAnalyses": [
+        "növényfaj  pa:növény st:növény po:noun ts:NOM pa:faj st:faj po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "növényfaj"
+      ]
+    },
+    {
+      "word": "olajválság",
+      "quality4Frequency": 214,
+      "magyarIspellAnalyses": [
+        "olajválság  pa:olaj st:olaj po:noun ts:NOM al:olajak pa:válság st:válság po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "olajválság"
+      ]
+    },
+    {
+      "word": "origami",
+      "quality4Frequency": 229,
+      "magyarIspellAnalyses": [
+        "origami  st:origami po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "origami"
+      ]
+    },
+    {
+      "word": "ormánsági",
+      "quality4Frequency": 278,
+      "magyarIspellAnalyses": [
+        "ormánsági  fl:\" st:Ormánság po:noun_prs ts:NOM is:i_PLACE/TIME_adj ts:NOM"
+      ],
+      "lemmas": [
+        "ormánsági"
+      ]
+    },
+    {
+      "word": "orrdugulás",
+      "quality4Frequency": 179,
+      "magyarIspellAnalyses": [
+        "orrdugulás  pa:orr st:orr po:noun ts:NOM al:orrot pa:dugulás  st:dugul po:vrb ts:PRES_INDIC_INDEF_SG_3 ds:Ás_PROCESS/RESULT_noun ts:NOM"
+      ],
+      "lemmas": [
+        "orrdugulás"
+      ]
+    },
+    {
+      "word": "orrfolyás",
+      "quality4Frequency": 307,
+      "magyarIspellAnalyses": [
+        "orrfolyás  pa:orr st:orr po:noun ts:NOM al:orrot pa:folyás  st:folyik po:vrb ts:PRES_INDIC_INDEF_SG_3 al:folyt ds:Ás_PROCESS/RESULT_noun ts:NOM"
+      ],
+      "lemmas": [
+        "orrfolyás"
+      ]
+    },
+    {
+      "word": "orvoshiány",
+      "quality4Frequency": 148,
+      "magyarIspellAnalyses": [
+        "orvoshiány  pa:orvos st:orvos po:noun ts:NOM pa:hiány st:hiány po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "orvoshiány"
+      ]
+    },
+    {
+      "word": "pakisztáni",
+      "quality4Frequency": 764,
+      "magyarIspellAnalyses": [
+        "pakisztáni  fl:\" st:Pakisztán po:noun_prs ts:NOM is:i_PLACE/TIME_adj ts:NOM"
+      ],
+      "lemmas": [
+        "pakisztáni"
+      ]
+    },
+    {
+      "word": "panelház",
+      "quality4Frequency": 369,
+      "magyarIspellAnalyses": [
+        "panelház  pa:panel st:panel po:noun ts:NOM pa:ház st:ház po:noun ts:NOM al:házak"
+      ],
+      "lemmas": [
+        "panelház"
+      ]
+    },
+    {
+      "word": "panellakás",
+      "quality4Frequency": 461,
+      "magyarIspellAnalyses": [
+        "panellakás  pa:panel st:panel po:noun ts:NOM pa:lakás  st:lakik po:vrb ts:PRES_INDIC_INDEF_SG_3 ds:Ás_PROCESS/RESULT_noun ts:NOM",
+        "panellakás  pa:panel st:panel po:noun ts:NOM pa:lakás st:lakás po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "panellakás"
+      ]
+    },
+    {
+      "word": "papíralapú",
+      "quality4Frequency": 678,
+      "magyarIspellAnalyses": [
+        "papíralapú  pa:papír st:papír po:noun ts:NOM pa:alapú  (  st:alap po:noun ts:NOM is:jÚ_PROPERTY_adj ts:NOM |  st:alap po:noun ts:NOM is:jÚ_PROPERTY_adj ts:NOM ) "
+      ],
+      "lemmas": [
+        "papíralapú"
+      ]
+    },
+    {
+      "word": "papírkép",
+      "quality4Frequency": 151,
+      "magyarIspellAnalyses": [
+        "papírkép  pa:papír st:papír po:noun ts:NOM pa:kép st:kép po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "papírkép"
+      ]
+    },
+    {
+      "word": "parkolóház",
+      "quality4Frequency": 405,
+      "magyarIspellAnalyses": [
+        "parkolóház  pa:parkoló st:parkol po:vrb ts:PRES_INDIC_INDEF_SG_3 ds:Ó_PRESPART_adj ts:NOM pa:ház st:ház po:noun ts:NOM al:házak"
+      ],
+      "lemmas": [
+        "parkolóház"
+      ]
+    },
+    {
+      "word": "parkolóóra",
+      "quality4Frequency": 360,
+      "magyarIspellAnalyses": [
+        "parkolóóra  pa:parkoló st:parkol po:vrb ts:PRES_INDIC_INDEF_SG_3 ds:Ó_PRESPART_adj ts:NOM pa:óra st:óra po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "parkolóóra"
+      ]
+    },
+    {
+      "word": "patakmeder",
+      "quality4Frequency": 261,
+      "magyarIspellAnalyses": [
+        "patakmeder  pa:patak st:patak po:noun ts:NOM pa:meder st:meder po:noun ts:NOM al:medrek"
+      ],
+      "lemmas": [
+        "patakmeder"
+      ]
+    },
+    {
+      "word": "percdíj",
+      "quality4Frequency": 266,
+      "magyarIspellAnalyses": [
+        "percdíj  pa:perc st:perc po:noun ts:NOM pa:díj st:díj po:noun ts:NOM al:díjak"
+      ],
+      "lemmas": [
+        "percdíj"
+      ]
+    },
+    {
+      "word": "perlit",
+      "quality4Frequency": 198,
+      "magyarIspellAnalyses": [
+        "perlit  fl:\" st:Perl po:noun_prs ts:NOM is:i_PLACE/TIME_adj ts:NOM is:ACC",
+        "perlit  st:perlit po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "perlit"
+      ]
+    },
+    {
+      "word": "perui",
+      "quality4Frequency": 534,
+      "magyarIspellAnalyses": [
+        "perui  fl:\" st:Peru po:noun_prs ts:NOM is:i_PLACE/TIME_adj ts:NOM"
+      ],
+      "lemmas": [
+        "perui"
+      ]
+    },
+    {
+      "word": "pontszerző",
+      "quality4Frequency": 374,
+      "magyarIspellAnalyses": [
+        "pontszerző  pa:pont st:pont po:noun ts:NOM pa:szerző st:szerez po:vrb ds:Ó_PRESPART_adj ts:NOM"
+      ],
+      "lemmas": [
+        "pontszerző"
+      ]
+    },
+    {
+      "word": "pontérték",
+      "quality4Frequency": 222,
+      "magyarIspellAnalyses": [
+        "pontérték  pa:pont st:pont po:noun ts:NOM pa:érték st:érték po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "pontérték"
+      ]
+    },
+    {
+      "word": "pornófilm",
+      "quality4Frequency": 209,
+      "magyarIspellAnalyses": [
+        "pornófilm  pa:pornó st:pornó po:noun ts:NOM pa:film st:film po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "pornófilm"
+      ]
+    },
+    {
+      "word": "pornósztár",
+      "quality4Frequency": 145,
+      "magyarIspellAnalyses": [
+        "pornósztár  pa:pornó st:pornó po:noun ts:NOM pa:sztár st:sztár po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "pornósztár"
+      ]
+    },
+    {
+      "word": "próbálkozó",
+      "quality4Frequency": 326,
+      "magyarIspellAnalyses": [
+        "próbálkozó  st:próbálkozik po:vrb ts:PRES_INDIC_INDEF_SG_3 ds:Ó_PRESPART_adj ts:NOM"
+      ],
+      "lemmas": [
+        "próbálkozó"
+      ]
+    },
+    {
+      "word": "pulzusszám",
+      "quality4Frequency": 297,
+      "magyarIspellAnalyses": [
+        "pulzusszám  pa:pulzus st:pulzus po:noun ts:NOM pa:szám st:szám po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "pulzusszám"
+      ]
+    },
+    {
+      "word": "pártkatona",
+      "quality4Frequency": 165,
+      "magyarIspellAnalyses": [
+        "pártkatona  pa:párt st:párt po:noun ts:NOM pa:katona st:katona po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "pártkatona"
+      ]
+    },
+    {
+      "word": "pártállam",
+      "quality4Frequency": 939,
+      "magyarIspellAnalyses": [
+        "pártállam  pa:párt st:párt po:noun ts:NOM pa:állam  (  st:áll po:noun ts:PLUR ts:NOM is:POSS_SG_1 is:NOM |  st:áll po:noun ts:PLUR ts:NOM is:POSS_SG_1 is:ACC ) ",
+        "pártállam  pa:párt st:párt po:noun ts:NOM pa:állam st:állam po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "pártállam"
+      ]
+    },
+    {
+      "word": "pártállami",
+      "quality4Frequency": 1196,
+      "magyarIspellAnalyses": [
+        "pártállami  pa:párt st:párt po:noun ts:NOM pa:állami  (  st:állam po:noun ts:NOM is:i_PLACE/TIME_adj ts:NOM |  st:állam po:noun ts:NOM is:i_PLACE/TIME_adj ts:NOM ) "
+      ],
+      "lemmas": [
+        "pártállami"
+      ]
+    },
+    {
+      "word": "példaadó",
+      "quality4Frequency": 476,
+      "magyarIspellAnalyses": [
+        "példaadó  pa:példa st:példa po:noun ts:NOM pa:adó  st:ad po:vrb ts:PRES_INDIC_INDEF_SG_3 al:adat ds:Ó_PRESPART_adj ts:NOM",
+        "példaadó  pa:példa st:példa po:noun ts:NOM pa:adó st:adó po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "példaadó"
+      ]
+    },
+    {
+      "word": "pénzkezelő",
+      "quality4Frequency": 170,
+      "magyarIspellAnalyses": [
+        "pénzkezelő  pa:pénz st:pénz po:noun ts:NOM pa:kezelő  st:kezel po:vrb ts:PRES_INDIC_INDEF_SG_3 ds:Ó_PRESPART_adj ts:NOM",
+        "pénzkezelő  pa:pénz st:pénz po:noun ts:NOM pa:kezelő st:kezelő po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "pénzkezelő"
+      ]
+    },
+    {
+      "word": "pénzmozgás",
+      "quality4Frequency": 326,
+      "magyarIspellAnalyses": [
+        "pénzmozgás  pa:pénz st:pénz po:noun ts:NOM pa:mozgás st:mozog po:vrb ds:Ás_PROCESS/RESULT_noun ts:NOM"
+      ],
+      "lemmas": [
+        "pénzmozgás"
+      ]
+    },
+    {
+      "word": "pénztártag",
+      "quality4Frequency": 1679,
+      "magyarIspellAnalyses": [
+        "pénztártag  pa:pénz st:pénz po:noun ts:NOM pa:tár st:tár po:noun ts:NOM al:tárat al:tárak pa:tag st:tag po:noun ts:NOM",
+        "pénztártag  pa:pénztár st:pénztár po:noun ts:NOM al:pénztárak hy:4 pa:tag st:tag po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "pénztártag"
+      ]
+    },
+    {
+      "word": "pénzvagyon",
+      "quality4Frequency": 168,
+      "magyarIspellAnalyses": [
+        "pénzvagyon  pa:pénz st:pénz po:noun ts:NOM pa:vagyon st:vagyon po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "pénzvagyon"
+      ]
+    },
+    {
+      "word": "ragyogóan",
+      "quality4Frequency": 871,
+      "magyarIspellAnalyses": [
+        "ragyogóan  st:ragyog po:vrb ts:PRES_INDIC_INDEF_SG_3 ds:Ó_PRESPART_adj ts:NOM is:An_MODE_adv"
+      ],
+      "lemmas": [
+        "ragyogóan"
+      ]
+    },
+    {
+      "word": "rapper",
+      "quality4Frequency": 259,
+      "magyarIspellAnalyses": [
+        "rapper  pa:rap st:rap po:noun ts:NOM pa:per st:per po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "rapper"
+      ]
+    },
+    {
+      "word": "reakcióidő",
+      "quality4Frequency": 222,
+      "magyarIspellAnalyses": [
+        "reakcióidő  pa:reakció st:reakció po:noun ts:NOM pa:idő st:idő po:noun ts:NOM al:idej"
+      ],
+      "lemmas": [
+        "reakcióidő"
+      ]
+    },
+    {
+      "word": "regényírás",
+      "quality4Frequency": 177,
+      "magyarIspellAnalyses": [
+        "regényírás  pa:regény st:regény po:noun ts:NOM pa:írás  st:ír po:vrb ts:PRES_INDIC_INDEF_SG_3 al:írat ds:Ás_PROCESS/RESULT_noun ts:NOM",
+        "regényírás  pa:regény st:regény po:noun ts:NOM pa:írás st:írás po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "regényírás"
+      ]
+    },
+    {
+      "word": "rejtőzködő",
+      "quality4Frequency": 1166,
+      "magyarIspellAnalyses": [
+        "rejtőzködő  st:rejtőzködik po:vrb ts:PRES_INDIC_INDEF_SG_3 ds:Ó_PRESPART_adj ts:NOM"
+      ],
+      "lemmas": [
+        "rejtőzködő"
+      ]
+    },
+    {
+      "word": "reklámfilm",
+      "quality4Frequency": 358,
+      "magyarIspellAnalyses": [
+        "reklámfilm  pa:reklám st:reklám po:noun ts:NOM pa:film st:film po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "reklámfilm"
+      ]
+    },
+    {
+      "word": "reklámidő",
+      "quality4Frequency": 228,
+      "magyarIspellAnalyses": [
+        "reklámidő  pa:reklám st:reklám po:noun ts:NOM pa:idő st:idő po:noun ts:NOM al:idej"
+      ],
+      "lemmas": [
+        "reklámidő"
+      ]
+    },
+    {
+      "word": "reménykedő",
+      "quality4Frequency": 480,
+      "magyarIspellAnalyses": [
+        "reménykedő  st:reménykedik po:vrb ts:PRES_INDIC_INDEF_SG_3 ds:Ó_PRESPART_adj ts:NOM"
+      ],
+      "lemmas": [
+        "reménykedő"
+      ]
+    },
+    {
+      "word": "rohamosan",
+      "quality4Frequency": 4122,
+      "magyarIspellAnalyses": [
+        "rohamosan  st:roham po:noun ts:NOM ds:s_ATTRIBUTE_adj ts:NOM is:An_MODE_adv"
+      ],
+      "lemmas": [
+        "rohamosan"
+      ]
+    },
+    {
+      "word": "ruandai",
+      "quality4Frequency": 193,
+      "magyarIspellAnalyses": [
+        "ruandai  fl:\" st:Ruanda po:noun_prs ts:NOM is:i_PLACE/TIME_adj ts:NOM"
+      ],
+      "lemmas": [
+        "ruandai"
+      ]
+    },
+    {
+      "word": "rákellenes",
+      "quality4Frequency": 531,
+      "magyarIspellAnalyses": [
+        "rákellenes  pa:rák st:rák po:noun ts:NOM pa:ellenes st:ellenes po:adj ts:NOM"
+      ],
+      "lemmas": [
+        "rákellenes"
+      ]
+    },
+    {
+      "word": "rákkutató",
+      "quality4Frequency": 137,
+      "magyarIspellAnalyses": [
+        "rákkutató  pa:rák st:rák po:noun ts:NOM pa:kutató  st:kutat po:vrb ts:PRES_INDIC_INDEF_SG_3 ds:Ó_PRESPART_adj ts:NOM",
+        "rákkutató  pa:rák st:rák po:noun ts:NOM pa:kutató st:kutató po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "rákkutató"
+      ]
+    },
+    {
+      "word": "rémálom",
+      "quality4Frequency": 792,
+      "magyarIspellAnalyses": [
+        "rémálom  pa:rém st:rém po:noun ts:NOM pa:álom st:álom po:noun ts:NOM al:álmok"
+      ],
+      "lemmas": [
+        "rémálom"
+      ]
+    },
+    {
+      "word": "részegység",
+      "quality4Frequency": 373,
+      "magyarIspellAnalyses": [
+        "részegység  pa:rész st:rész po:noun ts:NOM pa:egység st:egység po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "részegység"
+      ]
+    },
+    {
+      "word": "részjegy",
+      "quality4Frequency": 159,
+      "magyarIspellAnalyses": [
+        "részjegy  pa:rész st:rész po:noun ts:NOM pa:jegy st:jegy po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "részjegy"
+      ]
+    },
+    {
+      "word": "rétegzett",
+      "quality4Frequency": 434,
+      "magyarIspellAnalyses": [
+        "rétegzett  st:rétegez po:vrb ts:PRES_INDIC_INDEF_SG_3 al:rétegző al:rétegzés al:rétegzendő ds:tt_PASTPART_adj ts:NOM",
+        "rétegzett  st:rétegez po:vrb ts:PRES_INDIC_INDEF_SG_3 al:rétegző al:rétegzés al:rétegzendő is:PAST_INDIC_INDEF_SG_3"
+      ],
+      "lemmas": [
+        "rétegez",
+        "rétegzett"
+      ]
+    },
+    {
+      "word": "salakanyag",
+      "quality4Frequency": 329,
+      "magyarIspellAnalyses": [
+        "salakanyag  pa:salak st:salak po:noun ts:NOM pa:anyag st:anyag po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "salakanyag"
+      ]
+    },
+    {
+      "word": "segélyhívó",
+      "quality4Frequency": 451,
+      "magyarIspellAnalyses": [
+        "segélyhívó  pa:segély st:segély po:noun ts:NOM pa:hívó  st:hív po:vrb ts:PRES_INDIC_INDEF_SG_3 al:hívebben al:hívebb al:híván al:hívunk al:hívom al:hívok al:hívod al:hívat al:híva al:híttátok al:híttál al:hítták al:híttunk al:híttuk al:híttatok al:híttam al:híttam al:híttalak al:híttak al:híttad al:hítta al:hítt al:hítok al:hísz al:hínék al:hínátok al:hínátok al:hínánk al:hínánk al:hínának al:hínám al:hínálak al:hínál al:hínák al:hínád al:híná al:hínunk al:hínotok al:hínom al:hínod al:híniuk al:híniok al:hínia al:híni al:hínak al:hína al:hílak al:híjátok al:híjál al:híják al:híjunk al:híjuk al:híjuk al:híjon al:híjatok al:híjanak al:híjam al:híjalak al:híjak al:híjad al:híja al:híj al:hídd al:hí ds:Ó_PRESPART_adj ts:NOM"
+      ],
+      "lemmas": [
+        "segélyhívó"
+      ]
+    },
+    {
+      "word": "sikerdíj",
+      "quality4Frequency": 305,
+      "magyarIspellAnalyses": [
+        "sikerdíj  pa:siker st:siker po:noun ts:NOM pa:díj st:díj po:noun ts:NOM al:díjak"
+      ],
+      "lemmas": [
+        "sikerdíj"
+      ]
+    },
+    {
+      "word": "skóciai",
+      "quality4Frequency": 360,
+      "magyarIspellAnalyses": [
+        "skóciai  fl:\" st:Skócia po:noun_prs ts:NOM is:i_PLACE/TIME_adj ts:NOM"
+      ],
+      "lemmas": [
+        "skóciai"
+      ]
+    },
+    {
+      "word": "sokkhatás",
+      "quality4Frequency": 152,
+      "magyarIspellAnalyses": [
+        "sokkhatás  pa:sokk st:sokk po:noun ts:NOM pa:hatás  st:hat po:vrb ts:PRES_INDIC_INDEF_SG_3 al:hatottátok al:hatottál al:hatották al:hatottunk al:hatottuk al:hatottatok al:hatottam al:hatottam al:hatottalak al:hatottak al:hatottad al:hatotta al:hatott al:hatodiki al:hatodikak al:hatodika al:hatodik al:hatod al:hatan al:hatod ds:Ás_PROCESS/RESULT_noun ts:NOM",
+        "sokkhatás  pa:sokk st:sokk po:noun ts:NOM pa:hatás st:hatás po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "sokkhatás"
+      ]
+    },
+    {
+      "word": "sokágú",
+      "quality4Frequency": 181,
+      "magyarIspellAnalyses": [
+        "sokágú po:adj_num pa:sok  st:ág po:noun ts:PLUR ts:NOM is:jÚ_PROPERTY_adj ts:NOM"
+      ],
+      "lemmas": [
+        "sokágú"
+      ]
+    },
+    {
+      "word": "szakirányú",
+      "quality4Frequency": 10093,
+      "magyarIspellAnalyses": [
+        "szakirányú  pa:szak st:szak po:noun ts:NOM pa:irányú  (  st:irány po:noun ts:NOM is:jÚ_PROPERTY_adj ts:NOM |  st:irány po:noun ts:NOM is:jÚ_PROPERTY_adj ts:NOM ) "
+      ],
+      "lemmas": [
+        "szakirányú"
+      ]
+    },
+    {
+      "word": "szakoktató",
+      "quality4Frequency": 573,
+      "magyarIspellAnalyses": [
+        "szakoktató  pa:szak st:szak po:noun ts:NOM pa:oktató  st:oktat po:vrb ts:PRES_INDIC_INDEF_SG_3 ds:Ó_PRESPART_adj ts:NOM"
+      ],
+      "lemmas": [
+        "szakoktató"
+      ]
+    },
+    {
+      "word": "szakorvosi",
+      "quality4Frequency": 2699,
+      "magyarIspellAnalyses": [
+        "szakorvosi  pa:szak st:szak po:noun ts:NOM pa:orvosi  (  st:orvos po:noun ts:NOM is:i_PLACE/TIME_adj ts:NOM |  st:orvos po:noun ts:NOM is:i_PLACE/TIME_adj ts:NOM ) "
+      ],
+      "lemmas": [
+        "szakorvosi"
+      ]
+    },
+    {
+      "word": "szakvezető",
+      "quality4Frequency": 819,
+      "magyarIspellAnalyses": [
+        "szakvezető  pa:szak st:szak po:noun ts:NOM pa:vezető  st:vezet po:vrb ts:PRES_INDIC_INDEF_SG_3 ds:Ó_PRESPART_adj ts:NOM",
+        "szakvezető  pa:szak st:szak po:noun ts:NOM pa:vezető st:vezető po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "szakvezető"
+      ]
+    },
+    {
+      "word": "szavazókör",
+      "quality4Frequency": 459,
+      "magyarIspellAnalyses": [
+        "szavazókör  pa:szavazó (  st:szavaz po:vrb ts:PRES_INDIC_INDEF_SG_3 ds:Ó_PRESPART_adj ts:NOM |  st:szó po:noun ts:PLUR ts:NOM ds:z_ACTION_vrb ds:Ó_PRESPART_adj ts:NOM )  pa:kör st:kör po:noun ts:NOM",
+        "szavazókör  pa:szavazó st:szavazó po:noun ts:NOM pa:kör st:kör po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "szavazókör"
+      ]
+    },
+    {
+      "word": "szerbiai",
+      "quality4Frequency": 1558,
+      "magyarIspellAnalyses": [
+        "szerbiai  fl:\" st:Szerbia po:noun_prs ts:NOM is:i_PLACE/TIME_adj ts:NOM"
+      ],
+      "lemmas": [
+        "szerbiai"
+      ]
+    },
+    {
+      "word": "szingapúri",
+      "quality4Frequency": 387,
+      "magyarIspellAnalyses": [
+        "szingapúri  fl:\" st:Szingapúr po:noun_prs ts:NOM is:i_PLACE/TIME_adj ts:NOM"
+      ],
+      "lemmas": [
+        "szingapúri"
+      ]
+    },
+    {
+      "word": "szintidő",
+      "quality4Frequency": 277,
+      "magyarIspellAnalyses": [
+        "szintidő  pa:szint st:szint po:noun ts:NOM pa:idő st:idő po:noun ts:NOM al:idej"
+      ],
+      "lemmas": [
+        "szintidő"
+      ]
+    },
+    {
+      "word": "szlovákiai",
+      "quality4Frequency": 7864,
+      "magyarIspellAnalyses": [
+        "szlovákiai  fl:\" st:Szlovákia po:noun_prs ts:NOM is:i_PLACE/TIME_adj ts:NOM"
+      ],
+      "lemmas": [
+        "szlovákiai"
+      ]
+    },
+    {
+      "word": "szlovéniai",
+      "quality4Frequency": 900,
+      "magyarIspellAnalyses": [
+        "szlovéniai  fl:\" st:Szlovénia po:noun_prs ts:NOM is:i_PLACE/TIME_adj ts:NOM"
+      ],
+      "lemmas": [
+        "szlovéniai"
+      ]
+    },
+    {
+      "word": "szoborpark",
+      "quality4Frequency": 249,
+      "magyarIspellAnalyses": [
+        "szoborpark  pa:szobor st:szobor po:noun ts:NOM al:szobrok pa:park st:park po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "szoborpark"
+      ]
+    },
+    {
+      "word": "szomjoltó",
+      "quality4Frequency": 169,
+      "magyarIspellAnalyses": [
+        "szomjoltó  pa:szomj st:szomj po:noun ts:NOM al:szomjak pa:oltó  st:olt po:vrb ts:PRES_INDIC_INDEF_SG_3 al:oltat ds:Ó_PRESPART_adj ts:NOM"
+      ],
+      "lemmas": [
+        "szomjoltó"
+      ]
+    },
+    {
+      "word": "szomáliai",
+      "quality4Frequency": 128,
+      "magyarIspellAnalyses": [
+        "szomáliai  fl:\" st:Szomália po:noun_prs ts:NOM is:i_PLACE/TIME_adj ts:NOM"
+      ],
+      "lemmas": [
+        "szomáliai"
+      ]
+    },
+    {
+      "word": "szudáni",
+      "quality4Frequency": 174,
+      "magyarIspellAnalyses": [
+        "szudáni  fl:\" st:Szudán po:noun_prs ts:NOM is:i_PLACE/TIME_adj ts:NOM"
+      ],
+      "lemmas": [
+        "szudáni"
+      ]
+    },
+    {
+      "word": "szállásdíj",
+      "quality4Frequency": 276,
+      "magyarIspellAnalyses": [
+        "szállásdíj  pa:szállás st:száll po:vrb ts:PRES_INDIC_INDEF_SG_3 ds:Ás_PROCESS/RESULT_noun ts:NOM pa:díj st:díj po:noun ts:NOM al:díjak"
+      ],
+      "lemmas": [
+        "szállásdíj"
+      ]
+    },
+    {
+      "word": "számlaszám",
+      "quality4Frequency": 422,
+      "magyarIspellAnalyses": [
+        "számlaszám  pa:számla st:számla po:noun ts:NOM pa:szám st:szám po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "számlaszám"
+      ]
+    },
+    {
+      "word": "szándékozó",
+      "quality4Frequency": 3287,
+      "magyarIspellAnalyses": [
+        "szándékozó  st:szándékozik po:vrb ts:PRES_INDIC_INDEF_SG_3 ds:Ó_PRESPART_adj ts:NOM"
+      ],
+      "lemmas": [
+        "szándékozó"
+      ]
+    },
+    {
+      "word": "szénszálas",
+      "quality4Frequency": 142,
+      "magyarIspellAnalyses": [
+        "szénszálas  pa:szén st:szén po:noun ts:NOM al:szenek pa:szálas  (  st:szál po:noun ts:PLUR ts:NOM ds:s_ATTRIBUTE_adj ts:NOM |  st:szál po:noun ts:PLUR ts:NOM ds:s_OCCUPATION_noun ts:NOM ) "
+      ],
+      "lemmas": [
+        "szénszálas"
+      ]
+    },
+    {
+      "word": "szívritmus",
+      "quality4Frequency": 155,
+      "magyarIspellAnalyses": [
+        "szívritmus  pa:szív st:szív po:noun ts:NOM al:szíván al:szívunk al:szívom al:szívok al:szívod al:szíva al:szíttátok al:szíttál al:szítták al:szíttunk al:szíttuk al:szíttatok al:szíttam al:szíttam al:szíttalak al:szíttak al:szíttad al:szítta al:szítt al:szítok al:szísz al:színék al:színátok al:színátok al:színánk al:színánk al:színának al:színám al:színálak al:színál al:színák al:színád al:színá al:színunk al:színotok al:színom al:színod al:színiuk al:színiok al:színia al:színi al:színak al:szína al:szílak al:szíjátok al:szíjál al:szíják al:szíjunk al:szíjuk al:szíjuk al:szíjon al:szíjatok al:szíjanak al:szíjam al:szíjalak al:szíjak al:szíjad al:szíja al:szíj al:szídd al:szí pa:ritmus st:ritmus po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "szívritmus"
+      ]
+    },
+    {
+      "word": "szívsebész",
+      "quality4Frequency": 250,
+      "magyarIspellAnalyses": [
+        "szívsebész  pa:szív st:szív po:noun ts:NOM al:szíván al:szívunk al:szívom al:szívok al:szívod al:szíva al:szíttátok al:szíttál al:szítták al:szíttunk al:szíttuk al:szíttatok al:szíttam al:szíttam al:szíttalak al:szíttak al:szíttad al:szítta al:szítt al:szítok al:szísz al:színék al:színátok al:színátok al:színánk al:színánk al:színának al:színám al:színálak al:színál al:színák al:színád al:színá al:színunk al:színotok al:színom al:színod al:színiuk al:színiok al:színia al:színi al:színak al:szína al:szílak al:szíjátok al:szíjál al:szíják al:szíjunk al:szíjuk al:szíjuk al:szíjon al:szíjatok al:szíjanak al:szíjam al:szíjalak al:szíjak al:szíjad al:szíja al:szíj al:szídd al:szí pa:sebész st:sebész po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "szívsebész"
+      ]
+    },
+    {
+      "word": "szórólap",
+      "quality4Frequency": 1296,
+      "magyarIspellAnalyses": [
+        "szórólap  pa:szóró st:szór po:vrb ts:PRES_INDIC_INDEF_SG_3 al:szórat ds:Ó_PRESPART_adj ts:NOM pa:lap st:lap po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "szórólap"
+      ]
+    },
+    {
+      "word": "szövegtan",
+      "quality4Frequency": 319,
+      "magyarIspellAnalyses": [
+        "szövegtan  pa:szöveg st:szöveg po:noun ts:NOM pa:tan st:tan po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "szövegtan"
+      ]
+    },
+    {
+      "word": "szövetkező",
+      "quality4Frequency": 150,
+      "magyarIspellAnalyses": [
+        "szövetkező  st:szövetkezik po:vrb ts:PRES_INDIC_INDEF_SG_3 ds:Ó_PRESPART_adj ts:NOM"
+      ],
+      "lemmas": [
+        "szövetkező"
+      ]
+    },
+    {
+      "word": "szőlőbor",
+      "quality4Frequency": 390,
+      "magyarIspellAnalyses": [
+        "szőlőbor  pa:szőlő st:szőlő po:noun ts:NOM al:szőlej al:szől pa:bor st:bor po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "szőlőbor"
+      ]
+    },
+    {
+      "word": "sárdobálás",
+      "quality4Frequency": 180,
+      "magyarIspellAnalyses": [
+        "sárdobálás  pa:sár st:sár po:noun ts:NOM al:sarak pa:dobálás  st:dobál po:vrb ts:PRES_INDIC_INDEF_SG_3 ds:Ás_PROCESS/RESULT_noun ts:NOM"
+      ],
+      "lemmas": [
+        "sárdobálás"
+      ]
+    },
+    {
+      "word": "sörsátor",
+      "quality4Frequency": 149,
+      "magyarIspellAnalyses": [
+        "sörsátor  pa:sör st:sör po:noun ts:NOM pa:sátor st:sátor po:noun ts:NOM al:sátrak"
+      ],
+      "lemmas": [
+        "sörsátor"
+      ]
+    },
+    {
+      "word": "tajvani",
+      "quality4Frequency": 676,
+      "magyarIspellAnalyses": [
+        "tajvani  fl:\" st:Tajvan po:noun_prs ts:NOM is:i_PLACE/TIME_adj ts:NOM"
+      ],
+      "lemmas": [
+        "tajvani"
+      ]
+    },
+    {
+      "word": "talajlakó",
+      "quality4Frequency": 341,
+      "magyarIspellAnalyses": [
+        "talajlakó  pa:talaj st:talaj po:noun ts:NOM pa:lakó  st:lakik po:vrb ts:PRES_INDIC_INDEF_SG_3 ds:Ó_PRESPART_adj ts:NOM",
+        "talajlakó  pa:talaj st:talaj po:noun ts:NOM pa:lakó st:lakó po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "talajlakó"
+      ]
+    },
+    {
+      "word": "találóan",
+      "quality4Frequency": 1178,
+      "magyarIspellAnalyses": [
+        "találóan  st:talál po:vrb ts:PRES_INDIC_INDEF_SG_3 ds:Ó_PRESPART_adj ts:NOM is:An_MODE_adv"
+      ],
+      "lemmas": [
+        "találóan"
+      ]
+    },
+    {
+      "word": "taneszköz",
+      "quality4Frequency": 725,
+      "magyarIspellAnalyses": [
+        "taneszköz  pa:tan st:tan po:noun ts:NOM pa:eszköz st:eszköz po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "taneszköz"
+      ]
+    },
+    {
+      "word": "tannyelvű",
+      "quality4Frequency": 1799,
+      "magyarIspellAnalyses": [
+        "tannyelvű  pa:tan st:tan po:noun ts:NOM pa:nyelvű  (  st:nyelv po:noun ts:NOM is:jÚ_PROPERTY_adj ts:NOM |  st:nyelv po:noun ts:NOM is:jÚ_PROPERTY_adj ts:NOM ) "
+      ],
+      "lemmas": [
+        "tannyelvű"
+      ]
+    },
+    {
+      "word": "tantervi",
+      "quality4Frequency": 5763,
+      "magyarIspellAnalyses": [
+        "tantervi  pa:tan st:tan po:noun ts:NOM pa:tervi  (  st:terv po:noun ts:NOM is:i_PLACE/TIME_adj ts:NOM |  st:terv po:noun ts:NOM is:i_PLACE/TIME_adj ts:NOM ) "
+      ],
+      "lemmas": [
+        "tantervi"
+      ]
+    },
+    {
+      "word": "tanzániai",
+      "quality4Frequency": 145,
+      "magyarIspellAnalyses": [
+        "tanzániai  fl:\" st:Tanzánia po:noun_prs ts:NOM is:i_PLACE/TIME_adj ts:NOM"
+      ],
+      "lemmas": [
+        "tanzániai"
+      ]
+    },
+    {
+      "word": "tanösvény",
+      "quality4Frequency": 1076,
+      "magyarIspellAnalyses": [
+        "tanösvény  pa:tan st:tan po:noun ts:NOM pa:ösvény st:ösvény po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "tanösvény"
+      ]
+    },
+    {
+      "word": "teakeverék",
+      "quality4Frequency": 222,
+      "magyarIspellAnalyses": [
+        "teakeverék  pa:tea st:tea po:noun ts:NOM pa:keverék st:keverék po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "teakeverék"
+      ]
+    },
+    {
+      "word": "tejipar",
+      "quality4Frequency": 212,
+      "magyarIspellAnalyses": [
+        "tejipar  pa:tej st:tej po:noun ts:NOM al:tejet pa:ipar st:ipar po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "tejipar"
+      ]
+    },
+    {
+      "word": "tejtermelő",
+      "quality4Frequency": 497,
+      "magyarIspellAnalyses": [
+        "tejtermelő  pa:tej st:tej po:noun ts:NOM al:tejet pa:termelő  st:termel po:vrb ts:PRES_INDIC_INDEF_SG_3 ds:Ó_PRESPART_adj ts:NOM",
+        "tejtermelő  pa:tej st:tej po:noun ts:NOM al:tejet pa:termelő st:termelő po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "tejtermelő"
+      ]
+    },
+    {
+      "word": "telekhatár",
+      "quality4Frequency": 240,
+      "magyarIspellAnalyses": [
+        "telekhatár  pa:telek st:telek po:noun ts:NOM al:telkek pa:határ st:határ po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "telekhatár"
+      ]
+    },
+    {
+      "word": "terepmunka",
+      "quality4Frequency": 422,
+      "magyarIspellAnalyses": [
+        "terepmunka  pa:terep st:terep po:noun ts:NOM pa:munka st:munka po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "terepmunka"
+      ]
+    },
+    {
+      "word": "terjedelmű",
+      "quality4Frequency": 3704,
+      "magyarIspellAnalyses": [
+        "terjedelmű  st:terjedelem po:noun ts:PLUR ts:NOM is:jÚ_PROPERTY_adj ts:NOM"
+      ],
+      "lemmas": [
+        "terjedelmű"
+      ]
+    },
+    {
+      "word": "testbeszéd",
+      "quality4Frequency": 387,
+      "magyarIspellAnalyses": [
+        "testbeszéd  pa:test st:test po:noun ts:NOM pa:beszéd st:beszéd po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "testbeszéd"
+      ]
+    },
+    {
+      "word": "testtömeg",
+      "quality4Frequency": 670,
+      "magyarIspellAnalyses": [
+        "testtömeg  pa:test st:test po:noun ts:NOM pa:tömeg st:tömeg po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "testtömeg"
+      ]
+    },
+    {
+      "word": "testápoló",
+      "quality4Frequency": 338,
+      "magyarIspellAnalyses": [
+        "testápoló  pa:test st:test po:noun ts:NOM pa:ápoló  st:ápol po:vrb ts:PRES_INDIC_INDEF_SG_3 ds:Ó_PRESPART_adj ts:NOM"
+      ],
+      "lemmas": [
+        "testápoló"
+      ]
+    },
+    {
+      "word": "testépítés",
+      "quality4Frequency": 401,
+      "magyarIspellAnalyses": [
+        "testépítés  pa:test st:test po:noun ts:NOM pa:építés  st:épít po:vrb ts:PRES_INDIC_INDEF_SG_3 ds:Ás_PROCESS/RESULT_noun ts:NOM"
+      ],
+      "lemmas": [
+        "testépítés"
+      ]
+    },
+    {
+      "word": "testépítő",
+      "quality4Frequency": 702,
+      "magyarIspellAnalyses": [
+        "testépítő  pa:test st:test po:noun ts:NOM pa:építő  st:épít po:vrb ts:PRES_INDIC_INDEF_SG_3 ds:Ó_PRESPART_adj ts:NOM"
+      ],
+      "lemmas": [
+        "testépítő"
+      ]
+    },
+    {
+      "word": "tetőtér",
+      "quality4Frequency": 1686,
+      "magyarIspellAnalyses": [
+        "tetőtér  pa:tető st:tető po:noun ts:NOM pa:tér st:tér po:noun ts:NOM al:téret al:terek"
+      ],
+      "lemmas": [
+        "tetőtér"
+      ]
+    },
+    {
+      "word": "thai",
+      "quality4Frequency": 522,
+      "magyarIspellAnalyses": [
+        "thai  st:thai po:noun ts:NOM al:thait al:thaijá al:thaijal al:thaiok ph:táj"
+      ],
+      "lemmas": [
+        "thai"
+      ]
+    },
+    {
+      "word": "thaiföldi",
+      "quality4Frequency": 458,
+      "magyarIspellAnalyses": [
+        "thaiföldi  fl:\" st:Thaiföld po:noun_prs ts:NOM hy:4 ph:tájföld is:i_PLACE/TIME_adj ts:NOM"
+      ],
+      "lemmas": [
+        "thaiföldi"
+      ]
+    },
+    {
+      "word": "toplista",
+      "quality4Frequency": 312,
+      "magyarIspellAnalyses": [
+        "toplista  pa:top st:top po:noun ts:NOM pa:lista st:lista po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "toplista"
+      ]
+    },
+    {
+      "word": "tudásanyag",
+      "quality4Frequency": 818,
+      "magyarIspellAnalyses": [
+        "tudásanyag  pa:tudás st:tud po:vrb ts:PRES_INDIC_INDEF_SG_3 al:tudat ds:Ás_PROCESS/RESULT_noun ts:NOM pa:anyag st:anyag po:noun ts:NOM",
+        "tudásanyag  pa:tudás st:tudás po:noun ts:NOM pa:anyag st:anyag po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "tudásanyag"
+      ]
+    },
+    {
+      "word": "tudásbázis",
+      "quality4Frequency": 668,
+      "magyarIspellAnalyses": [
+        "tudásbázis  pa:tudás st:tud po:vrb ts:PRES_INDIC_INDEF_SG_3 al:tudat ds:Ás_PROCESS/RESULT_noun ts:NOM pa:bázis st:bázis po:noun ts:NOM",
+        "tudásbázis  pa:tudás st:tudás po:noun ts:NOM pa:bázis st:bázis po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "tudásbázis"
+      ]
+    },
+    {
+      "word": "tunéziai",
+      "quality4Frequency": 294,
+      "magyarIspellAnalyses": [
+        "tunéziai  fl:\" st:Tunézia po:noun_prs ts:NOM is:i_PLACE/TIME_adj ts:NOM"
+      ],
+      "lemmas": [
+        "tunéziai"
+      ]
+    },
+    {
+      "word": "tusfürdő",
+      "quality4Frequency": 165,
+      "magyarIspellAnalyses": [
+        "tusfürdő  pa:tus st:tus po:noun ts:NOM pa:fürdő  st:fürdik po:vrb ts:PRES_INDIC_INDEF_SG_3 al:fürödvén al:fürödve al:fürödtünk al:fürödtök al:fürödtél al:fürödtetek al:fürödtem al:fürödtek al:fürödsz al:fürödnünk al:fürödnötök al:fürödnöm al:fürödnöd al:fürödnétek al:fürödnénk al:fürödnének al:fürödném al:fürödnél al:fürödnék al:fürödniük al:fürödniök al:fürödnie al:fürödni al:fürödnek al:fürödne al:fürödjünk al:fürödjön al:fürödjél al:fürödjék al:fürödjetek al:fürödjenek al:fürödjem al:fürödjek al:fürödj al:fürdünk al:fürdött al:fürdöm al:fürdöl al:fürdök al:fürdés al:fürdetek al:fürdesz al:fürdenünk al:fürdenétek al:fürdenénk al:fürdenének al:fürdeném al:fürdenél al:fürdenék al:fürdenék al:fürdeniük al:fürdeniök al:fürdenie al:fürdeni al:fürdenetek al:fürdenek al:fürdened al:fürdene al:fürödhető al:fürödhet al:fürdött al:fürdő ds:Ó_PRESPART_adj ts:NOM",
+        "tusfürdő  pa:tus st:tus po:noun ts:NOM pa:fürdő st:fürdő po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "tusfürdő"
+      ]
+    },
+    {
+      "word": "tájfutás",
+      "quality4Frequency": 212,
+      "magyarIspellAnalyses": [
+        "tájfutás  pa:táj st:táj po:noun ts:NOM al:tájak pa:futás  st:fut po:vrb ts:PRES_INDIC_INDEF_SG_3 ds:Ás_PROCESS/RESULT_noun ts:NOM"
+      ],
+      "lemmas": [
+        "tájfutás"
+      ]
+    },
+    {
+      "word": "tájfutó",
+      "quality4Frequency": 504,
+      "magyarIspellAnalyses": [
+        "tájfutó  pa:táj st:táj po:noun ts:NOM al:tájak pa:futó  st:fut po:vrb ts:PRES_INDIC_INDEF_SG_3 ds:Ó_PRESPART_adj ts:NOM",
+        "tájfutó  pa:táj st:táj po:noun ts:NOM al:tájak pa:futó st:futó po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "tájfutó"
+      ]
+    },
+    {
+      "word": "tájház",
+      "quality4Frequency": 626,
+      "magyarIspellAnalyses": [
+        "tájház  pa:táj st:táj po:noun ts:NOM al:tájak pa:ház st:ház po:noun ts:NOM al:házak"
+      ],
+      "lemmas": [
+        "tájház"
+      ]
+    },
+    {
+      "word": "tájnyelvi",
+      "quality4Frequency": 150,
+      "magyarIspellAnalyses": [
+        "tájnyelvi  pa:táj st:táj po:noun ts:NOM al:tájak pa:nyelvi  (  st:nyelv po:noun ts:NOM is:i_PLACE/TIME_adj ts:NOM |  st:nyelv po:noun ts:NOM is:i_PLACE/TIME_adj ts:NOM ) "
+      ],
+      "lemmas": [
+        "tájnyelvi"
+      ]
+    },
+    {
+      "word": "tájvédelem",
+      "quality4Frequency": 245,
+      "magyarIspellAnalyses": [
+        "tájvédelem  pa:táj st:táj po:noun ts:NOM al:tájak pa:védelem st:védelem po:noun ts:NOM al:védelmek"
+      ],
+      "lemmas": [
+        "tájvédelem"
+      ]
+    },
+    {
+      "word": "tájvédelmi",
+      "quality4Frequency": 1456,
+      "magyarIspellAnalyses": [
+        "tájvédelmi  pa:táj st:táj po:noun ts:NOM al:tájak pa:védelmi  (  st:védelem po:noun ts:PLUR ts:NOM is:i_PLACE/TIME_adj ts:NOM |  st:védelem po:noun ts:PLUR ts:NOM is:i_PLACE/TIME_adj ts:NOM ) "
+      ],
+      "lemmas": [
+        "tájvédelmi"
+      ]
+    },
+    {
+      "word": "tápegység",
+      "quality4Frequency": 687,
+      "magyarIspellAnalyses": [
+        "tápegység  pa:táp st:táp po:noun ts:NOM pa:egység st:egység po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "tápegység"
+      ]
+    },
+    {
+      "word": "táplálkozó",
+      "quality4Frequency": 1642,
+      "magyarIspellAnalyses": [
+        "táplálkozó  st:táplálkozik po:vrb ts:PRES_INDIC_INDEF_SG_3 ds:Ó_PRESPART_adj ts:NOM"
+      ],
+      "lemmas": [
+        "táplálkozó"
+      ]
+    },
+    {
+      "word": "tárcsafék",
+      "quality4Frequency": 270,
+      "magyarIspellAnalyses": [
+        "tárcsafék  pa:tárcsa st:tárcsa po:noun ts:NOM pa:fék st:fék po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "tárcsafék"
+      ]
+    },
+    {
+      "word": "tárgyszó",
+      "quality4Frequency": 332,
+      "magyarIspellAnalyses": [
+        "tárgyszó  pa:tárgy st:tárgy po:noun ts:NOM al:tárgyak pa:szó st:szó po:noun ts:NOM al:szavak"
+      ],
+      "lemmas": [
+        "tárgyszó"
+      ]
+    },
+    {
+      "word": "tárolóhely",
+      "quality4Frequency": 255,
+      "magyarIspellAnalyses": [
+        "tárolóhely  pa:tároló st:tárol po:vrb ts:PRES_INDIC_INDEF_SG_3 ds:Ó_PRESPART_adj ts:NOM pa:hely st:hely po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "tárolóhely"
+      ]
+    },
+    {
+      "word": "távmunka",
+      "quality4Frequency": 3787,
+      "magyarIspellAnalyses": [
+        "távmunka  pa:táv st:táv po:noun ts:NOM pa:munka st:munka po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "távmunka"
+      ]
+    },
+    {
+      "word": "témavezető",
+      "quality4Frequency": 1516,
+      "magyarIspellAnalyses": [
+        "témavezető  pa:téma st:téma po:noun ts:NOM pa:vezető  st:vezet po:vrb ts:PRES_INDIC_INDEF_SG_3 ds:Ó_PRESPART_adj ts:NOM",
+        "témavezető  pa:téma st:téma po:noun ts:NOM pa:vezető st:vezető po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "témavezető"
+      ]
+    },
+    {
+      "word": "többcélú",
+      "quality4Frequency": 944,
+      "magyarIspellAnalyses": [
+        "többcélú po:adj_num pa:több  st:cél po:noun ts:NOM is:jÚ_PROPERTY_adj ts:NOM"
+      ],
+      "lemmas": [
+        "többcélú"
+      ]
+    },
+    {
+      "word": "többnapos",
+      "quality4Frequency": 1055,
+      "magyarIspellAnalyses": [
+        "többnapos po:adj_num pa:több  st:nap po:noun ts:NOM ds:s_ATTRIBUTE_adj ts:NOM",
+        "többnapos po:adj_num pa:több  st:nap po:noun ts:NOM ds:s_OCCUPATION_noun ts:NOM"
+      ],
+      "lemmas": [
+        "többnapos"
+      ]
+    },
+    {
+      "word": "többrétegű",
+      "quality4Frequency": 846,
+      "magyarIspellAnalyses": [
+        "többrétegű po:adj_num pa:több  st:réteg po:noun ts:NOM is:jÚ_PROPERTY_adj ts:NOM"
+      ],
+      "lemmas": [
+        "többrétegű"
+      ]
+    },
+    {
+      "word": "többrétű",
+      "quality4Frequency": 242,
+      "magyarIspellAnalyses": [
+        "többrétű po:adj_num pa:több  st:rét po:noun ts:NOM is:jÚ_PROPERTY_adj ts:NOM"
+      ],
+      "lemmas": [
+        "többrétű"
+      ]
+    },
+    {
+      "word": "többszintű",
+      "quality4Frequency": 1243,
+      "magyarIspellAnalyses": [
+        "többszintű po:adj_num pa:több  st:szint po:noun ts:NOM is:jÚ_PROPERTY_adj ts:NOM"
+      ],
+      "lemmas": [
+        "többszintű"
+      ]
+    },
+    {
+      "word": "többórás",
+      "quality4Frequency": 604,
+      "magyarIspellAnalyses": [
+        "többórás po:adj_num pa:több  st:óra po:noun ts:NOM ds:s_ATTRIBUTE_adj ts:NOM",
+        "többórás po:adj_num pa:több  st:óra po:noun ts:NOM ds:s_OCCUPATION_noun ts:NOM"
+      ],
+      "lemmas": [
+        "többórás"
+      ]
+    },
+    {
+      "word": "túravezető",
+      "quality4Frequency": 571,
+      "magyarIspellAnalyses": [
+        "túravezető  pa:túra st:túra po:noun ts:NOM pa:vezető  st:vezet po:vrb ts:PRES_INDIC_INDEF_SG_3 ds:Ó_PRESPART_adj ts:NOM",
+        "túravezető  pa:túra st:túra po:noun ts:NOM pa:vezető st:vezető po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "túravezető"
+      ]
+    },
+    {
+      "word": "tüdőrák",
+      "quality4Frequency": 1064,
+      "magyarIspellAnalyses": [
+        "tüdőrák  pa:tüdő st:tüdő po:noun ts:NOM al:tüdej pa:rák st:rák po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "tüdőrák"
+      ]
+    },
+    {
+      "word": "tüzelőolaj",
+      "quality4Frequency": 160,
+      "magyarIspellAnalyses": [
+        "tüzelőolaj  pa:tüzelő st:tüzel po:vrb ts:PRES_INDIC_INDEF_SG_3 ds:Ó_PRESPART_adj ts:NOM pa:olaj st:olaj po:noun ts:NOM al:olajak"
+      ],
+      "lemmas": [
+        "tüzelőolaj"
+      ]
+    },
+    {
+      "word": "tőkealap",
+      "quality4Frequency": 202,
+      "magyarIspellAnalyses": [
+        "tőkealap  pa:tőke st:tőke po:noun ts:NOM pa:alap st:alap po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "tőkealap"
+      ]
+    },
+    {
+      "word": "tőkeerő",
+      "quality4Frequency": 168,
+      "magyarIspellAnalyses": [
+        "tőkeerő  pa:tőke st:tőke po:noun ts:NOM pa:erő st:erő po:noun ts:NOM al:erej"
+      ],
+      "lemmas": [
+        "tőkeerő"
+      ]
+    },
+    {
+      "word": "tőkehiány",
+      "quality4Frequency": 665,
+      "magyarIspellAnalyses": [
+        "tőkehiány  pa:tőke st:tőke po:noun ts:NOM pa:hiány st:hiány po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "tőkehiány"
+      ]
+    },
+    {
+      "word": "tőkemozgás",
+      "quality4Frequency": 190,
+      "magyarIspellAnalyses": [
+        "tőkemozgás  pa:tőke st:tőke po:noun ts:NOM pa:mozgás st:mozog po:vrb ds:Ás_PROCESS/RESULT_noun ts:NOM"
+      ],
+      "lemmas": [
+        "tőkemozgás"
+      ]
+    },
+    {
+      "word": "tűzelhalás",
+      "quality4Frequency": 129,
+      "magyarIspellAnalyses": [
+        "tűzelhalás  pa:tűz st:tűz po:noun ts:NOM al:tűzet al:tüzek pa:elhalás ip:PREF sp:el  st:hal po:vrb ts:PRES_INDIC_INDEF_SG_3 al:halak ds:Ás_PROCESS/RESULT_noun ts:NOM",
+        "tűzelhalás  pa:tűz st:tűz po:noun ts:NOM al:tűzet al:tüzek pa:elhalás st:elhalás po:noun ts:NOM hy:2"
+      ],
+      "lemmas": [
+        "tűzelhalás"
+      ]
+    },
+    {
+      "word": "tűzgyújtás",
+      "quality4Frequency": 204,
+      "magyarIspellAnalyses": [
+        "tűzgyújtás  pa:tűz st:tűz po:noun ts:NOM al:tűzet al:tüzek pa:gyújtás  st:gyújt po:vrb ts:PRES_INDIC_INDEF_SG_3 al:gyújtat ds:Ás_PROCESS/RESULT_noun ts:NOM"
+      ],
+      "lemmas": [
+        "tűzgyújtás"
+      ]
+    },
+    {
+      "word": "tűzriadó",
+      "quality4Frequency": 160,
+      "magyarIspellAnalyses": [
+        "tűzriadó  pa:tűz st:tűz po:noun ts:NOM al:tűzet al:tüzek pa:riadó  st:riad po:vrb ts:PRES_INDIC_INDEF_SG_3 al:riadt al:riadt ds:Ó_PRESPART_adj ts:NOM",
+        "tűzriadó  pa:tűz st:tűz po:noun ts:NOM al:tűzet al:tüzek pa:riadó st:riadó po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "tűzriadó"
+      ]
+    },
+    {
+      "word": "tűzvédelmi",
+      "quality4Frequency": 5459,
+      "magyarIspellAnalyses": [
+        "tűzvédelmi  pa:tűz st:tűz po:noun ts:NOM al:tűzet al:tüzek pa:védelmi  (  st:védelem po:noun ts:PLUR ts:NOM is:i_PLACE/TIME_adj ts:NOM |  st:védelem po:noun ts:PLUR ts:NOM is:i_PLACE/TIME_adj ts:NOM ) "
+      ],
+      "lemmas": [
+        "tűzvédelmi"
+      ]
+    },
+    {
+      "word": "ugandai",
+      "quality4Frequency": 143,
+      "magyarIspellAnalyses": [
+        "ugandai  fl:\" st:Uganda po:noun_prs ts:NOM is:i_PLACE/TIME_adj ts:NOM"
+      ],
+      "lemmas": [
+        "ugandai"
+      ]
+    },
+    {
+      "word": "uruguayi",
+      "quality4Frequency": 148,
+      "magyarIspellAnalyses": [
+        "uruguayi  fl:\" st:Uruguay po:noun_prs ts:NOM is:i_PLACE/TIME_adj ts:NOM"
+      ],
+      "lemmas": [
+        "uruguayi"
+      ]
+    },
+    {
+      "word": "utcakép",
+      "quality4Frequency": 356,
+      "magyarIspellAnalyses": [
+        "utcakép  pa:utca st:utca po:noun ts:NOM pa:kép st:kép po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "utcakép"
+      ]
+    },
+    {
+      "word": "utódpárt",
+      "quality4Frequency": 183,
+      "magyarIspellAnalyses": [
+        "utódpárt  pa:utód st:utód po:noun ts:NOM pa:párt  (  st:pár po:noun ts:NOM al:egypárszor al:egypáran al:egypárak al:egypár al:párszor al:páran al:párak al:fél_párak is:ACC |  st:pár po:noun ts:NOM al:egypárszor al:egypáran al:egypárak al:egypár al:párszor al:páran al:párak al:fél_párak is:ACC ) ",
+        "utódpárt  pa:utód st:utód po:noun ts:NOM pa:párt st:párt po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "utódpárt"
+      ]
+    },
+    {
+      "word": "vacsi",
+      "quality4Frequency": 232,
+      "magyarIspellAnalyses": [
+        "vacsi  st:vacsi po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "vacsi"
+      ]
+    },
+    {
+      "word": "vadkender",
+      "quality4Frequency": 138,
+      "magyarIspellAnalyses": [
+        "vadkender  pa:vad st:vad po:noun ts:NOM al:vadak pa:kender st:kender po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "vadkender"
+      ]
+    },
+    {
+      "word": "vadnyugat",
+      "quality4Frequency": 181,
+      "magyarIspellAnalyses": [
+        "vadnyugat  pa:vad st:vad po:noun ts:NOM al:vadak pa:nyugat st:nyugat po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "vadnyugat"
+      ]
+    },
+    {
+      "word": "vadvízi",
+      "quality4Frequency": 645,
+      "magyarIspellAnalyses": [
+        "vadvízi  pa:vad st:vad po:noun ts:NOM al:vadak pa:vízi  (  st:víz po:noun ts:NOM al:vizek is:i_PLACE/TIME_adj ts:NOM |  st:víz po:noun ts:NOM al:vizek is:i_PLACE/TIME_adj ts:NOM ) "
+      ],
+      "lemmas": [
+        "vadvízi"
+      ]
+    },
+    {
+      "word": "vagyonrész",
+      "quality4Frequency": 231,
+      "magyarIspellAnalyses": [
+        "vagyonrész  pa:vagyon st:vagyon po:noun ts:NOM pa:rész st:rész po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "vagyonrész"
+      ]
+    },
+    {
+      "word": "vakvezető",
+      "quality4Frequency": 527,
+      "magyarIspellAnalyses": [
+        "vakvezető  pa:vak st:vak po:noun ts:NOM pa:vezető  st:vezet po:vrb ts:PRES_INDIC_INDEF_SG_3 ds:Ó_PRESPART_adj ts:NOM",
+        "vakvezető  pa:vak st:vak po:noun ts:NOM pa:vezető st:vezető po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "vakvezető"
+      ]
+    },
+    {
+      "word": "vashiány",
+      "quality4Frequency": 204,
+      "magyarIspellAnalyses": [
+        "vashiány  pa:vas st:vas po:noun ts:NOM al:vasak pa:hiány st:hiány po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "vashiány"
+      ]
+    },
+    {
+      "word": "vendégváró",
+      "quality4Frequency": 353,
+      "magyarIspellAnalyses": [
+        "vendégváró  pa:vendég st:vendég po:noun ts:NOM pa:váró  st:vár po:vrb ts:PRES_INDIC_INDEF_SG_3 al:várat al:várak ds:Ó_PRESPART_adj ts:NOM",
+        "vendégváró  pa:vendég st:vendég po:noun ts:NOM pa:váró st:váró po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "vendégváró"
+      ]
+    },
+    {
+      "word": "venezuelai",
+      "quality4Frequency": 228,
+      "magyarIspellAnalyses": [
+        "venezuelai  fl:\" st:Venezuela po:noun_prs ts:NOM is:i_PLACE/TIME_adj ts:NOM"
+      ],
+      "lemmas": [
+        "venezuelai"
+      ]
+    },
+    {
+      "word": "versírás",
+      "quality4Frequency": 268,
+      "magyarIspellAnalyses": [
+        "versírás  pa:vers st:vers po:noun ts:NOM pa:írás  st:ír po:vrb ts:PRES_INDIC_INDEF_SG_3 al:írat ds:Ás_PROCESS/RESULT_noun ts:NOM",
+        "versírás  pa:vers st:vers po:noun ts:NOM pa:írás st:írás po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "versírás"
+      ]
+    },
+    {
+      "word": "vezetőedző",
+      "quality4Frequency": 632,
+      "magyarIspellAnalyses": [
+        "vezetőedző  pa:vezető st:vezet po:vrb ts:PRES_INDIC_INDEF_SG_3 ds:Ó_PRESPART_adj ts:NOM pa:edző st:edz po:vrb ds:Ó_PRESPART_adj ts:NOM",
+        "vezetőedző  pa:vezető st:vezető po:noun ts:NOM pa:edző st:edz po:vrb ds:Ó_PRESPART_adj ts:NOM"
+      ],
+      "lemmas": [
+        "vezetőedző"
+      ]
+    },
+    {
+      "word": "vezetőülés",
+      "quality4Frequency": 550,
+      "magyarIspellAnalyses": [
+        "vezetőülés  pa:vezető st:vezet po:vrb ts:PRES_INDIC_INDEF_SG_3 ds:Ó_PRESPART_adj ts:NOM pa:ülés st:ülés po:noun ts:NOM",
+        "vezetőülés  pa:vezető st:vezető po:noun ts:NOM pa:ülés  st:ül po:vrb ts:PRES_INDIC_INDEF_SG_3 ds:Ás_PROCESS/RESULT_noun ts:NOM",
+        "vezetőülés  pa:vezető st:vezető po:noun ts:NOM pa:ülés st:ülés po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "vezetőülés"
+      ]
+    },
+    {
+      "word": "vietnámi",
+      "quality4Frequency": 367,
+      "magyarIspellAnalyses": [
+        "vietnámi  fl:\" st:Vietnám po:noun_prs ts:NOM ph:vietnam is:i_PLACE/TIME_adj ts:NOM"
+      ],
+      "lemmas": [
+        "vietnámi"
+      ]
+    },
+    {
+      "word": "világcég",
+      "quality4Frequency": 395,
+      "magyarIspellAnalyses": [
+        "világcég  pa:világ st:világ po:noun ts:NOM pa:cég st:cég po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "világcég"
+      ]
+    },
+    {
+      "word": "világlátás",
+      "quality4Frequency": 331,
+      "magyarIspellAnalyses": [
+        "világlátás  pa:világ st:világ po:noun ts:NOM pa:látás st:lát po:vrb ds:Ás_PROCESS/RESULT_noun ts:NOM"
+      ],
+      "lemmas": [
+        "világlátás"
+      ]
+    },
+    {
+      "word": "világutazó",
+      "quality4Frequency": 188,
+      "magyarIspellAnalyses": [
+        "világutazó  pa:világ st:világ po:noun ts:NOM pa:utazó  (  st:utazik po:vrb ts:PRES_INDIC_INDEF_SG_3 ds:Ó_PRESPART_adj ts:NOM |  st:út po:noun ts:PLUR ts:NOM ds:z_ACTION_vrb ds:Ó_PRESPART_adj ts:NOM ) ",
+        "világutazó  pa:világ st:világ po:noun ts:NOM pa:utazó st:utazó po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "világutazó"
+      ]
+    },
+    {
+      "word": "világzene",
+      "quality4Frequency": 199,
+      "magyarIspellAnalyses": [
+        "világzene  pa:világ st:világ po:noun ts:NOM pa:zene st:zene po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "világzene"
+      ]
+    },
+    {
+      "word": "viseltetik",
+      "quality4Frequency": 393,
+      "magyarIspellAnalyses": [
+        "viseltetik  st:visel po:vrb ts:PRES_INDIC_INDEF_SG_3 ds:tAt_FACTITIVE_vrb_tr ts:PRES_INDIC_INDEF_SG_3 is:PRES_INDIC_DEF_PL_3"
+      ],
+      "lemmas": [
+        "viseltetik"
+      ]
+    },
+    {
+      "word": "vitafórum",
+      "quality4Frequency": 585,
+      "magyarIspellAnalyses": [
+        "vitafórum  pa:vita st:vita po:noun ts:NOM pa:fórum st:fórum po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "vitafórum"
+      ]
+    },
+    {
+      "word": "vitatéma",
+      "quality4Frequency": 494,
+      "magyarIspellAnalyses": [
+        "vitatéma  pa:vita st:vita po:noun ts:NOM pa:téma st:téma po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "vitatéma"
+      ]
+    },
+    {
+      "word": "vonalkód",
+      "quality4Frequency": 1002,
+      "magyarIspellAnalyses": [
+        "vonalkód  pa:vonal st:vonal po:noun ts:NOM al:vonalak pa:kód st:kód po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "vonalkód"
+      ]
+    },
+    {
+      "word": "vádalku",
+      "quality4Frequency": 126,
+      "magyarIspellAnalyses": [
+        "vádalku  pa:vád st:vád po:noun ts:NOM al:vádak pa:alku st:alku po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "vádalku"
+      ]
+    },
+    {
+      "word": "vágólap",
+      "quality4Frequency": 159,
+      "magyarIspellAnalyses": [
+        "vágólap  pa:vágó st:vág po:vrb ts:PRES_INDIC_INDEF_SG_3 al:vágat ds:Ó_PRESPART_adj ts:NOM pa:lap st:lap po:noun ts:NOM",
+        "vágólap  pa:vágó st:vágó po:noun ts:NOM pa:lap st:lap po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "vágólap"
+      ]
+    },
+    {
+      "word": "vágósertés",
+      "quality4Frequency": 625,
+      "magyarIspellAnalyses": [
+        "vágósertés  pa:vágó st:vág po:vrb ts:PRES_INDIC_INDEF_SG_3 al:vágat ds:Ó_PRESPART_adj ts:NOM pa:sertés st:sertés po:noun ts:NOM",
+        "vágósertés  pa:vágó st:vágó po:noun ts:NOM pa:sertés  (  st:serte po:noun ts:NOM ds:s_ATTRIBUTE_adj ts:NOM |  st:serte po:noun ts:NOM ds:s_OCCUPATION_noun ts:NOM ) ",
+        "vágósertés  pa:vágó st:vágó po:noun ts:NOM pa:sertés st:sertés po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "vágósertés"
+      ]
+    },
+    {
+      "word": "válaszidő",
+      "quality4Frequency": 1478,
+      "magyarIspellAnalyses": [
+        "válaszidő  pa:válasz st:válasz po:noun ts:NOM pa:idő st:idő po:noun ts:NOM al:idej"
+      ],
+      "lemmas": [
+        "válaszidő"
+      ]
+    },
+    {
+      "word": "válóperes",
+      "quality4Frequency": 327,
+      "magyarIspellAnalyses": [
+        "válóperes  pa:váló st:válik po:vrb ts:PRES_INDIC_INDEF_SG_3 al:válok ds:Ó_PRESPART_adj ts:NOM pa:peres  (  st:per po:noun ts:NOM ds:s_ATTRIBUTE_adj ts:NOM |  st:per po:noun ts:NOM ds:s_OCCUPATION_noun ts:NOM ) "
+      ],
+      "lemmas": [
+        "válóperes"
+      ]
+    },
+    {
+      "word": "vámeljárás",
+      "quality4Frequency": 538,
+      "magyarIspellAnalyses": [
+        "vámeljárás  pa:vám st:vám po:noun ts:NOM pa:eljárás ip:PREF sp:el  st:jár po:vrb ts:PRES_INDIC_INDEF_SG_3 al:járat ds:Ás_PROCESS/RESULT_noun ts:NOM",
+        "vámeljárás  pa:vám st:vám po:noun ts:NOM pa:eljárás st:eljárás po:noun ts:NOM hy:2"
+      ],
+      "lemmas": [
+        "vámeljárás"
+      ]
+    },
+    {
+      "word": "vámjog",
+      "quality4Frequency": 137,
+      "magyarIspellAnalyses": [
+        "vámjog  pa:vám st:vám po:noun ts:NOM pa:jog st:jog po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "vámjog"
+      ]
+    },
+    {
+      "word": "vámtörvény",
+      "quality4Frequency": 387,
+      "magyarIspellAnalyses": [
+        "vámtörvény  pa:vám st:vám po:noun ts:NOM pa:törvény st:törvény po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "vámtörvény"
+      ]
+    },
+    {
+      "word": "vámőrség",
+      "quality4Frequency": 183,
+      "magyarIspellAnalyses": [
+        "vámőrség  pa:vám st:vám po:noun ts:NOM pa:őrség st:őrség po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "vámőrség"
+      ]
+    },
+    {
+      "word": "várhatóan",
+      "quality4Frequency": 35286,
+      "magyarIspellAnalyses": [
+        "várhatóan  st:vár po:vrb ts:PRES_INDIC_INDEF_SG_3 al:várat al:várak ds:hAtÓ_ABLE_(adj,present_part) ts:NOM is:An_MODE_adv"
+      ],
+      "lemmas": [
+        "várhatóan"
+      ]
+    },
+    {
+      "word": "városmag",
+      "quality4Frequency": 179,
+      "magyarIspellAnalyses": [
+        "városmag  pa:város st:város po:noun ts:NOM pa:mag st:mag po:noun ts:NOM al:magvak"
+      ],
+      "lemmas": [
+        "városmag"
+      ]
+    },
+    {
+      "word": "városvédő",
+      "quality4Frequency": 255,
+      "magyarIspellAnalyses": [
+        "városvédő  pa:város st:város po:noun ts:NOM pa:védő  st:véd po:vrb ts:PRES_INDIC_INDEF_SG_3 al:védet al:védesz al:védenünk al:védenétek al:védenétek al:védenénk al:védenénk al:védenének al:védeném al:védenélek al:védenél al:védenék al:védenék al:védenéd al:védené al:védeniük al:védeniök al:védenie al:védeni al:védenetek al:védenem al:védenek al:védened al:védene al:védelek al:védel ds:Ó_PRESPART_adj ts:NOM",
+        "városvédő  pa:város st:város po:noun ts:NOM pa:védő st:védő po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "városvédő"
+      ]
+    },
+    {
+      "word": "vártemplom",
+      "quality4Frequency": 127,
+      "magyarIspellAnalyses": [
+        "vártemplom  pa:vár st:vár po:noun ts:NOM al:várat al:várak pa:templom st:templom po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "vártemplom"
+      ]
+    },
+    {
+      "word": "várólista",
+      "quality4Frequency": 214,
+      "magyarIspellAnalyses": [
+        "várólista  pa:váró st:vár po:vrb ts:PRES_INDIC_INDEF_SG_3 al:várat al:várak ds:Ó_PRESPART_adj ts:NOM pa:lista st:lista po:noun ts:NOM",
+        "várólista  pa:váró st:váró po:noun ts:NOM pa:lista st:lista po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "várólista"
+      ]
+    },
+    {
+      "word": "védőeszköz",
+      "quality4Frequency": 782,
+      "magyarIspellAnalyses": [
+        "védőeszköz  pa:védő st:véd po:vrb ts:PRES_INDIC_INDEF_SG_3 al:védet al:védesz al:védenünk al:védenétek al:védenétek al:védenénk al:védenénk al:védenének al:védeném al:védenélek al:védenél al:védenék al:védenék al:védenéd al:védené al:védeniük al:védeniök al:védenie al:védeni al:védenetek al:védenem al:védenek al:védened al:védene al:védelek al:védel ds:Ó_PRESPART_adj ts:NOM pa:eszköz st:eszköz po:noun ts:NOM",
+        "védőeszköz  pa:védő st:védő po:noun ts:NOM pa:eszköz st:eszköz po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "védőeszköz"
+      ]
+    },
+    {
+      "word": "védőháló",
+      "quality4Frequency": 242,
+      "magyarIspellAnalyses": [
+        "védőháló  pa:védő st:véd po:vrb ts:PRES_INDIC_INDEF_SG_3 al:védet al:védesz al:védenünk al:védenétek al:védenétek al:védenénk al:védenénk al:védenének al:védeném al:védenélek al:védenél al:védenék al:védenék al:védenéd al:védené al:védeniük al:védeniök al:védenie al:védeni al:védenetek al:védenem al:védenek al:védened al:védene al:védelek al:védel ds:Ó_PRESPART_adj ts:NOM pa:háló st:háló po:noun ts:NOM",
+        "védőháló  pa:védő st:védő po:noun ts:NOM pa:háló  st:hál po:vrb ts:PRES_INDIC_INDEF_SG_3 ds:Ó_PRESPART_adj ts:NOM",
+        "védőháló  pa:védő st:védő po:noun ts:NOM pa:háló st:háló po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "védőháló"
+      ]
+    },
+    {
+      "word": "védőréteg",
+      "quality4Frequency": 215,
+      "magyarIspellAnalyses": [
+        "védőréteg  pa:védő st:véd po:vrb ts:PRES_INDIC_INDEF_SG_3 al:védet al:védesz al:védenünk al:védenétek al:védenétek al:védenénk al:védenénk al:védenének al:védeném al:védenélek al:védenél al:védenék al:védenék al:védenéd al:védené al:védeniük al:védeniök al:védenie al:védeni al:védenetek al:védenem al:védenek al:védened al:védene al:védelek al:védel ds:Ó_PRESPART_adj ts:NOM pa:réteg st:réteg po:noun ts:NOM",
+        "védőréteg  pa:védő st:védő po:noun ts:NOM pa:réteg st:réteg po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "védőréteg"
+      ]
+    },
+    {
+      "word": "védőövezet",
+      "quality4Frequency": 153,
+      "magyarIspellAnalyses": [
+        "védőövezet  pa:védő st:véd po:vrb ts:PRES_INDIC_INDEF_SG_3 al:védet al:védesz al:védenünk al:védenétek al:védenétek al:védenénk al:védenénk al:védenének al:védeném al:védenélek al:védenél al:védenék al:védenék al:védenéd al:védené al:védeniük al:védeniök al:védenie al:védeni al:védenetek al:védenem al:védenek al:védened al:védene al:védelek al:védel ds:Ó_PRESPART_adj ts:NOM pa:övezet st:övezet po:noun ts:NOM",
+        "védőövezet  pa:védő st:védő po:noun ts:NOM pa:övezet st:övezet po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "védőövezet"
+      ]
+    },
+    {
+      "word": "vélhetően",
+      "quality4Frequency": 5842,
+      "magyarIspellAnalyses": [
+        "vélhetően  st:vél po:vrb ts:PRES_INDIC_INDEF_SG_3 ds:hAtÓ_ABLE_(adj,present_part) ts:NOM is:An_MODE_adv"
+      ],
+      "lemmas": [
+        "vélhetően"
+      ]
+    },
+    {
+      "word": "vírusirtó",
+      "quality4Frequency": 185,
+      "magyarIspellAnalyses": [
+        "vírusirtó  pa:vírus st:vírus po:noun ts:NOM pa:irtó  st:irt po:vrb ts:PRES_INDIC_INDEF_SG_3 al:irtat ds:Ó_PRESPART_adj ts:NOM",
+        "vírusirtó  pa:vírus st:vírus po:noun ts:NOM pa:irtó st:irtó po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "vírusirtó"
+      ]
+    },
+    {
+      "word": "vízbázis",
+      "quality4Frequency": 508,
+      "magyarIspellAnalyses": [
+        "vízbázis  pa:víz st:víz po:noun ts:NOM al:vizek pa:bázis st:bázis po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "vízbázis"
+      ]
+    },
+    {
+      "word": "vízfelszín",
+      "quality4Frequency": 306,
+      "magyarIspellAnalyses": [
+        "vízfelszín  pa:víz st:víz po:noun ts:NOM al:vizek pa:felszín st:felszín po:noun ts:NOM hy:3"
+      ],
+      "lemmas": [
+        "vízfelszín"
+      ]
+    },
+    {
+      "word": "vízhajtó",
+      "quality4Frequency": 280,
+      "magyarIspellAnalyses": [
+        "vízhajtó  pa:víz st:víz po:noun ts:NOM al:vizek pa:hajtó  st:hajt po:vrb ts:PRES_INDIC_INDEF_SG_3 al:hajtat ds:Ó_PRESPART_adj ts:NOM",
+        "vízhajtó  pa:víz st:víz po:noun ts:NOM al:vizek pa:hajtó st:hajtó po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "vízhajtó"
+      ]
+    },
+    {
+      "word": "vízigény",
+      "quality4Frequency": 215,
+      "magyarIspellAnalyses": [
+        "vízigény  pa:víz st:víz po:noun ts:NOM al:vizek pa:igény st:igény po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "vízigény"
+      ]
+    },
+    {
+      "word": "vízkészlet",
+      "quality4Frequency": 495,
+      "magyarIspellAnalyses": [
+        "vízkészlet  pa:víz st:víz po:noun ts:NOM al:vizek pa:készlet st:készlet po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "vízkészlet"
+      ]
+    },
+    {
+      "word": "vízminőség",
+      "quality4Frequency": 1370,
+      "magyarIspellAnalyses": [
+        "vízminőség  pa:víz st:víz po:noun ts:NOM al:vizek pa:minőség st:minőség po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "vízminőség"
+      ]
+    },
+    {
+      "word": "vízmélység",
+      "quality4Frequency": 322,
+      "magyarIspellAnalyses": [
+        "vízmélység  pa:víz st:víz po:noun ts:NOM al:vizek pa:mélység  st:mély po:adj ts:NOM ds:sÁg_ABSTRACT_noun ts:NOM"
+      ],
+      "lemmas": [
+        "vízmélység"
+      ]
+    },
+    {
+      "word": "víztaszító",
+      "quality4Frequency": 205,
+      "magyarIspellAnalyses": [
+        "víztaszító  pa:víz st:víz po:noun ts:NOM al:vizek pa:taszító  st:taszít po:vrb ts:PRES_INDIC_INDEF_SG_3 ds:Ó_PRESPART_adj ts:NOM"
+      ],
+      "lemmas": [
+        "víztaszító"
+      ]
+    },
+    {
+      "word": "vízterület",
+      "quality4Frequency": 240,
+      "magyarIspellAnalyses": [
+        "vízterület  pa:víz st:víz po:noun ts:NOM al:vizek pa:terület st:terület po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "vízterület"
+      ]
+    },
+    {
+      "word": "vízvédelem",
+      "quality4Frequency": 220,
+      "magyarIspellAnalyses": [
+        "vízvédelem  pa:víz st:víz po:noun ts:NOM al:vizek pa:védelem st:védelem po:noun ts:NOM al:védelmek"
+      ],
+      "lemmas": [
+        "vízvédelem"
+      ]
+    },
+    {
+      "word": "webkamera",
+      "quality4Frequency": 206,
+      "magyarIspellAnalyses": [
+        "webkamera  pa:web st:web po:noun ts:NOM pa:kamera st:kamera po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "webkamera"
+      ]
+    },
+    {
+      "word": "webáruház",
+      "quality4Frequency": 570,
+      "magyarIspellAnalyses": [
+        "webáruház  pa:web st:web po:noun ts:NOM pa:áruház st:áruház po:noun ts:NOM al:áruházak hy:3"
+      ],
+      "lemmas": [
+        "webáruház"
+      ]
+    },
+    {
+      "word": "zajhatás",
+      "quality4Frequency": 140,
+      "magyarIspellAnalyses": [
+        "zajhatás  pa:zaj st:zaj po:noun ts:NOM pa:hatás  st:hat po:vrb ts:PRES_INDIC_INDEF_SG_3 al:hatottátok al:hatottál al:hatották al:hatottunk al:hatottuk al:hatottatok al:hatottam al:hatottam al:hatottalak al:hatottak al:hatottad al:hatotta al:hatott al:hatodiki al:hatodikak al:hatodika al:hatodik al:hatod al:hatan al:hatod ds:Ás_PROCESS/RESULT_noun ts:NOM",
+        "zajhatás  pa:zaj st:zaj po:noun ts:NOM pa:hatás st:hatás po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "zajhatás"
+      ]
+    },
+    {
+      "word": "zajvédelem",
+      "quality4Frequency": 163,
+      "magyarIspellAnalyses": [
+        "zajvédelem  pa:zaj st:zaj po:noun ts:NOM pa:védelem st:védelem po:noun ts:NOM al:védelmek"
+      ],
+      "lemmas": [
+        "zajvédelem"
+      ]
+    },
+    {
+      "word": "állampárt",
+      "quality4Frequency": 505,
+      "magyarIspellAnalyses": [
+        "állampárt  pa:állam st:állam po:noun ts:NOM pa:párt  (  st:pár po:noun ts:NOM al:egypárszor al:egypáran al:egypárak al:egypár al:párszor al:páran al:párak al:fél_párak is:ACC |  st:pár po:noun ts:NOM al:egypárszor al:egypáran al:egypárak al:egypár al:párszor al:páran al:párak al:fél_párak is:ACC ) ",
+        "állampárt  pa:állam st:állam po:noun ts:NOM pa:párt st:párt po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "állampárt"
+      ]
+    },
+    {
+      "word": "állásbörze",
+      "quality4Frequency": 325,
+      "magyarIspellAnalyses": [
+        "állásbörze  pa:állás st:áll po:vrb ts:PRES_INDIC_INDEF_SG_3 al:állak ds:Ás_PROCESS/RESULT_noun ts:NOM pa:börze st:börze po:noun ts:NOM",
+        "állásbörze  pa:állás st:állás po:noun ts:NOM pa:börze st:börze po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "állásbörze"
+      ]
+    },
+    {
+      "word": "áruházlánc",
+      "quality4Frequency": 439,
+      "magyarIspellAnalyses": [
+        "áruházlánc  pa:áru st:áru po:noun ts:NOM pa:ház st:ház po:noun ts:NOM al:házak pa:lánc st:lánc po:noun ts:NOM",
+        "áruházlánc  pa:áruház st:áruház po:noun ts:NOM al:áruházak hy:3 pa:lánc st:lánc po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "áruházlánc"
+      ]
+    },
+    {
+      "word": "árujelző",
+      "quality4Frequency": 416,
+      "magyarIspellAnalyses": [
+        "árujelző  pa:áru st:áru po:noun ts:NOM pa:jelző st:jelez po:vrb ds:Ó_PRESPART_adj ts:NOM"
+      ],
+      "lemmas": [
+        "árujelző"
+      ]
+    },
+    {
+      "word": "átalányadó",
+      "quality4Frequency": 414,
+      "magyarIspellAnalyses": [
+        "átalányadó  pa:átalány st:átalány po:noun ts:NOM pa:adó  st:ad po:vrb ts:PRES_INDIC_INDEF_SG_3 al:adat ds:Ó_PRESPART_adj ts:NOM",
+        "átalányadó  pa:átalány st:átalány po:noun ts:NOM pa:adó st:adó po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "átalányadó"
+      ]
+    },
+    {
+      "word": "égetően",
+      "quality4Frequency": 556,
+      "magyarIspellAnalyses": [
+        "égetően  st:éget po:vrb ts:PRES_INDIC_INDEF_SG_3 ds:Ó_PRESPART_adj ts:NOM is:An_MODE_adv"
+      ],
+      "lemmas": [
+        "égetően"
+      ]
+    },
+    {
+      "word": "élettársi",
+      "quality4Frequency": 2361,
+      "magyarIspellAnalyses": [
+        "élettársi  pa:élet st:élet po:noun ts:NOM pa:társi  (  st:társ po:noun ts:NOM al:társak is:i_PLACE/TIME_adj ts:NOM |  st:társ po:noun ts:NOM al:társak is:i_PLACE/TIME_adj ts:NOM ) "
+      ],
+      "lemmas": [
+        "élettársi"
+      ]
+    },
+    {
+      "word": "építőipari",
+      "quality4Frequency": 5123,
+      "magyarIspellAnalyses": [
+        "építőipari  pa:építő st:épít po:vrb ts:PRES_INDIC_INDEF_SG_3 ds:Ó_PRESPART_adj ts:NOM pa:ipari  (  st:ipar po:noun ts:NOM is:i_PLACE/TIME_adj ts:NOM |  st:ipar po:noun ts:NOM is:i_PLACE/TIME_adj ts:NOM ) "
+      ],
+      "lemmas": [
+        "építőipari"
+      ]
+    },
+    {
+      "word": "érezhetően",
+      "quality4Frequency": 2795,
+      "magyarIspellAnalyses": [
+        "érezhetően  st:érez po:vrb ts:PRES_INDIC_INDEF_SG_3 al:érző al:érzés ds:hAtÓ_ABLE_(adj,present_part) ts:NOM is:An_MODE_adv"
+      ],
+      "lemmas": [
+        "érezhetően"
+      ]
+    },
+    {
+      "word": "értékadás",
+      "quality4Frequency": 154,
+      "magyarIspellAnalyses": [
+        "értékadás  pa:érték st:érték po:noun ts:NOM pa:adás  st:ad po:vrb ts:PRES_INDIC_INDEF_SG_3 al:adat ds:Ás_PROCESS/RESULT_noun ts:NOM"
+      ],
+      "lemmas": [
+        "értékadás"
+      ]
+    },
+    {
+      "word": "érzik",
+      "quality4Frequency": 17360,
+      "magyarIspellAnalyses": [
+        "érzik  st:érez po:vrb ts:PRES_INDIC_INDEF_SG_3 al:érző al:érzés is:PRES_INDIC_DEF_PL_3"
+      ],
+      "lemmas": [
+        "érez"
+      ]
+    },
+    {
+      "word": "évadzáró",
+      "quality4Frequency": 335,
+      "magyarIspellAnalyses": [
+        "évadzáró  pa:évad st:évad po:noun ts:NOM pa:záró  st:zár po:vrb ts:PRES_INDIC_INDEF_SG_3 al:zárat al:zárak ds:Ó_PRESPART_adj ts:NOM"
+      ],
+      "lemmas": [
+        "évadzáró"
+      ]
+    },
+    {
+      "word": "írországi",
+      "quality4Frequency": 489,
+      "magyarIspellAnalyses": [
+        "írországi  fl:\" st:Írország po:noun_prs ts:NOM is:i_PLACE/TIME_adj ts:NOM",
+        "írországi  st:írországi po:adj ts:NOM hy:2"
+      ],
+      "lemmas": [
+        "írországi"
+      ]
+    },
+    {
+      "word": "írástudás",
+      "quality4Frequency": 657,
+      "magyarIspellAnalyses": [
+        "írástudás  pa:írás st:ír po:vrb ts:PRES_INDIC_INDEF_SG_3 al:írat ds:Ás_PROCESS/RESULT_noun ts:NOM pa:tudás st:tudás po:noun ts:NOM",
+        "írástudás  pa:írás st:írás po:noun ts:NOM pa:tudás  st:tud po:vrb ts:PRES_INDIC_INDEF_SG_3 al:tudat ds:Ás_PROCESS/RESULT_noun ts:NOM",
+        "írástudás  pa:írás st:írás po:noun ts:NOM pa:tudás st:tudás po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "írástudás"
+      ]
+    },
+    {
+      "word": "írásvetítő",
+      "quality4Frequency": 694,
+      "magyarIspellAnalyses": [
+        "írásvetítő  pa:írás st:írás po:noun ts:NOM pa:vetítő  st:vetít po:vrb ts:PRES_INDIC_INDEF_SG_3 ds:Ó_PRESPART_adj ts:NOM"
+      ],
+      "lemmas": [
+        "írásvetítő"
+      ]
+    },
+    {
+      "word": "ózonpajzs",
+      "quality4Frequency": 211,
+      "magyarIspellAnalyses": [
+        "ózonpajzs  pa:ózon st:ózon po:noun ts:NOM pa:pajzs st:pajzs po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "ózonpajzs"
+      ]
+    },
+    {
+      "word": "ózonréteg",
+      "quality4Frequency": 605,
+      "magyarIspellAnalyses": [
+        "ózonréteg  pa:ózon st:ózon po:noun ts:NOM pa:réteg st:réteg po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "ózonréteg"
+      ]
+    },
+    {
+      "word": "öntözővíz",
+      "quality4Frequency": 538,
+      "magyarIspellAnalyses": [
+        "öntözővíz  pa:öntöző st:öntöz po:vrb ts:PRES_INDIC_INDEF_SG_3 ds:Ó_PRESPART_adj ts:NOM pa:víz st:víz po:noun ts:NOM al:vizek",
+        "öntözővíz  pa:öntöző st:öntöző po:noun ts:NOM pa:víz st:víz po:noun ts:NOM al:vizek"
+      ],
+      "lemmas": [
+        "öntözővíz"
+      ]
+    },
+    {
+      "word": "örömlány",
+      "quality4Frequency": 130,
+      "magyarIspellAnalyses": [
+        "örömlány  pa:öröm st:öröm po:noun ts:NOM pa:lány st:lány po:noun ts:NOM al:lányáék"
+      ],
+      "lemmas": [
+        "örömlány"
+      ]
+    },
+    {
+      "word": "ötkarikás",
+      "quality4Frequency": 688,
+      "magyarIspellAnalyses": [
+        "ötkarikás po:adj_num pa:öt  st:karika po:noun ts:NOM ds:s_ATTRIBUTE_adj ts:NOM",
+        "ötkarikás po:adj_num pa:öt  st:karika po:noun ts:NOM ds:s_OCCUPATION_noun ts:NOM"
+      ],
+      "lemmas": [
+        "ötkarikás"
+      ]
+    },
+    {
+      "word": "ötletadó",
+      "quality4Frequency": 172,
+      "magyarIspellAnalyses": [
+        "ötletadó  pa:ötlet st:ötlet po:noun ts:NOM pa:adó  st:ad po:vrb ts:PRES_INDIC_INDEF_SG_3 al:adat ds:Ó_PRESPART_adj ts:NOM",
+        "ötletadó  pa:ötlet st:ötlet po:noun ts:NOM pa:adó st:adó po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "ötletadó"
+      ]
+    },
+    {
+      "word": "ötletbörze",
+      "quality4Frequency": 129,
+      "magyarIspellAnalyses": [
+        "ötletbörze  pa:ötlet st:ötlet po:noun ts:NOM pa:börze st:börze po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "ötletbörze"
+      ]
+    },
+    {
+      "word": "ötletgazda",
+      "quality4Frequency": 279,
+      "magyarIspellAnalyses": [
+        "ötletgazda  pa:ötlet st:ötlet po:noun ts:NOM pa:gazda st:gazda po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "ötletgazda"
+      ]
+    },
+    {
+      "word": "üdítőital",
+      "quality4Frequency": 409,
+      "magyarIspellAnalyses": [
+        "üdítőital  pa:üdítő st:üdít po:vrb ts:PRES_INDIC_INDEF_SG_3 ds:Ó_PRESPART_adj ts:NOM pa:ital st:ital po:noun ts:NOM",
+        "üdítőital  pa:üdítő st:üdítő po:noun ts:NOM pa:ital st:ital po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "üdítőital"
+      ]
+    },
+    {
+      "word": "üdülőfalu",
+      "quality4Frequency": 414,
+      "magyarIspellAnalyses": [
+        "üdülőfalu  pa:üdülő st:üdül po:vrb ts:PRES_INDIC_INDEF_SG_3 ds:Ó_PRESPART_adj ts:NOM pa:falu st:falu po:noun ts:NOM al:falvak"
+      ],
+      "lemmas": [
+        "üdülőfalu"
+      ]
+    },
+    {
+      "word": "ügydöntő",
+      "quality4Frequency": 1640,
+      "magyarIspellAnalyses": [
+        "ügydöntő  pa:ügy st:ügy po:noun ts:NOM pa:döntő  st:dönt po:vrb ts:PRES_INDIC_INDEF_SG_3 al:döntet ds:Ó_PRESPART_adj ts:NOM",
+        "ügydöntő  pa:ügy st:ügy po:noun ts:NOM pa:döntő st:döntő po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "ügydöntő"
+      ]
+    },
+    {
+      "word": "ügyfélkör",
+      "quality4Frequency": 461,
+      "magyarIspellAnalyses": [
+        "ügyfélkör  pa:ügy st:ügy po:noun ts:NOM pa:félkör st:félkör po:noun ts:NOM hy:3",
+        "ügyfélkör  pa:ügyfél st:ügyfél po:noun ts:NOM al:ügyfelek hy:3 pa:kör st:kör po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "ügyfélkör"
+      ]
+    },
+    {
+      "word": "ügyrendi",
+      "quality4Frequency": 3690,
+      "magyarIspellAnalyses": [
+        "ügyrendi  pa:ügy st:ügy po:noun ts:NOM pa:rendi  (  st:rend po:noun ts:NOM is:i_PLACE/TIME_adj ts:NOM |  st:rend po:noun ts:NOM is:i_PLACE/TIME_adj ts:NOM ) "
+      ],
+      "lemmas": [
+        "ügyrendi"
+      ]
+    },
+    {
+      "word": "ülésnap",
+      "quality4Frequency": 131,
+      "magyarIspellAnalyses": [
+        "ülésnap  pa:ülés st:ül po:vrb ts:PRES_INDIC_INDEF_SG_3 ds:Ás_PROCESS/RESULT_noun ts:NOM pa:nap st:nap po:noun ts:NOM",
+        "ülésnap  pa:ülés st:ülés po:noun ts:NOM pa:nap st:nap po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "ülésnap"
+      ]
+    },
+    {
+      "word": "üléssor",
+      "quality4Frequency": 384,
+      "magyarIspellAnalyses": [
+        "üléssor  pa:ülés st:ül po:vrb ts:PRES_INDIC_INDEF_SG_3 ds:Ás_PROCESS/RESULT_noun ts:NOM pa:sor st:sor po:noun ts:NOM",
+        "üléssor  pa:ülés st:ülés po:noun ts:NOM pa:sor st:sor po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "üléssor"
+      ]
+    },
+    {
+      "word": "ütőjátékos",
+      "quality4Frequency": 159,
+      "magyarIspellAnalyses": [
+        "ütőjátékos  pa:ütő st:üt po:vrb ts:PRES_INDIC_INDEF_SG_3 ds:Ó_PRESPART_adj ts:NOM pa:játékos  (  st:játék po:noun ts:NOM ds:s_ATTRIBUTE_adj ts:NOM |  st:játék po:noun ts:NOM ds:s_OCCUPATION_noun ts:NOM ) ",
+        "ütőjátékos  pa:ütő st:üt po:vrb ts:PRES_INDIC_INDEF_SG_3 ds:Ó_PRESPART_adj ts:NOM pa:játékos st:játékos po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "ütőjátékos"
+      ]
+    },
+    {
+      "word": "üvegcső",
+      "quality4Frequency": 160,
+      "magyarIspellAnalyses": [
+        "üvegcső  pa:üveg st:üveg po:noun ts:NOM pa:cső st:cső po:noun ts:NOM al:csövek"
+      ],
+      "lemmas": [
+        "üvegcső"
+      ]
+    },
+    {
+      "word": "üvegedény",
+      "quality4Frequency": 129,
+      "magyarIspellAnalyses": [
+        "üvegedény  pa:üveg st:üveg po:noun ts:NOM pa:edény st:edény po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "üvegedény"
+      ]
+    },
+    {
+      "word": "üzemidő",
+      "quality4Frequency": 281,
+      "magyarIspellAnalyses": [
+        "üzemidő  pa:üzem st:üzem po:noun ts:NOM pa:idő st:idő po:noun ts:NOM al:idej"
+      ],
+      "lemmas": [
+        "üzemidő"
+      ]
+    },
+    {
+      "word": "üzemmérnök",
+      "quality4Frequency": 372,
+      "magyarIspellAnalyses": [
+        "üzemmérnök  pa:üzem st:üzem po:noun ts:NOM pa:mérnök st:mérnök po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "üzemmérnök"
+      ]
+    },
+    {
+      "word": "üzletlánc",
+      "quality4Frequency": 254,
+      "magyarIspellAnalyses": [
+        "üzletlánc  pa:üzlet st:üzlet po:noun ts:NOM pa:lánc st:lánc po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "üzletlánc"
+      ]
+    },
+    {
+      "word": "üzletsor",
+      "quality4Frequency": 154,
+      "magyarIspellAnalyses": [
+        "üzletsor  pa:üzlet st:üzlet po:noun ts:NOM pa:sor st:sor po:noun ts:NOM"
+      ],
+      "lemmas": [
+        "üzletsor"
+      ]
+    }
+  ]
+}

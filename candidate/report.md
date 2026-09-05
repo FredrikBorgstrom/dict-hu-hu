@@ -4,29 +4,34 @@ This is a local candidate for review. It does not replace or deploy the producti
 
 ## Summary
 
-- Accepted words: **846,384**
-- Current words removed by the candidate policy: **13**
-- Strongly attested morphdb.hu headword additions: **0**
-- Candidate SHA-256: `c301020e41b4caa74cfabfcbf3693c68ecef7d7ab139b2fe44a0387cd9c7713b`
+- Accepted words: **851,224**
+- Current words removed by the candidate policy: **0**
+- Accepted additions beyond the previous output: **42**
+- Strongly attested external compound-headword inflections: **4,840**
+- Candidate SHA-256: `dc379eceb5bc3c3c24b881b588926bf9f070b1e8a625f691bde32d445e3121f7`
 
 ## Decisions by evidence rule
 
 | Rule | Words |
 |---|---:|
 | `quality_8_corpus_core` | 369,556 |
-| `cross_analyzer_basic_inflection` | 272,350 |
+| `cross_analyzer_basic_inflection` | 272,349 |
 | `attested_possessive` | 62,718 |
+| `unconfirmed_external_compound_headword_inflection` | 54,739 |
 | `attested_derivation` | 52,146 |
 | `corroborated_corpus_singleton` | 50,128 |
 | `attested_prefix_combination` | 20,083 |
 | `strong_plural_possessive_usage` | 13,690 |
 | `direct_source_form` | 5,708 |
+| `strongly_attested_external_compound_headword_inflection` | 4,840 |
 | `weak_prefix_combination` | 2,627 |
+| `morphdb_proper_name_only` | 2,153 |
 | `insufficient_usage_or_risky_inflection` | 238 |
-| `reviewed_surface_removal` | 18 |
+| `reviewed_surface_removal` | 7 |
 | `written_abbreviation_shape` | 5 |
+| `morphdb_nonstandalone_source` | 4 |
 | `required_one_letter` | 4 |
-| `reviewed_surface_addition` | 1 |
+| `reviewed_surface_addition` | 2 |
 
 ## Reported and diagnostic words
 
@@ -54,6 +59,8 @@ This is a local candidate for review. It does not replace or deploy the producti
 | `vu` | not a candidate | — | 0 | 0 |
 | `zu` | reject | `reviewed_surface_removal` | 696 | 181 |
 | `ál` | not a candidate | — | 0 | 0 |
+| `őzgida` | accept | `quality_8_corpus_core` | 58 | 37 |
+| `őzgidák` | accept | `reviewed_surface_addition` | 20 | 17 |
 
 ## Limitations
 
