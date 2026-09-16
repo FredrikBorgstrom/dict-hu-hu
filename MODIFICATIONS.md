@@ -9,6 +9,17 @@ complete license is in `COPYING.MPL`.
 
 ## Change history
 
+- **2026-09-16 (suffix continuations):** Fixed ordinary inflections after an
+  explicitly licensed suffix continuation, including `fáj → fájó → fájót`.
+  Expansion is bounded to two suffix steps and retains intermediate-word,
+  source-flag, proper-name, corpus, and reviewed-removal checks. Added
+  evidence handling for inflections of already accepted derived words, so a
+  verb-root analysis does not incorrectly reject an ordinary plural or case.
+  Retained stricter possessive/prefix rules and surface-only review scope.
+  Added isolated build directories, regression tests, and a release comparison that checks
+  every addition with Hunspell and preserves prior words, definition mappings,
+  and physical-tile arrangements.
+
 - **2026-09-05 (native review):** Added 572 exact surface forms following
   native lexical review, pinned Magyar Ispell analysis, and clean Webcorpus
   corroboration. Recorded source-derived definition mappings in a portable

@@ -39,12 +39,16 @@ from process_words import (
     MANUAL_WRITTEN_ABBREVIATIONS,
     REJECT_ENTRY_FLAGS,
     _collect_source_filters,
+    _apply_suffix_rule,
+    _is_high_risk_ordinary_inflection,
+    _is_risky_generation_morphology,
     _ensure_pinned_source,
     _has_flag,
     _sha256_file,
     _source_lemma,
     is_written_abbreviation_shape,
     is_valid_hu_word,
+    iter_inflection_continuations,
     parse_aff,
     parse_dictionary_line,
 )
@@ -298,6 +302,7 @@ def decide_word(
     explicit_addition: bool = False,
     explicit_surface_removal: bool = False,
     explicit_lemma_removal: bool = False,
+    accepted_derived_inflection: bool = False,
 ) -> Decision:
     """Apply the conservative policy in priority order."""
     if word in HUNGARIAN_REQUIRED_ONE_LETTER_WORDS:
@@ -364,6 +369,20 @@ def decide_word(
         if current_direct:
             return Decision(True, "direct_source_form")
         return Decision(False, "weak_possessive")
+    if (
+        accepted_derived_inflection
+        and current_candidate
+        and morph.recognized
+        and morph.nonproper
+        and morph.lemma_agreement
+        and not morph.prefix_only
+    ):
+        # morphdb may analyze fájókat from the verb fáj, marking the complete
+        # form as a derivation. Magyar Ispell separately proves that the final
+        # suffix is an ordinary inflection of the already accepted fájó.
+        if word.endswith("kor") and corpus.complete < GENERATED_KOR_COMPLETE_FREQUENCY:
+            return Decision(False, "unattested_generated_kor_form")
+        return Decision(True, "cross_analyzer_inflection_of_accepted_derived_word")
     if morph.derivation_only:
         if corpus.quality_4 >= DERIVATION_QUALITY_4_FREQUENCY:
             return Decision(True, "attested_derivation")
@@ -1073,6 +1092,51 @@ def _sample_score(word: str) -> str:
     return hashlib.sha256(word.encode("utf-8")).hexdigest()
 
 
+def licensed_inflections_of_accepted_words(
+    accepted: frozenset[str],
+    candidates: frozenset[str],
+    aff_path: Path,
+    dic_path: Path,
+    surface_additions: frozenset[str] = frozenset(),
+) -> dict[str, str]:
+    """Prove an ordinary second suffix from a previously accepted intermediate.
+
+    This is one bounded pass, not a recursive closure over rescued words.
+    Exact-surface native approvals never license a new family by themselves.
+    """
+    af, am, prefixes, suffixes, special = parse_aff(str(aff_path))
+    lines = dic_path.read_text(encoding="utf-8").splitlines()[1:]
+    abbreviations, blocked, proper_derived = _collect_source_filters(
+        lines, af, am, prefixes, suffixes, special
+    )
+    anchors = accepted - surface_additions - blocked - proper_derived
+    result: dict[str, str] = {}
+    for line in lines:
+        parsed = parse_dictionary_line(line, af, am)
+        if parsed is None:
+            continue
+        word, flags, _ = parsed
+        if (word != word.lower() or not is_valid_hu_word(word)
+            or word in abbreviations or word in proper_derived
+            or any(_has_flag(flags, special, name) for name in REJECT_ENTRY_FLAGS)):
+            continue
+        for flag in flags:
+            for first in suffixes.get(bytes([flag]), ()):
+                intermediate = _apply_suffix_rule(word, first)
+                if intermediate not in anchors:
+                    continue
+                for surface, second in iter_inflection_continuations(
+                    intermediate, first, suffixes, special
+                ):
+                    if surface not in candidates or surface in blocked:
+                        continue
+                    if (_is_risky_generation_morphology(second.morphology)
+                        or _is_high_risk_ordinary_inflection(first.morphology + " " + second.morphology)):
+                        continue
+                    result[surface] = min(intermediate, result.get(surface, intermediate))
+    return result
+
+
 def build_outputs(
     *,
     merged_candidates_path: Path,
@@ -1092,6 +1156,7 @@ def build_outputs(
     output_dir: Path,
     source_metadata: dict,
     reviewed_additions: dict | None = None,
+    accepted_derived_inflections: frozenset[str] = frozenset(),
 ) -> dict:
     reviewed_additions = reviewed_additions or {}
     output_dir.mkdir(parents=True, exist_ok=True)
@@ -1147,6 +1212,7 @@ def build_outputs(
                 explicit_addition=word in surface_additions,
                 explicit_surface_removal=word in surface_removals,
                 explicit_lemma_removal=word in lemma_removed_surfaces,
+                accepted_derived_inflection=word in accepted_derived_inflections,
             )
             reason_counts[decision.reason] += 1
             counts["total_candidates"] += 1
@@ -1248,6 +1314,7 @@ def build_outputs(
             ),
             "prefix_combinations_require_quality_8_usage": True,
             "cross_analyzer_basic_inflections_require_lemma_agreement": True,
+            "derived_word_inflections_require_accepted_intermediate_and_licensed_ordinary_suffix": True,
             "generated_kor_complete_frequency": GENERATED_KOR_COMPLETE_FREQUENCY,
             "surface_additions": sorted(surface_additions),
             "surface_removals": sorted(surface_removals),
@@ -1364,6 +1431,8 @@ def main() -> int:
     parser.add_argument("--offline", action="store_true")
     parser.add_argument("--cache-dir")
     parser.add_argument("--output-dir")
+    parser.add_argument("--source-output-dir", type=Path,
+                        help="Ordinary generator output to score (default: output).")
     parser.add_argument("--surface-removals")
     parser.add_argument("--surface-additions")
     parser.add_argument("--reviewed-evidence", type=Path, default=DEFAULT_REVIEWED_ADDITIONS)
@@ -1383,11 +1452,12 @@ def main() -> int:
     script_dir = Path(__file__).resolve().parent
     cache_dir = Path(args.cache_dir) if args.cache_dir else script_dir / ".cache" / "evidence"
     output_dir = Path(args.output_dir) if args.output_dir else script_dir / "candidate"
-    current_output_path = script_dir / "output" / "hungarian_hu_hu_ispell.txt"
+    source_output_dir = args.source_output_dir or script_dir / "output"
+    current_output_path = source_output_dir / "hungarian_hu_hu_ispell.txt"
     current_aff_path = script_dir / ".cache" / "sources" / "hu_HU.aff"
     current_dic_path = script_dir / ".cache" / "sources" / "hu_HU.dic"
     current_lemma_index_dir = (
-        script_dir / "output" / "definitions" / "hu" / "surface-lemma" / "v1"
+        source_output_dir / "definitions" / "hu" / "surface-lemma" / "v1"
     )
     corpus_path = script_dir / ".cache" / "sources" / "web2.2-alfa-sorted.txt.gz"
     for required_path in (
@@ -1613,7 +1683,7 @@ def main() -> int:
                 if args.retention_baseline else None
             ),
             "current_candidate": {
-                "path": str(current_output_path.relative_to(script_dir)),
+                "path": os.path.relpath(current_output_path, script_dir),
                 "sha256": _sha256_file(str(current_output_path)),
             },
             "magyar_ispell": {
@@ -1657,7 +1727,7 @@ def main() -> int:
             "sha256": _sha256_file(str(args.reviewed_evidence)) if reviewed_additions else None,
         }
         source_metadata["gameplay_overrides_sha256"] = _sha256_file(str(DEFAULT_GAMEPLAY_OVERRIDES))
-        audit = build_outputs(
+        output_arguments = dict(
             merged_candidates_path=merged_path,
             current_words=current_words,
             ordinary_words=ordinary_words,
@@ -1676,6 +1746,36 @@ def main() -> int:
             source_metadata=source_metadata,
             reviewed_additions=reviewed_additions,
         )
+        audit = build_outputs(**output_arguments)
+        accepted = frozenset((output_dir / "hungarian_hu_hu_evidence_candidate.txt").read_text().splitlines())
+        with gzip.open(output_dir / "rejected.tsv.gz", "rt") as rejected:
+            derivation_candidates = frozenset(
+                row["word"] for row in csv.DictReader(rejected, delimiter="\t")
+                if row["reason"] == "weak_derivation" and row["word"] in ordinary_words
+            )
+        print("Checking ordinary inflections of accepted derived words...", flush=True)
+        continuations = licensed_inflections_of_accepted_words(
+            accepted, derivation_candidates, current_aff_path, current_dic_path, surface_additions
+        )
+        proof_path = output_dir / "ordinary-continuation-evidence.tsv.gz"
+        with gzip.open(proof_path, "wt", encoding="utf-8") as proof:
+            proof.write("surface\taccepted_intermediate\n")
+            for surface, intermediate in sorted(continuations.items()):
+                proof.write(f"{surface}\t{intermediate}\n")
+        source_metadata["ordinary_suffix_continuations"] = {
+            "provenance_file": proof_path.name,
+            "licensed_candidates": len(continuations),
+            "accepted_intermediate_vocabulary_sha256": audit["output_sha256"],
+            "surface_approval_families_excluded": True,
+            "maximum_suffix_applications": 2,
+        }
+        print(f"  verified {len(continuations):,} ordinary continuation paths", flush=True)
+        if continuations:
+            audit = build_outputs(**output_arguments, accepted_derived_inflections=frozenset(continuations))
+        else:
+            (output_dir / "audit.json").write_text(
+                json.dumps(audit, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
+            )
     except (FileNotFoundError, OSError, RuntimeError, ValueError) as error:
         print(f"ERROR: {error}", file=sys.stderr)
         return 1

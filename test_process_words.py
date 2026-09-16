@@ -639,10 +639,14 @@ class PublishedOutputRegressionTests(unittest.TestCase):
             # The evidence promotion deliberately applies stricter rules than
             # the ordinary generator to unsupported possessive/derivational
             # forms while retaining independently corroborated ordinary forms.
+            # The continuation policy also admits vádin: vádi is an accepted
+            # direct noun and Magyar Ispell explicitly licenses its ordinary
+            # superessive -n. morphdb's derived-only analysis no longer blocks
+            # a proven inflection of an independently accepted surface.
             self.assertTrue(
-                (ordinary_forms_preserved_by_this_policy - {"luxok"}).isdisjoint(words)
+                (ordinary_forms_preserved_by_this_policy - {"luxok", "vádin"}).isdisjoint(words)
             )
-            self.assertTrue({"boly", "clown", "luxok"}.issubset(words))
+            self.assertTrue({"boly", "clown", "luxok", "vádin"}.issubset(words))
         else:
             self.assertTrue(ordinary_forms_preserved_by_this_policy.issubset(words))
             self.assertTrue({"boly", "clown"}.issubset(words))

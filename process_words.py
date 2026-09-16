@@ -650,6 +650,11 @@ def _collect_source_filters(
                     generated = _apply_suffix_rule(normalized, rule)
                     if generated and is_valid_hu_word(generated):
                         blocked_surfaces.add(generated)
+                        blocked_surfaces.update(
+                            surface for surface, _ in iter_inflection_continuations(
+                                generated, rule, sfx_rules, special_flags
+                            )
+                        )
 
     abbreviations.update(MANUAL_WRITTEN_ABBREVIATIONS)
     abbreviations.difference_update(ABBREVIATION_HOMONYMS)
@@ -679,6 +684,32 @@ def _apply_suffix_rule(word: str, rule) -> str | None:
     else:
         stem = word
     return stem + rule.add
+
+
+def iter_inflection_continuations(
+    intermediate: str,
+    first_rule: SuffixRule,
+    sfx_rules: dict[bytes, list],
+    special_flags: dict[str, bytes],
+):
+    """Apply one explicitly licensed, terminal ordinary suffix.
+
+    Hunspell supports two suffix applications, not unlimited recursion. This
+    covers cases such as fáj -> fájó -> fájót. A second derivation is outside
+    this ordinary-inflection path; final control flags remain authoritative.
+    """
+    if _continuation_rejection_reason(first_rule.continuation_flags, special_flags):
+        return
+    for flag_byte in first_rule.continuation_flags:
+        for rule in sfx_rules.get(bytes([flag_byte]), ()):
+            surface = _apply_suffix_rule(intermediate, rule)
+            if surface is None or not is_valid_hu_word(surface):
+                continue
+            if _is_word_formation_morphology(rule.morphology):
+                continue
+            if _continuation_rejection_reason(rule.continuation_flags, special_flags):
+                continue
+            yield surface, rule
 
 
 def _apply_prefix_rule(word: str, rule) -> str | None:
@@ -1142,6 +1173,39 @@ def expand_dictionary(
                             if rule.cross_product:
                                 cross_product_suffix_forms.add(new_word)
 
+                            # An attested derived word can take its ordinary
+                            # endings even when each inflected surface is rare.
+                            # Do not license a family from an unattested
+                            # derivation, a blocked intermediate or a proper
+                            # name. The evidence build still corroborates the
+                            # final forms and applies all reviewed removals.
+                            if not _surface_is_final(new_word, blocked_surfaces):
+                                continue
+                            if (
+                                risky_path
+                                and corpus_attested_risky_surfaces is not None
+                                and new_word not in corpus_attested_risky_surfaces
+                            ):
+                                continue
+                            for continued, continuation in iter_inflection_continuations(
+                                new_word, rule, sfx_rules, special_flags
+                            ):
+                                continued_risky = (
+                                    word_lower in proper_derived_surfaces
+                                    or _is_risky_generation_morphology(continuation.morphology)
+                                    or _is_high_risk_ordinary_inflection(
+                                        rule.morphology + " " + continuation.morphology
+                                    )
+                                )
+                                write_generated_path(
+                                    continued,
+                                    source_lemma,
+                                    risky=continued_risky,
+                                    path_counter="raw_suffix_continuation_paths",
+                                )
+                                if rule.cross_product and continuation.cross_product:
+                                    cross_product_suffix_forms.add(continued)
+
                 prefix_flags = [
                     bytes([flag_byte])
                     for flag_byte in flags
@@ -1296,7 +1360,7 @@ def expand_dictionary(
         if audit_path:
             os.makedirs(os.path.dirname(audit_path) or ".", exist_ok=True)
             audit = {
-                "schema_version": 7,
+                "schema_version": 8,
                 "source": {
                     "aff": os.path.basename(aff_path),
                     "aff_sha256": _sha256_file(aff_path),
@@ -1333,6 +1397,9 @@ def expand_dictionary(
                     "word_formation_metadata_is_risky": True,
                     "hunspell_prefix_rules_supported": True,
                     "hunspell_prefix_suffix_cross_products_supported": True,
+                    "ordinary_suffix_continuations_supported": True,
+                    "maximum_suffix_applications": 2,
+                    "continued_derivations_require_attested_intermediate": corpus_path is not None,
                     "prefix_derived_paths_are_risky": True,
                     "prefix_derived_paths_require_surface_attestation": (
                         corpus_path is not None
@@ -1402,6 +1469,7 @@ def main() -> int:
         "--cache-dir",
         help="Source cache directory (default: .cache/sources).",
     )
+    parser.add_argument("--output-dir", help="Build directory (default: output).")
     parser.add_argument(
         "--minimum-risky-corpus-frequency",
         type=int,
@@ -1431,7 +1499,7 @@ def main() -> int:
         print(f"ERROR: {error}", file=sys.stderr)
         return 1
 
-    output_dir = os.path.join(script_dir, "output")
+    output_dir = args.output_dir or os.path.join(script_dir, "output")
     output_path = os.path.join(output_dir, "hungarian_hu_hu_ispell.txt")
     audit_path = os.path.join(output_dir, "audit.json")
     lemma_index_dir = os.path.join(

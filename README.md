@@ -213,6 +213,12 @@ evidence policy deterministically.
 The first evidence build requires the `hunspell` executable and can take
 several minutes. Subsequent builds reuse a checksum-keyed analysis cache.
 
+For an isolated review build, `process_words.py --output-dir <directory>`
+writes the ordinary expansion and lemma index outside the active output.
+Pass that directory to `build_evidence_wordlist.py --source-output-dir
+<directory> --output-dir <candidate-directory>`. These options keep the active
+release intact until the separately verified candidate is promoted.
+
 Existing vocabulary follows the ordinary evidence policy; discovery through
 the external-compound path must not reclassify an existing word. Promotion
 persists `output/evidence.tsv.gz` so newly admitted compound inflections
@@ -238,6 +244,22 @@ Coverage:
 - Lowercase only (no proper nouns)
 - No hyphens, no spaces, no numbers
 - Includes inflected forms (noun cases, verb conjugations, plural forms, possessives)
+- Ordinary endings also follow an explicitly licensed suffix continuation,
+  for example `fáj → fájó → fájót`. Expansion stops after two suffix steps.
+  A derived intermediate must already meet the corpus-evidence gate before it
+  licenses a family; each final surface then passes the normal evidence build.
+  Further derivations, blocked intermediate forms, forbidden final flags, and
+  unattested high-risk possessive stacks are not admitted by this path.
+- The evidence build distinguishes a new derivation from an ordinary ending
+  on an accepted derived word. For example, morphdb analyzes `fájókat` from
+  the verb `fáj`; a licensed `fájó → fájókat` path demonstrates ordinary
+  inflection instead. A bounded second pass requires an intermediate accepted
+  by the first pass, corroborating non-proper morphology with lemma agreement,
+  and the exact source continuation. Prefix, possessive, temporal-`kor`, and
+  reviewed-removal restrictions remain in force. A surface-only native
+  approval does not license a family, and rescued forms are not recursively
+  used as anchors. The audit records the provenance in
+  `ordinary-continuation-evidence.tsv.gz`.
 - Consonant-only 2-letter abbreviations removed (e.g. cm, kg, cs, gy, ny, sz, dz)
 - Written abbreviations, case-sensitive units, compound-only roots, forbidden
   spellings, and forms marked substandard by Magyar Ispell are removed
