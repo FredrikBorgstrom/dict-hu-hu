@@ -127,9 +127,9 @@ The companion build is implemented in `build_evidence_wordlist.py`. It:
     lemma removals discard the complete generated family while preserving a
     homographic surface when another allowed lemma still licenses it
 
-### Native-review additions (2026-09-05)
+### Native-review additions (2026-09-19)
 
-The active list includes 572 explicitly reviewed surface forms verified against
+The active list includes 1,777 explicitly reviewed surface forms verified against
 the pinned Magyar Ispell sources and at least two occurrences in the cleanest
 Webcorpus partition. `reviewed_additions.json` contains their source analyses,
 frequencies, definition lemmas, and source checksums. This source-derived
@@ -154,10 +154,19 @@ such as `cm` or `kg`.
 Definition lookup retains all earlier mappings. Reviewed inflections use the
 source stem including verbal prefixes, compounds keep the complete headword,
 and derived adjectives do not point at the capitalized proper-name root.
-The new batch brings the standard vocabulary to 851,796 surfaces and the
-classic-tile vocabulary to 846,161 surfaces. Four additions cannot be formed
-with the classic mode's fixed physical tiles and remain in its exclusion audit.
-No earlier word or canonical tile arrangement was removed.
+The latest review prioritizes category 1 (common words) for new admissions.
+All 86 earlier category-2 approvals remain accepted; newly reviewed category-2
+words are deferred. Of the 1,693 category-1 judgments, 1,691 pass the existing
+source checks. Two overlapping source exclusions remain on hold rather than
+being automatically overridden. These holds are source-policy conflicts, not
+a finding that the words are invalid Hungarian.
+
+The batch adds 1,204 previously missing words, bringing the standard vocabulary
+to 1,253,262 surfaces. Tile-mode exclusions are recorded by their respective
+generators because the fixed physical alphabets cannot spell every surface.
+The release verifier checks that no earlier word, canonical tile arrangement,
+or definition mapping is removed. Automated-player frequency thresholds are
+unchanged.
 
 ```bash
 python3 build_evidence_wordlist.py --offline --output-dir artifacts/native-review
