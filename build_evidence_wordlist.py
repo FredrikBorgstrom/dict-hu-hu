@@ -39,6 +39,7 @@ from process_words import (
     MANUAL_WRITTEN_ABBREVIATIONS,
     REJECT_ENTRY_FLAGS,
     _collect_source_filters,
+    _continuation_rejection_reason,
     _apply_suffix_rule,
     _is_high_risk_ordinary_inflection,
     _is_risky_generation_morphology,
@@ -138,6 +139,7 @@ class MorphEvidence:
     lemma_agreement: bool = False
     external_headword_lemmas: tuple[str, ...] = ()
     parts_of_speech: tuple[str, ...] = ()
+    ordinary_possessive_lemmas: tuple[str, ...] = ()
 
     def as_cache_fields(self) -> tuple[str, ...]:
         return (
@@ -152,12 +154,13 @@ class MorphEvidence:
             _bool_field(self.lemma_agreement),
             ",".join(self.external_headword_lemmas),
             ",".join(self.parts_of_speech),
+            ",".join(self.ordinary_possessive_lemmas),
         )
 
     @classmethod
     def from_cache_fields(cls, fields: list[str]) -> "MorphEvidence":
-        if len(fields) != 11:
-            raise ValueError(f"Expected 11 morphdb evidence fields, got {len(fields)}")
+        if len(fields) != 12:
+            raise ValueError(f"Expected 12 morphdb evidence fields, got {len(fields)}")
         return cls(
             recognized=_parse_bool(fields[0]),
             nonproper=_parse_bool(fields[1]),
@@ -170,6 +173,7 @@ class MorphEvidence:
             lemma_agreement=_parse_bool(fields[8]),
             external_headword_lemmas=tuple(filter(None, fields[9].split(","))),
             parts_of_speech=tuple(filter(None, fields[10].split(","))),
+            ordinary_possessive_lemmas=tuple(filter(None, fields[11].split(","))),
         )
 
 
@@ -200,6 +204,28 @@ def is_source_policy_blocked_surface(word: str) -> bool:
 def _is_lower_lexeme(value: str) -> bool:
     letters = [character for character in value if character.isalpha()]
     return bool(letters) and value == value.lower()
+
+
+def top_level_morph_tags(analysis: str) -> tuple[str, ...]:
+    """Preserve nested feature scopes: possessor plurality is not noun plurality.
+
+    Malformed brackets fail closed for the ordinary-possessive admission path.
+    """
+    tags = []
+    depth = 0
+    start = 0
+    for index, character in enumerate(analysis):
+        if character == "<":
+            if depth == 0:
+                start = index
+            depth += 1
+        elif character == ">":
+            if depth == 0:
+                return ()
+            depth -= 1
+            if depth == 0:
+                tags.append(analysis[start:index + 1])
+    return tuple(tags) if depth == 0 else ()
 
 
 def parse_morphdb_block(
@@ -256,8 +282,25 @@ def parse_morphdb_block(
 
     possessive_only = every(has_possessive)
     plural_possessive_only = every(
-        lambda line: has_possessive(line) and "<PLUR" in line
+        lambda line: has_possessive(line) and (
+            "<PLUR>" in top_level_morph_tags(line) or "<ANP<PLUR>>" in top_level_morph_tags(line)
+        )
     )
+    ordinary_possessive_lemmas = set()
+    for line in nonproper_lines:
+        tags = top_level_morph_tags(line)
+        # All conditions and the lemma must belong to the SAME noun analysis.
+        # Anaphoric -é, derivation, prefixes and other semantic suffixes retain
+        # their existing evidence gates even when a homograph is a plain noun.
+        if ("/NOUN" not in line or "[" in line or "/PREV+" in line
+            or sum(tag.startswith("<POSS") for tag in tags) != 1
+            or any(not (tag == "<PLUR>" or tag.startswith(("<POSS", "<CAS<"))) for tag in tags)):
+            continue
+        ordinary_possessive_lemmas.update(
+            unicodedata.normalize("NFC", lemma)
+            for lemma in STEM_RE.findall(line) + LEXEME_RE.findall(line)
+            if _is_lower_lexeme(lemma) and lemma in approved_source_lemmas
+        )
     safe_inflection = any(
         "[" not in line and "/PREV+" not in line and not has_possessive(line)
         for line in nonproper_lines
@@ -285,6 +328,7 @@ def parse_morphdb_block(
         lemma_agreement=lemma_agreement,
         external_headword_lemmas=external_headword_lemmas,
         parts_of_speech=tuple(sorted(parts_of_speech)),
+        ordinary_possessive_lemmas=tuple(sorted(ordinary_possessive_lemmas)),
     )
 
 
@@ -303,6 +347,7 @@ def decide_word(
     explicit_surface_removal: bool = False,
     explicit_lemma_removal: bool = False,
     accepted_derived_inflection: bool = False,
+    licensed_possessive_lemmas: frozenset[str] = frozenset(),
 ) -> Decision:
     """Apply the conservative policy in priority order."""
     if word in HUNGARIAN_REQUIRED_ONE_LETTER_WORDS:
@@ -337,6 +382,12 @@ def decide_word(
         return Decision(False, "morphdb_nonstandalone_source")
     if morph.proper_only:
         return Decision(False, "morphdb_proper_name_only")
+
+    if (current_candidate and morph.recognized and morph.nonproper
+        and licensed_possessive_lemmas.intersection(morph.ordinary_possessive_lemmas)):
+        if word.endswith("kor") and corpus.complete < GENERATED_KOR_COMPLETE_FREQUENCY:
+            return Decision(False, "unattested_generated_kor_form")
+        return Decision(True, "cross_analyzer_possessive_of_accepted_noun")
 
     # Novel forms discovered from the corpus are eligible only through this
     # narrow path.  Magyar Ispell has already accepted each input surface;
@@ -868,18 +919,18 @@ def _analysis_cache_key(
     for lemma in sorted(accepted_external_headwords):
         digest.update(lemma.encode("utf-8"))
         digest.update(b"\n")
-    digest.update(b"morph-evidence-schema-3")
+    digest.update(b"morph-evidence-schema-4")
     return digest.hexdigest()[:20]
 
 
 def iter_cached_morph_evidence(cache_path: Path) -> Iterator[tuple[str, MorphEvidence]]:
     with gzip.open(cache_path, "rt", encoding="utf-8") as source:
         header = source.readline().rstrip("\n")
-        if not header.startswith("# schema=3\t"):
+        if not header.startswith("# schema=4\t"):
             raise ValueError(f"Unsupported morphdb cache header in {cache_path}")
         for line in source:
             fields = line.rstrip("\n").split("\t")
-            if len(fields) != 12:
+            if len(fields) != 13:
                 raise ValueError(f"Malformed morphdb cache row in {cache_path}")
             yield fields[0], MorphEvidence.from_cache_fields(fields[1:])
 
@@ -1022,7 +1073,7 @@ def build_morph_evidence_cache(
             temporary_path, "wt", encoding="utf-8", newline="\n"
         ) as cache_file:
             cache_file.write(
-                f"# schema=3\tcandidate_sha256={_sha256_file(str(candidates_path))}"
+                f"# schema=4\tcandidate_sha256={_sha256_file(str(candidates_path))}"
                 f"\tmorphdb_sha256={MORPHDB_SHA256}\n"
             )
             for chunk_path in chunk_paths:
@@ -1137,6 +1188,55 @@ def licensed_inflections_of_accepted_words(
     return result
 
 
+def licensed_possessives_of_accepted_nouns(
+    accepted: frozenset[str],
+    candidates: frozenset[str],
+    aff_path: Path,
+    dic_path: Path,
+    surface_additions: frozenset[str] = frozenset(),
+    lemma_removals: frozenset[str] = frozenset(),
+) -> dict[str, frozenset[str]]:
+    """Prove ordinary possessive suffixes on independently accepted noun lemmas.
+
+    Only explicit source noun entries and their licensed terminal suffix rules
+    qualify. A surface approval, pronoun, new derivation or rescued possessive
+    cannot license a family. Internal inflectional stems use their source lemma.
+    Any number of owners is supported; plural possessed objects and anaphoric
+    stacks retain their existing corpus gates rather than broadening this fix.
+    """
+    af, am, prefixes, suffixes, special = parse_aff(str(aff_path))
+    lines = dic_path.read_text(encoding="utf-8").splitlines()[1:]
+    abbreviations, blocked, proper_derived = _collect_source_filters(
+        lines, af, am, prefixes, suffixes, special
+    )
+    anchors = accepted - surface_additions - blocked - proper_derived - lemma_removals
+    result: dict[str, set[str]] = defaultdict(set)
+    for line in lines:
+        parsed = parse_dictionary_line(line, af, am)
+        if parsed is None:
+            continue
+        word, flags, morphology = parsed
+        lemma = _source_lemma(word, morphology)
+        if ("po:noun" not in morphology.split() or lemma not in anchors
+            or word != word.lower() or not is_valid_hu_word(word)
+            or word in abbreviations or word in proper_derived or word in blocked
+            or any(_has_flag(flags, special, name) for name in REJECT_ENTRY_FLAGS)):
+            continue
+        for flag in flags:
+            for rule in suffixes.get(bytes([flag]), ()):
+                tags = rule.morphology.split()
+                if (sum(tag.startswith("is:POSS_") for tag in tags) != 1
+                    or "is:PLUR" in tags
+                    or "is:POSSESSEE" in tags
+                    or _is_risky_generation_morphology(rule.morphology)
+                    or _continuation_rejection_reason(rule.continuation_flags, special)):
+                    continue
+                surface = _apply_suffix_rule(word, rule)
+                if surface in candidates and surface not in blocked:
+                    result[surface].add(lemma)
+    return {surface: frozenset(lemmas) for surface, lemmas in result.items()}
+
+
 def build_outputs(
     *,
     merged_candidates_path: Path,
@@ -1157,8 +1257,10 @@ def build_outputs(
     source_metadata: dict,
     reviewed_additions: dict | None = None,
     accepted_derived_inflections: frozenset[str] = frozenset(),
+    licensed_possessives: dict[str, frozenset[str]] | None = None,
 ) -> dict:
     reviewed_additions = reviewed_additions or {}
+    licensed_possessives = licensed_possessives or {}
     output_dir.mkdir(parents=True, exist_ok=True)
     candidate_path = output_dir / "hungarian_hu_hu_evidence_candidate.txt"
     evidence_path = output_dir / "evidence.tsv.gz"
@@ -1184,7 +1286,7 @@ def build_outputs(
             "\tmorphdb_recognized\tmorphdb_nonproper\tmorphdb_proper_only"
             "\tderivation_only\tprefix_only\tpossessive_only"
             "\tplural_possessive_only\tsafe_inflection\tlemma_agreement"
-            "\texternal_headword_lemmas\tparts_of_speech\treviewed_lemmas\n"
+            "\texternal_headword_lemmas\tparts_of_speech\tordinary_possessive_lemmas\treviewed_lemmas\n"
         )
         evidence_file.write(header)
         rejected_file.write("word\treason\tcomplete\tquality_8\tquality_4\n")
@@ -1213,6 +1315,7 @@ def build_outputs(
                 explicit_surface_removal=word in surface_removals,
                 explicit_lemma_removal=word in lemma_removed_surfaces,
                 accepted_derived_inflection=word in accepted_derived_inflections,
+                licensed_possessive_lemmas=licensed_possessives.get(word, frozenset()),
             )
             reason_counts[decision.reason] += 1
             counts["total_candidates"] += 1
@@ -1315,6 +1418,10 @@ def build_outputs(
             "prefix_combinations_require_quality_8_usage": True,
             "cross_analyzer_basic_inflections_require_lemma_agreement": True,
             "derived_word_inflections_require_accepted_intermediate_and_licensed_ordinary_suffix": True,
+            "ordinary_possessives_require_accepted_noun_and_matching_source_analyses": True,
+            "ordinary_possessives_require_surface_frequency": False,
+            "possessor_plurality_is_distinct_from_possession_plurality": True,
+            "plural_possessed_objects_retain_corpus_gate": True,
             "generated_kor_complete_frequency": GENERATED_KOR_COMPLETE_FREQUENCY,
             "surface_additions": sorted(surface_additions),
             "surface_removals": sorted(surface_removals),
@@ -1757,6 +1864,24 @@ def main() -> int:
         continuations = licensed_inflections_of_accepted_words(
             accepted, derivation_candidates, current_aff_path, current_dic_path, surface_additions
         )
+        print("Checking ordinary possessives of accepted nouns...", flush=True)
+        possessives = licensed_possessives_of_accepted_nouns(
+            accepted, ordinary_words, current_aff_path, current_dic_path,
+            surface_additions, lemma_removals,
+        )
+        possessive_proof_path = output_dir / "ordinary-possessive-evidence.tsv.gz"
+        with gzip.open(possessive_proof_path, "wt", encoding="utf-8") as proof:
+            proof.write("surface\taccepted_noun_lemmas\n")
+            for surface, lemmas in sorted(possessives.items()):
+                proof.write(f"{surface}\t{','.join(sorted(lemmas))}\n")
+        source_metadata["ordinary_possessives"] = {
+            "provenance_file": possessive_proof_path.name,
+            "licensed_candidates": len(possessives),
+            "accepted_noun_vocabulary_sha256": audit["output_sha256"],
+            "surface_approval_families_excluded": True,
+            "maximum_suffix_applications": 1,
+        }
+        print(f"  verified {len(possessives):,} ordinary possessive paths", flush=True)
         proof_path = output_dir / "ordinary-continuation-evidence.tsv.gz"
         with gzip.open(proof_path, "wt", encoding="utf-8") as proof:
             proof.write("surface\taccepted_intermediate\n")
@@ -1770,8 +1895,9 @@ def main() -> int:
             "maximum_suffix_applications": 2,
         }
         print(f"  verified {len(continuations):,} ordinary continuation paths", flush=True)
-        if continuations:
-            audit = build_outputs(**output_arguments, accepted_derived_inflections=frozenset(continuations))
+        if continuations or possessives:
+            audit = build_outputs(**output_arguments, accepted_derived_inflections=frozenset(continuations),
+                                  licensed_possessives=possessives)
         else:
             (output_dir / "audit.json").write_text(
                 json.dumps(audit, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"

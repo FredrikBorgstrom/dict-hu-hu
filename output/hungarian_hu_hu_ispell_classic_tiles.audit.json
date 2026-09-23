@@ -1,6 +1,6 @@
 {
   "ambiguousAfterResolution": 0,
-  "ambiguousBeforeResolution": 186939,
+  "ambiguousBeforeResolution": 245625,
   "collisionPolicy": "keep shortest surface, then Unicode code-point order",
   "collisions": [
     {
@@ -9,16 +9,16 @@
       "keptSurface": "ésszerű"
     }
   ],
-  "excludedEntries": 7420,
+  "excludedEntries": 11217,
   "excludedReasonCounts": {
     "authoritative_boundary_unrepresentable": 30,
     "canonical_key_collision": 1,
-    "unrepresentable_token_sequence": 631,
-    "unsupported_character": 6758
+    "unrepresentable_token_sequence": 948,
+    "unsupported_character": 10238
   },
   "fullDoublingCounts": {
     "cs": 2,
-    "gy": 9,
+    "gy": 10,
     "ly": 0,
     "ny": 3,
     "sz": 19,
@@ -28,8 +28,8 @@
   "generatorVersion": "1.3.0",
   "input": {
     "path": "output/hungarian_hu_hu_ispell.txt",
-    "sha256": "8a43b395241ac89c000434e95bb9a7f4b47e0e1db4907ca8d55bab9c7c0a9439",
-    "wordCount": 1253262
+    "sha256": "76cb94f188c6605dc998c1b44836c3130c97b47823921b9380c2c4c4e473837a",
+    "wordCount": 1693239
   },
   "morphology": {
     "authoritativeBoundaries": {
@@ -95,16 +95,16 @@
       }
     },
     "lemmaDirectory": "output/definitions/hu/surface-lemma/v1",
-    "surfaceCount": 1253262
+    "surfaceCount": 1693239
   },
   "output": {
-    "acceptedEntries": 1245842,
-    "compatibilityAliases": 13851,
-    "runtimeEntries": 1259693,
+    "acceptedEntries": 1682022,
+    "compatibilityAliases": 16830,
+    "runtimeEntries": 1698852,
     "runtimePath": "output/hungarian_hu_hu_ispell_classic_tiles.tsv",
-    "runtimeSha256": "ff28a2a03ebd9c6a3a8ebf5c6c733388b4759b8ef3a53697f4fde5204192c374",
+    "runtimeSha256": "a3f50ae11db8bacafe14ff437f6ff7686adbaf999e842beaf37dc13657c87062",
     "sourcePath": "output/hungarian_hu_hu_ispell_classic_tiles.source.tsv.gz",
-    "sourceSha256": "966a783325754c31cbf7da74fe64ea960303e195215bae972e1c686cd4656444"
+    "sourceSha256": "4fa3738e936a54836b8cd88fb629631e995dc5b5ce739bea1e287f7ea762370f"
   },
   "override": {
     "count": 6,
@@ -153,21 +153,21 @@
   ],
   "rendererDiagnosticMismatchCount": 0,
   "resolutionCounts": {
-    "authoritativeBoundary": 1930,
-    "morphology": 177270,
-    "orthography": 1066637,
+    "authoritativeBoundary": 2337,
+    "morphology": 235680,
+    "orthography": 1444000,
     "override": 6
   },
   "roundTripFailures": [],
   "schemaVersion": 1,
   "shortenedDoublingCounts": {
-    "cs": 1067,
-    "gy": 840,
-    "ly": 551,
-    "ny": 2091,
-    "sz": 7711,
-    "ty": 1558,
+    "cs": 1511,
+    "gy": 971,
+    "ly": 648,
+    "ny": 2386,
+    "sz": 9071,
+    "ty": 2210,
     "zs": 55
   },
-  "unrepresentableEntries": 7419
+  "unrepresentableEntries": 11216
 }

@@ -94,7 +94,7 @@ distribution.
 quality-first candidate; its matching audit records its word count. The candidate keeps
 ordinary inflections when Magyar Ispell and morphdb.hu agree on the lemma,
 while applying stronger clean-corpus requirements to prefixes, derivations,
-possessives, and plural + possessive stacks. It also discovers strongly
+unconfirmed possessives, and plural + possessive stacks. It also discovers strongly
 attested safe inflections of already accepted external compound headwords.
 
 The companion build is implemented in `build_evidence_wordlist.py`. It:
@@ -107,7 +107,10 @@ The companion build is implemented in `build_evidence_wordlist.py`. It:
    quality-4 partitions controlling acceptance
 5. Rejects proper-name-only analyses even when their lowercase spelling occurs
    in web text
-6. Treats both morphdb.hu `POSS` and `ANP` possessee paradigms as high risk
+6. Requires corpus evidence for unconfirmed possessives, plural possessed
+   objects, and `ANP` anaphoric possessee stacks. Ordinary singular possessions
+   follow the independently corroborated noun rule below; plural owners are
+   distinguished from plural possessed objects
 7. Adds morphdb.hu headwords missing from Magyar Ispell only when morphdb.hu
    recognizes them as non-proper standalone forms and they occur at least ten
    times in the cleanest quality-4 corpus partition; internal `PSEUDOROOT`
@@ -126,6 +129,39 @@ The companion build is implemented in `build_evidence_wordlist.py`. It:
 12. Applies traceable surface and lemma removals from the same override set;
     lemma removals discard the complete generated family while preserving a
     homographic surface when another allowed lemma still licenses it
+
+### Ordinary possessives (2026-09-23)
+
+Ordinary possessives of an independently accepted common noun do not need
+exact-surface corpus occurrences. All six possessor person/number combinations
+are eligible, including several owners of one object. The source must explicitly
+classify the stem as a noun and license the exact terminal possessive suffix;
+morphdb.hu must independently supply an ordinary noun analysis with the same
+lemma. Internal stems retain the source headword, including irregular stems.
+For example, Hungarian `fügétek` means English “your fig” (several owners),
+and Hungarian `könyvetek` means English “your book” (several owners).
+
+A bounded second pass uses only nouns accepted before the rescue pass.
+Surface-only review approvals do not license families. Proper names, written
+abbreviations, reviewed removals, prefixes, derivations, forbidden continuation
+flags, plural possessed objects and anaphoric possessive stacks keep their
+existing checks. Ordinary case endings on a singular possession are eligible;
+unattested temporal `-kor` forms remain excluded. Morphological feature parsing
+distinguishes a nested possessor plural from a top-level noun plural, and the
+analysis cache schema is bumped to prevent reuse of the old classification.
+
+`ordinary-possessive-evidence.tsv.gz` records the exact source-licensed noun
+lemmas; the main evidence file records corroborating analyzer lemmas and the
+final decision. Promotion preserves both evidence files.
+
+For an expansion after a policy change, first preserve the current release,
+then build `process_words.py --offline --output-dir artifacts/source-expansion`
+and pass that directory to `build_evidence_wordlist.py --source-output-dir`.
+Use the documented checksum-verified retention baseline for existing external
+additions. Promote with the complete source-expansion lemma index supplied as
+`--retention-lemma-index` so new inflections map to their noun, then regenerate
+both tile modes. Validate with `test_possessive_inflections.py` and
+`verify_possessive_inflections.py --baseline <preserved-output> --report <report-dir>`.
 
 ### Native-review additions (2026-09-19)
 

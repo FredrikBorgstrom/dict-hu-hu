@@ -9,6 +9,14 @@ complete license is in `COPYING.MPL`.
 
 ## Change history
 
+- **2026-09-23 (ordinary possessives):** Distinguished multiple owners from
+  multiple possessed objects in nested morphology. Added source-licensed
+  possessives of independently accepted common nouns without an exact-surface
+  corpus gate, corroborated against the same lemma in morphdb.hu. Preserved
+  the existing plural-possession, anaphoric, derivation, prefix, source-flag,
+  temporal-suffix, and reviewed-removal checks. Invalidated stale morphology
+  caches and added source-provenance, regression tests, and release verification.
+
 - **2026-09-16 (suffix continuations):** Fixed ordinary inflections after an
   explicitly licensed suffix continuation, including `fáj → fájó → fájót`.
   Expansion is bounded to two suffix steps and retains intermediate-word,
