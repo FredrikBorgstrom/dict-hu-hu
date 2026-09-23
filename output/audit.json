@@ -4,8 +4,8 @@
   "source": {
     "retention_baseline": {
       "file": "hungarian_hu_hu_ispell.txt",
-      "sha256": "8a43b395241ac89c000434e95bb9a7f4b47e0e1db4907ca8d55bab9c7c0a9439",
-      "words": 1253262
+      "sha256": "76cb94f188c6605dc998c1b44836c3130c97b47823921b9380c2c4c4e473837a",
+      "words": 1693239
     },
     "current_candidate": {
       "path": "../../abcx3_bun/artifacts/Hungarian Possessive Fix 2026-09-23/source-expansion/hungarian_hu_hu_ispell.txt",
@@ -55,6 +55,16 @@
       "surface_approval_families_excluded": true,
       "maximum_suffix_applications": 1
     },
+    "derived_possessives": {
+      "provenance_file": "derived-possessive-evidence.tsv.gz",
+      "source_licensed_candidates": 915299,
+      "licensed_candidates": 254961,
+      "corroborated_candidates": 251593,
+      "accepted_anchor_vocabulary_sha256": "8075d985740197484784aba5f93d0d66b459224cb06e1f30debc72d22ffafbf9",
+      "identical_morphdb_lexical_analysis_required": true,
+      "surface_approval_families_excluded": true,
+      "maximum_suffix_applications": 2
+    },
     "ordinary_suffix_continuations": {
       "provenance_file": "ordinary-continuation-evidence.tsv.gz",
       "licensed_candidates": 339385,
@@ -92,6 +102,7 @@
     "ordinary_possessives_require_surface_frequency": false,
     "possessor_plurality_is_distinct_from_possession_plurality": true,
     "plural_possessed_objects_retain_corpus_gate": true,
+    "derived_possessives_require_accepted_anchor_and_identical_morphdb_lexical_analysis": true,
     "generated_kor_complete_frequency": 1,
     "surface_additions": [
       "ablakfa",
@@ -1951,16 +1962,16 @@
     "lemma_removed_surface_count": 1708
   },
   "counts": {
-    "accepted": 1693239,
+    "accepted": 1917093,
     "accepted_additions": 13611,
     "current_candidates": 4759570,
     "external_candidates": 42123,
-    "rejected": 3108454,
-    "rejected_from_current": 3079942,
+    "rejected": 2884600,
+    "rejected_from_current": 2856088,
     "total_candidates": 4801693,
-    "final_unique_words": 1693239,
-    "lemma_index_surfaces": 1693239,
-    "lemma_index_mappings": 1854899,
+    "final_unique_words": 1917093,
+    "lemma_index_surfaces": 1917093,
+    "lemma_index_mappings": 2126903,
     "lemma_index_shards": 523
   },
   "reason_counts": {
@@ -1969,10 +1980,11 @@
     "attested_prefix_combination": 20130,
     "corroborated_corpus_singleton": 57348,
     "cross_analyzer_basic_inflection": 325743,
-    "cross_analyzer_inflection_of_accepted_derived_word": 278375,
-    "cross_analyzer_possessive_of_accepted_noun": 498825,
+    "cross_analyzer_inflection_of_accepted_derived_word": 275340,
+    "cross_analyzer_possessive_of_accepted_derived_word": 244426,
+    "cross_analyzer_possessive_of_accepted_noun": 481288,
     "direct_source_form": 5720,
-    "insufficient_usage_or_risky_inflection": 73609,
+    "insufficient_usage_or_risky_inflection": 72576,
     "morphdb_nonstandalone_source": 31,
     "morphdb_proper_name_only": 21094,
     "no_independent_evidence": 717522,
@@ -1982,11 +1994,11 @@
     "reviewed_surface_addition": 1779,
     "reviewed_surface_removal": 53,
     "strong_plural_possessive_usage": 8740,
-    "unattested_generated_kor_form": 44771,
+    "unattested_generated_kor_form": 51201,
     "unconfirmed_external_compound_headword_inflection": 23788,
-    "weak_derivation": 258324,
+    "weak_derivation": 258323,
     "weak_plural_possessive": 988396,
-    "weak_possessive": 972280,
+    "weak_possessive": 743030,
     "weak_prefix_combination": 6874,
     "written_abbreviation_shape": 4
   },
@@ -1994,13 +2006,13 @@
     "1": 4,
     "2": 124,
     "3": 933,
-    "4": 4432,
-    "5": 20225,
-    "6": 55549,
-    "7": 143533,
-    "8": 296680,
-    "9": 480263,
-    "10": 691496
+    "4": 4454,
+    "5": 20468,
+    "6": 56963,
+    "7": 150820,
+    "8": 317641,
+    "9": 541765,
+    "10": 823921
   },
   "questioned_words": {
     "as": {
@@ -2661,6 +2673,28 @@
       "fűtendőért",
       "dokkoltat"
     ],
+    "cross_analyzer_possessive_of_accepted_derived_word": [
+      "ígérőjéből",
+      "üregesében",
+      "tarjásukat",
+      "falásukon",
+      "bízóddá",
+      "izzításuk",
+      "kapottam",
+      "métaszerűd",
+      "böködődön",
+      "rémülésem",
+      "lazítómba",
+      "ormányosod",
+      "centizőjén",
+      "fűzésemnek",
+      "klipeséhez",
+      "épségemen",
+      "bikásuktól",
+      "sörözőm",
+      "ballonosa",
+      "behívósáig"
+    ],
     "cross_analyzer_possessive_of_accepted_noun": [
       "agyánál",
       "achátomig",
@@ -2913,23 +2947,23 @@
       "vékádkor",
       "pókhálókor",
       "faxoskor",
+      "vasasodkor",
       "centimkor",
       "bárójakor",
       "hadtestkor",
       "magnóskor",
+      "kávásukkor",
       "teázómkor",
       "urémiáskor",
       "madárkakor",
       "őrszemkor",
+      "somosodkor",
       "ringókkor",
       "voltikor",
+      "dalosakor",
       "romjakor",
       "benzolkor",
-      "prédakor",
-      "taxikkor",
-      "viskókkor",
-      "epeútikor",
-      "kazánoskor"
+      "prédakor"
     ],
     "unconfirmed_external_compound_headword_inflection": [
       "törpepálma",
@@ -2998,14 +3032,10 @@
       "yardokéiba"
     ],
     "weak_possessive": [
-      "ígérőjéből",
-      "üregesében",
       "parásukhoz",
       "metrósén",
       "abházéban",
       "borzijakor",
-      "tarjásukat",
-      "falásukon",
       "tapasznyid",
       "üzbégükkel",
       "köttetésé",
@@ -3013,11 +3043,15 @@
       "hölgyiévé",
       "huszitámon",
       "mullé",
-      "bízóddá",
       "élőségemet",
-      "izzításuk",
       "ebbélijébe",
-      "polcnyiddá"
+      "polcnyiddá",
+      "bodoré",
+      "pikolóidig",
+      "komisunkat",
+      "brávóijára",
+      "fövőmre",
+      "ölűét"
     ],
     "weak_prefix_combination": [
       "átcibáltak",
@@ -3048,7 +3082,7 @@
       "ss"
     ]
   },
-  "output_sha256": "76cb94f188c6605dc998c1b44836c3130c97b47823921b9380c2c4c4e473837a",
+  "output_sha256": "ab776470fb855a3f6a6424d7ca09ae33a8ecbc829954ae2ef87f884a78302bb5",
   "artifacts": {
     "candidate": "hungarian_hu_hu_evidence_candidate.txt",
     "evidence": "evidence.tsv.gz",
@@ -3058,8 +3092,8 @@
   "lemma_index": {
     "schema_version": 1,
     "relative_path": "definitions/hu/surface-lemma/v1",
-    "surface_count": 1693239,
-    "mapping_count": 1854899,
+    "surface_count": 1917093,
+    "mapping_count": 2126903,
     "shard_count": 523,
     "self_mappings_added_for_unmapped_surfaces": 0,
     "external_headword_mappings_added_for_unmapped_surfaces": 0

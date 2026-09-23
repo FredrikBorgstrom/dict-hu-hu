@@ -163,6 +163,35 @@ additions. Promote with the complete source-expansion lemma index supplied as
 both tile modes. Validate with `test_possessive_inflections.py` and
 `verify_possessive_inflections.py --baseline <preserved-output> --report <report-dir>`.
 
+### Possessives of accepted derived words (2026-09-23 follow-up)
+
+The original possessive rule left a gap for derived nouns: Hungarian `szörfös`
+means English “surfer,” and Hungarian `szörfösük` means English “their surfer.”
+Both analyzers recognize the latter, but morphology still marks its base as
+derived. A new rule in `derived_possessives.py` verifies an already accepted
+nominal anchor before admitting its ordinary possessive inflections.
+
+Magyar Ispell must license the exact path from an explicit noun/adjective entry
+or through one nominal derivation followed by one terminal possessive suffix.
+Morphdb.hu must independently analyze both the accepted anchor and its
+possessive with the identical root and complete lexical derivation, differing
+only by the possessive and optional case ending. An adjective analysis can
+represent a nominal use, as it does for the reported occupation noun.
+
+This is a bounded second pass over independently accepted anchors, not a
+recursive expansion of rescued forms. It retains the proper-name, source-flag,
+surface-approval, reviewed-removal, prefix, plural-possession, anaphoric-stack,
+temporal-suffix and length restrictions. The existing ten-character generation
+limit still applies. `derived-possessive-evidence.tsv.gz` records each accepted
+anchor, source lemma and matching analyzer path. Its separate analysis cache
+is keyed by both pinned analyzer files, the complete word inventory and parser
+schema, leaving the ordinary morphology cache unchanged.
+
+Build and promote with the same source-expansion and checksum-verified baseline
+workflow above. `test_derived_possessives.py` checks the licensing and matching
+analysis boundaries; the release verifier checks the reported family and other
+derived families in all three tile modes, plus every addition and retained word.
+
 ### Native-review additions (2026-09-19)
 
 The active list includes 1,777 explicitly reviewed surface forms verified against

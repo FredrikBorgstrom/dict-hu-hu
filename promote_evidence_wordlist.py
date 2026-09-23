@@ -248,7 +248,8 @@ def promote(candidate_dir: Path, output_dir: Path, retention_index_dir: Path | N
     # Admission provenance belongs to the promoted vocabulary and must survive
     # a restart or use of a different candidate output directory.
     replace_file(candidate_evidence_path, output_dir / "evidence.tsv.gz")
-    for proof_name in ("ordinary-continuation-evidence.tsv.gz", "ordinary-possessive-evidence.tsv.gz"):
+    for proof_name in ("ordinary-continuation-evidence.tsv.gz", "ordinary-possessive-evidence.tsv.gz",
+                       "derived-possessive-evidence.tsv.gz"):
         proof_path = candidate_dir / proof_name
         if proof_path.exists():
             replace_file(proof_path, output_dir / proof_name)

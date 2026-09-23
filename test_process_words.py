@@ -643,10 +643,11 @@ class PublishedOutputRegressionTests(unittest.TestCase):
             # direct noun and Magyar Ispell explicitly licenses its ordinary
             # superessive -n. morphdb's derived-only analysis no longer blocks
             # a proven inflection of an independently accepted surface.
-            self.assertTrue(
-                (ordinary_forms_preserved_by_this_policy - {"luxok", "vádin"}).isdisjoint(words)
-            )
-            self.assertTrue({"boly", "clown", "luxok", "vádin"}.issubset(words))
+            # The ordinary-possessive policy additionally corroborates these
+            # from the accepted noun lemmas csapa, mi (a noun homograph), záp.
+            supported = {"luxok", "vádin", "csapámhoz", "mijén", "zápunk"}
+            self.assertTrue((ordinary_forms_preserved_by_this_policy - supported).isdisjoint(words))
+            self.assertTrue(({"boly", "clown"} | supported).issubset(words))
         else:
             self.assertTrue(ordinary_forms_preserved_by_this_policy.issubset(words))
             self.assertTrue({"boly", "clown"}.issubset(words))

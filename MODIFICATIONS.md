@@ -9,6 +9,13 @@ complete license is in `COPYING.MPL`.
 
 ## Change history
 
+- **2026-09-23 (derived possessive follow-up):** Extended ordinary possessive
+  coverage to independently accepted derived nouns and nominal adjective uses.
+  Require an exact source-licensed anchor path and identical lexical derivation
+  in morphdb.hu for anchor and inflection. Preserve existing exclusions, bounded
+  expansion and length limits; publish matching path provenance and regression
+  coverage for the reported surfer family plus dancer and runner families.
+
 - **2026-09-23 (ordinary possessives):** Distinguished multiple owners from
   multiple possessed objects in nested morphology. Added source-licensed
   possessives of independently accepted common nouns without an exact-surface

@@ -55,6 +55,8 @@ from process_words import (
 )
 from reviewed_additions import (load_reviewed_additions, DEFAULT_REVIEWED_ADDITIONS,
                                 load_gameplay_overrides, DEFAULT_GAMEPLAY_OVERRIDES)
+from derived_possessives import (licensed_anchored_possessives,
+                                analyze_anchors_and_possessives, corroborate_paths)
 
 
 MORPHDB_ARCHIVE_NAME = "morphdb-hu-20060525.tgz"
@@ -348,6 +350,7 @@ def decide_word(
     explicit_lemma_removal: bool = False,
     accepted_derived_inflection: bool = False,
     licensed_possessive_lemmas: frozenset[str] = frozenset(),
+    accepted_derived_possessive: bool = False,
 ) -> Decision:
     """Apply the conservative policy in priority order."""
     if word in HUNGARIAN_REQUIRED_ONE_LETTER_WORDS:
@@ -382,6 +385,12 @@ def decide_word(
         return Decision(False, "morphdb_nonstandalone_source")
     if morph.proper_only:
         return Decision(False, "morphdb_proper_name_only")
+
+    if (accepted_derived_possessive and current_candidate and morph.recognized
+            and morph.nonproper and morph.lemma_agreement and not morph.prefix_only):
+        if word.endswith("kor") and corpus.complete < GENERATED_KOR_COMPLETE_FREQUENCY:
+            return Decision(False, "unattested_generated_kor_form")
+        return Decision(True, "cross_analyzer_possessive_of_accepted_derived_word")
 
     if (current_candidate and morph.recognized and morph.nonproper
         and licensed_possessive_lemmas.intersection(morph.ordinary_possessive_lemmas)):
@@ -1258,6 +1267,7 @@ def build_outputs(
     reviewed_additions: dict | None = None,
     accepted_derived_inflections: frozenset[str] = frozenset(),
     licensed_possessives: dict[str, frozenset[str]] | None = None,
+    accepted_derived_possessives: frozenset[str] = frozenset(),
 ) -> dict:
     reviewed_additions = reviewed_additions or {}
     licensed_possessives = licensed_possessives or {}
@@ -1316,6 +1326,7 @@ def build_outputs(
                 explicit_lemma_removal=word in lemma_removed_surfaces,
                 accepted_derived_inflection=word in accepted_derived_inflections,
                 licensed_possessive_lemmas=licensed_possessives.get(word, frozenset()),
+                accepted_derived_possessive=word in accepted_derived_possessives,
             )
             reason_counts[decision.reason] += 1
             counts["total_candidates"] += 1
@@ -1422,6 +1433,7 @@ def build_outputs(
             "ordinary_possessives_require_surface_frequency": False,
             "possessor_plurality_is_distinct_from_possession_plurality": True,
             "plural_possessed_objects_retain_corpus_gate": True,
+            "derived_possessives_require_accepted_anchor_and_identical_morphdb_lexical_analysis": True,
             "generated_kor_complete_frequency": GENERATED_KOR_COMPLETE_FREQUENCY,
             "surface_additions": sorted(surface_additions),
             "surface_removals": sorted(surface_removals),
@@ -1882,6 +1894,50 @@ def main() -> int:
             "maximum_suffix_applications": 1,
         }
         print(f"  verified {len(possessives):,} ordinary possessive paths", flush=True)
+        print("Checking possessives of accepted derived words...", flush=True)
+        anchored_paths = licensed_anchored_possessives(
+            accepted, ordinary_words - accepted, current_aff_path, current_dic_path,
+            surface_additions, lemma_removals,
+        )
+        source_path_count = len(anchored_paths)
+        analysis_words = frozenset(anchor for paths in anchored_paths.values() for anchor, _ in paths)
+        anchored_analyses = analyze_anchors_and_possessives(
+            analysis_words, morphdb_aff_path, morphdb_dic_path, hunspell_binary,
+            cache_dir, args.morph_workers,
+        )
+        # Analyze inexpensive anchors first. Basic-noun possessives already
+        # have their own rule; only genuinely derived anchors need this pass.
+        anchored_paths = {
+            surface: frozenset((anchor, lemma) for anchor, lemma in paths
+                               if any(root == lemma and "[" in signature
+                                      for root, signature in anchored_analyses[anchor][0]))
+            for surface, paths in anchored_paths.items()
+        }
+        anchored_paths = {surface: paths for surface, paths in anchored_paths.items() if paths}
+        anchored_analyses.update(analyze_anchors_and_possessives(
+            frozenset(anchored_paths), morphdb_aff_path, morphdb_dic_path,
+            hunspell_binary, cache_dir, args.morph_workers,
+        ))
+        derived_possessives = corroborate_paths(anchored_paths, anchored_analyses)
+        derived_proof_path = output_dir / "derived-possessive-evidence.tsv.gz"
+        with gzip.open(derived_proof_path, "wt", encoding="utf-8") as proof:
+            proof.write("surface\taccepted_anchor\tsource_lemma\tmorphdb_lexical_analysis\n")
+            for surface, paths in sorted(derived_possessives.items()):
+                for anchor, lemma in sorted(paths):
+                    for root, signature in sorted(anchored_analyses[surface][1] & anchored_analyses[anchor][0]):
+                        if root == lemma and "[" in signature:
+                            proof.write(f"{surface}\t{anchor}\t{lemma}\t{signature}\n")
+        source_metadata["derived_possessives"] = {
+            "provenance_file": derived_proof_path.name,
+            "source_licensed_candidates": source_path_count,
+            "licensed_candidates": len(anchored_paths),
+            "corroborated_candidates": len(derived_possessives),
+            "accepted_anchor_vocabulary_sha256": audit["output_sha256"],
+            "identical_morphdb_lexical_analysis_required": True,
+            "surface_approval_families_excluded": True,
+            "maximum_suffix_applications": 2,
+        }
+        print(f"  verified {len(derived_possessives):,} derived possessive forms", flush=True)
         proof_path = output_dir / "ordinary-continuation-evidence.tsv.gz"
         with gzip.open(proof_path, "wt", encoding="utf-8") as proof:
             proof.write("surface\taccepted_intermediate\n")
@@ -1895,9 +1951,10 @@ def main() -> int:
             "maximum_suffix_applications": 2,
         }
         print(f"  verified {len(continuations):,} ordinary continuation paths", flush=True)
-        if continuations or possessives:
+        if continuations or possessives or derived_possessives:
             audit = build_outputs(**output_arguments, accepted_derived_inflections=frozenset(continuations),
-                                  licensed_possessives=possessives)
+                                  licensed_possessives=possessives,
+                                  accepted_derived_possessives=frozenset(derived_possessives))
         else:
             (output_dir / "audit.json").write_text(
                 json.dumps(audit, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"

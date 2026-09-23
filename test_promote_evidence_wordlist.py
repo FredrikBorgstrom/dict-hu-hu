@@ -90,7 +90,11 @@ class EvidencePromotionTests(unittest.TestCase):
                 blocked_surfaces=set(),
             )
 
+            proof = candidate_dir / "derived-possessive-evidence.tsv.gz"
+            with gzip.open(proof, "wt", encoding="utf-8") as f:
+                f.write("surface\taccepted_anchor\tsource_lemma\tmorphdb_lexical_analysis\n")
             audit = promote(candidate_dir, output_dir)
+            self.assertEqual(proof.read_bytes(), (output_dir / proof.name).read_bytes())
             self.assertEqual(
                 (candidate_dir / "evidence.tsv.gz").read_bytes(),
                 (output_dir / "evidence.tsv.gz").read_bytes(),
