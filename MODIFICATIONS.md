@@ -9,6 +9,15 @@ complete license is in `COPYING.MPL`.
 
 ## Change history
 
+- **2026-09-27 (mixed X/Y segmentation):** Generalized the existing canonical
+  tokenizer to explicit inventories while preserving classic output. Mixed
+  generation now resolves words excluded from the classic alphabet using the
+  same morphology and boundary evidence. Added mixed-only pronunciation
+  boundaries and overrides, strict ambiguity checks, and a failure instead of
+  character-only fallback for missing multigraph analyses. Preserved every
+  existing word and arrangement; added 865 human arrangements and 23 seed
+  arrangements, with source hashes, retention checks, and regression coverage.
+
 - **2026-09-23 (derived possessive follow-up):** Extended ordinary possessive
   coverage to independently accepted derived nouns and nominal adjective uses.
   Require an exact source-licensed anchor path and identical lexical derivation

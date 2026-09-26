@@ -1,0 +1,9 @@
+# Mixed-inventory boundaries for foreign spellings already in the vocabulary.
+# These annotations do not add words. The pinned Magyar Ispell 1.9 source
+# supplies the pronunciation (ph:) and hyphenation (hy:) evidence below.
+# royalty: ph:rojálti ph:rojalti -- final t and y are not Hungarian TY.
+# English meaning: royalty/payment for use of rights.
+royalt_y
+# lymphocyta: ph:limfocita hy:l.ym-pho-cy-t -- initial l and y are not LY.
+# English meaning: lymphocyte.
+l_ymphocyta

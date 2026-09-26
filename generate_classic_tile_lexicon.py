@@ -19,7 +19,9 @@ import unicodedata
 from collections import Counter, defaultdict
 from contextlib import contextmanager
 from dataclasses import dataclass
+from functools import lru_cache
 from pathlib import Path
+from types import MappingProxyType
 
 from process_words import parse_aff, parse_dictionary_line
 
@@ -45,6 +47,13 @@ SHORTENED_DOUBLING = {
 DEFAULT_ROOT = Path(__file__).resolve().parent
 
 
+@lru_cache(maxsize=8)
+def token_ids(playable_tokens: tuple[str, ...]):
+    if not playable_tokens or len(set(playable_tokens)) != len(playable_tokens):
+        raise ValueError("Tile inventory must contain unique tokens")
+    return MappingProxyType({token: index + 1 for index, token in enumerate(playable_tokens)})
+
+
 @dataclass(frozen=True)
 class Candidate:
     tokens: tuple[str, ...]
@@ -53,10 +62,12 @@ class Candidate:
     # Retain the pre-1.3 tile interpretation only as a compatibility alias.
     # Ranking on that interpretation preserves prior morphology decisions.
     legacy_tokens: tuple[str, ...] | None = None
+    playable_tokens: tuple[str, ...] = PLAYABLE_TOKENS
 
     @property
     def key(self) -> bytes:
-        return bytes(TOKEN_ID[token] for token in self.tokens)
+        identifiers = token_ids(self.playable_tokens)
+        return bytes(identifiers[token] for token in self.tokens)
 
     @property
     def comparison_tokens(self) -> tuple[str, ...]:
@@ -64,7 +75,8 @@ class Candidate:
 
     @property
     def legacy_key(self) -> bytes:
-        return bytes(TOKEN_ID[token] for token in self.comparison_tokens)
+        identifiers = token_ids(self.playable_tokens)
+        return bytes(identifiers[token] for token in self.comparison_tokens)
 
 
 @dataclass(frozen=True)
@@ -80,6 +92,10 @@ class BoundaryIndex:
 
 class BoundaryUnrepresentableError(ValueError):
     """Raised when authoritative boundaries cannot be made from game tiles."""
+
+
+class AmbiguousSegmentationError(ValueError):
+    """Competing physical spellings require a source-controlled override."""
 
 
 def sha256_file(path: Path) -> str:
@@ -189,16 +205,19 @@ def merge_boundary_indexes(*indexes: BoundaryIndex) -> BoundaryIndex:
     )
 
 
-def enumerate_candidates(surface: str) -> list[Candidate]:
+def enumerate_candidates(surface: str, playable_tokens: tuple[str, ...] = PLAYABLE_TOKENS) -> list[Candidate]:
+    inventory = token_ids(playable_tokens)
     memo: dict[int, tuple[Candidate, ...]] = {}
 
     def visit(offset: int) -> tuple[Candidate, ...]:
         if offset == len(surface):
-            return (Candidate(()),)
+            return (Candidate((), playable_tokens=playable_tokens),)
         if offset in memo:
             return memo[offset]
         results: set[Candidate] = set()
         for spelling, token in SHORTENED_DOUBLING.items():
+            if token not in inventory or token[0] not in inventory:
+                continue
             if surface.startswith(spelling, offset):
                 for suffix in visit(offset + len(spelling)):
                     # A shortened double multigraph is one orthographic unit.
@@ -210,8 +229,9 @@ def enumerate_candidates(surface: str) -> list[Candidate]:
                         frozenset(range(offset + 1, offset + len(spelling)))
                         | suffix.boundary_crossings,
                         (token, token) + suffix.comparison_tokens,
+                        playable_tokens,
                     ))
-        for token in PLAYABLE_TOKENS:
+        for token in playable_tokens:
             if surface.startswith(token, offset):
                 for suffix in visit(offset + len(token)):
                     results.add(Candidate(
@@ -220,6 +240,7 @@ def enumerate_candidates(surface: str) -> list[Candidate]:
                         frozenset(range(offset + 1, offset + len(token)))
                         | suffix.boundary_crossings,
                         (token,) + suffix.comparison_tokens if suffix.legacy_tokens is not None else None,
+                        playable_tokens,
                     ))
         memo[offset] = tuple(results)
         return memo[offset]
@@ -227,7 +248,7 @@ def enumerate_candidates(surface: str) -> list[Candidate]:
     return list(visit(0))
 
 
-def load_overrides(path: Path) -> dict[str, tuple[str, ...]]:
+def load_overrides(path: Path, playable_tokens: tuple[str, ...] = PLAYABLE_TOKENS) -> dict[str, tuple[str, ...]]:
     overrides: dict[str, tuple[str, ...]] = {}
     with path.open("r", encoding="utf-8") as source:
         for line_number, raw_line in enumerate(source, 1):
@@ -240,9 +261,9 @@ def load_overrides(path: Path) -> dict[str, tuple[str, ...]]:
                 raise ValueError(f"Invalid override row {line_number} in {path}") from error
             surface = normalize_surface(raw_surface)
             tokens = tuple(normalize_surface(token) for token in raw_tokens.split("|") if token.strip())
-            if not tokens or any(token not in TOKEN_ID for token in tokens):
+            if not tokens or any(token not in token_ids(playable_tokens) for token in tokens):
                 raise ValueError(f"Override for {surface!r} contains an unplayable tile token")
-            candidates = enumerate_candidates(surface)
+            candidates = enumerate_candidates(surface, playable_tokens)
             if tokens not in {candidate.tokens for candidate in candidates}:
                 raise ValueError(f"Override for {surface!r} does not reproduce its written spelling")
             if surface in overrides:
@@ -251,7 +272,7 @@ def load_overrides(path: Path) -> dict[str, tuple[str, ...]]:
     return overrides
 
 
-def load_lemma_index(directory: Path) -> dict[str, tuple[str, ...]]:
+def load_lemma_index(directory: Path, surfaces: set[str] | None = None) -> dict[str, tuple[str, ...]]:
     lemmas: dict[str, set[str]] = defaultdict(set)
     if not directory.is_dir():
         return {}
@@ -262,6 +283,8 @@ def load_lemma_index(directory: Path) -> dict[str, tuple[str, ...]]:
                 if len(fields) < 2:
                     continue
                 surface = normalize_surface(fields[0])
+                if surfaces is not None and surface not in surfaces:
+                    continue
                 for raw_lemma in fields[1].split(","):
                     lemma = normalize_surface(raw_lemma)
                     if surface and lemma:
@@ -415,7 +438,12 @@ def select_candidate(
     overrides: dict[str, tuple[str, ...]],
     lemmas: dict[str, tuple[str, ...]],
     boundary_index: BoundaryIndex | None = None,
+    *,
+    playable_tokens: tuple[str, ...] = PLAYABLE_TOKENS,
+    require_unambiguous: bool = False,
 ) -> tuple[Candidate, str]:
+    if not candidates or any(candidate.playable_tokens != playable_tokens for candidate in candidates):
+        raise ValueError(f"Missing candidates or inconsistent tile inventory for {surface!r}")
     override = overrides.get(surface)
     if override is not None:
         return min(
@@ -445,7 +473,7 @@ def select_candidate(
     for lemma in lemmas.get(surface, ()):
         if lemma == surface:
             continue
-        lemma_candidates = enumerate_candidates(lemma)
+        lemma_candidates = enumerate_candidates(lemma, playable_tokens)
         if lemma_candidates:
             lemma_boundaries = boundaries_for_surface(
                 lemma,
@@ -457,6 +485,22 @@ def select_candidate(
                 for candidate in lemma_candidates
                 if candidate.boundary_crossings.isdisjoint(lemma_boundaries)
             ]
+            if require_unambiguous:
+                if not boundary_safe_lemma_candidates:
+                    raise BoundaryUnrepresentableError(f"Unresolved lemma boundaries for {lemma!r} in {surface!r}")
+                if lemma in overrides:
+                    boundary_safe_lemma_candidates = [
+                        candidate for candidate in boundary_safe_lemma_candidates
+                        if candidate.tokens == overrides[lemma]
+                    ]
+                    if not boundary_safe_lemma_candidates:
+                        raise ValueError(f"Lemma override crosses a source boundary: {lemma!r}")
+                best_lemma_rank = min((-len(candidate.shortened), len(candidate.tokens))
+                                      for candidate in boundary_safe_lemma_candidates)
+                lemma_spellings = {candidate.tokens for candidate in boundary_safe_lemma_candidates
+                                   if (-len(candidate.shortened), len(candidate.tokens)) == best_lemma_rank}
+                if len(lemma_spellings) > 1:
+                    raise AmbiguousSegmentationError(f"Unresolved lemma segmentation for {lemma!r} in {surface!r}")
             lemma_tokenizations.append(
                 min(
                     boundary_safe_lemma_candidates or lemma_candidates,
@@ -476,6 +520,13 @@ def select_candidate(
         return (-len(candidate.shortened), -morphology_score, len(candidate.tokens), candidate.legacy_key)
 
     selected = min(candidates, key=rank)
+    if require_unambiguous:
+        # A stable byte-order tie-break is reproducible, but is not linguistic
+        # evidence. Mixed-only words must not silently acquire such a decision.
+        best = rank(selected)[:-1]
+        tied = {candidate.tokens for candidate in candidates if rank(candidate)[:-1] == best}
+        if len(tied) > 1:
+            raise AmbiguousSegmentationError(f"Unresolved segmentation for {surface!r}: {sorted(tied)}")
     if required_boundaries:
         reason = "authoritativeBoundary"
     else:

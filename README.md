@@ -84,6 +84,36 @@ multiple source lemmas when Magyar Ispell has ambiguous analyses. The index is
 kept separate from the game word list so clients that only validate words do
 not download it.
 
+### Mixed physical tiles
+
+`generate_mixed_tile_lexicon.py` preserves all usable classic segmentations and
+expands each genuine digraph independently into combined and separate tiles.
+For playable surfaces absent from classic output, it uses the shared tokenizer
+with the extended X/Y inventory, the checksum-verified lemma index, Ispell
+boundaries, and CsiSza annotations. Thus `szex` (English: “sex”) includes both
+`SZ | E | X` and `S | Z | E | X`. Ordinary and classic vocabularies are unchanged.
+
+Mixed-only pronunciation boundaries are in `mixed_tile_boundaries.txt`; their
+comments identify the pinned Ispell evidence. They propagate to inflections.
+Explicit mixed overrides live in `mixed_tile_segmentation_overrides.tsv`, so
+adding an X/Y review does not alter the classic alphabet or its overrides.
+Competing surface or lemma analyses cannot be resolved merely by token byte
+order. Missing evidence, conflicting boundaries, and unresolved ties fail the
+build and require a reviewed override; a multigraph-bearing surface can never
+silently fall back to character-only output. The audit distinguishes rule-based
+orthography, morphology ranking, authoritative boundaries, and overrides; the
+first two categories are not claims of native-speaker review.
+
+Run `python3 generate_mixed_tile_lexicon.py` after vocabulary/lemma inputs change.
+Both human and seed outputs are staged and validated before replacement. The
+audit records all input hashes and every analysis outside classic coverage.
+Use `python3 verify_mixed_tile_release.py --baseline <frozen-published-directory>
+--candidate <candidate-directory> --audit <audit.json> --report <report.json>`
+to prove unchanged surfaces, retained arrangements, unique keys, exact display
+round trips, and seed arrangements being a subset of the human dictionary.
+The baseline and candidate directories must each contain both mixed files.
+No generator or verifier uploads artifacts or changes a remote database.
+
 `COPYING.MPL`, `MPL-NOTICE`, and `MODIFICATIONS.md` — the complete license
 text, required source notice, and dated record of changes for this modified
 distribution.
