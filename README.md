@@ -2,6 +2,12 @@
 
 Hungarian word list for the ABCx3 word game.
 
+To check plural-possessive additions locally without an assistant, double-click
+`Check Hungarian Words.command` or run `python3 validate_hungarian.py`.
+See [the validator guide](HUNGARIAN_VALIDATION.md) for the supported/pending
+evidence policy, offline use and reports. This checker never publishes or
+changes the dictionary.
+
 ## Source
 
 **Magyar Ispell 1.9** — Hungarian hunspell spell-checking dictionary

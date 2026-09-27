@@ -9,6 +9,14 @@ complete license is in `COPYING.MPL`.
 
 ## Change history
 
+- **2026-09-28 (local validation tool):** Added a standalone, cached, offline-capable
+  reviewer for plural-possessive candidates. Cross-checks saved generator proof
+  against published noun paradigms and a bounded set of common case endings;
+  writes supported, pending and excluded lists with per-word provenance. Added
+  a double-click launcher, source hashes, documentation and offline regression
+  tests. It does not change or publish runtime dictionaries. The small reference
+  fixture and reference-derived reports carry separate Wiktionary attribution.
+
 - **2026-09-27 (plural possessions):** Extended the existing source-licensed,
   corroborated possessive rules to multiple possessed objects. This covers
   all six owner forms of accepted nouns and accepted nominal derivations,

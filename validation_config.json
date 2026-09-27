@@ -1,0 +1,6 @@
+{
+  "schema_version": 1,
+  "published_baseline_ref": "01b37a4dd3372361af5a0700a59bde353dc45dfb",
+  "wordlist": "output/hungarian_hu_hu_ispell.txt",
+  "reference_url": "https://kaikki.org/dictionary/Hungarian/kaikki.org-dictionary-Hungarian.jsonl"
+}
