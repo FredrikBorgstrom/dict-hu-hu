@@ -9,6 +9,14 @@ complete license is in `COPYING.MPL`.
 
 ## Change history
 
+- **2026-09-27 (plural possessions):** Extended the existing source-licensed,
+  corroborated possessive rules to multiple possessed objects. This covers
+  all six owner forms of accepted nouns and accepted nominal derivations,
+  including `rügyeik` (English: “their buds”). Kept source flags, reviewed
+  removals, anaphoric and restricted case-stack gates, bounded expansion,
+  and length limits. Updated the derived-analysis cache schema and added
+  family, negative-control, source-evidence and release-retention checks.
+
 - **2026-09-27 (mixed X/Y segmentation):** Generalized the existing canonical
   tokenizer to explicit inventories while preserving classic output. Mixed
   generation now resolves words excluded from the classic alphabet using the

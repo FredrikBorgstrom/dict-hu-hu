@@ -137,10 +137,10 @@ The companion build is implemented in `build_evidence_wordlist.py`. It:
    quality-4 partitions controlling acceptance
 5. Rejects proper-name-only analyses even when their lowercase spelling occurs
    in web text
-6. Requires corpus evidence for unconfirmed possessives, plural possessed
-   objects, and `ANP` anaphoric possessee stacks. Ordinary singular possessions
-   follow the independently corroborated noun rule below; plural owners are
-   distinguished from plural possessed objects
+6. Requires corpus evidence for unconfirmed possessives and `ANP` anaphoric
+   possessee stacks. Source-licensed ordinary possessions, singular or plural,
+   follow the corroborated noun rule below; plural owners are distinguished
+   from plural possessed objects
 7. Adds morphdb.hu headwords missing from Magyar Ispell only when morphdb.hu
    recognizes them as non-proper standalone forms and they occur at least ten
    times in the cleanest quality-4 corpus partition; internal `PSEUDOROOT`
@@ -164,8 +164,8 @@ The companion build is implemented in `build_evidence_wordlist.py`. It:
 
 Ordinary possessives of an independently accepted common noun do not need
 exact-surface corpus occurrences. All six possessor person/number combinations
-are eligible, including several owners of one object. The source must explicitly
-classify the stem as a noun and license the exact terminal possessive suffix;
+are eligible, including several owners of one or several objects. The source
+must explicitly classify the stem as a noun and license the exact terminal possessive suffix;
 morphdb.hu must independently supply an ordinary noun analysis with the same
 lemma. Internal stems retain the source headword, including irregular stems.
 For example, Hungarian `fügétek` means English “your fig” (several owners),
@@ -174,9 +174,9 @@ and Hungarian `könyvetek` means English “your book” (several owners).
 A bounded second pass uses only nouns accepted before the rescue pass.
 Surface-only review approvals do not license families. Proper names, written
 abbreviations, reviewed removals, prefixes, derivations, forbidden continuation
-flags, plural possessed objects and anaphoric possessive stacks keep their
-existing checks. Ordinary case endings on a singular possession are eligible;
-unattested temporal `-kor` forms remain excluded. Morphological feature parsing
+flags and anaphoric possessive stacks keep their existing checks. Ordinary
+case endings are eligible except the previously restricted plural-possession
+sublative stack; unattested temporal `-kor` forms remain excluded. Morphological feature parsing
 distinguishes a nested possessor plural from a top-level noun plural, and the
 analysis cache schema is bumped to prevent reuse of the old classification.
 
@@ -210,7 +210,7 @@ represent a nominal use, as it does for the reported occupation noun.
 
 This is a bounded second pass over independently accepted anchors, not a
 recursive expansion of rescued forms. It retains the proper-name, source-flag,
-surface-approval, reviewed-removal, prefix, plural-possession, anaphoric-stack,
+surface-approval, reviewed-removal, prefix, anaphoric-stack, restricted-case-stack,
 temporal-suffix and length restrictions. The existing ten-character generation
 limit still applies. `derived-possessive-evidence.tsv.gz` records each accepted
 anchor, source lemma and matching analyzer path. Its separate analysis cache
@@ -221,6 +221,34 @@ Build and promote with the same source-expansion and checksum-verified baseline
 workflow above. `test_derived_possessives.py` checks the licensing and matching
 analysis boundaries; the release verifier checks the reported family and other
 derived families in all three tile modes, plus every addition and retained word.
+
+### Plural possessions (2026-09-27)
+
+Hungarian `rügyeik` means English “their buds.” Both pinned analyzers recognize
+it as a regular plural possession of `rügy` (English: “bud”). The earlier
+possessive rule excluded plural objects and required twenty occurrences of
+each exact form in the cleanest corpus partition. This caused valid but less
+frequent forms to disappear while equivalent common forms remained playable.
+
+The bounded noun and accepted-derived-word passes now support one top-level
+plural marker alongside the possessive, for all six owner combinations.
+The exact source suffix must still be licensed, the base must already be
+accepted independently of this pass, and the other analyzer must corroborate
+the same noun or identical accepted derivation. Corpus counts alone do not
+license new families. Unverified plural possessions retain their prior gate.
+Anaphoric `-é` constructions, forbidden source flags, reviewed removals,
+restricted sublative stacks and unattested temporal forms remain unchanged.
+Source entries that also have a pronoun reading retain the prior corpus gate
+for plural possessions. This prevents the noun-tagged pronoun `mi` (English:
+“what/we”) from reintroducing the previously rejected `mii` and `miibe` forms.
+The derived-analysis cache uses schema 2 so old singular-only analyses cannot
+hide newly eligible plural forms.
+
+Use `verify_plural_possessives.py --baseline <preserved-output> --report <directory>`
+after the normal source-expansion, evidence, promotion and tile-generation
+workflow. It checks representative noun and derived families in all three
+modes, every addition against Hunspell and its saved corroborating proof, and
+retention of all prior words, definition mappings and tile arrangements.
 
 ### Native-review additions (2026-09-19)
 

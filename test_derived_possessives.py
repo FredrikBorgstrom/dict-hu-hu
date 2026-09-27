@@ -38,15 +38,17 @@ SFX P 0 ükös . ds:s_ATTRIBUTE_adj
             (root / "hu.dic").write_text("7\nszörf/S\tpo:noun\n"
                 "kerekes/P\tst:kerék po:noun\n"
                 "Péter/S\tpo:noun_prs\ntil/Sw\tpo:noun\n"
-                "rossz/Q\tpo:noun\nmi/P\tpo:pron\nfut/V\tpo:verb\n", encoding="utf-8")
+                "rossz/Q\tpo:noun\nmi/SP\tpo:pron\nfut/V\tpo:verb\n", encoding="utf-8")
             candidates = frozenset({"szörfösük", "szörfösét", "szörföseik", "szörfösüké",
                 "szörfösé", "szörfösém", "szörfösükös", "kerekesük",
-                "péterösük", "rosszösük", "miük", "futösük", "szörfösükük", "tilösük"})
+                "péterösük", "rosszösük", "miük", "futösük", "szörfösükük", "tilösük",
+                "miösük", "miöseik"})
             return licensed_anchored_possessives(accepted, candidates, root / "hu.aff",
                                                  root / "hu.dic", approvals, removals)
 
     def test_accepted_derivation_licenses_only_ordinary_terminal_possessive(self):
         self.assertEqual({"szörfösük": frozenset({("szörfös", "szörf")}),
+                          "szörföseik": frozenset({("szörfös", "szörf")}),
                           "szörfösét": frozenset({("szörfös", "szörf")}),
                           "kerekesük": frozenset({("kerekes", "kerék")})}, self.source_paths())
 
@@ -60,6 +62,10 @@ SFX P 0 ükös . ds:s_ATTRIBUTE_adj
 
     def test_proper_pronoun_forbidden_and_non_nominal_paths_stay_excluded(self):
         self.assertEqual({}, self.source_paths(accepted=frozenset({"péterös", "mi", "rosszös", "futös", "tilös"})))
+
+    def test_pronoun_root_retains_its_plural_gate_for_derived_anchors(self):
+        self.assertEqual({"miösük": frozenset({("miös", "mi")})},
+                         self.source_paths(accepted=frozenset({"miös"})))
 
 
 class DerivedPossessiveAnalysisTests(unittest.TestCase):
@@ -75,8 +81,18 @@ class DerivedPossessiveAnalysisTests(unittest.TestCase):
                 paths = {"szörfösük": frozenset({("szörfös", "szörf")})}
                 self.assertEqual(paths, corroborate_paths(paths, {"szörfös": (bare, frozenset()), "szörfösük": (frozenset(), child)}))
 
-    def test_plural_objects_anaphoric_stacks_and_malformed_analyses_do_not_qualify(self):
-        for tags in ("<PLUR><POSS>", "<POSS><ANP>", "<POSS><POSS>",
+    def test_plural_objects_preserve_the_exact_accepted_derivation(self):
+        bare = self.signatures()
+        for owner in ("<POSS<1>>", "<POSS<2>>", "<POSS>",
+                      "<POSS<1><PLUR>>", "<POSS<2><PLUR>>", "<POSS<PLUR>>"):
+            child = self.signatures("<PLUR>" + owner + "<CAS<DAT>>", possessive=True)
+            self.assertEqual(bare, child)
+            paths = {"szörföseik": frozenset({("szörfös", "szörf")})}
+            self.assertEqual(paths, corroborate_paths(paths, {
+                "szörfös": (bare, frozenset()), "szörföseik": (frozenset(), child)}))
+
+    def test_anaphoric_stacks_and_malformed_analyses_do_not_qualify(self):
+        for tags in ("<PLUR><PLUR><POSS>", "<POSS><ANP>", "<POSS><POSS>",
                      "<POSS><OTHER>", "<POSS<PLUR>", "<POSS>>", "<POSS>[DERIV]/NOUN"):
             with self.subTest(tags=tags):
                 self.assertEqual(frozenset(), self.signatures(tags, possessive=True))

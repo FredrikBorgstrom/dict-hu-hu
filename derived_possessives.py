@@ -29,10 +29,28 @@ SourcePath = tuple[str, str]
 Signature = tuple[str, str]
 
 
+def source_pronoun_lemmas(lines, af, am) -> frozenset[str]:
+    """Keep nominalized pronouns under their prior corpus gate.
+
+    Ispell also labels e.g. mi (English: what/we) as a noun. Its ordinary noun
+    flags alone must not admit unreviewed plural possessions of that pronoun.
+    """
+    pronouns = set()
+    for line in lines:
+        parsed = parse_dictionary_line(line, af, am)
+        if parsed is None:
+            continue
+        word, _, morphology = parsed
+        if any(tag == "po:pron" or (tag.startswith("po:") and tag.endswith("_pron"))
+               for tag in morphology.split()):
+            pronouns.update((word, _source_lemma(word, morphology)))
+    return frozenset(pronouns)
+
+
 def ordinary_possessive_rule(rule, special: dict) -> bool:
     tags = rule.morphology.split()
     return (sum(t.startswith("is:POSS_") for t in tags) == 1
-            and "is:PLUR" not in tags and "is:POSSESSEE" not in tags
+            and tags.count("is:PLUR") <= 1 and "is:POSSESSEE" not in tags
             and not _is_risky_generation_morphology(rule.morphology)
             and not _continuation_rejection_reason(rule.continuation_flags, special))
 
@@ -48,6 +66,7 @@ def licensed_anchored_possessives(
     abbreviations, blocked, proper_derived = _collect_source_filters(
         lines, af, am, prefixes, suffixes, special)
     anchors = accepted - surface_additions - blocked - proper_derived - lemma_removals
+    pronouns = source_pronoun_lemmas(lines, af, am)
     excluded_sources = abbreviations | blocked | proper_derived
     excluded_lemmas = lemma_removals | blocked | proper_derived
     paths: dict[str, set[SourcePath]] = defaultdict(set)
@@ -68,6 +87,8 @@ def licensed_anchored_possessives(
                      for flag, rules in suffixes.items()}
 
     def record(anchor, lemma, surface, rule):
+        if "is:PLUR" in rule.morphology.split() and (anchor in pronouns or lemma in pronouns):
+            return
         if (anchor in anchors and surface in candidates and surface not in blocked
                 and is_valid_hu_word(surface) and id(rule) in possessive_ids):
             paths[surface].add((anchor, lemma))
@@ -131,7 +152,8 @@ def analysis_signatures(word: str, lines: list[str], *, possessive: bool) -> fro
             continue
         if possessive:
             if (sum(tag.startswith("<POSS") for tag in tags) != 1
-                    or any(not tag.startswith(("<POSS", "<CAS<")) for tag in tags)):
+                    or tags.count("<PLUR>") > 1
+                    or any(not (tag == "<PLUR>" or tag.startswith(("<POSS", "<CAS<"))) for tag in tags)):
                 continue
         elif tags and tags != ("<CAS<NOM>>",):
             continue
@@ -153,13 +175,13 @@ def analyze_anchors_and_possessives(
 ) -> dict[str, tuple[frozenset[Signature], frozenset[Signature]]]:
     ordered = sorted(words)
     source = "\n".join(ordered) + "\n"
-    key = hashlib.sha256(b"anchored-possessive-signatures-v1\n" + source.encode()
+    key = hashlib.sha256(b"anchored-possessive-signatures-v2\n" + source.encode()
                          + aff_path.read_bytes() + dic_path.read_bytes()).hexdigest()
     cache_dir.mkdir(parents=True, exist_ok=True)
     cache = cache_dir / f"anchored-possessives-{key[:20]}.jsonl.gz"
     if cache.exists():
         with gzip.open(cache, "rt", encoding="utf-8") as f:
-            assert json.loads(next(f)) == {"schema": 1, "sha256": key}
+            assert json.loads(next(f)) == {"schema": 2, "sha256": key}
             rows = [json.loads(line) for line in f]
         assert [row[0] for row in rows] == ordered, "Incomplete anchored analysis cache"
         return {word: (frozenset(map(tuple, bare)), frozenset(map(tuple, possessed)))
@@ -185,7 +207,7 @@ def analyze_anchors_and_possessives(
             print(f"  checked {len(rows):,}/{len(ordered):,} forms", flush=True)
     temporary = cache.with_suffix(".tmp.gz")
     with gzip.open(temporary, "wt", encoding="utf-8") as f:
-        f.write(json.dumps({"schema": 1, "sha256": key}) + "\n")
+        f.write(json.dumps({"schema": 2, "sha256": key}) + "\n")
         for word, bare, possessed in rows:
             f.write(json.dumps([word, sorted(bare), sorted(possessed)], ensure_ascii=False) + "\n")
     os.replace(temporary, cache)

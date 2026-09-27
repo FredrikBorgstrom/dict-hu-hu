@@ -87,16 +87,23 @@ SFX P e éteké e is:POSS_PL_2 is:POSSESSEE
 SFX P e éteknek/w e is:POSS_PL_2 is:DAT
 SFX K Y 1
 SFX K 0 etek . is:POSS_PL_2
+SFX M Y 3
+SFX M 0 i . is:PLUR is:POSS_SG_3
+SFX M 0 ibe . is:PLUR is:POSS_SG_3 is:ILL
+SFX M 0 m . is:POSS_SG_1
 """, encoding="utf-8")
-            (root / "hu.dic").write_text("5\nfüge/P\tpo:noun\nkez/Kx\tst:kéz po:noun\n"
-                "tilte/Pw\tpo:noun\nneve/P\tpo:noun_prs\nmie/P\tpo:pron\n", encoding="utf-8")
+            (root / "hu.dic").write_text("7\nfüge/P\tpo:noun\nkez/Kx\tst:kéz po:noun\n"
+                "tilte/Pw\tpo:noun\nneve/P\tpo:noun_prs\nmie/P\tpo:pron\n"
+                "mi/M\tpo:noun\nmi/M\tpo:noun_pron\n", encoding="utf-8")
             candidates = frozenset({"fügétek", "fügéteket", "fügéitek", "fügéiteknek", "fügéitekre", "fügéteké",
-                                    "fügéteknek", "kezetek", "tiltétek", "nevétek", "miétek", "fügetek"})
+                                    "fügéteknek", "kezetek", "tiltétek", "nevétek", "miétek", "fügetek",
+                                    "mii", "miibe", "mim"})
             return licensed_possessives_of_accepted_nouns(
                 accepted, candidates, root / "hu.aff", root / "hu.dic", approvals, removals)
 
     def test_licensed_vowel_change_case_and_internal_stem_preserve_stack_gates(self):
         self.assertEqual({"fügétek": frozenset({"füge"}), "fügéteket": frozenset({"füge"}),
+                          "fügéitek": frozenset({"füge"}), "fügéiteknek": frozenset({"füge"}),
                           "kezetek": frozenset({"kéz"})}, self.proof())
 
     def test_requires_independently_accepted_anchor(self):
@@ -106,6 +113,9 @@ SFX K 0 etek . is:POSS_PL_2
 
     def test_rejected_flags_proper_names_and_pronouns_do_not_license_families(self):
         self.assertEqual({}, self.proof(accepted=frozenset({"tilte", "neve", "mie"})))
+
+    def test_pronoun_noun_homograph_retains_its_plural_gate(self):
+        self.assertEqual({"mim": frozenset({"mi"})}, self.proof(accepted=frozenset({"mi"})))
 
 
 class PossessiveDecisionTests(unittest.TestCase):
@@ -119,6 +129,28 @@ class PossessiveDecisionTests(unittest.TestCase):
     def test_ordinary_possessive_needs_no_exact_surface_corpus_frequency(self):
         self.assertEqual("cross_analyzer_possessive_of_accepted_noun", self.decision().reason)
         self.assertTrue(self.decision().accepted)
+
+    def test_plural_possessions_for_all_six_owners_need_matching_source_proof(self):
+        endings = ("<POSS<1>>", "<POSS<2>>", "<POSS>",
+                   "<POSS<1><PLUR>>", "<POSS<2><PLUR>>", "<POSS<PLUR>>")
+        for owner in endings:
+            for case in ("", "<CAS<ACC>>", "<CAS<DAT>>"):
+                with self.subTest(owner=owner, case=case):
+                    morph = parse_morphdb_block("rügyeik", [
+                        f"rügyeik st:rügy /NOUN <PLUR>{owner}{case}"
+                    ], frozenset({"rügy"}))
+                    self.assertTrue(morph.plural_possessive_only)
+                    self.assertTrue(self.decision(word="rügyeik", evidence=morph,
+                        licensed_possessive_lemmas=frozenset({"rügy"})).accepted)
+                    self.assertFalse(self.decision(word="rügyeik", evidence=morph,
+                        licensed_possessive_lemmas=frozenset()).accepted)
+
+    def test_anaphoric_plural_cannot_use_the_ordinary_possession_exception(self):
+        morph = parse_morphdb_block("rügyéi", [
+            "rügyéi st:rügy /NOUN <ANP<PLUR>>"
+        ], frozenset({"rügy"}))
+        self.assertFalse(self.decision(word="rügyéi", evidence=morph,
+            licensed_possessive_lemmas=frozenset({"rügy"})).accepted)
 
     def test_source_path_same_lemma_and_independent_analysis_required(self):
         for changes in ({"licensed_possessive_lemmas": frozenset()},

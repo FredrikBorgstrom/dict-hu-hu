@@ -56,7 +56,8 @@ from process_words import (
 from reviewed_additions import (load_reviewed_additions, DEFAULT_REVIEWED_ADDITIONS,
                                 load_gameplay_overrides, DEFAULT_GAMEPLAY_OVERRIDES)
 from derived_possessives import (licensed_anchored_possessives,
-                                analyze_anchors_and_possessives, corroborate_paths)
+                                analyze_anchors_and_possessives, corroborate_paths,
+                                source_pronoun_lemmas)
 
 
 MORPHDB_ARCHIVE_NAME = "morphdb-hu-20060525.tgz"
@@ -1210,8 +1211,8 @@ def licensed_possessives_of_accepted_nouns(
     Only explicit source noun entries and their licensed terminal suffix rules
     qualify. A surface approval, pronoun, new derivation or rescued possessive
     cannot license a family. Internal inflectional stems use their source lemma.
-    Any number of owners is supported; plural possessed objects and anaphoric
-    stacks retain their existing corpus gates rather than broadening this fix.
+    Any number of owners and one or several possessed objects are supported.
+    Anaphoric stacks and previously restricted case stacks retain their gates.
     """
     af, am, prefixes, suffixes, special = parse_aff(str(aff_path))
     lines = dic_path.read_text(encoding="utf-8").splitlines()[1:]
@@ -1219,6 +1220,7 @@ def licensed_possessives_of_accepted_nouns(
         lines, af, am, prefixes, suffixes, special
     )
     anchors = accepted - surface_additions - blocked - proper_derived - lemma_removals
+    pronouns = source_pronoun_lemmas(lines, af, am)
     result: dict[str, set[str]] = defaultdict(set)
     for line in lines:
         parsed = parse_dictionary_line(line, af, am)
@@ -1234,8 +1236,10 @@ def licensed_possessives_of_accepted_nouns(
         for flag in flags:
             for rule in suffixes.get(bytes([flag]), ()):
                 tags = rule.morphology.split()
+                if "is:PLUR" in tags and (word in pronouns or lemma in pronouns):
+                    continue
                 if (sum(tag.startswith("is:POSS_") for tag in tags) != 1
-                    or "is:PLUR" in tags
+                    or tags.count("is:PLUR") > 1
                     or "is:POSSESSEE" in tags
                     or _is_risky_generation_morphology(rule.morphology)
                     or _continuation_rejection_reason(rule.continuation_flags, special)):
@@ -1432,7 +1436,9 @@ def build_outputs(
             "ordinary_possessives_require_accepted_noun_and_matching_source_analyses": True,
             "ordinary_possessives_require_surface_frequency": False,
             "possessor_plurality_is_distinct_from_possession_plurality": True,
-            "plural_possessed_objects_retain_corpus_gate": True,
+            "source_verified_plural_possessions_require_surface_frequency": False,
+            "unverified_plural_possessions_retain_corpus_gate": True,
+            "pronoun_homograph_plural_possessions_retain_corpus_gate": True,
             "derived_possessives_require_accepted_anchor_and_identical_morphdb_lexical_analysis": True,
             "generated_kor_complete_frequency": GENERATED_KOR_COMPLETE_FREQUENCY,
             "surface_additions": sorted(surface_additions),
