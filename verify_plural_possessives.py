@@ -9,6 +9,7 @@ from pathlib import Path
 
 from verify_suffix_continuations import verify
 from verify_possessive_inflections import EXCLUDED, REQUIRED, DERIVED_FAMILIES
+from possessive_release_review import load_possessive_review
 
 
 PLURAL_FAMILIES = {
@@ -16,7 +17,6 @@ PLURAL_FAMILIES = {
     "füge": "fügéim fügéid fügéi fügéink fügéitek fügéik".split(),
     "könyv": "könyveim könyveid könyvei könyveink könyveitek könyveik".split(),
     "gyík": "gyíkjaim gyíkjaid gyíkjai gyíkjaink gyíkjaitok gyíkjaik".split(),
-    "szörfös": "szörföseim szörföseid szörfösei szörföseik".split(),
     "táncos": "táncosaim táncosaid táncosai táncosaink táncosaik".split(),
 }
 ADMISSION_REASONS = {
@@ -34,6 +34,8 @@ def main():
     args = parser.parse_args()
     result = verify(args.baseline, args.output, args.report, root / ".cache/sources/hu_HU")
     additions = frozenset((args.report / "added-words.txt").read_text().splitlines())
+    review = load_possessive_review()
+    assert additions == review.supported, "Release delta must equal the exact pinned supported set"
     required = REQUIRED | frozenset(w for family in (*DERIVED_FAMILIES.values(), *PLURAL_FAMILIES.values()) for w in family)
     modes = {}
     for name in ("hungarian_hu_hu_ispell.txt", "hungarian_hu_hu_ispell_classic_tiles.tsv",
@@ -43,6 +45,7 @@ def main():
                      if line.strip() and not line.startswith("#")}
         assert not required - words, f"{name}: missing {sorted(required - words)}"
         assert not EXCLUDED & words, f"{name}: reintroduced {sorted(EXCLUDED & words)}"
+        review.require_publishable(words)
         modes[name] = {"required_forms": len(required), "excluded_controls": len(EXCLUDED)}
     with gzip.open(args.output / "ordinary-possessive-evidence.tsv.gz", "rt") as f:
         ordinary = {row["surface"]: row["accepted_noun_lemmas"].split(",")
@@ -68,6 +71,7 @@ def main():
     assert proven == additions, "Missing admission evidence for new surfaces"
     assert "rügyeik" in additions and "rügy" in ordinary["rügyeik"]
     result.update(plural_families=PLURAL_FAMILIES, mode_checks=modes,
+                  release_review=review.provenance,
                   additions_with_matching_source_proof=len(proven), reported_evidence=reported)
     (args.report / "plural-possessive-verification.json").write_text(
         json.dumps(result, ensure_ascii=False, indent=2) + "\n")

@@ -36,6 +36,14 @@ an automatically approved addition set. Missing evidence does **not** mean a
 word is invalid. The supported list is a review artifact, not a replacement
 for the complete dictionary or its tile lexicons.
 
+On 28 September 2026, Fredrik approved restricting the prepared update to the
+164,271 supported surfaces from the first full audit. That exact selection and
+the original 404,258-word scope are now pinned in `plural_possessive_review/`.
+The evidence builder and promotion step prevent the 239,987 deferred words
+from reappearing. Normal checks now inspect the narrowed candidate; the full
+earlier audit and its pending words remain preserved. Running this checker
+never updates the approved selection automatically.
+
 ## What the program checks
 
 1. Read the current candidate word list and its ordinary/derived possessive

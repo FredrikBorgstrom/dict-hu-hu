@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "review_date": "2026-09-28",
+  "decision": "Include only the 164271 reference-supported surfaces from the original 404258 additions, as requested by Fredrik. Hold the rest, without labelling them invalid.",
+  "baseline_commit": "01b37a4dd3372361af5a0700a59bde353dc45dfb",
+  "candidate_commit": "4907b2c33f7c6c3cab92f3ee7f3ce23427799017",
+  "validator_commit": "ba5d38cc6f73e4b50e5e12479eeb017d0718551b",
+  "validator_sha256": "d85948e0ac3755eba2190162fd5880bb542615cb49bbe8704b1ebd472c2feab0",
+  "policy_version": "1.0",
+  "scope_count": 404258,
+  "supported_count": 164271,
+  "deferred_count": 239987,
+  "reference": {
+    "filename": "Hungarian Reference 2026-09-27 22-02-34-650158 UTC.jsonl",
+    "sha256": "8765ad7de83937f112fa537badc4a91b2df300bfcfba9380fa7ad1cc5ecc9669",
+    "bytes": 588869350,
+    "url": "https://kaikki.org/dictionary/Hungarian/kaikki.org-dictionary-Hungarian.jsonl",
+    "retrieved_utc": "2026-09-27 22-02-34-650158 UTC",
+    "last_modified": "Fri, 25 Sep 2026 10:03:18 GMT"
+  },
+  "files": {
+    "scope.txt.gz": {
+      "sha256": "3e001172fa6dc1e3cbe4bd8438d46283a8a42a512fefdaa39edb5bba3162b43d",
+      "content_sha256": "840811e6d33c22efc0d21e04aa242a8be5e32943046afb7deb11a4e52542f67c"
+    },
+    "supported.txt.gz": {
+      "sha256": "1576c65cc1711dc2265d41032f163cdca5a8862c0b6a4229491ad7bc2efaef49",
+      "content_sha256": "9f053d9caa18118beddc6e35c41fa736ac9279d866d29ea24fc75682b515bd3a"
+    },
+    "decisions.tsv.gz": {
+      "sha256": "abd3bfca7142e49a172606e1c0298e545abe84d6134a33ef366958890bdb7ced",
+      "content_sha256": "8366e172a73fcbbb58c46531183f95914c73698a31423fa16d12d111bb1e9733"
+    }
+  },
+  "license": "Reference-derived decisions: English Wiktionary contributors via Kaikki, Creative Commons Attribution-ShareAlike 4.0. Candidate surfaces retain their Ispell-source license.",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0/"
+}

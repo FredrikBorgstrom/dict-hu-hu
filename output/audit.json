@@ -74,6 +74,15 @@
     }
   },
   "policy": {
+    "plural_possessive_release_review": {
+      "manifest_sha256": "e2bd37c872beaee304a13bb2968f2f58282e229fd77a17a7caf50806bc5f8091",
+      "review_date": "2026-09-28",
+      "scope_count": 404258,
+      "supported_count": 164271,
+      "deferred_count": 239987,
+      "baseline_commit": "01b37a4dd3372361af5a0700a59bde353dc45dfb",
+      "policy": "Hold every scoped surface without pinned reference support; no new acceptance override"
+    },
     "core_quality_8_frequency": 2,
     "possessive_quality_4_frequency": 2,
     "plural_possessive_quality_4_frequency": 20,
@@ -1964,16 +1973,16 @@
     "lemma_removed_surface_count": 1708
   },
   "counts": {
-    "accepted": 2321351,
+    "accepted": 2081364,
     "accepted_additions": 13611,
     "current_candidates": 4759570,
     "external_candidates": 42123,
-    "rejected": 2480342,
-    "rejected_from_current": 2451830,
+    "rejected": 2720329,
+    "rejected_from_current": 2691817,
     "total_candidates": 4801693,
-    "final_unique_words": 2321351,
-    "lemma_index_surfaces": 2321351,
-    "lemma_index_mappings": 2579005,
+    "final_unique_words": 2081364,
+    "lemma_index_surfaces": 2081364,
+    "lemma_index_mappings": 2303905,
     "lemma_index_shards": 523
   },
   "reason_counts": {
@@ -1983,13 +1992,14 @@
     "corroborated_corpus_singleton": 55665,
     "cross_analyzer_basic_inflection": 325287,
     "cross_analyzer_inflection_of_accepted_derived_word": 275340,
-    "cross_analyzer_possessive_of_accepted_derived_word": 373226,
-    "cross_analyzer_possessive_of_accepted_noun": 771569,
+    "cross_analyzer_possessive_of_accepted_derived_word": 258812,
+    "cross_analyzer_possessive_of_accepted_noun": 645996,
     "direct_source_form": 5719,
     "insufficient_usage_or_risky_inflection": 26826,
     "morphdb_nonstandalone_source": 31,
     "morphdb_proper_name_only": 21094,
     "no_independent_evidence": 717522,
+    "pending_plural_possessive_review": 239987,
     "quality_8_corpus_core": 399129,
     "required_one_letter": 4,
     "reviewed_lemma_removal": 1708,
@@ -2008,13 +2018,13 @@
     "1": 4,
     "2": 124,
     "3": 934,
-    "4": 4533,
-    "5": 21332,
-    "6": 62108,
-    "7": 166534,
-    "8": 368329,
-    "9": 656261,
-    "10": 1041192
+    "4": 4508,
+    "5": 21001,
+    "6": 60002,
+    "7": 158788,
+    "8": 341417,
+    "9": 592170,
+    "10": 902416
   },
   "questioned_words": {
     "as": {
@@ -2677,33 +2687,31 @@
     ],
     "cross_analyzer_possessive_of_accepted_derived_word": [
       "ígérőjéből",
-      "rémülései",
       "üregesében",
       "ápoltjait",
       "tarjásukat",
-      "árazóikig",
       "falásukon",
-      "lődözőim",
       "bízóddá",
       "izzításuk",
       "kapottam",
       "diósaiddal",
-      "motozóitok",
-      "adottjaiul",
-      "gócosaiig",
       "métaszerűd",
-      "tinósaiért",
-      "tekéseikké",
-      "lepőikbe",
-      "böködődön"
+      "böködődön",
+      "rémülésem",
+      "lazítómba",
+      "ormányosod",
+      "centizőjén",
+      "fűzésemnek",
+      "klipeséhez",
+      "épségemen",
+      "bikásuktól",
+      "túróikba"
     ],
     "cross_analyzer_possessive_of_accepted_noun": [
       "agyánál",
       "achátomig",
       "vivőrömmel",
       "zsugáinkba",
-      "óriásaimul",
-      "vezéreikül",
       "házfedődül",
       "agyaradnak",
       "bolhánkra",
@@ -2717,7 +2725,9 @@
       "cápáimért",
       "autómhoz",
       "skontómig",
-      "pikolóidig"
+      "mocskain",
+      "préseinkké",
+      "pikkjéért"
     ],
     "direct_source_form": [
       "aknásít",
@@ -2828,6 +2838,28 @@
       "száradósai",
       "szútráiig",
       "hámnyiknál"
+    ],
+    "pending_plural_possessive_review": [
+      "rémülései",
+      "óriásaimul",
+      "vezéreikül",
+      "árazóikig",
+      "lődözőim",
+      "pikolóidig",
+      "motozóitok",
+      "adottjaiul",
+      "gócosaiig",
+      "tinósaiért",
+      "tekéseikké",
+      "lepőikbe",
+      "vezérürüi",
+      "rációsaik",
+      "pöröseimül",
+      "erudícióid",
+      "gyárasait",
+      "pillásaim",
+      "pékeiket",
+      "szűkülőit"
     ],
     "quality_8_corpus_core": [
       "sörivóknak",
@@ -3084,7 +3116,7 @@
       "ss"
     ]
   },
-  "output_sha256": "f6ccee1c25126070f92cdb87742cb041fec87ce504255cb625c245b8b6795883",
+  "output_sha256": "63c6cfde34b7c906f6a93e505a1ac13e5061f02aa6f2a40219d77e4c2aaf0613",
   "artifacts": {
     "candidate": "hungarian_hu_hu_evidence_candidate.txt",
     "evidence": "evidence.tsv.gz",
@@ -3094,8 +3126,8 @@
   "lemma_index": {
     "schema_version": 1,
     "relative_path": "definitions/hu/surface-lemma/v1",
-    "surface_count": 2321351,
-    "mapping_count": 2579005,
+    "surface_count": 2081364,
+    "mapping_count": 2303905,
     "shard_count": 523,
     "self_mappings_added_for_unmapped_surfaces": 0,
     "external_headword_mappings_added_for_unmapped_surfaces": 0

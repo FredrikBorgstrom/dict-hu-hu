@@ -9,6 +9,14 @@ complete license is in `COPYING.MPL`.
 
 ## Change history
 
+- **2026-09-28 (restricted plural-possession release):** Replaced the proposed
+  404,258-word expansion with its exact 164,271 reference-supported additions.
+  Pinned the original scope, decisions and supported inventory in source;
+  deferred 239,987 words in both evidence-build passes and blocked stale
+  candidates at promotion. Retained the published baseline, rebuilt all human
+  word lists and definition mappings, and made exact review-set equality a
+  release check. Deferred words are not classified as linguistically invalid.
+
 - **2026-09-28 (local validation tool):** Added a standalone, cached, offline-capable
   reviewer for plural-possessive candidates. Cross-checks saved generator proof
   against published noun paradigms and a bounded set of common case endings;

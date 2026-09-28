@@ -8,6 +8,12 @@ See [the validator guide](HUNGARIAN_VALIDATION.md) for the supported/pending
 evidence policy, offline use and reports. This checker never publishes or
 changes the dictionary.
 
+The September plural-possession release is restricted to the exact **164,271**
+reference-supported additions. The remaining **239,987** forms in the original
+expansion are deferred by a source-controlled build and promotion gate. See
+[the pinned release review](plural_possessive_review/README.md); the full
+404,258-word candidate is superseded and must not be published.
+
 ## Source
 
 **Magyar Ispell 1.9** — Hungarian hunspell spell-checking dictionary

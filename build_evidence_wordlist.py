@@ -58,6 +58,7 @@ from reviewed_additions import (load_reviewed_additions, DEFAULT_REVIEWED_ADDITI
 from derived_possessives import (licensed_anchored_possessives,
                                 analyze_anchors_and_possessives, corroborate_paths,
                                 source_pronoun_lemmas)
+from possessive_release_review import load_possessive_review, DEFERRED_REASON
 
 
 MORPHDB_ARCHIVE_NAME = "morphdb-hu-20060525.tgz"
@@ -1275,6 +1276,7 @@ def build_outputs(
 ) -> dict:
     reviewed_additions = reviewed_additions or {}
     licensed_possessives = licensed_possessives or {}
+    possessive_review = load_possessive_review()
     output_dir.mkdir(parents=True, exist_ok=True)
     candidate_path = output_dir / "hungarian_hu_hu_evidence_candidate.txt"
     evidence_path = output_dir / "evidence.tsv.gz"
@@ -1332,6 +1334,11 @@ def build_outputs(
                 licensed_possessive_lemmas=licensed_possessives.get(word, frozenset()),
                 accepted_derived_possessive=word in accepted_derived_possessives,
             )
+            # Apply the exact release review even to retained vocabulary and
+            # alternate admission paths. A stale expanded output cannot restore
+            # deferred words. Supported words still need normal source proof.
+            if word in possessive_review.deferred:
+                decision = Decision(False, DEFERRED_REASON)
             reason_counts[decision.reason] += 1
             counts["total_candidates"] += 1
             if word in current_words:
@@ -1402,6 +1409,7 @@ def build_outputs(
         "description": "Conservative evidence-scored candidate; not production output",
         "source": source_metadata,
         "policy": {
+            "plural_possessive_release_review": possessive_review.provenance,
             "core_quality_8_frequency": CORE_QUALITY_8_FREQUENCY,
             "possessive_quality_4_frequency": POSSESSIVE_QUALITY_4_FREQUENCY,
             "plural_possessive_quality_4_frequency": (

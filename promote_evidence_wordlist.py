@@ -25,6 +25,7 @@ import tempfile
 from pathlib import Path
 
 from process_words import _write_lemma_index
+from possessive_release_review import load_possessive_review
 
 
 SCRIPT_DIR = Path(__file__).resolve().parent
@@ -194,6 +195,11 @@ def promote(candidate_dir: Path, output_dir: Path, retention_index_dir: Path | N
     candidate_index_dir = candidate_dir / LEMMA_RELATIVE_PATH
 
     candidate_audit = json.loads(candidate_audit_path.read_text(encoding="utf-8"))
+    # Refuse old candidates before writing lemma shards or active files.
+    review = load_possessive_review()
+    _, candidate_words = load_sorted_unique_words(candidate_path)
+    review.require_publishable(candidate_words)
+    candidate_audit.setdefault("policy", {})["plural_possessive_release_review"] = review.provenance
     actual_sha256 = sha256_file(candidate_path)
     if candidate_audit.get("output_sha256") != actual_sha256:
         raise ValueError(
