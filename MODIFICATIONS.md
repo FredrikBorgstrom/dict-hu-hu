@@ -9,6 +9,25 @@ complete license is in `COPYING.MPL`.
 
 ## Change history
 
+- **2026-10-17 (anaphoric -é possessives):** Accept the simple anaphoric
+  possessive `-é` (for example `molyé`, English: "the moth's") and one
+  ordinary case ending on independently accepted source nouns, when morphdb.hu
+  independently recognizes the form. The `-ul/-ül` essive, plural, owner and
+  familiar `-ék` stacks keep their existing gates. Provenance is written to
+  `anaphoric-possessive-evidence.tsv.gz`; the candidate adds 113,778 forms and
+  removes nothing beyond the separately prepared `molyné` correction.
+
+- **2026-10-17 (exact-surface corrections):** Added `csúr`, an archaic variant
+  of `csűr` (English: "twist, wring"), and excluded `molyné` (the wife-name
+  derivation of `moly`), which also withdraws its 86 dependent inflections.
+  See `lexical_corrections/2026-10-17-csur-molyne.md`.
+
+- **2026-10-16 (local exact-headword correction):** Added `rex`, a publisher-listed
+  Hungarian common noun absent from both pinned analyzers, to the portable
+  curated surface additions. It does not license an inflection family or
+  change the classic tile alphabet. Evidence and release scope are documented
+  in `lexical_corrections/2026-10-16-rex.md`; remote publication is separate.
+
 - **2026-09-28 (restricted plural-possession release):** Replaced the proposed
   404,258-word expansion with its exact 164,271 reference-supported additions.
   Pinned the original scope, decisions and supported inventory in source;

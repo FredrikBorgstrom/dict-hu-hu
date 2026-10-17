@@ -353,6 +353,7 @@ def decide_word(
     accepted_derived_inflection: bool = False,
     licensed_possessive_lemmas: frozenset[str] = frozenset(),
     accepted_derived_possessive: bool = False,
+    licensed_anaphoric_lemmas: frozenset[str] = frozenset(),
 ) -> Decision:
     """Apply the conservative policy in priority order."""
     if word in HUNGARIAN_REQUIRED_ONE_LETTER_WORDS:
@@ -399,6 +400,14 @@ def decide_word(
         if word.endswith("kor") and corpus.complete < GENERATED_KOR_COMPLETE_FREQUENCY:
             return Decision(False, "unattested_generated_kor_form")
         return Decision(True, "cross_analyzer_possessive_of_accepted_noun")
+
+    # Magyar Ispell proves a simple -é suffix on an accepted noun entry, and
+    # morphdb.hu must independently recognize the form with an agreeing lemma.
+    if (licensed_anaphoric_lemmas and current_candidate and morph.recognized
+            and morph.nonproper and morph.lemma_agreement
+            and not morph.prefix_only and not morph.derivation_only
+            and not morph.plural_possessive_only):
+        return Decision(True, "cross_analyzer_anaphoric_possessive_of_accepted_noun")
 
     # Novel forms discovered from the corpus are eligible only through this
     # narrow path.  Magyar Ispell has already accepted each input surface;
@@ -1251,6 +1260,61 @@ def licensed_possessives_of_accepted_nouns(
     return {surface: frozenset(lemmas) for surface, lemmas in result.items()}
 
 
+# Simple anaphoric -é forms ("molyé", English: "the moth's") with at most one
+# ordinary case ending. The -ul/-ül essive is excluded, as in the validator.
+ANAPHORIC_POSSESSIVE_CASES = frozenset({
+    "is:NOM", "is:ACC", "is:DAT", "is:INSTR", "is:TRANS", "is:CAUS/FIN", "is:TERM",
+    "is:INE", "is:ILL", "is:ELA", "is:ADE", "is:ALL", "is:ABL", "is:SUE", "is:SBL", "is:DEL",
+})
+
+
+def licensed_anaphoric_possessives_of_accepted_nouns(
+    accepted: frozenset[str],
+    candidates: frozenset[str],
+    aff_path: Path,
+    dic_path: Path,
+    surface_additions: frozenset[str] = frozenset(),
+    lemma_removals: frozenset[str] = frozenset(),
+) -> dict[str, frozenset[str]]:
+    """Prove the anaphoric -é suffix on independently accepted noun lemmas.
+
+    Only a single POSSESSEE marker plus one ordinary case qualifies: no owner
+    suffix, no plural, no familiar -ék and no -ul/-ül essive. Pronouns, proper
+    names, surface approvals and reviewed removals cannot license a family.
+    """
+    af, am, prefixes, suffixes, special = parse_aff(str(aff_path))
+    lines = dic_path.read_text(encoding="utf-8").splitlines()[1:]
+    abbreviations, blocked, proper_derived = _collect_source_filters(
+        lines, af, am, prefixes, suffixes, special
+    )
+    anchors = accepted - surface_additions - blocked - proper_derived - lemma_removals
+    pronouns = source_pronoun_lemmas(lines, af, am)
+    result: dict[str, set[str]] = defaultdict(set)
+    for line in lines:
+        parsed = parse_dictionary_line(line, af, am)
+        if parsed is None:
+            continue
+        word, flags, morphology = parsed
+        lemma = _source_lemma(word, morphology)
+        if ("po:noun" not in morphology.split() or lemma not in anchors
+            or word in pronouns or lemma in pronouns
+            or word != word.lower() or not is_valid_hu_word(word)
+            or word in abbreviations or word in proper_derived or word in blocked
+            or any(_has_flag(flags, special, name) for name in REJECT_ENTRY_FLAGS)):
+            continue
+        for flag in flags:
+            for rule in suffixes.get(bytes([flag]), ()):
+                tags = rule.morphology.split()
+                if (len(tags) != 2 or tags[0] != "is:POSSESSEE"
+                    or tags[1] not in ANAPHORIC_POSSESSIVE_CASES
+                    or _continuation_rejection_reason(rule.continuation_flags, special)):
+                    continue
+                surface = _apply_suffix_rule(word, rule)
+                if surface in candidates and surface not in blocked:
+                    result[surface].add(lemma)
+    return {surface: frozenset(lemmas) for surface, lemmas in result.items()}
+
+
 def build_outputs(
     *,
     merged_candidates_path: Path,
@@ -1273,9 +1337,11 @@ def build_outputs(
     accepted_derived_inflections: frozenset[str] = frozenset(),
     licensed_possessives: dict[str, frozenset[str]] | None = None,
     accepted_derived_possessives: frozenset[str] = frozenset(),
+    licensed_anaphoric_possessives: dict[str, frozenset[str]] | None = None,
 ) -> dict:
     reviewed_additions = reviewed_additions or {}
     licensed_possessives = licensed_possessives or {}
+    licensed_anaphoric_possessives = licensed_anaphoric_possessives or {}
     possessive_review = load_possessive_review()
     output_dir.mkdir(parents=True, exist_ok=True)
     candidate_path = output_dir / "hungarian_hu_hu_evidence_candidate.txt"
@@ -1333,6 +1399,7 @@ def build_outputs(
                 accepted_derived_inflection=word in accepted_derived_inflections,
                 licensed_possessive_lemmas=licensed_possessives.get(word, frozenset()),
                 accepted_derived_possessive=word in accepted_derived_possessives,
+                licensed_anaphoric_lemmas=licensed_anaphoric_possessives.get(word, frozenset()),
             )
             # Apply the exact release review even to retained vocabulary and
             # alternate admission paths. A stale expanded output cannot restore
@@ -1908,6 +1975,25 @@ def main() -> int:
             "maximum_suffix_applications": 1,
         }
         print(f"  verified {len(possessives):,} ordinary possessive paths", flush=True)
+        print("Checking anaphoric -é possessives of accepted nouns...", flush=True)
+        anaphoric = licensed_anaphoric_possessives_of_accepted_nouns(
+            accepted, ordinary_words, current_aff_path, current_dic_path,
+            surface_additions, lemma_removals,
+        )
+        anaphoric_proof_path = output_dir / "anaphoric-possessive-evidence.tsv.gz"
+        with gzip.open(anaphoric_proof_path, "wt", encoding="utf-8") as proof:
+            proof.write("surface\taccepted_noun_lemmas\n")
+            for surface, lemmas in sorted(anaphoric.items()):
+                proof.write(f"{surface}\t{','.join(sorted(lemmas))}\n")
+        source_metadata["anaphoric_possessives"] = {
+            "provenance_file": anaphoric_proof_path.name,
+            "licensed_candidates": len(anaphoric),
+            "accepted_noun_vocabulary_sha256": audit["output_sha256"],
+            "surface_approval_families_excluded": True,
+            "essive_ul_excluded": True,
+            "maximum_suffix_applications": 1,
+        }
+        print(f"  verified {len(anaphoric):,} anaphoric possessive paths", flush=True)
         print("Checking possessives of accepted derived words...", flush=True)
         anchored_paths = licensed_anchored_possessives(
             accepted, ordinary_words - accepted, current_aff_path, current_dic_path,
@@ -1965,10 +2051,11 @@ def main() -> int:
             "maximum_suffix_applications": 2,
         }
         print(f"  verified {len(continuations):,} ordinary continuation paths", flush=True)
-        if continuations or possessives or derived_possessives:
+        if continuations or possessives or derived_possessives or anaphoric:
             audit = build_outputs(**output_arguments, accepted_derived_inflections=frozenset(continuations),
                                   licensed_possessives=possessives,
-                                  accepted_derived_possessives=frozenset(derived_possessives))
+                                  accepted_derived_possessives=frozenset(derived_possessives),
+                                  licensed_anaphoric_possessives=anaphoric)
         else:
             (output_dir / "audit.json").write_text(
                 json.dumps(audit, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"

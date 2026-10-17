@@ -7,6 +7,7 @@ from pathlib import Path
 
 from build_evidence_wordlist import (
     CorpusEvidence, MorphEvidence, decide_word, licensed_possessives_of_accepted_nouns,
+    licensed_anaphoric_possessives_of_accepted_nouns,
     parse_morphdb_block, top_level_morph_tags,
     iter_cached_morph_evidence,
 )
@@ -166,6 +167,69 @@ class PossessiveDecisionTests(unittest.TestCase):
         for flag in ("source_policy_blocked", "explicit_surface_removal", "explicit_lemma_removal"):
             self.assertFalse(self.decision(**{flag: True}).accepted)
         self.assertFalse(self.decision(word="fügémkor").accepted)
+
+
+class AnaphoricPossessiveTests(unittest.TestCase):
+    def proof(self, *, accepted=frozenset({"moly", "gyík", "kéz"}), approvals=frozenset(),
+              removals=frozenset()):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            (root / "hu.aff").write_text("""SET UTF-8
+FORBIDDENWORD w
+NEEDAFFIX x
+SFX A Y 9
+SFX A 0 é . is:POSSESSEE is:NOM
+SFX A 0 ét . is:POSSESSEE is:ACC
+SFX A 0 ével . is:POSSESSEE is:INSTR
+SFX A 0 éul . is:POSSESSEE is:ESS
+SFX A 0 éi . is:POSSESSEE is:PLUR is:NOM
+SFX A 0 éké . is:PLUR is:POSSESSEE is:NOM
+SFX A 0 ékéé . is:ék_FAMILIAR_noun is:POSSESSEE is:NOM
+SFX A 0 eié . is:POSS_PL_3 is:POSSESSEE is:NOM
+SFX A 0 énak/w . is:POSSESSEE is:DAT
+SFX K Y 1
+SFX K 0 é . is:POSSESSEE is:NOM
+""", encoding="utf-8")
+            (root / "hu.dic").write_text("6\nmoly/A\tpo:noun\ngyík/A\tpo:noun\nkez/Kx\tst:kéz po:noun\n"
+                "tilt/Aw\tpo:noun\nPéter/A\tpo:noun_prs\nki/A\tpo:pron\n", encoding="utf-8")
+            candidates = frozenset({"molyé", "molyét", "molyével", "molyéul", "molyéi", "molyéké",
+                                    "molyékéé", "molyeié", "molyénak", "gyíké", "kezé",
+                                    "tilté", "Péteré", "kié"})
+            return licensed_anaphoric_possessives_of_accepted_nouns(
+                accepted, candidates, root / "hu.aff", root / "hu.dic", approvals, removals)
+
+    def test_simple_anaphoric_forms_with_one_ordinary_case(self):
+        self.assertEqual({"molyé": frozenset({"moly"}), "molyét": frozenset({"moly"}),
+                          "molyével": frozenset({"moly"}), "gyíké": frozenset({"gyík"}),
+                          "kezé": frozenset({"kéz"})}, self.proof())
+
+    def test_requires_independently_accepted_anchor(self):
+        self.assertEqual({}, self.proof(accepted=frozenset()))
+        self.assertEqual({}, self.proof(approvals=frozenset({"moly", "gyík", "kéz"})))
+        self.assertEqual({}, self.proof(removals=frozenset({"moly", "gyík", "kéz"})))
+
+    def test_forbidden_flags_proper_names_and_pronouns_do_not_license(self):
+        self.assertEqual({}, self.proof(accepted=frozenset({"tilt", "Péter", "ki"})))
+
+    def decision(self, word="molyé", morph=None, **overrides):
+        morph = morph or parse_morphdb_block(word, [f"{word} st:moly /NOUN <ANP>"], frozenset({"moly"}))
+        args = dict(current_candidate=True, current_direct=False, morphdb_direct=False,
+                    licensed_anaphoric_lemmas=frozenset({"moly"}))
+        args.update(overrides)
+        return decide_word(word, CorpusEvidence(), morph, **args)
+
+    def test_unattested_simple_anaphoric_form_is_accepted_with_source_proof(self):
+        self.assertEqual("cross_analyzer_anaphoric_possessive_of_accepted_noun", self.decision().reason)
+        self.assertEqual("weak_possessive",
+                         self.decision(licensed_anaphoric_lemmas=frozenset()).reason)
+
+    def test_independent_analysis_and_removals_still_required(self):
+        for evidence in (MorphEvidence(), MorphEvidence(recognized=True, proper_only=True),
+                         MorphEvidence(recognized=True, nonproper=True, possessive_only=True)):
+            self.assertFalse(self.decision(morph=evidence).accepted)
+        self.assertFalse(self.decision(current_candidate=False).accepted)
+        for flag in ("source_policy_blocked", "explicit_surface_removal", "explicit_lemma_removal"):
+            self.assertFalse(self.decision(**{flag: True}).accepted)
 
 
 if __name__ == "__main__":

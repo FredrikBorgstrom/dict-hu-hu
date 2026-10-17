@@ -234,6 +234,16 @@ workflow above. `test_derived_possessives.py` checks the licensing and matching
 analysis boundaries; the release verifier checks the reported family and other
 derived families in all three tile modes, plus every addition and retained word.
 
+### Anaphoric -é possessives (2026-10-17)
+
+Hungarian `molyé` means English "the moth's (one)". Players reported that the
+possessive `-é` was rejected unless the exact form was frequent in the corpus.
+`licensed_anaphoric_possessives_of_accepted_nouns` now proves a single
+`is:POSSESSEE` suffix, optionally followed by one ordinary case, on an accepted
+non-pronoun source noun. morphdb.hu must still recognize the surface with an
+agreeing non-proper lemma. The `-ul/-ül` essive, plural objects, owner suffixes
+and the familiar `-ék` stack are not covered and keep their corpus gates.
+
 ### Plural possessions (2026-09-27)
 
 Hungarian `rügyeik` means English “their buds.” Both pinned analyzers recognize
