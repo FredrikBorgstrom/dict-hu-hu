@@ -39,6 +39,37 @@ class ClassicTileLexiconTest(unittest.TestCase):
             cls.supplemental_boundary_index,
         )
 
+    def test_reviewed_fazokat_is_playable_in_all_hungarian_modes(self):
+        word = "fázókat"
+        output = ROOT / "output"
+        with (output / "hungarian_hu_hu_ispell.txt").open(encoding="utf-8") as source:
+            self.assertTrue(any(line.strip() == word for line in source))
+        expected_key = artifact_value(bytes(TOKEN_ID[t] for t in word))
+        for filename in ("hungarian_hu_hu_ispell_classic_tiles.tsv",
+                         "hungarian_hu_hu_ispell_mixed_tiles.tsv"):
+            with self.subTest(filename=filename):
+                with (output / filename).open(encoding="utf-8") as source:
+                    rows = [line.rstrip("\n").split("\t") for line in source
+                            if line.rstrip("\n").endswith("\t" + word)]
+                self.assertEqual([[expected_key, word]], rows)
+
+    def test_reviewed_kombo_family_is_playable_in_all_hungarian_modes(self):
+        words = ("kombó", "kombót", "kombókat", "kombójával", "kombós", "gitárkombó")
+        output = ROOT / "output"
+        standard = set((output / "hungarian_hu_hu_ispell.txt").read_text(encoding="utf-8").splitlines())
+        for filename in ("hungarian_hu_hu_ispell_classic_tiles.tsv",
+                         "hungarian_hu_hu_ispell_mixed_tiles.tsv"):
+            rows = {}
+            with (output / filename).open(encoding="utf-8") as source:
+                for line in source:
+                    key, _, word = line.rstrip("\n").partition("\t")
+                    if word in words:
+                        rows.setdefault(word, []).append(key)
+            for word in words:
+                with self.subTest(filename=filename, word=word):
+                    self.assertIn(word, standard)
+                    self.assertEqual([artifact_value(bytes(TOKEN_ID[t] for t in word))], rows.get(word))
+
     def test_game_5863_reported_surface_is_removed_from_both_outputs(self):
         standard_words = set(
             (ROOT / "output" / "hungarian_hu_hu_ispell.txt")

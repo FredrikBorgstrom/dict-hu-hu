@@ -3,8 +3,8 @@
   "language_code": "hu",
   "format": "gzip TSV: surface<TAB>comma-separated lemmas",
   "sharding": "UTF-8 hex of first two Unicode letters",
-  "surface_count": 2195057,
-  "mapping_count": 2428635,
+  "surface_count": 2195267,
+  "mapping_count": 2428845,
   "shards": {
     "61": {
       "surface_count": 1,
@@ -419,8 +419,8 @@
       "sha256": "ca04488bb99f09f5512b355213db7427f7666fea0635a8a8bc2935dc3cb373d9"
     },
     "66c3a1": {
-      "surface_count": 5223,
-      "sha256": "0065d0f3144be0d0706c5fd0d91a1c61930b3271a8dba3e221eabaca1780c3e3"
+      "surface_count": 5224,
+      "sha256": "22b08d99eaed3917f118789ded645da993a37c54fdcb24f3a2dcb3efe0316c21"
     },
     "66c3a9": {
       "surface_count": 10528,
@@ -467,8 +467,8 @@
       "sha256": "e2a109843723c3abea343c787f0031921b8b794efbd2170fa7c588fd60708397"
     },
     "6769": {
-      "surface_count": 2661,
-      "sha256": "3f9e348f2b07297ffc84bb0684678af6e488c7b67d78b1e7a30b1f68191797a4"
+      "surface_count": 2662,
+      "sha256": "4fcbb2012033d7bce4729877f062213444aeac2e9120164d397f9817ba27a34e"
     },
     "676c": {
       "surface_count": 1174,
@@ -759,8 +759,8 @@
       "sha256": "58e374bcabc95c6d753a1716ffbace866c8805fc3e701d38f05131ad782d3081"
     },
     "6b6f": {
-      "surface_count": 31154,
-      "sha256": "c6b8eff8fe6f34680d0ed4c355978c27e6266fecccb9dca77b080b916cfe4f9d"
+      "surface_count": 31362,
+      "sha256": "e77005af03e9ba2abd1dc94eb63de175b5e24bf63f908f11f491b46e8ddada10"
     },
     "6b72": {
       "surface_count": 4949,

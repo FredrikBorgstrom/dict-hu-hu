@@ -9,6 +9,18 @@ complete license is in `COPYING.MPL`.
 
 ## Change history
 
+- **2026-11-08 (reviewed-surface correction):** Added `kombó`, English
+  "combo", with 206 ordinary nominal inflections, the adjective `kombós` and the
+  compound `gitárkombó`, through the existing reviewed-surface path. Neither
+  analyser nor the spelling adviser knows the lemma; Webcorpus attests it.
+  Preserve all other vocabulary and policies. Evidence and scope:
+  `lexical_corrections/2026-11-08-kombo.md`. Published to all three Hungarian modes.
+
+- **2026-11-06 (exact-surface correction):** Added `fázókat`, English
+  "people who are cold" in the accusative plural, through the existing
+  reviewed-surface path. Preserve all other vocabulary and policies. Evidence
+  and scope: `lexical_corrections/2026-11-06-fazokat.md`. Published to all three Hungarian modes.
+
 - **2026-10-17 (anaphoric -é possessives):** Accept the simple anaphoric
   possessive `-é` (for example `molyé`, English: "the moth's") and one
   ordinary case ending on independently accepted source nouns, when morphdb.hu

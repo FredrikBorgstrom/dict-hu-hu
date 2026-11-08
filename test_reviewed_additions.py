@@ -11,6 +11,35 @@ from promote_evidence_wordlist import load_external_inflection_mappings
 
 
 class ReviewedAdditionTests(unittest.TestCase):
+    def test_reviewed_fazokat_preserves_the_weak_derivation_gate(self):
+        corpus = CorpusEvidence(complete=3, quality_40=3, quality_8=3, quality_4=1)
+        morph = MorphEvidence(recognized=True, nonproper=True,
+                              derivation_only=True, parts_of_speech=("ADJ", "VERB"))
+        options = dict(current_candidate=True, current_direct=False, morphdb_direct=False)
+        before = decide_word("fázókat", corpus, morph, **options)
+        self.assertEqual((False, "weak_derivation"), (before.accepted, before.reason))
+        overrides = load_gameplay_overrides()
+        after = decide_word("fázókat", corpus, morph,
+                            explicit_addition="fázókat" in overrides["additions"], **options)
+        self.assertEqual((True, "reviewed_surface_addition"), (after.accepted, after.reason))
+        withdrawn = decide_word("fázókat", corpus, morph, explicit_addition=True,
+                                explicit_surface_removal=True, **options)
+        self.assertFalse(withdrawn.accepted)
+
+    def test_reviewed_kombo_family_is_admitted_without_analyser_support(self):
+        corpus = CorpusEvidence(complete=1534, quality_40=1524, quality_8=189, quality_4=16)
+        unknown = MorphEvidence()
+        options = dict(current_candidate=False, current_direct=False, morphdb_direct=False)
+        before = decide_word("kombó", corpus, unknown, **options)
+        self.assertFalse(before.accepted)
+        additions = load_gameplay_overrides()["additions"]
+        for word in ("kombó", "kombót", "kombók", "kombóval", "kombójával", "kombós", "gitárkombó"):
+            with self.subTest(word=word):
+                self.assertIn(word, additions)
+                after = decide_word(word, corpus, unknown, explicit_addition=True, **options)
+                self.assertEqual((True, "reviewed_surface_addition"), (after.accepted, after.reason))
+        self.assertNotIn("kombózik", additions)
+
     def test_portable_gameplay_overrides_validate_and_preserve_removals(self):
         with tempfile.TemporaryDirectory() as folder:
             path = Path(folder) / "overrides.json"
