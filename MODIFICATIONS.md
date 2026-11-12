@@ -9,6 +9,15 @@ complete license is in `COPYING.MPL`.
 
 ## Change history
 
+- **2026-11-12 (reviewed-surface removals):** Removed rare place/time `-i`
+  adjectives that Magyar Ispell attaches to almost any noun (`cími`, `híri`,
+  `kíni`), when the base adjective has fewer than five quality-4 Webcorpus
+  occurrences and a word-by-word review found no real use: 4,523 exact
+  surfaces, withdrawing 15,179 forms in total. Real words, held words,
+  reviewed additions and homographs with an ordinary reading are kept.
+  Evidence and scope: `lexical_corrections/2026-11-12-rare-i-adjectives.md`.
+  Published to all three Hungarian modes.
+
 - **2026-11-08 (reviewed-surface correction):** Added `kombó`, English
   "combo", with 206 ordinary nominal inflections, the adjective `kombós` and the
   compound `gitárkombó`, through the existing reviewed-surface path. Neither

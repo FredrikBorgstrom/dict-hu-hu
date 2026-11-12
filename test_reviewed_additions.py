@@ -40,6 +40,31 @@ class ReviewedAdditionTests(unittest.TestCase):
                 self.assertEqual((True, "reviewed_surface_addition"), (after.accepted, after.reason))
         self.assertNotIn("kombózik", additions)
 
+    def test_rare_i_adjective_removals_keep_real_and_held_words(self):
+        # 2026-11-12: rare place/time "-i" adjectives (quality-4 count below 5)
+        # are removed; real words, held words, reviewed additions and
+        # homographs with an ordinary possessive reading must stay playable.
+        overrides = load_gameplay_overrides()
+        removals = overrides["surfaceRemovals"]
+        for word in ("kíni", "hibai", "neszi", "pályai", "öblien", "cími", "híri", "máji"):
+            with self.subTest(removed=word):
+                if word == "öblien":
+                    # An inflection: withdrawn with its anchor, not listed.
+                    self.assertNotIn(word, removals)
+                    self.assertIn("öbli", removals)
+                else:
+                    self.assertIn(word, removals)
+        kept = ("pampai", "idefönti", "odahazai", "legeleji", "nehézvízi", "brakkvízi",
+                "termálvízi", "árterületi", "délszigeti", "háryjánosi", "édesatyai",
+                "nagybátyai", "jogsegélyi", "magánbanki", "citokémiai", "oxiológiai",
+                "hóolvadási")
+        held = ("betyári", "kisgazdai", "nyúltagyi", "permkori", "hússzori", "ramadáni")
+        for word in kept + held + ("fain", "adóügyi", "munkaadói", "adui", "almai",
+                                   "vaki", "lati", "éni", "csődi"):
+            with self.subTest(kept=word):
+                self.assertNotIn(word, removals)
+        self.assertIn("fain", overrides["additions"])
+
     def test_portable_gameplay_overrides_validate_and_preserve_removals(self):
         with tempfile.TemporaryDirectory() as folder:
             path = Path(folder) / "overrides.json"

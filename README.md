@@ -432,6 +432,12 @@ Coverage:
   are likewise excluded without removing any complete inflectional family.
   The gameplay-reported unattested inflection `cöcögd` is also removed as an
   exact surface while retaining the documented lemma `cöcög`.
+- Rare place/time `-i` adjectives that Magyar Ispell attaches to almost any
+  noun (`vaki`-type forms such as `cími`, `híri`, `kíni`) are removed when
+  their base adjective has fewer than five quality-4 Webcorpus occurrences
+  and a word-by-word review found no real use. Reviewed real words, held
+  words, reviewed additions and homographs with an ordinary reading are kept.
+  See `lexical_corrections/2026-11-12-rare-i-adjectives.md`.
 - Direct source headwords and ordinary inflections are retained without an
   exact-surface corpus requirement.
 - Higher-risk paths must occur at least twice in the complete Webcorpus. These
