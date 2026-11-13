@@ -46,7 +46,10 @@ class ReviewedAdditionTests(unittest.TestCase):
         # homographs with an ordinary possessive reading must stay playable.
         overrides = load_gameplay_overrides()
         removals = overrides["surfaceRemovals"]
-        for word in ("kíni", "hibai", "neszi", "pályai", "öblien", "cími", "híri", "máji"):
+        # 2026-11-13 native review: odahazai, legeleji, hóolvadási and the
+        # unconfirmed held words (betyári, kisgazdai, ramadáni ...) are removed.
+        for word in ("kíni", "hibai", "neszi", "pályai", "öblien", "cími", "híri", "máji",
+                     "odahazai", "legeleji", "hóolvadási", "betyári", "kisgazdai", "ramadáni"):
             with self.subTest(removed=word):
                 if word == "öblien":
                     # An inflection: withdrawn with its anchor, not listed.
@@ -54,11 +57,11 @@ class ReviewedAdditionTests(unittest.TestCase):
                     self.assertIn("öbli", removals)
                 else:
                     self.assertIn(word, removals)
-        kept = ("pampai", "idefönti", "odahazai", "legeleji", "nehézvízi", "brakkvízi",
+        kept = ("pampai", "idefönti", "nehézvízi", "brakkvízi",
                 "termálvízi", "árterületi", "délszigeti", "háryjánosi", "édesatyai",
-                "nagybátyai", "jogsegélyi", "magánbanki", "citokémiai", "oxiológiai",
-                "hóolvadási")
-        held = ("betyári", "kisgazdai", "nyúltagyi", "permkori", "hússzori", "ramadáni")
+                "nagybátyai", "jogsegélyi", "magánbanki", "citokémiai", "oxiológiai")
+        held = ("nyúltagyi", "permkori", "hússzori", "zsoltári", "öregemberi", "admirálisi",
+                "gettói", "sajtói")
         for word in kept + held + ("fain", "adóügyi", "munkaadói", "adui", "almai",
                                    "vaki", "lati", "éni", "csődi"):
             with self.subTest(kept=word):

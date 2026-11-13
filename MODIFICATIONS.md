@@ -9,6 +9,12 @@ complete license is in `COPYING.MPL`.
 
 ## Change history
 
+- **2026-11-13 (native review of held -i adjectives):** A native speaker
+  confirmed 29 of the 59 held bases, which stay. The other 30, and
+  `odahazai`, `legeleji` and `hóolvadási`, are removed: 53 exact surfaces,
+  397 forms withdrawn. Evidence: `lexical_corrections/2026-11-12-rare-i-adjectives.md`.
+  Published to all three Hungarian modes.
+
 - **2026-11-12 (reviewed-surface removals):** Removed rare place/time `-i`
   adjectives that Magyar Ispell attaches to almost any noun (`cími`, `híri`,
   `kíni`), when the base adjective has fewer than five quality-4 Webcorpus

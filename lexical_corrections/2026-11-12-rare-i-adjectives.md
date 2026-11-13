@@ -70,3 +70,30 @@ and `öblien`.
 
 Review data: `artifacts/Rare i-Adjective Cleanup 2026-11-12/` in the
 dictionaries workspace.
+
+## Native review, 13 November 2026
+
+A native Hungarian speaker reviewed the 59 held bases and the 17 kept words.
+
+- Confirmed as real words and kept (29): `nagyagyi`, `középagyi`,
+  `nyúltagyi`, `előagyi`, `szívkamrai`, `combcsonti`, `méhlepényi`,
+  `gyógytani`, `permkori`, `eocénkori`, `karbonkori`, `nagyvezéri`,
+  `komisszári`, `imperátori`, `admirálisi`, `emíri`, `emírségi`,
+  `zászlóalji`, `tisztikari`, `szentatyai`, `angolparki`, `beltengeri`,
+  `ötödévi`, `hússzori`, `ötvenszeri`, `ezrenkénti`, `zsoltári`,
+  `hitújítási`, `öregemberi`.
+- Not confirmed, therefore removed (30): `alfaji`, `betyári`, `bogi`,
+  `csehi`, `dakotai`, `fafaji`, `fajtai`, `fórumi`, `gettói`, `gyűjtőnévi`,
+  `hanukai`, `hetipiaci`, `hidegházi`, `huszári`, `háremi`, `keltai`,
+  `kisantanti`, `kisgazdai`, `kolhozi`, `leventei`, `légvonali`, `mézesheti`,
+  `ramadáni`, `sajtói`, `segédigei`, `sugari`, `talajvízi`, `törökségi`,
+  `vízszinti`, `ötvösi`.
+- Of the 17 kept words, `odahazai`, `legeleji` and `hóolvadási` are removed
+  on the reviewer's advice; the other 14 stay.
+
+`gettói` and `sajtói` are also possessive plurals (English: "his ghettos",
+"his presses"), so the bases stay and only their `-i` adjective inflections
+go. As before, `csehiek` and `fórumivá` keep their own corpus evidence. This
+adds 53 exact surfaces and withdraws 397 forms in total, including
+`legelejibb`, which had no corpus evidence and depended on `legeleji`.
+Published on 13 November 2026 (lexicon versions 43, 34 and 30).
