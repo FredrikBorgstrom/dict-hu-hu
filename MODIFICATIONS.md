@@ -9,6 +9,13 @@ complete license is in `COPYING.MPL`.
 
 ## Change history
 
+- **2026-11-16 (player feedback, native review):** Removed the exact surfaces
+  `pitiz`, `aló`, `asz`, `rézi`, `nyí`, `fűk` and `esz`, confirmed by a native
+  speaker after a player report; `rézi` also withdraws its 35 nominal
+  inflections, 42 forms in total. Evidence:
+  `lexical_corrections/2026-11-16-player-feedback-removals.md`.
+  Published to all three Hungarian modes.
+
 - **2026-11-13 (native review of held -i adjectives):** A native speaker
   confirmed 29 of the 59 held bases, which stay. The other 30, and
   `odahazai`, `legeleji` and `hóolvadási`, are removed: 53 exact surfaces,

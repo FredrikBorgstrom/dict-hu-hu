@@ -3,8 +3,8 @@
   "language_code": "hu",
   "format": "gzip TSV: surface<TAB>comma-separated lemmas",
   "sharding": "UTF-8 hex of first two Unicode letters",
-  "surface_count": 2179691,
-  "mapping_count": 2412208,
+  "surface_count": 2179649,
+  "mapping_count": 2412166,
   "shards": {
     "61": {
       "surface_count": 1,
@@ -51,8 +51,8 @@
       "sha256": "7cfc2074c6470458bfa73e2ba863f7e709e73fb27e8d7d302e1638b30f0f6e50"
     },
     "616c": {
-      "surface_count": 18199,
-      "sha256": "32f767c2cbb634008eca537d381d935330a1b7b8b2ab055c747a6ff55389863a"
+      "surface_count": 18198,
+      "sha256": "f30ff6435bfbefe1294bbce4116e0724b2eadaee266ad156617e918ac2228acd"
     },
     "616d": {
       "surface_count": 2476,
@@ -75,8 +75,8 @@
       "sha256": "cfccab1621e6ec15c02742981b8a2ec349b4a28de7c7cc171f91638376d0b355"
     },
     "6173": {
-      "surface_count": 2560,
-      "sha256": "bbee8adb799fa03a8df98a38e1a9995afb45beedcc419b6d44a0e1dc83f18a43"
+      "surface_count": 2559,
+      "sha256": "b8c7df9f406b1c1be00d8bafb77eb7f3548be0d81948840ce34721ed788715cc"
     },
     "6174": {
       "surface_count": 2911,
@@ -359,8 +359,8 @@
       "sha256": "36e5c897bb00943a74d50f0f0e11057ac3de487fee900b48804a06de4380ed04"
     },
     "6573": {
-      "surface_count": 6601,
-      "sha256": "8cb65ddf7e40a13edfa1170391385359be440f0d038cf58497e8abf30ef734dd"
+      "surface_count": 6600,
+      "sha256": "79be048a3455d98f0da2a2da0f97a3b034f2de9d2f05673785736f989de1a490"
     },
     "6574": {
       "surface_count": 1747,
@@ -451,8 +451,8 @@
       "sha256": "82a85ea2696db7bd7e8a44208a0cf37ccade10539f415f5a64ed0d3e3ca2d918"
     },
     "66c5b1": {
-      "surface_count": 3918,
-      "sha256": "8e1056769f2d61aa9a490d7e799d74ce21138e5a5b7ee86f3d2a0042e8f7e049"
+      "surface_count": 3917,
+      "sha256": "3f9f053709782291c11e7c41c112dab3e2e5606fd64d02bd729096782c366b0e"
     },
     "6761": {
       "surface_count": 7375,
@@ -943,8 +943,8 @@
       "sha256": "24d9237a9e030836e27c1ac8fa0d8f746f3a6e3d7da6e027a9942317343eb7a9"
     },
     "6e79": {
-      "surface_count": 19294,
-      "sha256": "333de83d04c92844f0f0cf386032b6938acc6d89309c68d9521b39d8ac06e432"
+      "surface_count": 19293,
+      "sha256": "995176029a018fa53c6591886a0cb4e789cc18ee74a70115b999b58a0d0f216b"
     },
     "6ec3a1": {
       "surface_count": 2991,
@@ -1083,8 +1083,8 @@
       "sha256": "806c2a29896a6052dbf3b42c27eaaab4d06cb9568b1288d505fa94c8c6037415"
     },
     "7069": {
-      "surface_count": 17580,
-      "sha256": "e5fec1aaebf282ddb85b9fa8e169761bd3e1ba30710833aa86d07fea0a17fac1"
+      "surface_count": 17579,
+      "sha256": "a055c8b03833742459ece5f64db035db18afdb7bc83d11e0084e26e1db1a4bd2"
     },
     "706c": {
       "surface_count": 3844,
@@ -1171,8 +1171,8 @@
       "sha256": "1737b406893eac3780307340d4d641986fa198ca24205747c69b1265c1b9ce83"
     },
     "72c3a9": {
-      "surface_count": 6892,
-      "sha256": "e9781f2be40774aec8d28089f5653105fa772e6c6b5b60489ea7375396f19367"
+      "surface_count": 6856,
+      "sha256": "5de750b07efddee76c0a1a16430f5bd08857d2488b291f81a70c3f0167389b93"
     },
     "72c3ad": {
       "surface_count": 1190,
