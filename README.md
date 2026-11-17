@@ -52,6 +52,16 @@ are retained with the imported data.
 forms, one per line, UTF-8, sorted. The exact count is recorded in
 `output/audit.json`.
 
+`output/hungarian_hu_hu_ispell_max12.txt` and the two `*_max12.tsv` tile
+lists — the same vocabulary with words of up to 12 letters (since
+17 November 2026). The game publishes its playable graphs from these; older
+apps that still download text lists keep the 10-letter files. Its words of up
+to 10 letters must be exactly the 10-letter list, and the backend upload
+refuses a mismatch, so **rerun `python3 build_long_graph_sources.py
+--work-dir <new folder> --offline` after every vocabulary change**, once the
+10-letter list, lemma index and tile lists are final. The `*_max12.tsv` files
+are over GitHub's 100 MB limit and are not committed; the script rebuilds them.
+
 `output/hungarian_hu_hu_ispell_classic_tiles.tsv` — a separate compact
 runtime lexicon for the optional classic 100-tile Hungarian mode. Each row
 preserves the ordinary surface spelling and a canonical sequence of physical

@@ -9,6 +9,17 @@ complete license is in `COPYING.MPL`.
 
 ## Change history
 
+- **2026-11-17 (words of up to 12 letters in graphs):** Added the graph
+  sources `output/hungarian_hu_hu_ispell_max12.txt` (5,492,502 words) and the
+  matching classic and mixed tile lists (`*_max12.tsv`), built by
+  `build_long_graph_sources.py` with the unchanged generator, evidence and
+  review policies and only the length cap raised from 10 to 12. Every word
+  of up to 10 letters is exactly the 10-letter list, which older apps keep
+  downloading; 3,312,853 words of 11 or 12 letters are added (for example
+  `fókuszáltak` and `elkészülésük`, reported by a player). The lemma index
+  gains their mappings with all existing lines unchanged. Published as the
+  standard, classic and mixed graphs for apps that read graphs.
+
 - **2026-11-16 (player feedback, native review):** Removed the exact surfaces
   `pitiz`, `aló`, `asz`, `rézi`, `nyí`, `fűk` and `esz`, confirmed by a native
   speaker after a player report; `rézi` also withdraws its 35 nominal

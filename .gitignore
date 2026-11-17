@@ -2,3 +2,6 @@
 artifacts/
 __pycache__/
 *.pyc
+
+# 12-letter graph sources: reproducible build outputs over GitHub's 100 MB file limit
+output/*_max12.tsv
