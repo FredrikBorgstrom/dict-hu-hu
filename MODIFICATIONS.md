@@ -9,6 +9,15 @@ complete license is in `COPYING.MPL`.
 
 ## Change history
 
+- **2026-11-22 (reviewed-surface correction):** Added `kresz` (lowercase use of
+  the initialism KRESZ, the Hungarian Highway Code) with its ordinary nominal
+  inflections and the compound `kreszvizsga` with its short inflections, 239
+  surfaces, after a player report. 149 have up to 10 letters; 90 have 11 or 12
+  letters and enter only the 12-letter graph sources, for which reviewed
+  additions may now be up to 12 letters long. Evidence:
+  `lexical_corrections/2026-11-22-kresz.md`. Published to all three Hungarian
+  modes.
+
 - **2026-11-17 (words of up to 12 letters in graphs):** Added the graph
   sources `output/hungarian_hu_hu_ispell_max12.txt` (5,492,502 words) and the
   matching classic and mixed tile lists (`*_max12.tsv`), built by

@@ -4,7 +4,8 @@ import tempfile
 from pathlib import Path
 import unittest
 
-from reviewed_additions import lexical_analyses, definition_lemmas, load_reviewed_additions, load_gameplay_overrides
+from reviewed_additions import (lexical_analyses, definition_lemmas, load_reviewed_additions,
+                                load_gameplay_overrides, within_build_cap)
 from process_words import is_written_abbreviation_shape, expand_dictionary, PINNED_SOURCES
 from build_evidence_wordlist import decide_word, CorpusEvidence, MorphEvidence
 from promote_evidence_wordlist import load_external_inflection_mappings
@@ -79,6 +80,37 @@ class ReviewedAdditionTests(unittest.TestCase):
             path.write_text(json.dumps(document))
             with self.assertRaisesRegex(ValueError, "Conflicting"):
                 load_gameplay_overrides(path)
+
+    def test_reviewed_surfaces_longer_than_the_build_cap_wait_for_the_graph_build(self):
+        import process_words
+        with tempfile.TemporaryDirectory() as folder:
+            path = Path(folder) / "overrides.json"
+            document = {"schemaVersion": 1, "additions": ["kresz", "kreszeitekbe", "kreszvizsga"],
+                        "surfaceRemovals": [], "lemmaRemovals": []}
+            path.write_text(json.dumps(document, ensure_ascii=False), encoding="utf-8")
+            self.assertEqual(frozenset({"kresz"}), load_gameplay_overrides(path)["additions"])
+            saved = process_words.MAX_WORD_LEN
+            try:
+                process_words.MAX_WORD_LEN = 12
+                self.assertEqual(frozenset(document["additions"]),
+                                 load_gameplay_overrides(path)["additions"])
+            finally:
+                process_words.MAX_WORD_LEN = saved
+            document["additions"] = ["kresz", "kreszvizsgaszabályzat"]
+            path.write_text(json.dumps(document, ensure_ascii=False), encoding="utf-8")
+            with self.assertRaisesRegex(ValueError, "Invalid public gameplay overrides"):
+                load_gameplay_overrides(path)
+        with self.assertRaisesRegex(ValueError, "too long for any build"):
+            within_build_cap({"kresz", "kreszvizsgaszabályzat"})
+
+    def test_reviewed_kresz_family_is_registered(self):
+        additions = load_gameplay_overrides()["additions"]
+        for word in ("kresz", "kreszt", "kreszben", "kresszel", "kresszé", "kreszek", "kreszem"):
+            with self.subTest(word=word):
+                self.assertIn(word, additions)
+        for word in ("kreszes", "kreszvizsgás", "kreszvizsgai", "kresztül"):
+            with self.subTest(excluded=word):
+                self.assertNotIn(word, additions)
 
     def test_missing_or_changed_evidence_fails_closed(self):
         with tempfile.TemporaryDirectory() as folder:

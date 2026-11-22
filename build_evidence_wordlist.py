@@ -54,7 +54,8 @@ from process_words import (
     parse_dictionary_line,
 )
 from reviewed_additions import (load_reviewed_additions, DEFAULT_REVIEWED_ADDITIONS,
-                                load_gameplay_overrides, DEFAULT_GAMEPLAY_OVERRIDES)
+                                load_gameplay_overrides, DEFAULT_GAMEPLAY_OVERRIDES,
+                                within_build_cap)
 from derived_possessives import (licensed_anchored_possessives,
                                 analyze_anchors_and_possessives, corroborate_paths,
                                 source_pronoun_lemmas)
@@ -1706,6 +1707,9 @@ def main() -> int:
         # Public, source-derived review evidence survives builds outside the
         # private parent repository. Explicit removals still take precedence.
         surface_additions = surface_additions | frozenset(reviewed_additions) | public_overrides["additions"]
+        # The register may hold reviewed surfaces up to the graph maximum; this
+        # build admits those within its own length cap.
+        surface_additions = within_build_cap(surface_additions)
         surface_removals = load_surface_overrides(
             Path(args.surface_removals)
             if args.surface_removals

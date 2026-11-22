@@ -3,8 +3,8 @@
   "language_code": "hu",
   "format": "gzip TSV: surface<TAB>comma-separated lemmas",
   "sharding": "UTF-8 hex of first two Unicode letters",
-  "surface_count": 5492502,
-  "mapping_count": 6284690,
+  "surface_count": 5492741,
+  "mapping_count": 6284929,
   "shards": {
     "61": {
       "surface_count": 1,
@@ -763,8 +763,8 @@
       "sha256": "a1e0e18fd99e8dc3c852835e5bc6c578361279a3cec0a535eb1fd295d39bdf3c"
     },
     "6b72": {
-      "surface_count": 13574,
-      "sha256": "e2bcfd3b7ebba725d9b565936cdc89e413106d12e8c1111b92dc545fbf1b846c"
+      "surface_count": 13813,
+      "sha256": "c7b0d70444214c823f81119bbe7d0a1a980fc49a2b2868bee45e67741c1d2289"
     },
     "6b73": {
       "surface_count": 1,

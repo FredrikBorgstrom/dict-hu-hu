@@ -1,6 +1,6 @@
 {
   "ambiguousAfterResolution": 0,
-  "ambiguousBeforeResolution": 301107,
+  "ambiguousBeforeResolution": 301256,
   "collisionPolicy": "keep shortest surface, then Unicode code-point order",
   "collisions": [
     {
@@ -28,8 +28,8 @@
   "generatorVersion": "1.3.0",
   "input": {
     "path": "output/hungarian_hu_hu_ispell.txt",
-    "sha256": "bbbc7f6d79d9faf158e97c2b39c141d730eaa4435390b64b9802ba19a586f310",
-    "wordCount": 2179649
+    "sha256": "48cecd96dd039adc49ae4dd435dbe50f7f706e68a9d1f653066d6223e32f1e33",
+    "wordCount": 2179798
   },
   "morphology": {
     "authoritativeBoundaries": {
@@ -95,16 +95,16 @@
       }
     },
     "lemmaDirectory": "output/definitions/hu/surface-lemma/v1",
-    "surfaceCount": 2179649
+    "surfaceCount": 2179798
   },
   "output": {
-    "acceptedEntries": 2165352,
-    "compatibilityAliases": 18759,
-    "runtimeEntries": 2184111,
+    "acceptedEntries": 2165501,
+    "compatibilityAliases": 18761,
+    "runtimeEntries": 2184262,
     "runtimePath": "output/hungarian_hu_hu_ispell_classic_tiles.tsv",
-    "runtimeSha256": "7d867361f2e3128e643853dbb2c2a29aa0c04166057798ecdda6525edb2dbabc",
+    "runtimeSha256": "35fdf82c5260e8952c5ccb670e4cfdbaebb6c9605d51c0ecd0452cc1b74015c0",
     "sourcePath": "output/hungarian_hu_hu_ispell_classic_tiles.source.tsv.gz",
-    "sourceSha256": "0e15bfb67c93d2f5116e93553d7c84f01468fb95d3798fb08f5b9043782f3907"
+    "sourceSha256": "abf90883a6471edcb52a3548ceda5845e9a4db52747334a0a27d1d28125eae52"
   },
   "override": {
     "count": 6,
@@ -155,7 +155,7 @@
   "resolutionCounts": {
     "authoritativeBoundary": 2624,
     "morphology": 290989,
-    "orthography": 1871734,
+    "orthography": 1871883,
     "override": 6
   },
   "roundTripFailures": [],
@@ -165,7 +165,7 @@
     "gy": 1060,
     "ly": 721,
     "ny": 2623,
-    "sz": 9967,
+    "sz": 9969,
     "ty": 2609,
     "zs": 55
   },

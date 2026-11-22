@@ -7,10 +7,31 @@ import json
 import re
 from pathlib import Path
 
+import process_words
 from process_words import PINNED_SOURCES, is_valid_hu_word, _is_word_formation_morphology
 
 DEFAULT_REVIEWED_ADDITIONS = Path(__file__).resolve().parent / "reviewed_additions.json"
 DEFAULT_GAMEPLAY_OVERRIDES = Path(__file__).resolve().parent / "gameplay_overrides.json"
+
+# Reviewed surfaces may be as long as the longest graph source (12 letters since
+# 17 November 2026). Each build keeps only those within its own length cap, so
+# the 10-letter lists leave the longer ones to build_long_graph_sources.py.
+LONGEST_REVIEWED_SURFACE = 12
+
+
+def is_reviewed_surface(word: str) -> bool:
+    """A Hungarian-letter surface no longer than the longest graph source."""
+    return (process_words.MIN_WORD_LEN <= len(word) <= LONGEST_REVIEWED_SURFACE
+            and all(char in process_words.VALID_CHARS for char in word))
+
+
+def within_build_cap(words) -> frozenset[str]:
+    """Drop valid reviewed surfaces longer than this build's cap; refuse invalid ones."""
+    longer = {word for word in words if len(word) > process_words.MAX_WORD_LEN}
+    invalid = sorted(word for word in longer if not is_reviewed_surface(word))
+    if invalid:
+        raise ValueError("Reviewed surfaces too long for any build: " + ", ".join(invalid))
+    return frozenset(words) - longer
 
 
 def load_gameplay_overrides(path: Path = DEFAULT_GAMEPLAY_OVERRIDES) -> dict:
@@ -21,9 +42,9 @@ def load_gameplay_overrides(path: Path = DEFAULT_GAMEPLAY_OVERRIDES) -> dict:
     result = {}
     for field in ("additions", "surfaceRemovals", "lemmaRemovals"):
         values = document[field]
-        if values != sorted(set(values)) or not all(is_valid_hu_word(w) for w in values):
+        if values != sorted(set(values)) or not all(is_reviewed_surface(w) for w in values):
             raise ValueError(f"Invalid public gameplay overrides: {field}")
-        result[field] = frozenset(values)
+        result[field] = within_build_cap(values)
     if result["additions"] & (result["surfaceRemovals"] | result["lemmaRemovals"]):
         raise ValueError("Conflicting public gameplay overrides")
     return result
