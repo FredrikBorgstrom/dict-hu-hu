@@ -565017,7 +565017,6 @@ fűként
 fűkért
 fűkön
 fűkül
-fűl
 fűlhess
 fűlhessek
 fűlhessen
@@ -612409,7 +612408,6 @@ gyűjtőíven
 gyűjtőívet
 gyűjtőívre
 gyűjtőül
-gyűl
 gyűlhess
 gyűlhessek
 gyűlhessen

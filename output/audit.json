@@ -4,8 +4,8 @@
   "source": {
     "retention_baseline": {
       "file": "hungarian_hu_hu_ispell.txt",
-      "sha256": "bbbc7f6d79d9faf158e97c2b39c141d730eaa4435390b64b9802ba19a586f310",
-      "words": 2179649
+      "sha256": "48cecd96dd039adc49ae4dd435dbe50f7f706e68a9d1f653066d6223e32f1e33",
+      "words": 2179798
     },
     "current_candidate": {
       "path": "../../abcx3_bun/artifacts/Hungarian Anaphoric Possessive 2026-10-17/source-expansion/hungarian_hu_hu_ispell.txt",
@@ -47,18 +47,18 @@
       "count": 1777,
       "sha256": "5d4c6f155699bcacd8e5b25f953b0994e0f841bafdf2f4cd5de1a726e4a52823"
     },
-    "gameplay_overrides_sha256": "b2b36628efbf0ba31a35aa08d15b611b99129176e6251f3890a9e798c0a82316",
+    "gameplay_overrides_sha256": "dd55147c8ae3a935f42788d6f5b58abfd409afe3f98d9a2dacfb548cddae6cdb",
     "ordinary_possessives": {
       "provenance_file": "ordinary-possessive-evidence.tsv.gz",
       "licensed_candidates": 986419,
-      "accepted_noun_vocabulary_sha256": "f59b4bc0a548c7e1f523fda08804917f8764db0b7b625a9b21436053342a55a2",
+      "accepted_noun_vocabulary_sha256": "e7f201161e9ef5ae82d151d47ccb61d9b2860af5f52e06d82c236cca27f9f522",
       "surface_approval_families_excluded": true,
       "maximum_suffix_applications": 1
     },
     "anaphoric_possessives": {
       "provenance_file": "anaphoric-possessive-evidence.tsv.gz",
       "licensed_candidates": 162689,
-      "accepted_noun_vocabulary_sha256": "f59b4bc0a548c7e1f523fda08804917f8764db0b7b625a9b21436053342a55a2",
+      "accepted_noun_vocabulary_sha256": "e7f201161e9ef5ae82d151d47ccb61d9b2860af5f52e06d82c236cca27f9f522",
       "surface_approval_families_excluded": true,
       "essive_ul_excluded": true,
       "maximum_suffix_applications": 1
@@ -68,7 +68,7 @@
       "source_licensed_candidates": 1493937,
       "licensed_candidates": 402927,
       "corroborated_candidates": 383369,
-      "accepted_anchor_vocabulary_sha256": "f59b4bc0a548c7e1f523fda08804917f8764db0b7b625a9b21436053342a55a2",
+      "accepted_anchor_vocabulary_sha256": "e7f201161e9ef5ae82d151d47ccb61d9b2860af5f52e06d82c236cca27f9f522",
       "identical_morphdb_lexical_analysis_required": true,
       "surface_approval_families_excluded": true,
       "maximum_suffix_applications": 2
@@ -76,7 +76,7 @@
     "ordinary_suffix_continuations": {
       "provenance_file": "ordinary-continuation-evidence.tsv.gz",
       "licensed_candidates": 323757,
-      "accepted_intermediate_vocabulary_sha256": "f59b4bc0a548c7e1f523fda08804917f8764db0b7b625a9b21436053342a55a2",
+      "accepted_intermediate_vocabulary_sha256": "e7f201161e9ef5ae82d151d47ccb61d9b2860af5f52e06d82c236cca27f9f522",
       "surface_approval_families_excluded": true,
       "maximum_suffix_applications": 2
     }
@@ -3711,6 +3711,7 @@
       "fűiekül",
       "fűien",
       "fűk",
+      "fűl",
       "fűnyíróiak",
       "fűnyíróian",
       "fűnyíróibb",
@@ -3816,6 +3817,7 @@
       "gyümölcsi",
       "győztesi",
       "gyűjtőnévi",
+      "gyűl",
       "gátőri",
       "gázolási",
       "gázégőiek",
@@ -6926,16 +6928,16 @@
     "lemma_removed_surface_count": 1708
   },
   "counts": {
-    "accepted": 2179798,
+    "accepted": 2179796,
     "accepted_additions": 13971,
     "current_candidates": 4759570,
     "external_candidates": 42483,
-    "rejected": 2622255,
-    "rejected_from_current": 2593743,
+    "rejected": 2622257,
+    "rejected_from_current": 2593745,
     "total_candidates": 4802053,
-    "final_unique_words": 2179798,
-    "lemma_index_surfaces": 2179798,
-    "lemma_index_mappings": 2412315,
+    "final_unique_words": 2179796,
+    "lemma_index_surfaces": 2179796,
+    "lemma_index_mappings": 2412313,
     "lemma_index_shards": 523
   },
   "reason_counts": {
@@ -6954,11 +6956,11 @@
     "morphdb_proper_name_only": 21094,
     "no_independent_evidence": 717522,
     "pending_plural_possessive_review": 239987,
-    "quality_8_corpus_core": 398711,
+    "quality_8_corpus_core": 398709,
     "required_one_letter": 4,
     "reviewed_lemma_removal": 1708,
     "reviewed_surface_addition": 2140,
-    "reviewed_surface_removal": 4637,
+    "reviewed_surface_removal": 4639,
     "strong_plural_possessive_usage": 1319,
     "unattested_generated_kor_form": 64720,
     "unconfirmed_external_compound_headword_inflection": 23788,
@@ -6971,8 +6973,8 @@
   "accepted_length_counts": {
     "1": 4,
     "2": 124,
-    "3": 939,
-    "4": 4730,
+    "3": 938,
+    "4": 4729,
     "5": 22226,
     "6": 64232,
     "7": 169242,
@@ -8092,7 +8094,7 @@
       "ss"
     ]
   },
-  "output_sha256": "48cecd96dd039adc49ae4dd435dbe50f7f706e68a9d1f653066d6223e32f1e33",
+  "output_sha256": "d1fd6e80f6564ae5a34d7f4b82003a47bacfb1347a49de754bf1ff5d0ff23547",
   "artifacts": {
     "candidate": "hungarian_hu_hu_evidence_candidate.txt",
     "evidence": "evidence.tsv.gz",
@@ -8102,10 +8104,10 @@
   "lemma_index": {
     "schema_version": 1,
     "relative_path": "definitions/hu/surface-lemma/v1",
-    "surface_count": 2179798,
-    "mapping_count": 2412315,
+    "surface_count": 2179796,
+    "mapping_count": 2412313,
     "shard_count": 523,
-    "self_mappings_added_for_unmapped_surfaces": 149,
+    "self_mappings_added_for_unmapped_surfaces": 0,
     "external_headword_mappings_added_for_unmapped_surfaces": 0
   },
   "promotion": {

@@ -9,6 +9,13 @@ complete license is in `COPYING.MPL`.
 
 ## Change history
 
+- **2026-11-23 (native review):** Removed the exact surfaces `gyűl` and
+  `fűl`, the bare forms of the ik-verbs `gyűlik` and `fűlik`, which a native
+  speaker confirmed are not standard without `-ik`. Every other form of both
+  verbs stays, as do the prefixed verbs. Evidence:
+  `lexical_corrections/2026-11-23-gyul-ful.md`. Published to all three
+  Hungarian modes.
+
 - **2026-11-22 (reviewed-surface correction):** Added `kresz` (lowercase use of
   the initialism KRESZ, the Hungarian Highway Code) with its ordinary nominal
   inflections and the compound `kreszvizsga` with its short inflections, 239
